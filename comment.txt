@@ -7,5 +7,5 @@ ABDUL => {
     
 }
 ZEESHAN => {
-    
+    1.homepage ka carousel thoda dekhlo.
 }
