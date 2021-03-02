@@ -1,0 +1,28 @@
+
+.body-wrapper {
+    margin: 1rem;
+}
+.register-form-wrapper {
+    padding: 1rem;
+}
+
+label {
+    padding: 0;
+}
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem #6dc9c8;
+}
+
+
+
+
+
+/* Media Queries  */
+@media(max-width:768px) {
+    #front-banner {
+        width: 280px;
+        height: 300px;
+    }
+}
+
+
