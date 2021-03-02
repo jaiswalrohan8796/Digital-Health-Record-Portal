@@ -1,11 +1,18 @@
 Text file for comment purpose.
 ROHAN => {
-    1.homepage ka carousel not good.( not responsive)
+    1.homepage ka carousel fixed now, bas same resolution images add krne hai.
 }
 
 ABDUL => {
     
 }
 ZEESHAN => {
-    1.homepage ka carousel thoda dekhlo.
+    1.homepage ka carousel thoda dekhlo.  (done)
 }
+
+
+NEXT TO DO :- 
+1.create model using mongodb and mongoose
+2.create register forms and handling it
+3.setup authentication with passportjs
+4.design dashboard for all 3 levels

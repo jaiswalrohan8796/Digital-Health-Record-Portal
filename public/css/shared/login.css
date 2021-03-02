@@ -1,13 +1,13 @@
 body {
     background-color: #0e3150;
     font-size: 16px;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 .form-wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     width: 480px;
     padding: 8px;
     border-radius: 12px;
@@ -34,8 +34,11 @@ form .btn {
     font-size: 1rem;
     font-weight: bold;
 }
-button:hover {
-    color: #0d0530;
+.btn:hover {
+    color: white;
+}
+button a:hover {
+    text-decoration: underline;
 }
 
 .other-action {
@@ -53,8 +56,7 @@ a:hover {
     color: white;
 }
 
-
-@media(max-width:576px) {
+@media (max-width: 576px) {
     .form-wrapper {
         width: 90vw;
     }
