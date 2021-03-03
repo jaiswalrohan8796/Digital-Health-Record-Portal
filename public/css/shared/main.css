@@ -1,98 +1,97 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-size: 16px;
-    font-family: "Poppins", sans-serif;
-    background-color: #0e3150;
-    color: white;
-    overflow-x: hidden;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  background-color: #0e3150;
+  color: white;
+  overflow-x: hidden;
 }
 
 /* Font-Sizes  */
 .fs-40 {
-    font-size: 40px;
+  font-size: 40px;
 }
 .fs-32 {
-    font-size: 32px;
+  font-size: 32px;
 }
 .fs-30 {
-    font-size: 30px;
+  font-size: 30px;
 }
 .fs-28 {
-    font-size: 28px;
+  font-size: 28px;
 }
 .fs-26 {
-    font-size: 26px;
+  font-size: 26px;
 }
 .fs-24 {
-    font-size: 24px;
+  font-size: 24px;
 }
 .fs-22 {
-    font-size: 22px;
+  font-size: 22px;
 }
 .fs-20 {
-    font-size: 20px;
+  font-size: 20px;
 }
 .fs-18 {
-    font-size: 18px;
+  font-size: 18px;
 }
 .fs-16 {
-    font-size: 16px;
+  font-size: 16px;
 }
 .fs-14 {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 /* Font Weight  */
 .bold {
-    font-weight: bold;
+  font-weight: bold;
 }
 .semibold {
-    font-weight: 700;
+  font-weight: 700;
 }
 .meduim {
-    font-weight: 600;
+  font-weight: 600;
 }
 .regular {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 /* Header  */
 
 .header {
-    background-color: #ffc0c2;
-    margin: 0px;
-    width: 100vw;
-    color: white;
+  background-color: #ffc0c2;
+  margin: 0px;
+  width: 100vw;
+  color: white;
 }
 a {
-    color: white;
+  color: white;
 }
 a:hover {
-    text-decoration: underline;
-    color: white;
+  text-decoration: underline;
+  color: white;
 }
 
 /* Footer  */
 
-
 /* Media Queries  */
 
 @media (max-width: 768px) {
-    .header {
-        text-align: center;
-    }
+  .header {
+    text-align: center;
+  }
 }
 
 @media (max-width: 576px) {
-    .header .fs-40 {
-        font-size: 24px;
-    }
-    .nav-wrapper {
-        font-size: 20px;
-    }
+  .header .fs-40 {
+    font-size: 24px;
+  }
+  .nav-wrapper {
+    font-size: 20px;
+  }
 }

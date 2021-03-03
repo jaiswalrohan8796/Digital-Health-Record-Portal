@@ -9,36 +9,44 @@
     margin: 1rem;
     padding-left: 4rem;
 } */
+.header_navbar {
+  display: flex;
+  background-color: #ffc0c2;
+  color: white;
+}
+a:hover {
+    background-color: #0e3150;
+}
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 body {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 .row {
-    margin: 0;
+  margin: 0;
 }
 .main_header_left {
-    height: 70rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+  height: 70rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 .main_header_right {
-    height: 70rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: center;
+  height: 70rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
 }
 
 /* .carousel-row {
@@ -59,57 +67,57 @@ body {
 } */
 
 .card-wrap {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 1rem;
 }
 .card {
-    height: 280px;
-    width: 300px;
-    box-shadow: 8px 8px 16px 8px #0b243b;
-    border-radius: 24px;
-    list-style: none;
-    margin: 1rem;
-    color: #0b243b;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* justify-content: center; */
+  height: 280px;
+  width: 300px;
+  box-shadow: 8px 8px 16px 8px #0b243b;
+  border-radius: 24px;
+  list-style: none;
+  margin: 1rem;
+  color: #0b243b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
 }
 .card .link {
-    width: 100%;
-    margin-top: 26px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+  width: 100%;
+  margin-top: 26px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 .card .link button {
-    margin: 0 4rem;
-    font-size: 2rem;
+  margin: 0 4rem;
+  font-size: 2rem;
 }
 .card .link button a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 @media (max-width: 768px) {
-    .text-box {
-        padding-left: 1rem;
-    }
-    /* .carousel {
+  .text-box {
+    padding-left: 1rem;
+  }
+  /* .carousel {
         height: 192px;
     }
     .carousel-inner {
         height: 192px;
     } */
-    .main_header_left {
-        height: auto;
-        margin: 5rem 0;
-    }
-    .main_header_right {
-        height: auto;
-    }
+  .main_header_left {
+    height: auto;
+    margin: 5rem 0;
+  }
+  .main_header_right {
+    height: auto;
+  }
 }
