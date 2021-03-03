@@ -1,6 +1,7 @@
 Text file for comment purpose.
 ROHAN => {
     1.homepage ka carousel fixed now, bas same resolution images add krne hai.
+    2.working on footer
 }
 
 ABDUL => {

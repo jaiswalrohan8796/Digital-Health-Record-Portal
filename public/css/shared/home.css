@@ -95,6 +95,35 @@ body {
     text-decoration: none;
 }
 
+footer {
+    position: relative;
+    height: fit-content;
+}
+.footer-div {
+    width: 100%;
+    position: absolute;
+    bottom: 4px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.footer-social {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.footer-social i {
+    margin: 12px;
+}
+.footer-social i:hover {
+    cursor: pointer;
+    filter: drop-shadow(10px 8px 8px rgba(0, 0, 0, 0.4));
+}
+
 @media (max-width: 768px) {
     .text-box {
         padding-left: 1rem;
