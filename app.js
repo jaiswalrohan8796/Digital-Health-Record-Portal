@@ -18,6 +18,8 @@ app.set("views", "views");
 //routes
 app.use(homepageRoutes);
 //server
+
+
 app.listen(port, () => {
     console.log(`I am listing to ${port}`);
 });
