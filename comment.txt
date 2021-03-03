@@ -8,6 +8,7 @@ ABDUL => {
 }
 ZEESHAN => {
     1.homepage ka carousel thoda dekhlo.  (done)
+    2. Register page is done for patient and lab but there is some problem related to doctor page.
 }
 
 

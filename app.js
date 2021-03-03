@@ -16,6 +16,7 @@ app.set("views", "views");
 app.get("/", (req, res, next) => {
     res.render("home");
 });
+// For Login Page
 app.get("/user/login", (req, res, next) => {
     res.render("user/login", { heading: "User" });
 });
@@ -25,6 +26,16 @@ app.get("/doctor/login", (req, res, next) => {
 app.get("/lab/login", (req, res, next) => {
     res.render("lab/login", { heading: "Laboratory" });
 });
+// For Register Page
+app.get("/user/register", (req, res, next) => {
+    res.render("user/register",{ heading:"User"});
+})
+app.get("/doctor/register", (req, res, next) => {
+    res.render("doctor/register",{ heading:"Doctor"});
+})
+app.get("/lab/register", (req, res, next) => {
+    res.render("lab/register",{ heading:"Laboratory"});
+})
 //server
 app.listen(port, () => {
     console.log(`I am listing to ${port}`);
