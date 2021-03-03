@@ -3,6 +3,9 @@ const express = require("express");
 const path = require("path");
 const ejs = require("ejs");
 
+//module imports
+const homepageRoutes = require("./routes/homepageRoutes.js");
+
 //configuration
 const port = process.env.PORT || 3000;
 const app = express();
@@ -13,29 +16,7 @@ app.set("view engine", "ejs");
 app.set("views", "views");
 
 //routes
-app.get("/", (req, res, next) => {
-    res.render("home");
-});
-// For Login Page
-app.get("/user/login", (req, res, next) => {
-    res.render("user/login", { heading: "User" });
-});
-app.get("/doctor/login", (req, res, next) => {
-    res.render("doctor/login", { heading: "Doctor" });
-});
-app.get("/lab/login", (req, res, next) => {
-    res.render("lab/login", { heading: "Laboratory" });
-});
-// For Register Page
-app.get("/user/register", (req, res, next) => {
-    res.render("user/register",{ heading:"User"});
-})
-app.get("/doctor/register", (req, res, next) => {
-    res.render("doctor/register",{ heading:"Doctor"});
-})
-app.get("/lab/register", (req, res, next) => {
-    res.render("lab/register",{ heading:"Laboratory"});
-})
+app.use(homepageRoutes);
 //server
 app.listen(port, () => {
     console.log(`I am listing to ${port}`);
