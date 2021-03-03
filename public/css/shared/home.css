@@ -102,6 +102,87 @@ body {
 .card .link button a:hover {
   text-decoration: none;
 }
+/* buttons */
+
+.btn-login {
+    background-image: linear-gradient(
+        to right,
+        #02aab0 0%,
+        #00cdac 51%,
+        #02aab0 100%
+    );
+}
+.btn-login {
+    margin: 10px;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 4px;
+    display: block;
+}
+
+.btn-login:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-reg {
+    background-image: linear-gradient(
+        to right,
+        #fcb2b4 0%,
+        #f7d5d5 51%,
+        #f8abaf 100%
+    );
+}
+.btn-reg {
+    margin: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 4px;
+    display: block;
+}
+
+.btn-reg:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+footer {
+    position: relative;
+    height: fit-content;
+}
+.footer-div {
+    width: 100%;
+    position: absolute;
+    bottom: 4px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.footer-social {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.footer-social i {
+    margin: 12px;
+}
+.footer-social i:hover {
+    cursor: pointer;
+    filter: drop-shadow(10px 8px 8px rgba(0, 0, 0, 0.4));
+}
 
 @media (max-width: 768px) {
   .text-box {
