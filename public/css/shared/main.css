@@ -82,7 +82,7 @@ a:hover {
 /* Media Queries  */
 
 @media (max-width: 768px) {
-  .header {
+  .header .header_navbar {
     text-align: center;
   }
 }
