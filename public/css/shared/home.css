@@ -14,11 +14,9 @@
   background-color: #ffc0c2;
   color: white;
 }
-span{
-  color:white;
-}
-a:hover button {
+a:hover  {
     background-color: #0e3150;
+    border: #fcb2b4;
 }
 .header_navbar {
     text-align: center;
