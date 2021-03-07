@@ -3,6 +3,7 @@ ROHAN => {
     1.homepage ka carousel fixed now, bas same resolution images add krne hai.
     2.working on footer
     3.npm install (!)
+    4.passport-local me issue hai
 }
 
 ABDUL => {
