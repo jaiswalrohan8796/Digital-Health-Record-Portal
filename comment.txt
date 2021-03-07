@@ -2,10 +2,11 @@ Text file for comment purpose.
 ROHAN => {
     1.homepage ka carousel fixed now, bas same resolution images add krne hai.
     2.working on footer
+    3.npm install (!)
 }
 
 ABDUL => {
-    
+    homepage navbar fix pending
 }
 ZEESHAN => {
     1.homepage ka carousel thoda dekhlo.  (done)
