@@ -23,7 +23,7 @@ app.use(
     session({
         secret: "mySecretKey",
         resave: false,
-        saveUnitialized: false,
+        saveUninitialized: false,
     })
 );
 app.use(flash());
@@ -43,5 +43,3 @@ mongoose.connect(
         });
     }
 );
-
-

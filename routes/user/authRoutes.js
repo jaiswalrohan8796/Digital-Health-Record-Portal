@@ -15,7 +15,7 @@ router.post(
     })
 );
 
-router.post("register", async (req, res, next) => {
+router.post("/register", async (req, res, next) => {
     const {
         firstName,
         lastName,
@@ -32,15 +32,19 @@ router.post("register", async (req, res, next) => {
         confirmPassword,
     } = req.body;
     if (password !== confirmPassword) {
-        return res.redirect("/user/register");
+        return res.redirect("user/register");
     }
     try {
         const alreadyUser = await User.findOne({ "account.email": email });
         if (alreadyUser) {
-            return res.redirect("/user/register");
+            return res.render("user/register", {
+                error: "Already a user, please login",
+                status: "",
+            });
         }
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = new User({
+            role: "user",
             profile: {
                 firstName: firstName,
                 lastName: lastName,
@@ -58,12 +62,22 @@ router.post("register", async (req, res, next) => {
         });
         const saved = newUser.save();
         if (!saved) {
-            return res.redirect("/user/register");
+            return res.render("user/register", {
+                error: "Unable to register",
+                status: "",
+            });
         }
-        return res.redirect("/user/login");
+        console.log(saved);
+        return res.render("user/login", {
+            error: "",
+            status: "Success! Now Login",
+        });
     } catch (e) {
         console.log(e);
-        res.redirect("/user/register");
+        res.render("user/register", {
+            error: "Unable to register",
+            status: "",
+        });
     }
 });
 

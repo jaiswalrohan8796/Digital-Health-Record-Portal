@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 
 const UserSchema = mongoose.Schema({
+    role: {
+        type: String,
+        enum: ["user", "doctor", "lab"],
+        required: true,
+    },
     profile: {
         firstName: {
             type: String,
@@ -45,6 +50,40 @@ const UserSchema = mongoose.Schema({
             required: true,
         },
     },
+    medical: {
+        medicalDiagnosis: String,
+        allergies: [String],
+        functionalStatus: String,
+        equipmentDevice: String,
+    },
+    previousTreatments: [
+        {
+            history: String,
+            labReports: String,
+            doctor: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Doctor",
+            },
+            prescriptions: String,
+            response: String,
+            startDate: Date,
+            endDate: Date,
+        },
+    ],
+    currentTreatments: [
+        {
+            history: String,
+            labReports: String,
+            doctor: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Doctor",
+            },
+            prescriptions: String,
+            response: String,
+            startDate: Date,
+            endDate: Date,
+        },
+    ],
 });
 
 const User = mongoose.model("User", UserSchema);

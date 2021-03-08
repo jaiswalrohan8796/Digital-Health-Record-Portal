@@ -10,7 +10,7 @@ router.get("/user/login", (req, res, next) => {
     res.render("user/login", { heading: "User" });
 });
 router.get("/user/register", (req, res, next) => {
-    res.render("user/register");
+    res.render("user/register", { error: "", status: "" });
 });
 
 //doctor routes
