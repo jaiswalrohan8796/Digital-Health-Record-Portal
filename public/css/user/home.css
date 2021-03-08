@@ -1,0 +1,42 @@
+.med-form-alert {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    background-color: #f8fa8a;
+    border-radius: 12px;
+}
+.med-form-alert p {
+    margin-bottom: 0;
+}
+.med-form-alert svg {
+    margin: 4px;
+}
+/* gutters for row */
+.row {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+}
+.basic {
+    width: 100%;
+    border-radius: 24px;
+    padding: 8px 18px;
+    /* background: #76e3fc; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to right,
+        #00b4db,
+        #25b7e7
+    );
+    border: 2px solid rgb(49, 3, 134);
+    /* background: linear-gradient(to right, #f5f8b7, #94f797); */
+}
+.current {
+    width: 100%;
+    border-radius: 24px;
+    padding: 8px 18px;
+    background-image: linear-gradient(to right,#8fe4fd, #1399bb);
+}
+.current p {
+    text-align: justify;
+}

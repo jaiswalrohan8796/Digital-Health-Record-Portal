@@ -1,20 +1,21 @@
 const router = require("express").Router();
 const passport = require("passport");
+const bcrypt = require("bcrypt");
 
 const User = require("../../models/user/User.js");
 require("../../utils/user/passportConfig.js");
 
 //routes
 router.post(
-    "/user/login",
+    "/login",
     passport.authenticate("local", {
-        successRedirect: "/dashboard",
+        successRedirect: "/user/dashboard",
         failureRedirect: "/user/login",
         failureFlash: true,
     })
 );
 
-router.post("/user/register", async (req, res, next) => {
+router.post("register", async (req, res, next) => {
     const {
         firstName,
         lastName,
@@ -34,10 +35,11 @@ router.post("/user/register", async (req, res, next) => {
         return res.redirect("/user/register");
     }
     try {
-        const alreadyUser = await User.find({ "account.email": email });
-        if (alreadyUser.length > 0) {
+        const alreadyUser = await User.findOne({ "account.email": email });
+        if (alreadyUser) {
             return res.redirect("/user/register");
         }
+        const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = new User({
             profile: {
                 firstName: firstName,
@@ -51,7 +53,7 @@ router.post("/user/register", async (req, res, next) => {
             },
             account: {
                 email: email,
-                password: password,
+                password: hashedPassword,
             },
         });
         const saved = newUser.save();

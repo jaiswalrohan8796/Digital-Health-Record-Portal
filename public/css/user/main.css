@@ -12,12 +12,23 @@ html {
     background: transparent; /* Optional: just make scrollbar invisible */
 }
 body {
-    font-size: 16px;
     font-family: "Poppins", sans-serif;
-    background-color: #0e3150;
-    color: white;
-    overflow-x: hidden;
 }
+main {
+    padding: 16px 24px;
+    color: #333;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /* Font-Sizes  */
 .fs-40 {
@@ -69,22 +80,6 @@ body {
 }
 
 /* Header  */
-
-.header {
-    background-color: #ffc0c2;
-    margin: 0px;
-    width: 100vw;
-    color: white;
-}
-a {
-    color: white;
-}
-a:hover {
-    text-decoration: underline;
-    color: white;
-}
-
-/* Footer  */
 
 /* Media Queries  */
 

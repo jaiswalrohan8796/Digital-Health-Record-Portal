@@ -3,6 +3,11 @@ const express = require("express");
 const path = require("path");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
+const session = require("express-session");
+const flash = require("express-flash");
+const passport = require("passport");
+require("dotenv").config();
+
 //module imports
 const homepageRoutes = require("./routes/homepageRoutes.js");
 const userAllRoutes = require("./routes/user/userAllRoutes");
@@ -14,17 +19,29 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
 app.set("views", "views");
+app.use(
+    session({
+        secret: "mySecretKey",
+        resave: false,
+        saveUnitialized: false,
+    })
+);
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
 //routes
 app.use(homepageRoutes);
 app.use(userAllRoutes);
 //server
 mongoose.connect(
-    "mongodb://dhrp:dhrp@dhrp-shard-00-00.9ob7v.mongodb.net:27017,dhrp-shard-00-01.9ob7v.mongodb.net:27017,dhrp-shard-00-02.9ob7v.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-2nmjs6-shard-0&authSource=admin&retryWrites=true&w=majority",
+    process.env.mongoDBURI,
     { useUnifiedTopology: true, useNewUrlParser: true },
     () => {
         app.listen(port, () => {
-            console.log(`I am listing to ${port}`);
+            console.log(`Listening to ${port}`);
         });
     }
 );
+
+
