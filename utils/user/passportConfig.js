@@ -25,12 +25,10 @@ passport.use(
                 if (!user) {
                     return done(null, false, { message: "Email not found!" });
                 }
-                console.log(user);
                 const passwordMatched = await bcrypt.compare(
                     password,
                     user.account.password
                 );
-                console.log(passwordMatched);
                 if (!passwordMatched) {
                     return done(null, false, { message: "Password incorrect" });
                 }

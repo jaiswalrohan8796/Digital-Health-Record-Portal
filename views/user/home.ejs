@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <%- include('../user/partials/dashboard') %>
+    <%- include('../user/partials/dashboard',); %>
         <main>
             <div class="med-form-alert">
                 <p>Complete medical details form for better exprerience.</p>
@@ -86,19 +86,26 @@
                         <p>Name :</p>
                     </div>
                     <div class="col-8">
-                        <p>Rohan Jaiswal</p>
+                        <p>
+                            <%= user.profile.firstName %>
+                                <%= user.profile.lastName %>
+                        </p>
                     </div>
                     <div class="col-4">
                         <p>Age :</p>
                     </div>
                     <div class="col-8">
-                        <p>22</p>
+                        <p>
+                            <%= user.profile.age %>
+                        </p>
                     </div>
                     <div class="col-4">
                         <p>Gender :</p>
                     </div>
                     <div class="col-8">
-                        <p>Male</p>
+                        <p>
+                            <%= user.profile.gender %>
+                        </p>
                     </div>
                 </div>
                 <div class="col-sm-6 row">
@@ -106,7 +113,9 @@
                         <p>Contact :</p>
                     </div>
                     <div class="col-8">
-                        <p>8793179561</p>
+                        <p>
+                            <%= user.profile.mobileNo %>
+                        </p>
                     </div>
                     <div class="col-4">
                         <p>Allergies :</p>
@@ -129,23 +138,28 @@
                     <p style="text-align: left;">Disease & Symptoms :</p>
                 </div>
                 <div class="col-8">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae quasi repellendus nihil
-                        voluptatem, at deserunt et natus temporibus illum facilis itaque, provident iste! Eaque officia
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae quasi repellendus
+                        nihil
+                        voluptatem, at deserunt et natus temporibus illum facilis itaque, provident iste! Eaque
+                        officia
                         consequatur sed consequuntur odio.</p>
                 </div>
                 <div class="col-4">
                     <p>Prescriptions :</p>
                 </div>
                 <div class="col-8">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae quasi repellendus nihil
-                        voluptatem, at deserunt et natus temporibus illum facilis itaque, provident iste! Eaque officia
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae quasi repellendus
+                        nihil
+                        voluptatem, at deserunt et natus temporibus illum facilis itaque, provident iste! Eaque
+                        officia
                         consequatur sed consequuntur odio.</p>
                 </div>
                 <div class="col-4">
                     <p>Doctor :</p>
                 </div>
                 <div class="col-8">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae quasi repellendus nihil.
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae quasi repellendus
+                        nihil.
                     </p>
                 </div>
             </div>
