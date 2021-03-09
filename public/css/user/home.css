@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 8px;
-    background-color: #f8fa8a;
+    background-color: #7ee6e4;
     border-radius: 12px;
 }
 .med-form-alert p {
@@ -22,20 +22,14 @@
     width: 100%;
     border-radius: 24px;
     padding: 8px 18px;
-    /* background: #76e3fc; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-        to right,
-        #00b4db,
-        #25b7e7
-    );
-    border: 2px solid rgb(49, 3, 134);
-    /* background: linear-gradient(to right, #f5f8b7, #94f797); */
+    border-radius: 32px;
+    border: 3px solid #ffc0c2;
 }
 .current {
     width: 100%;
-    border-radius: 24px;
+    border-radius: 32px;
     padding: 8px 18px;
-    background-image: linear-gradient(to right,#8fe4fd, #1399bb);
+    border: 3px solid #ffc0c2;
 }
 .current p {
     text-align: justify;

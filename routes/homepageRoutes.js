@@ -7,7 +7,7 @@ router.get("/", (req, res, next) => {
 
 //user routes
 router.get("/user/login", (req, res, next) => {
-    res.render("user/login", { heading: "User" });
+    res.render("user/login", { error: "", status: "" });
 });
 router.get("/user/register", (req, res, next) => {
     res.render("user/register", { error: "", status: "" });
