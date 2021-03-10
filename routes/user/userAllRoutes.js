@@ -6,7 +6,7 @@ const dashboardRoutes = require("../user/dashboardRoutes");
 //authenticate check
 const isAuthenticated = (req, res, next) => {
     if (!req.user) {
-        res.redirect("/user/login");
+        res.render("user/login", { error: "", status: "Login first" });
     }
     next();
 };

@@ -11,6 +11,7 @@ require("dotenv").config();
 //module imports
 const homepageRoutes = require("./routes/homepageRoutes.js");
 const userAllRoutes = require("./routes/user/userAllRoutes");
+
 //configuration
 const port = process.env.PORT || 3000;
 const app = express();
@@ -33,6 +34,7 @@ app.use(passport.session());
 //routes
 app.use(homepageRoutes);
 app.use(userAllRoutes);
+
 //server
 mongoose.connect(
     process.env.mongoDBURI,

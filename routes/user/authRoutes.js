@@ -32,7 +32,7 @@ router.post("/register", async (req, res, next) => {
         confirmPassword,
     } = req.body;
     if (password !== confirmPassword) {
-        return res.redirect("user/register");
+        return res.redirect("user/register",{error:"Password not matched",status:""});
     }
     try {
         const alreadyUser = await User.findOne({ "account.email": email });

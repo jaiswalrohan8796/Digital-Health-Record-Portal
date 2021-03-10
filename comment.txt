@@ -1,22 +1,24 @@
 Text file for comment purpose.
 ROHAN => {
     1.homepage ka carousel fixed now, bas same resolution images add krne hai.
-    2.working on footer
-    3.npm install (!)
-    4.passport-local me issue hai
+    2.npm install (!)
+    3.pull - npm install - .env file
 }
 
 ABDUL => {
-    homepage navbar fix pending
+    1.homepage navbar fix pending  
 }
 ZEESHAN => {
-    1.homepage ka carousel thoda dekhlo.  (done)
-    2. Register page is done for patient and lab but there is some problem related to doctor page.
+    1. Register page is done for patient and lab but there is some problem related to doctor page.
+    2.Doctor registration form me aur fields add krne hai,eg.mobileNo,address.
 }
 
 
 NEXT TO DO :- 
-1.create model using mongodb and mongoose
-2.create register forms and handling it
-3.setup authentication with passportjs
+1.create model using mongodb and mongoose ✔
+2.create register forms and handling it  ✔
+3.setup authentication with passportjs  ✔
 4.design dashboard for all 3 levels
+5.design all user dashboard pages
+5.design all doctor dashboard pages
+5.design all lab dashboard pages
