@@ -29,176 +29,187 @@
                 alt="Register">
         </div>
         <form action="/user/register" method="POST" class="col-md-8 register-form-wrapper mt-5 order-md-1">
-            <h3 class="title fs-28 text-center"> User Register</h3>
+            <ul class="validatorErrorsList">
+                <% if (error instanceof Array) { %>
+                    <% error.forEach((err)=> { %>
+                        <li class=" validatorErrors  text-center">
+                            <%= err.msg %>
+                        </li>
+                        <% }) %>
+                            <% } else { %>
+            </ul>
             <% if (error) { %>
                 <h5 class="text-center" style="text-align: center;">
                     <%= error %>
                 </h5>
                 <% } %>
-                    <% if (status) { %>
-                        <h5 class="text-center" style="text-align: center;">
-                            <%= status %>
-                        </h5>
-                        <% } %>
-                            <div class="row mt-4 my-2">
-                                <div class="col-sm-6 my-2">
-                                    <div class="form-group row">
-                                        <label for="FirstName" class="col-sm-3 col-form-label">First Name</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="firstname"
-                                                placeholder="For E.g Shahrukh" name="firstName">
+                    <% } %>
+                        <% if (status) { %>
+                            <h5 class="text-center" style="text-align: center;">
+                                <%= status %>
+                            </h5>
+                            <% } %>
+                                <h3 class="title fs-28 text-center mt-5"> User Register</h3>
+                                <div class="row mt-4 my-2">
+                                    <div class="col-sm-6 my-2">
+                                        <div class="form-group row">
+                                            <label for="FirstName" class="col-sm-3 col-form-label">First Name</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="firstname" placeholder=""
+                                                    name="firstName">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 my-2">
+                                        <div class="form-group row">
+                                            <label for="LastName" class="col-sm-3 col-form-label">Last Name</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="lastname" placeholder=""
+                                                    name="lastName">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-6 my-2">
-                                    <div class="form-group row">
-                                        <label for="LastName" class="col-sm-3 col-form-label">Last Name</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="lastname"
-                                                placeholder="Enter Your Surname e.g Khan" name="lastName">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group row">
+                                            <label for="Address" class="col-sm-3 col-form-label">Address</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="email" placeholder=""
+                                                    name="address">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="form-group row">
-                                        <label for="Address" class="col-sm-3 col-form-label">Address</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="email"
-                                                placeholder="Enter your Full Address" name="address">
+                                <div class="row my-2">
+                                    <div class="col-sm-4 my-2">
+                                        <div class="form-group row">
+                                            <label for="State" class="col-sm-3 col-form-label">State</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="State" placeholder=""
+                                                    name="state">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 my-2">
+                                        <div class="form-group row">
+                                            <label for="cITY" class="col-sm-3 col-form-label">City</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="City" placeholder=""
+                                                    name="city">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 my-2">
+                                        <div class="form-group row">
+                                            <label for="PINCODE" class="col-sm-3 col-form-label">Pincode</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" class="form-control" id="Pincode" placeholder=""
+                                                    name="pincode">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row my-2">
-                                <div class="col-sm-4 my-2">
-                                    <div class="form-group row">
-                                        <label for="State" class="col-sm-3 col-form-label">State</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="State" placeholder="State"
-                                                name="state">
+                                <div class="row my-2">
+                                    <div class="col-sm-6 my-2">
+                                        <div class="form-group row">
+                                            <label for="Email" class="col-sm-3 col-form-label">E-mail</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="email"
+                                                    placeholder="Enter your Email ID" name="email">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 my-2">
+                                        <div class="form-group row">
+                                            <label for="aadhar" class="col-sm-3 col-form-label">Aadhar No.</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" class="form-control" id="aadhar" placeholder=""
+                                                    name="aadhar">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-4 my-2">
-                                    <div class="form-group row">
-                                        <label for="cITY" class="col-sm-3 col-form-label">City</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="City"
-                                                placeholder="Enter your City" name="city">
+                                <div class="row my-2">
+                                    <div class="col-sm-6 my-2">
+                                        <div class="form-group row">
+                                            <label for="Mobile No." class="col-sm-3 col-form-label">Mobile No.</label>
+                                            <div class="col-sm-9">
+                                                <input type="tel" class="form-control" id="Mobile no." placeholder=""
+                                                    name="mobileNo">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 my-2">
+                                        <div class="form-group row">
+                                            <label for="DOB" class="col-sm-3 col-form-label">Date of Birth</label>
+                                            <div class="col-sm-9">
+                                                <input type="date" class="form-control" id="DOB" name="DOB">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-4 my-2">
-                                    <div class="form-group row">
-                                        <label for="PINCODE" class="col-sm-3 col-form-label">Pincode</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="Pincode" placeholder="PINCODE"
-                                                name="pincode">
+                                <div class="row my-2">
+                                    <div class="col-sm-6 my-2">
+                                        <div class="form-group row">
+                                            <label for="Gender" class="col-sm-3 col-form-label">Gender</label>
+                                            <div class="col-sm-9">
+                                                <!--<input type="text" class="form-control" id="Gender" >-->
+                                                <select name="gender" id="Gender" class="form-control">
+                                                    <option value="Male">Select Your Gender</option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                    <option value="Others">Others</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 my-2">
+                                        <div class="form-group row">
+                                            <label for="Blood Group" class="col-sm-3 col-form-label">Blood Group</label>
+                                            <div class="col-sm-9">
+                                                <!--<input type="text" class="form-control" id="Blood Group">-->
+                                                <select name="Blood Group" id="Blood Group" class="form-control"
+                                                    name="bloodGroup">
+                                                    <option value="">Choose from the below</option>
+                                                    <option value="A+">A+</option>
+                                                    <option value="A-">A-</option>
+                                                    <option value="B+">B+</option>
+                                                    <option value="B-">B-</option>
+                                                    <option value="O+">O+</option>
+                                                    <option value="O-">O-</option>
+                                                    <option value="AB+">AB+</option>
+                                                    <option value="AB-">AB-</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row my-2">
-                                <div class="col-sm-6 my-2">
-                                    <div class="form-group row">
-                                        <label for="Email" class="col-sm-3 col-form-label">E-mail</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="email"
-                                                placeholder="Enter your Email ID" name="email">
+                                <div class="row my-2">
+                                    <div class="col-sm-6 my-2">
+                                        <div class="form-group row">
+                                            <label for="password" class="col-sm-3 col-form-label">Password</label>
+                                            <div class="col-sm-9">
+                                                <input type="password" class="form-control" id="password" placeholder=""
+                                                    name="password">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 my-2">
+                                        <div class="form-group row">
+                                            <label for="password" class="col-sm-3 col-form-label">Confirm
+                                                Password</label>
+                                            <div class="col-sm-9">
+                                                <input type="password" class="form-control" id="aadhar" placeholder=""
+                                                    name="confirmPassword">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-6 my-2">
-                                    <div class="form-group row">
-                                        <label for="aadhar" class="col-sm-3 col-form-label">Aadhar No.</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="aadhar"
-                                                placeholder="Please enter your aadhar card no." name="aadhar">
-                                        </div>
-                                    </div>
+                                <div class="form-group  my-2">
+                                    <button class="btn btn-light" type="submit" style="float: right;">Submit</button>
                                 </div>
-                            </div>
-                            <div class="row my-2">
-                                <div class="col-sm-6 my-2">
-                                    <div class="form-group row">
-                                        <label for="Mobile No." class="col-sm-3 col-form-label">Mobile No.</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="Mobile no."
-                                                placeholder="Enter your Mobile No." name="mobileNo">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 my-2">
-                                    <div class="form-group row">
-                                        <label for="DOB" class="col-sm-3 col-form-label">Date of Birth</label>
-                                        <div class="col-sm-9">
-                                            <input type="Date" class="form-control" id="DOB" name="DOB">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row my-2">
-                                <div class="col-sm-6 my-2">
-                                    <div class="form-group row">
-                                        <label for="Gender" class="col-sm-3 col-form-label">Gender</label>
-                                        <div class="col-sm-9">
-                                            <!--<input type="text" class="form-control" id="Gender" >-->
-                                            <select name="gender" id="Gender" class="form-control">
-                                                <option value="Male">Select Your Gender</option>
-                                                <option value="Male">Male</option>
-                                                <option value="Female">Female</option>
-                                                <option value="Others">Others</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 my-2">
-                                    <div class="form-group row">
-                                        <label for="Blood Group" class="col-sm-3 col-form-label">Blood Group</label>
-                                        <div class="col-sm-9">
-                                            <!--<input type="text" class="form-control" id="Blood Group">-->
-                                            <select name="Blood Group" id="Blood Group" class="form-control"
-                                                name="bloodGroup">
-                                                <option value="Blood Group">Choose from the below</option>
-                                                <option value="Blood Group">A+</option>
-                                                <option value="Blood Group">A-</option>
-                                                <option value="Blood Group">B+</option>
-                                                <option value="Blood Group">B-</option>
-                                                <option value="Blood Group">O+</option>
-                                                <option value="Blood Group">O-</option>
-                                                <option value="Blood Group">AB+</option>
-                                                <option value="Blood Group">AB-</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row my-2">
-                                <div class="col-sm-6 my-2">
-                                    <div class="form-group row">
-                                        <label for="password" class="col-sm-3 col-form-label">Password</label>
-                                        <div class="col-sm-9">
-                                            <input type="password" class="form-control" id="password"
-                                                placeholder="Enter your Password" name="password">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 my-2">
-                                    <div class="form-group row">
-                                        <label for="password" class="col-sm-3 col-form-label">Confirm Password</label>
-                                        <div class="col-sm-9">
-                                            <input type="password" class="form-control" id="aadhar"
-                                                placeholder="Enter the same password" name="confirmPassword">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group  my-2">
-                                <button class="btn btn-light" type="submit" style="float: right;">Submit</button>
-                            </div>
-                            <a id="backtohome" href="/">Back to Home Page</a>
+                                <a id="backtohome" href="/">Back to Home Page</a>
         </form>
     </div>
     <footer class="mt-5">
