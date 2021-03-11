@@ -9,8 +9,9 @@ ABDUL => {
     1.homepage navbar fix pending  
 }
 ZEESHAN => {
-    1. Register page is done for patient and lab but there is some problem related to doctor page.
-    2.Doctor registration form me aur fields add krne hai,eg.mobileNo,address.
+    1. Register page is done for patient and lab but there is some problem related to doctor page.(done)
+    2.Doctor registration form me aur fields add krne hai,eg.mobileNo,address.(Done)
+    
 }
 
 
@@ -18,7 +19,7 @@ NEXT TO DO :-
 1.create model using mongodb and mongoose ✔
 2.create register forms and handling it  ✔
 3.setup authentication with passportjs  ✔
-4.design dashboard for all 3 levels
+4.design dashboard for all 3 levels ✔
 5.design all user dashboard pages
 5.design all doctor dashboard pages
 5.design all lab dashboard pages
