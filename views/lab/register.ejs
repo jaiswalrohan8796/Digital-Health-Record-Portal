@@ -24,15 +24,14 @@
         <div class="col-md-4 order-md-2 text-center justify-self-center mt-5">
             <img id="front-banner" height="500px" width="400px" src="#" alt="">
         </div>
-        <form action="" method="" class="col-md-8 register-form-wrapper  mt-5order-md-1">
+        <form action="/lab/register" method="POST" class="col-md-8 register-form-wrapper  mt-5order-md-1">
             <h3 class="title fs-28 text-center"> Lab Register</h3>
             <div class="row my-4">
                 <div class="col-12 my-2">
                     <div class="form-group row">
                         <label for="LabName" class="col-sm-3 col-form-label">Laboratory Name</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="labname"
-                                placeholder="Enter your Laboratory Name e.g xyz laboratory">
+                            <input type="text" class="form-control" id="labname" name="labName" placeholder="Enter your Laboratory Name e.g xyz laboratory">
                         </div>
                     </div>
                 </div>
@@ -42,7 +41,7 @@
                     <div class="form-group row">
                         <label for="Registration" class="col-sm-3 col-form-label">Registration No</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="registration"
+                            <input type="text" class="form-control" id="registration" name="registrationNo"
                                 placeholder="Enter Registration No.">
                         </div>
                     </div>
@@ -51,7 +50,7 @@
                     <div class="form-group row">
                         <label for="Phone" class="col-sm-3 col-form-label">Phone</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="phone" placeholder="Enter Your Phone No. +91">
+                            <input type="text" class="form-control" id="phone" name="phoneNo" placeholder="Enter Your Phone No. +91">
                         </div>
                     </div>
                 </div>
@@ -61,7 +60,7 @@
                     <div class="form-group row">
                         <label for="Address" class="col-sm-3 col-form-label">Address</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="address"
+                            <input type="text" class="form-control" id="address" name="address"
                                 placeholder="Enter your laboratory address">
                         </div>
                     </div>
@@ -72,7 +71,7 @@
                     <div class="form-group row">
                         <label for="State" class="col-sm-3 col-form-label">State</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="state"
+                            <input type="text" class="form-control" id="state" name="state"
                                 placeholder="Enter your State e.g Maharashtra">
                         </div>
                     </div>
@@ -81,7 +80,7 @@
                     <div class="form-group row">
                         <label for="City" class="col-sm-3 col-form-label">City</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="city"
+                            <input type="text" class="form-control" id="city" name="city"
                                 placeholder="Enter the name of your City E.g Mumbai">
                         </div>
                     </div>
@@ -92,7 +91,7 @@
                     <div class="form-group row">
                         <label for="Email" class="col-sm-3 col-form-label">Email</label>
                         <div class="col-sm-9">
-                            <input type="email" class="form-control" id="email"
+                            <input type="email" class="form-control" id="email" name="email"
                                 placeholder="Enter your valid Email ID e.g xyz@gmail.com">
                         </div>
                     </div>
@@ -101,7 +100,7 @@
                     <div class="form-group row">
                         <label for="Pincode" class="col-sm-3 col-form-label">Pincode</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="pincode"
+                            <input type="text" class="form-control" id="pincode" name=="pincode"
                                 placeholder="Enter your city PINCODE e.g 400001">
                         </div>
                     </div>
@@ -112,7 +111,7 @@
                     <div class="form-group row">
                         <label for="Password" class="col-sm-3 col-form-label">Password</label>
                         <div class="col-sm-9">
-                            <input type="password" class="form-control" id="password" placeholder="Enter Your Password">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter Your Password">
                         </div>
                     </div>
                 </div>
@@ -120,7 +119,7 @@
                     <div class="form-group row">
                         <label for="Confirm Password" class="col-sm-3 col-form-label"> Confirm Password</label>
                         <div class="col-sm-9">
-                            <input type="password" class="form-control" id="cpassword"
+                            <input type="password" class="form-control" id="cpassword" name="cpassword"
                                 placeholder="Enter the same password">
                         </div>
                     </div>
