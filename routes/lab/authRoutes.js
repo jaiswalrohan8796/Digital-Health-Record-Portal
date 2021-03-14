@@ -3,7 +3,7 @@ const passport = require("passport");
 const bcrypt = require("bcrypt");
 const { check, validationResult } = require("express-validator");
 const Lab=require("../../models/lab/Lab.js");
-password=require("../..utils/lab/passwordConfig.js");
+require("../../utils/lab/passwordConfig")
 
 //routes
 router.post(
@@ -96,7 +96,7 @@ router.post(
             }
             const alreadyUser = await Lab.findOne({ "account.email": email });
             if (alreadyUser) {
-                return res.render("lab/register", {
+                return res.render("/lab/register", {
                     error: "Already a user, please login",
                     status: "",
                 });
@@ -119,7 +119,7 @@ router.post(
             });
             const saved = newlaboratory.save();
             if (!saved) {
-                return res.render("lab/register", {
+                return res.render("/lab/register", {
                     error: "Unable to register",
                     status: "",
                 });
@@ -131,7 +131,7 @@ router.post(
             });
         } catch (err) {
             console.log(err);
-            res.render("lab/register", {
+            res.render("/lab/register", {
                 error: "Unable to register",
                 status: "",
             });

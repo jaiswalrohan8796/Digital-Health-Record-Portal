@@ -16,7 +16,7 @@ const LabSchema = mongoose.Schema({
             required: true,
         },
         phoneNo: {
-            type: number,
+            type: Number,
             required: true,
         },
         address: {
@@ -49,6 +49,6 @@ const LabSchema = mongoose.Schema({
      
 });
 
-const Lab = mongoose.model("Lab", labSchema);
+const Lab = mongoose.model("Lab", LabSchema);
 
 module.exports = Lab;

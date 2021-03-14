@@ -23,6 +23,10 @@ const UserSchema = mongoose.Schema({
             type: String,
             required: true,
         },
+        bloodGroup: {
+            type:String,
+            required:true
+        },
         mobileNo: {
             type: Number,
             required: true,

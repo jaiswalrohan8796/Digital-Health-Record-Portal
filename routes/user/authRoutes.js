@@ -116,10 +116,12 @@ router.post(
                     lastName: lastName,
                     DOB: DOB,
                     gender: gender,
+                    bloodGroup: bloodGroup,
                     mobileNo: mobileNo,
                     address: address,
                     state: state,
                     city: city,
+                    pincode: pincode
                 },
                 account: {
                     email: email,

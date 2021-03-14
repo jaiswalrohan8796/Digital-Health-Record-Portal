@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 const authRoutes = require("../user/authRoutes.js");
-const dashboardRoutes = require("../user/dashboardRoutes");
+const dashboardRoutes = require("../user/dashboardRoutes.js");
 
 //authenticate check
 const isAuthenticated = (req, res, next) => {
