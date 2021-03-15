@@ -13,13 +13,14 @@ passport.deserializeUser((id, done) => {
     });
 });
 
-passport.use(
+passport.use('user-local',
     new LocalStrategy(
         {
             usernameField: "email",
             passwordField: "password",
         },
-        async (email, password, done) => {   //done(error,user)
+        async (email, password, done) => {
+            //done(error,user)
             try {
                 const user = await User.findOne({ "account.email": email });
                 if (!user) {

@@ -9,7 +9,7 @@ require("../../utils/user/passportConfig.js");
 //routes
 router.post(
     "/login",
-    passport.authenticate("local", {
+    passport.authenticate("user-local", {
         successRedirect: "/user/dashboard",
         failureRedirect: "/user/login",
         failureFlash: true,
@@ -121,7 +121,7 @@ router.post(
                     address: address,
                     state: state,
                     city: city,
-                    pincode: pincode
+                    pincode: pincode,
                 },
                 account: {
                     email: email,

@@ -14,12 +14,14 @@ passport.deserializeUser((id, done) => {
 });
 
 passport.use(
+    "lab-local",
     new LocalStrategy(
         {
             usernameField: "email",
             passwordField: "password",
         },
-        async (email, password, done) => {   //done(error,user)
+        async (email, password, done) => {
+            //done(error,user)
             try {
                 const lab = await Lab.findOne({ "account.email": email });
                 if (!lab) {

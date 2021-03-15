@@ -2,13 +2,13 @@ const router = require("express").Router();
 const passport = require("passport");
 const bcrypt = require("bcrypt");
 const { check, validationResult } = require("express-validator");
-const Lab=require("../../models/lab/Lab.js");
-require("../../utils/lab/passwordConfig")
+const Lab = require("../../models/lab/Lab.js");
+require("../../utils/lab/passwordConfig");
 
 //routes
 router.post(
     "/login",
-    passport.authenticate("local", {
+    passport.authenticate("lab-local", {
         successRedirect: "/lab/dashboard",
         failureRedirect: "/lab/login",
         failureFlash: true,
@@ -24,10 +24,17 @@ router.post(
             .trim(),
         check("registrationNo")
             .isLength({ min: 1 })
+<<<<<<< HEAD
             .withMessage("Registration number must have atleast two alphabets")
             .trim(),
         check("phoneNo")
             .isLength({ min: 6 })
+=======
+            .withMessage("Registration number have atleast one digits")
+            .trim(),
+        check("phoneNo")
+            .isLength({ min: 6, max: 10 })
+>>>>>>> 8a26fc15d5ff0239914117af21a77202a077d22b
             .withMessage("Phone number must have atleast two alphabets")
             .trim(),
         check("address")
@@ -58,7 +65,7 @@ router.post(
             .notEmpty()
             .withMessage("Password is required")
             .isLength({ min: 6 })
-            .withMessage("Password should be atleast 3 characters long")
+            .withMessage("Password should be atleast 6 characters long")
             .trim(),
         check("confirmPassword").custom((value, { req }) => {
             if (value !== req.body.confirmPassword) {
@@ -71,7 +78,7 @@ router.post(
         const {
             labName,
             registrationNo,
-            phonNo,
+            phoneNo,
             address,
             state,
             city,
@@ -107,6 +114,7 @@ router.post(
                     pincode:pincode,
                     state: state,
                     city: city,
+                    pincode: pincode,
                 },
                 account: {
                     email: email,

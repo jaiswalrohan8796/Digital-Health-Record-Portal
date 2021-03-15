@@ -15,10 +15,10 @@ router.get("/user/register", (req, res, next) => {
 
 //doctor routes
 router.get("/doctor/login", (req, res, next) => {
-    res.render("doctor/login", { heading: "Doctor" });
+    res.render("doctor/login",{ error: "", status: "" });
 });
 router.get("/doctor/register", (req, res, next) => {
-    res.render("doctor/register");
+    res.render("doctor/register", { error: "", status: "" });
 });
 
 //lab routes
