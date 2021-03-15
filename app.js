@@ -37,13 +37,14 @@ app.use(homepageRoutes);
 app.use(userAllRoutes);
 app.use(labAllRoutes);
 
-//server
-mongoose.connect(
-    process.env.mongoDBURI,
+//server process.env.mongoDBURI
+mongoose.connect("mongodb://localhost:27017/DHRP"
+     ,
     { useUnifiedTopology: true, useNewUrlParser: true },
     () => {
         app.listen(port, () => {
             console.log(`Listening to ${port}`);
+    
         });
     }
 );

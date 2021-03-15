@@ -20,7 +20,22 @@
         <h2 class="text-center ftsz-24">
             Lab Login
         </h2>
-        <form action="lab/login" method="POST">
+        <% if (error) { %>
+            <h5 class="text-center" style="text-align: center;">
+                <%= error %>
+            </h5>
+            <% } %>
+                <% if (status) { %>
+                    <h5 class="text-center" style="text-align: center;">
+                        <%= status %>
+                    </h5>
+                    <% } %>
+        <form action="/lab/login" method="POST">
+            <% if (messages.error) { %>
+                <h5>
+                    <%= messages.error %>
+                </h5>
+                <% } %>
             <div class="form-group row ">
                 <label for="email" class="col-sm-3 col-form-label">Email</label>
                 <div class="col-sm-9">

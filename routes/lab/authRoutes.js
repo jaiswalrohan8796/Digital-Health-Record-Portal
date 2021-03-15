@@ -3,7 +3,7 @@ const passport = require("passport");
 const bcrypt = require("bcrypt");
 const { check, validationResult } = require("express-validator");
 const Lab = require("../../models/lab/Lab.js");
-require("../../utils/lab/passwordConfig");
+require("../../utils/lab/passwordConfiglab");
 
 //routes
 router.post(
@@ -24,18 +24,11 @@ router.post(
             .trim(),
         check("registrationNo")
             .isLength({ min: 1 })
-<<<<<<< HEAD
             .withMessage("Registration number must have atleast two alphabets")
             .trim(),
         check("phoneNo")
-            .isLength({ min: 6 })
-=======
-            .withMessage("Registration number have atleast one digits")
-            .trim(),
-        check("phoneNo")
-            .isLength({ min: 6, max: 10 })
->>>>>>> 8a26fc15d5ff0239914117af21a77202a077d22b
-            .withMessage("Phone number must have atleast two alphabets")
+            .isLength({ min: 6,max:10 })
+            .withMessage("Phone number must have atleast 6 and maximum 10 alphabets")
             .trim(),
         check("address")
             .isLength({ min: 2 })
