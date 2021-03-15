@@ -15,18 +15,18 @@ router.get("/user/register", (req, res, next) => {
 
 //doctor routes
 router.get("/doctor/login", (req, res, next) => {
-    res.render("doctor/login", { heading: "Doctor" });
+    res.render("doctor/login",{ error: "", status: "" });
 });
 router.get("/doctor/register", (req, res, next) => {
-    res.render("doctor/register");
+    res.render("doctor/register", { error: "", status: "" });
 });
 
 //lab routes
 router.get("/lab/login", (req, res, next) => {
-    res.render("lab/login");
+    res.render("lab/login",{ error: "", status: "" });
 });
 router.get("/lab/register", (req, res, next) => {
-    res.render("lab/register");
+    res.render("lab/register",{ error: "", status: "" });
 });
 
 module.exports = router;

@@ -121,7 +121,7 @@ router.post(
                     address: address,
                     state: state,
                     city: city,
-                    pincode: pincode
+                    pincode: pincode,
                 },
                 account: {
                     email: email,

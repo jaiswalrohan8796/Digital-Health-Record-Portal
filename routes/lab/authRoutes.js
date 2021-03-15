@@ -2,8 +2,8 @@ const router = require("express").Router();
 const passport = require("passport");
 const bcrypt = require("bcrypt");
 const { check, validationResult } = require("express-validator");
-const Lab=require("../../models/lab/Lab.js");
-require("../../utils/lab/passwordConfig")
+const Lab = require("../../models/lab/Lab.js");
+require("../../utils/lab/passwordConfig");
 
 //routes
 router.post(
@@ -24,11 +24,11 @@ router.post(
             .trim(),
         check("registrationNo")
             .isLength({ min: 1 })
-            .withMessage("Name must have atleast two alphabets")
+            .withMessage("Registration number have atleast one digits")
             .trim(),
         check("phoneNo")
-            .isLength({ min: 6 })
-            .withMessage("Name must have atleast two alphabets")
+            .isLength({ min: 6, max: 10 })
+            .withMessage("Phone number must have atleast two alphabets")
             .trim(),
         check("address")
             .isLength({ min: 2 })
@@ -54,16 +54,11 @@ router.post(
             .withMessage("Email should be valid")
             .trim()
             .normalizeEmail(),
-        check("mobileNo")
-            .isLength({ min: 10, max: 10 })
-            .withMessage("Mobile number should be ten digit number")
-            .isNumeric()
-            .withMessage("Mobile number should contain only numerics"),
         check("password")
             .notEmpty()
             .withMessage("Password is required")
             .isLength({ min: 6 })
-            .withMessage("Password should be atleast 3 characters long")
+            .withMessage("Password should be atleast 6 characters long")
             .trim(),
         check("confirmPassword").custom((value, { req }) => {
             if (value !== req.body.confirmPassword) {
@@ -96,7 +91,7 @@ router.post(
             }
             const alreadyUser = await Lab.findOne({ "account.email": email });
             if (alreadyUser) {
-                return res.render("/lab/register", {
+                return res.render("lab/register", {
                     error: "Already a user, please login",
                     status: "",
                 });
@@ -119,7 +114,7 @@ router.post(
             });
             const saved = newlaboratory.save();
             if (!saved) {
-                return res.render("/lab/register", {
+                return res.render("lab/register", {
                     error: "Unable to register",
                     status: "",
                 });
@@ -131,7 +126,7 @@ router.post(
             });
         } catch (err) {
             console.log(err);
-            res.render("/lab/register", {
+            res.render("lab/register", {
                 error: "Unable to register",
                 status: "",
             });
