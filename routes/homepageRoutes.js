@@ -23,10 +23,10 @@ router.get("/doctor/register", (req, res, next) => {
 
 //lab routes
 router.get("/lab/login", (req, res, next) => {
-    res.render("lab/login");
+    res.render("lab/login",{ error: "", status: "" });
 });
 router.get("/lab/register", (req, res, next) => {
-    res.render("lab/register");
+    res.render("lab/register",{ error: "", status: "" });
 });
 
 module.exports = router;

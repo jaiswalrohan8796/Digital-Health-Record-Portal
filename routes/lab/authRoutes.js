@@ -20,15 +20,15 @@ router.post(
     [
         check("labName")
             .isLength({ min: 2 })
-            .withMessage("Name must have atleast two alphabets")
+            .withMessage("Lab Name must have atleast two alphabets")
             .trim(),
         check("registrationNo")
             .isLength({ min: 1 })
-            .withMessage("Name must have atleast two alphabets")
+            .withMessage("Registration number must have atleast two alphabets")
             .trim(),
         check("phoneNo")
             .isLength({ min: 6 })
-            .withMessage("Name must have atleast two alphabets")
+            .withMessage("Phone number must have atleast two alphabets")
             .trim(),
         check("address")
             .isLength({ min: 2 })
@@ -54,11 +54,6 @@ router.post(
             .withMessage("Email should be valid")
             .trim()
             .normalizeEmail(),
-        check("mobileNo")
-            .isLength({ min: 10, max: 10 })
-            .withMessage("Mobile number should be ten digit number")
-            .isNumeric()
-            .withMessage("Mobile number should contain only numerics"),
         check("password")
             .notEmpty()
             .withMessage("Password is required")
@@ -96,7 +91,7 @@ router.post(
             }
             const alreadyUser = await Lab.findOne({ "account.email": email });
             if (alreadyUser) {
-                return res.render("/lab/register", {
+                return res.render("lab/register", {
                     error: "Already a user, please login",
                     status: "",
                 });
@@ -109,6 +104,7 @@ router.post(
                     registrationNo: registrationNo,
                     phoneNo: phoneNo,
                     address: address,
+                    pincode:pincode,
                     state: state,
                     city: city,
                 },
@@ -119,7 +115,7 @@ router.post(
             });
             const saved = newlaboratory.save();
             if (!saved) {
-                return res.render("/lab/register", {
+                return res.render("lab/register", {
                     error: "Unable to register",
                     status: "",
                 });
@@ -131,7 +127,7 @@ router.post(
             });
         } catch (err) {
             console.log(err);
-            res.render("/lab/register", {
+            res.render("lab/register", {
                 error: "Unable to register",
                 status: "",
             });
