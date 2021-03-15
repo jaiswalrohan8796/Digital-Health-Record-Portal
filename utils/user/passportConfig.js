@@ -13,7 +13,7 @@ passport.deserializeUser((id, done) => {
     });
 });
 
-passport.use(
+passport.use('user-local',
     new LocalStrategy(
         {
             usernameField: "email",

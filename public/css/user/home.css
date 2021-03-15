@@ -23,7 +23,8 @@
     border-radius: 24px;
     padding: 8px 18px;
     border-radius: 32px;
-    border: 3px solid #ffc0c2;
+    /* border: 3px solid #ffc0c2; */
+    box-shadow: 4px 6px 12px 4px rgb(236, 234, 234);
 }
 .current {
     width: 100%;

@@ -8,7 +8,7 @@ require("../../utils/lab/passwordConfig");
 //routes
 router.post(
     "/login",
-    passport.authenticate("local", {
+    passport.authenticate("lab-local", {
         successRedirect: "/lab/dashboard",
         failureRedirect: "/lab/login",
         failureFlash: true,
@@ -71,7 +71,7 @@ router.post(
         const {
             labName,
             registrationNo,
-            phonNo,
+            phoneNo,
             address,
             state,
             city,
@@ -106,6 +106,7 @@ router.post(
                     address: address,
                     state: state,
                     city: city,
+                    pincode: pincode,
                 },
                 account: {
                     email: email,

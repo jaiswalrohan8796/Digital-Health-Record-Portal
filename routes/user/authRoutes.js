@@ -9,7 +9,7 @@ require("../../utils/user/passportConfig.js");
 //routes
 router.post(
     "/login",
-    passport.authenticate("local", {
+    passport.authenticate("user-local", {
         successRedirect: "/user/dashboard",
         failureRedirect: "/user/login",
         failureFlash: true,
