@@ -1,15 +1,31 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcrypt");
+const User = require("../../models/user/User.js");
 const Lab = require("../../models/lab/Lab.js");
 
-passport.serializeUser((lab, done) => {
-    done(null, lab._id);
+passport.serializeUser((person, done) => {
+    done(null, person._id);
 });
 
 passport.deserializeUser((id, done) => {
-    Lab.findById(id).then((lab) => {
-        done(null, lab);
+    console.log("deserialize called");
+    User.findOne({ _id: id }).then((user) => {
+        if (!user) {
+            console.log("no user found");
+            Lab.findOne({ _id: id })
+                .then((lab) => {
+                    console.log("lab found");
+                    done(null, lab);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        }
+        if (user) {
+            console.log("user found");
+            done(null, user);
+        }
     });
 });
 
@@ -21,6 +37,7 @@ passport.use(
             passwordField: "password",
         },
         async (email, password, done) => {
+            console.log("lab passport called");
             //done(error,user)
             try {
                 const lab = await Lab.findOne({ "account.email": email });
@@ -34,6 +51,7 @@ passport.use(
                 if (!passwordMatched) {
                     return done(null, false, { message: "Password incorrect" });
                 }
+                console.log("passport  authenticate done");
                 return done(null, lab);
             } catch (err) {
                 console.log(err);

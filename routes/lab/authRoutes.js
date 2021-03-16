@@ -27,8 +27,10 @@ router.post(
             .withMessage("Registration number must have atleast two alphabets")
             .trim(),
         check("phoneNo")
-            .isLength({ min: 6,max:10 })
-            .withMessage("Phone number must have atleast 6 and maximum 10 alphabets")
+            .isLength({ min: 6, max: 10 })
+            .withMessage(
+                "Phone number must have atleast 6 and maximum 10 alphabets"
+            )
             .trim(),
         check("address")
             .isLength({ min: 2 })
@@ -104,7 +106,7 @@ router.post(
                     registrationNo: registrationNo,
                     phoneNo: phoneNo,
                     address: address,
-                    pincode:pincode,
+                    pincode: pincode,
                     state: state,
                     city: city,
                     pincode: pincode,

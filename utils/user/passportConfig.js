@@ -3,17 +3,18 @@ const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcrypt");
 const User = require("../../models/user/User.js");
 
-passport.serializeUser((user, done) => {
-    done(null, user._id);
-});
+// passport.serializeUser((user, done) => {
+//     done(null, user._id);
+// });
 
-passport.deserializeUser((id, done) => {
-    User.findById(id).then((user) => {
-        done(null, user);
-    });
-});
+// passport.deserializeUser((id, done) => {
+//     User.findById(id).then((user) => {
+//         done(null, user);
+//     });
+// });
 
-passport.use('user-local',
+passport.use(
+    "user-local",
     new LocalStrategy(
         {
             usernameField: "email",
@@ -21,6 +22,7 @@ passport.use('user-local',
         },
         async (email, password, done) => {
             //done(error,user)
+            console.log("user passport called");
             try {
                 const user = await User.findOne({ "account.email": email });
                 if (!user) {

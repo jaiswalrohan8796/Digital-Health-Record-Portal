@@ -24,8 +24,8 @@ const UserSchema = mongoose.Schema({
             required: true,
         },
         bloodGroup: {
-            type:String,
-            required:true
+            type: String,
+            required: true,
         },
         mobileNo: {
             type: Number,

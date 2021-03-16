@@ -11,7 +11,7 @@ require("dotenv").config();
 //module imports
 const homepageRoutes = require("./routes/homepageRoutes.js");
 const userAllRoutes = require("./routes/user/userAllRoutes");
-const labAllRoutes=require("./routes/lab/labAllRoutes")
+const labAllRoutes = require("./routes/lab/labAllRoutes");
 
 //configuration
 const port = process.env.PORT || 3000;
@@ -38,13 +38,12 @@ app.use(userAllRoutes);
 app.use(labAllRoutes);
 
 //server process.env.mongoDBURI
-mongoose.connect("mongodb://localhost:27017/DHRP"
-     ,
+mongoose.connect(
+    process.env.mongoDBURI,
     { useUnifiedTopology: true, useNewUrlParser: true },
     () => {
         app.listen(port, () => {
             console.log(`Listening to ${port}`);
-    
         });
     }
 );
