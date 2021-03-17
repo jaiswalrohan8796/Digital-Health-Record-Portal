@@ -3,7 +3,7 @@ const passport = require("passport");
 const bcrypt = require("bcrypt");
 const { check, validationResult } = require("express-validator");
 const Lab = require("../../models/lab/Lab.js");
-require("../../utils/lab/passwordConfiglab");
+require("../../utils/passportConfig.js");
 
 //routes
 router.post(

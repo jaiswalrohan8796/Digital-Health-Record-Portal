@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const { check, validationResult } = require("express-validator");
 
 const User = require("../../models/user/User.js");
-require("../../utils/user/passportConfig.js");
+require("../../utils/passportConfig.js");
 
 //routes
 router.post(

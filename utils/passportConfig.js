@@ -1,21 +1,18 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcrypt");
-const User = require("../../models/user/User.js");
-const Lab = require("../../models/lab/Lab.js");
+const User = require("../models/user/User.js");
+const Lab = require("../models/lab/Lab.js");
 
 passport.serializeUser((person, done) => {
     done(null, person._id);
 });
 
 passport.deserializeUser((id, done) => {
-    console.log("deserialize called");
     User.findOne({ _id: id }).then((user) => {
         if (!user) {
-            console.log("no user found");
             Lab.findOne({ _id: id })
                 .then((lab) => {
-                    console.log("lab found");
                     done(null, lab);
                 })
                 .catch((err) => {
@@ -23,12 +20,41 @@ passport.deserializeUser((id, done) => {
                 });
         }
         if (user) {
-            console.log("user found");
             done(null, user);
         }
     });
 });
-
+//user passport-local
+passport.use(
+    "user-local",
+    new LocalStrategy(
+        {
+            usernameField: "email",
+            passwordField: "password",
+        },
+        async (email, password, done) => {
+            //done(error,user)
+            try {
+                const user = await User.findOne({ "account.email": email });
+                if (!user) {
+                    return done(null, false, { message: "Email not found!" });
+                }
+                const passwordMatched = await bcrypt.compare(
+                    password,
+                    user.account.password
+                );
+                if (!passwordMatched) {
+                    return done(null, false, { message: "Password incorrect" });
+                }
+                return done(null, user);
+            } catch (e) {
+                console.log(e);
+                return done(null, false, { message: "Server Error" });
+            }
+        }
+    )
+);
+//lab passport-local
 passport.use(
     "lab-local",
     new LocalStrategy(
@@ -37,7 +63,6 @@ passport.use(
             passwordField: "password",
         },
         async (email, password, done) => {
-            console.log("lab passport called");
             //done(error,user)
             try {
                 const lab = await Lab.findOne({ "account.email": email });
@@ -51,7 +76,6 @@ passport.use(
                 if (!passwordMatched) {
                     return done(null, false, { message: "Password incorrect" });
                 }
-                console.log("passport  authenticate done");
                 return done(null, lab);
             } catch (err) {
                 console.log(err);
