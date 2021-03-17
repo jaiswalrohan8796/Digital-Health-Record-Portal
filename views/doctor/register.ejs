@@ -26,14 +26,34 @@
         <div class="col-md-4 order-md-2 text-center justify-self-center mt-5">
             <img id="front-banner" height="500px" width="400px" src="/images/shared/register/welcome.png" alt="">
         </div>
-        <form action="" method="" class="col-md-8 register-form-wrapper mt-5 order-md-1">
+        <form action="/doctor/register" method="POST" class="col-md-8 register-form-wrapper mt-5 order-md-1">
+            <ul class="validatorErrorsList">
+                <% if (error instanceof Array) { %>
+                    <% error.forEach((err)=> { %>
+                        <li class=" validatorErrors  text-center">
+                            <%= err.msg %>
+                        </li>
+                        <% }) %>
+                            <% } else { %>
+            </ul>
+            <% if (error) { %>
+                <h5 class="text-center" style="text-align: center;">
+                    <%= error %>
+                </h5>
+                <% } %>
+                    <% } %>
+                        <% if (status) { %>
+                            <h5 class="text-center" style="text-align: center;">
+                                <%= status %>
+                            </h5>
+                            <% } %>
             <h3 class="title fs-28 text-center">Doctor Register</h3>
             <div class="row my-4">
                 <div class="col-sm-6 my-2">
                     <div class="form-group row">
-                        <label for="FirstName" class="col-sm-3 col-form-label">First Name</label>
+                        <label for="firstName" class="col-sm-3 col-form-label">First Name</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="firstname" placeholder="For E.g Dr.Rohan">
+                            <input type="text" class="form-control" id="firstname" placeholder="For E.g Dr.Rohan" name="firstName">
                         </div>
                     </div>
                 </div>
@@ -41,7 +61,7 @@
                     <div class="form-group row">
                         <label for="LastName" class="col-sm-3 col-form-label">Last Name</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="lastname" placeholder="Enter Your Surname">
+                            <input type="text" class="form-control" id="lastname" placeholder="Enter Your Surname" name="lastName">
                         </div>
                     </div>
                 </div>
@@ -51,7 +71,7 @@
                     <div class="form-group row">
                         <label for="Address" class="col-sm-3 col-form-label">Address</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="address" placeholder="Enter your Address">
+                            <input type="text" class="form-control" id="address" placeholder="Enter your Address" name="address">
                         </div>
                     </div>
                 </div>
@@ -60,7 +80,7 @@
                         <label for="mobileNo" class="col-sm-3 col-form-label">Mobile No.</label>
                         <div class="col-sm-9">
                             <input type="number" class="form-control" id="mobileNo"
-                                placeholder="Enter your 10 digit mobile no.">
+                                placeholder="Enter your 10 digit mobile no." name="mobileNo">
                         </div>
                     </div>
                 </div>
@@ -71,7 +91,7 @@
                         <label for="Designation" class="col-sm-3 col-form-label">Designation</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="designation"
-                                placeholder="Enter your Designation e.g MBBS">
+                                placeholder="Enter your Designation e.g MBBS" name="designation">
                         </div>
                     </div>
                 </div>
@@ -80,7 +100,7 @@
                         <label for="Specialization" class="col-sm-3 col-form-label">Specialization</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="specialization"
-                                placeholder="Enter your Specialization e.g Cardioloist">
+                                placeholder="Enter your Specialization e.g Cardioloist" name="specialization">
                         </div>
                     </div>
                 </div>
@@ -90,7 +110,8 @@
                     <div class="form-group row">
                         <label for="MCIR" class="col-sm-3 col-form-label">MCIR No</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="mcir" placeholder="Enter MCIR no.">
+                            <input type="number" class="form-control" id="mcir" placeholder="Enter MCIR no." 
+                            name="mcirno">
                         </div>
                     </div>
                 </div>
@@ -98,7 +119,7 @@
                     <div class="form-group row">
                         <label for="Email" class="col-sm-3 col-form-label">Email</label>
                         <div class="col-sm-9">
-                            <input type="email" class="form-control" id="email" placeholder="Enter your Email ID">
+                            <input type="email" class="form-control" id="email" placeholder="Enter your Email ID" name="email">
                         </div>
                     </div>
                 </div>
@@ -108,7 +129,7 @@
                     <div class="form-group row">
                         <label for="Password" class="col-sm-3 col-form-label">Password</label>
                         <div class="col-sm-9">
-                            <input type="password" class="form-control" id="password" placeholder="Enter your Password">
+                            <input type="password" class="form-control" id="password" placeholder="Enter your Password" name="password">
                         </div>
                     </div>
                 </div>
@@ -116,8 +137,8 @@
                     <div class="form-group row">
                         <label for="Password" class="col-sm-3 col-form-label">Confirm Password</label>
                         <div class="col-sm-9">
-                            <input type="email" class="form-control" id="cpassword"
-                                placeholder="Enter the same password">
+                            <input type="password" class="form-control" id="password"
+                                placeholder="Enter the same password" name="password">
                         </div>
                     </div>
                 </div>

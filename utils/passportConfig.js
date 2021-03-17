@@ -3,6 +3,7 @@ const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcrypt");
 const User = require("../models/user/User.js");
 const Lab = require("../models/lab/Lab.js");
+const Doctor = require("../models/doctor/Doctor.js");
 
 passport.serializeUser((person, done) => {
     done(null, person._id);
@@ -77,6 +78,37 @@ passport.use(
                     return done(null, false, { message: "Password incorrect" });
                 }
                 return done(null, lab);
+            } catch (err) {
+                console.log(err);
+                return done(null, false, { message: "Server Error" });
+            }
+        }
+    )
+);
+// Doctor passport-local
+passport.use(
+    "Doctor-local",
+    new LocalStrategy(
+        {
+            usernameField: "email",
+            passwordField: "password",
+        },
+        async (email, password, done) => {
+            //done(error,user)
+            try {
+                const doctor = await Doctor.findOne({ "account.email": email });
+                if (!doctor) {
+                    return done(null, false, { message: "Email not found!" });
+                }
+                const passwordMatched = await bcrypt.compare(
+                    password,
+                    doctor.account.password
+                );
+                if (!passwordMatched) {
+                    return done(null, false, { message: "Password incorrect" });
+                }
+                console.log("Authentication done");
+                return done(null, doctor);
             } catch (err) {
                 console.log(err);
                 return done(null, false, { message: "Server Error" });

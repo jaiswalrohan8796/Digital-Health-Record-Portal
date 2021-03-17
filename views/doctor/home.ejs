@@ -136,7 +136,9 @@
         <!-- Profile -->
         <div class="toolbar-profile">
             <div class="profile-name">
-                <p>Rohan Jaiswal</p>
+                <p>
+                    <%= fullName %>
+                </p>
             </div>
             <div class="profile-image">
                 <?xml version="1.0"?>
@@ -200,13 +202,13 @@
             <div class="column basic1 my-4">
                 <p class="fs-28 bold">Basic Details</p>
                 <div class="col-12">
-                    <p>Name :   Rohan Jaiswal</p>
+                    <p>Name : <%= doctor.profile.firstName %><%= doctor.profile.lastName %></p>
                 </div>
                 <div class="col-12">
-                    <p>Designation :      MBBS</p>
+                    <p>Designation : <%= doctor.profile.designation%></p>
                 </div>
                 <div class="col-12">
-                    <p>Specialisation :   MS Cardiology</p>
+                    <p>Specialisation : <%= doctor.profile.specialization%></p>
                 </div>
             </div>
             <div class="column col-12 my-4"><div class="basic1">
@@ -225,13 +227,13 @@
             <div class="column basic1 my-4">
                 <p class="fs-28 bold">Basic Details</p>
                 <div class="col-12">
-                    <p>Name :  Rohan Jaiswal</p>
+                    <p>Mobile No. :  <%= doctor.profile.mobileNo%></p>
                 </div>
                 <div class="col-12">
-                    <p>Designation :  MBBS</p>
+                    <p>Address : <%= doctor.profile.address%></p>
                 </div>
                 <div class="col-12">
-                    <p>Specialisation :   MS Cardiology</p>
+                    <p>MCIR NO. : <%= doctor.profile.mcirno</p>
                 </div>
             </div>
         </div>
