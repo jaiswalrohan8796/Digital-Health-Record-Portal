@@ -11,6 +11,7 @@ ABDUL => {
 ZEESHAN => {
     1. Register page is done for patient and lab but there is some problem related to doctor page.(done)
     2.Doctor registration form me aur fields add krne hai,eg.mobileNo,address.(Done)
+    3. Doctor authentication form thoda fix krna hai
     
 }
 
