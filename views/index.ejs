@@ -18,13 +18,13 @@
 </head>
 
 <body>
-	<!-- <div class="row header">
+	<div class="row header">
 		<div class="col-12 header_navbar">
 			<p class="fs-40 pt-1 mx-1">Digital Health Record Portal</p>
-			</div>
 		</div>
-	</div> -->
-	<nav class="navbar navbar-expand-sm  header">
+	</div>
+	</div>
+	<!-- <nav class="navbar navbar-expand-sm  header">
 		<a class="navbar-brand fs-40 pt-1 mx-1" href="#">Digital Health Record Portal</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
 			<span class="navbar-toggler-icon"></span>
@@ -48,7 +48,7 @@
 				</li>
 			</ul>
 		</div>
-	</nav>
+	</nav> -->
 	<!--Main header-->
 	<div class="container-fluid ">
 		<div class="row justify-content-center align-items-center">
@@ -57,18 +57,7 @@
 					<!--left hand side-->
 					<div class="col-md-6 col-12 main_header_left">
 						<h2 class="fs-32 title">Store and manage your health information</h2>
-						<ul class="features">
-							<li class="features-item">
-								<p class="fs-22">User can access their medical information from anywhere , anytime.</p>
-							</li>
-							<li class="features-item">
-								<p class="fs-22">Doctors/Medical practioners can create new medical records for their
-									patients.</p>
-							</li>
-							<li class="features-item">
-								<p class="fs-22">Laboratories can send the reports directly to the user.</p>
-							</li>
-						</ul>
+						<p class="typeIt fs-20"></p>
 					</div>
 					<!--Right hand side-->
 					<div class="col-md-6 col-12 main_header_right">
@@ -156,5 +145,15 @@
 	<!-- Bootstrap JS -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script>
+<script>
+	new TypeIt('.typeIt', {
+		strings: ["User can access their medical information from anywhere, anytime.", "Doctors/Medical practioners can create new medical records for their patients.", "Laboratories can send the reports directly to the user."],
+		speed: 100,
+		waitUntilVisible: true,
+		loop: true,
+		loopDelay: 8000
+	}).go();
+</script>
 
 </html>

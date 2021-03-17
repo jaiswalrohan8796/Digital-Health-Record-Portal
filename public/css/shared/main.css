@@ -129,4 +129,15 @@ footer {
     .nav-wrapper {
         font-size: 20px;
     }
+    .main_header_left .fs-32 {
+        font-size: 24px;
+    }
+    .main_header_left .fs-20 {
+        font-size: 18px;
+    }
+}
+@media (max-width:330px) {
+    .header .fs-40 {
+        font-size: 20px;
+    }
 }

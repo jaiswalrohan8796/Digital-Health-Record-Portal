@@ -216,8 +216,14 @@ footer {
     .main_header_left {
         height: auto;
         margin: 5rem 0;
+        padding:0px
     }
     .main_header_right {
         height: auto;
+    }
+    .container-fluid {
+        min-height:380px;
+        background-size:cover;
+        background-position: left;
     }
 }
