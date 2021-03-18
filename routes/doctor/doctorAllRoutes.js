@@ -5,7 +5,7 @@ const dashboardRoutes = require("../doctor/dashboardRoutes.js");
 
 //authenticate check
 const isAuthenticated = (req, res, next) => {
-    if (!req.doctor) {
+    if (!req.user) {
         res.render("doctor/login", { error: "", status: "Login first" });
     }
     next();
