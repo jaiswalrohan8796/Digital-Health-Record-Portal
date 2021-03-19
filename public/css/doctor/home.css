@@ -19,3 +19,89 @@ main {
 .basic .heading {
     border-bottom: 5px solid #ffbbbd;
 }
+.column {
+    float: left;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: hidden;
+}
+h2 {
+    border-bottom: 5px solid #ffbbbd;
+}
+.basic1 {
+    border-radius: 24px;
+    padding: 8px 18px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    box-shadow: 4px 6px 12px 4px rgb(224, 214, 214);
+}
+
+form {
+    margin: 1rem 0;
+    color: black;
+}
+form .form-group {
+    margin: 2rem 0;
+}
+.form-wrapper h2 {
+    font-weight: bold;
+    color: #ffffff;
+}
+form .btn {
+    background-color: #6dc9c8;
+    color: rgb(248, 246, 246);
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 24px;
+}
+button:hover {
+    color: #ffffff;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+    color: white;
+}
+.btn-grad {
+    background-image: linear-gradient(
+        to right,
+        #4cb8c4 0%,
+        #3cd3ad 51%,
+        #4cb8c4 100%
+    );
+}
+.btn-grad {
+    padding: 10px 4px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+.btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+@media (max-width: 576px) {
+    .form-wrapper {
+        width: 90vw;
+    }
+    form .form-group {
+        margin: 1rem 0;
+    }
+}

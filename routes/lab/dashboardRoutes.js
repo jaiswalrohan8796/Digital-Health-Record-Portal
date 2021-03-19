@@ -7,7 +7,24 @@ router.get("/dashboard", async (req, res, next) => {
         labName: `${req.user.profile.labName}`,
     });
 });
-
+router.get("/dashboard/sent", async (req, res, next) => {
+    res.render("lab/sentReports", {
+        lab: req.user,
+        labName: `${req.user.profile.labName}`,
+    });
+});
+router.get("/dashboard/pending", async (req, res, next) => {
+    res.render("lab/pendingReports", {
+        lab: req.user,
+        labName: `${req.user.profile.labName}`,
+    });
+});
+router.get("/dashboard/settings", async (req, res, next) => {
+    res.render("lab/settings", {
+        lab: req.user,
+        labName: `${req.user.profile.labName}`,
+    });
+});
 router.get("/dashboard/logout", (req, res, next) => {
     req.logout();
     res.redirect("/");

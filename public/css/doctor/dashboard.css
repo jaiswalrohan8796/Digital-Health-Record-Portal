@@ -201,21 +201,7 @@ main {
     padding: 16px 24px;
     color: #333;
 }
-.med-form-alert {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px;
-    background-color: #f8fa8a;
-    border-radius: 12px;
-}
-.med-form-alert p {
-    margin-bottom: 0;
-}
-.med-form-alert svg {
-    margin: 4px;
-}
+
 /* gutters for row */
 .row {
     --bs-gutter-x: 0;
