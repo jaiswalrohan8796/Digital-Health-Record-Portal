@@ -19,6 +19,10 @@ main {
 .basic .heading {
     border-bottom: 5px solid #ffbbbd;
 }
+.basic p {
+    text-align: left;
+    word-wrap: break-word;
+}
 .column {
     float: left;
     width: 100%;

@@ -189,20 +189,22 @@
     max-width: 160px;
 }
 
-
-
 /* media queries */
-@media (max-width: 355px) {
-    .toolbar .toolbar-header {
-        left: 70px;
+@media (max-width: 768px) {
+    .toolbar-header p {
+        font-size: 24px;
     }
 }
-
 @media (max-width: 576px) {
     .toolbar-profile .profile-name {
         display: none;
     }
 }
-
-@media (max-width: 768px) {
+@media (max-width: 355px) {
+    .toolbar .toolbar-header {
+        left: 70px;
+    }
+    .toolbar-header p {
+        font-size: 20px;
+    }
 }

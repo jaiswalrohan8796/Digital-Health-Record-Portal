@@ -18,6 +18,23 @@ body {
     color: white;
     overflow-x: hidden;
 }
+.header_navbar {
+    display: flex;
+    justify-content: flex-start;
+    background-color: #ffc0c2;
+    color: white;
+    padding-left: 12px;
+}
+.header_navbar p {
+    font-weight: bold;
+}
+.navbar a:hover {
+    background-color: #0e3150;
+    border: #fcb2b4;
+}
+.header_navbar {
+    text-align: center;
+}
 
 /* Font-Sizes  */
 .fs-40 {
@@ -117,8 +134,12 @@ footer {
 /* Media Queries  */
 
 @media (max-width: 768px) {
-    .header .header_navbar {
-        text-align: center;
+    .header_navbar {
+        justify-content: center;
+        padding: 0;
+    }
+    .footer-div {
+        width: auto;
     }
 }
 
@@ -130,13 +151,13 @@ footer {
         font-size: 20px;
     }
     .main_header_left .fs-32 {
-        font-size: 24px;
+        font-size: 20px;
     }
     .main_header_left .fs-20 {
-        font-size: 18px;
+        font-size: 16px;
     }
 }
-@media (max-width:330px) {
+@media (max-width: 330px) {
     .header .fs-40 {
         font-size: 20px;
     }

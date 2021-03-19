@@ -199,22 +199,31 @@ html {
 /* Main */
 
 /* media queries */
-@media (max-width: 355px) {
-    .toolbar .toolbar-header {
-        left: 70px;
-    }
-}
-
-@media (max-width: 576px) {
-    .toolbar-profile .profile-name {
-        display: none;
-    }
-}
-
 @media (max-width: 768px) {
+    .toolbar-header p {
+        font-size: 24px;
+    }
 }
 @media screen and (max-width: 600px) {
     .column {
         width: 100%;
     }
 }
+@media (max-width: 576px) {
+    .toolbar-profile .profile-name {
+        display: none;
+    }
+}
+@media (max-width: 355px) {
+    .toolbar .toolbar-header {
+        left: 70px;
+    }
+    .toolbar-header p {
+        font-size: 20px;
+    }
+}
+
+
+
+
+
