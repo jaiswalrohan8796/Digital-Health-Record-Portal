@@ -104,9 +104,12 @@ a:hover {
     color: #fff;
     text-decoration: none;
 }
-@media (max-width: 576px) {
+@media (max-width: 768px) {
     .basic {
         padding: 8px;
+    }
+    .basic p {
+        padding-left: 8px;
     }
 }
 @media (max-width: 576px) {
