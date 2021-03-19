@@ -44,7 +44,7 @@ html {
     color: #6dc9c8;
 }
 #hamburger a:active {
-    color: #6dc9c8;
+    color: rgb(109, 201, 200);
 }
 
 #hamburger input {

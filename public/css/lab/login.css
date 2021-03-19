@@ -8,7 +8,7 @@
     align-items: center;
     overflow-y: hidden;
 }
-h2{
+h2 {
     border-bottom: 5px solid #ffbbbd;
 }
 .basic1 {
@@ -32,15 +32,19 @@ form .form-group {
     font-weight: bold;
     color: #ffffff;
 }
+
+.form-group input {
+    caret-color: #6dc9c8;
+}
 form .btn {
-    background-color:  #ffbbbd;
-    color: rgb(0, 0, 0);
+    background-color: #ffbbbd;
+    color: rgb(255, 255, 255);
     font-size: 1rem;
     font-weight: bold;
     border-radius: 24px;
 }
-button:hover {
-    color: #0d0530;
+.btn:hover {
+    color: #ffffff;
 }
 a {
     color: white;
