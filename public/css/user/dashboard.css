@@ -199,10 +199,13 @@
     .toolbar-profile .profile-name {
         display: none;
     }
+    .toolbar .toolbar-header {
+        left: 60px;
+    }
 }
 @media (max-width: 355px) {
     .toolbar .toolbar-header {
-        left: 70px;
+        left: 60px;
     }
     .toolbar-header p {
         font-size: 20px;

@@ -223,6 +223,9 @@ main {
     .toolbar-profile .profile-name {
         display: none;
     }
+    .toolbar .toolbar-header {
+        left: 60px;
+    }
 }
 
 @media (max-width: 355px) {
