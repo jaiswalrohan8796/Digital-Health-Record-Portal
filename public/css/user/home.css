@@ -1,4 +1,4 @@
-.med-form-alert {
+.med-form-link {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -6,6 +6,11 @@
     padding: 8px;
     background-color: #7ee6e4;
     border-radius: 12px;
+    text-decoration: none;
+    color: #fff;
+}
+.med-form-link:hover {
+    color: #fff;
 }
 .med-form-alert p {
     margin-bottom: 0;
@@ -40,4 +45,8 @@
 }
 .current p {
     text-align: justify;
+}
+.current-treatment-item {
+    padding: 12px;
+    border-radius: 32px;
 }
