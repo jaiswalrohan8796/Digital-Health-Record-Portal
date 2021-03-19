@@ -21,7 +21,7 @@ main {
 }
 .basic p {
     text-align: justify;
-    word-break: break-all;
+    word-break: break-word;
     overflow-x: hidden;
 }
 .column {

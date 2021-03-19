@@ -21,7 +21,7 @@ main {
 }
 .basic p {
     text-align: left;
-    word-wrap: break-word;
+    word-break: break-word;
 }
 .column {
     float: left;
