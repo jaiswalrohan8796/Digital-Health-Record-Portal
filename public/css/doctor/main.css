@@ -7,8 +7,6 @@
 body {
     font-size: 16px;
     font-family: "Poppins", sans-serif;
-    background-color: #0e3150;
-    color: white;
     overflow-x: hidden;
 }
 
@@ -78,7 +76,6 @@ a:hover {
 }
 
 /* Footer  */
-
 
 /* Media Queries  */
 

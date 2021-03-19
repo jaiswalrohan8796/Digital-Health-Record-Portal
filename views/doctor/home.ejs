@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/css/doctor/main.css">
     <link rel="stylesheet" href="/css/doctor/dashboard.css">
     <link rel="stylesheet" href="/css/doctor/login.css">
+    <link rel="stylesheet" href="/css/doctor/home.css">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -131,7 +132,7 @@
         </div>
         <!-- Heading -->
         <div class="toolbar-header">
-            <p class="fs-32">Dashboard</p>
+            <p class="fs-32">Home</p>
         </div>
         <!-- Profile -->
         <div class="toolbar-profile">
@@ -198,77 +199,75 @@
     <div class="toolbar-space"></div>
     <!-- alert for home only -->
     <main>
-        <div class="column">
-            <div class="column basic1 my-4">
-                <p class="fs-28 bold">Basic Details</p>
-                <div class="col-12">
-                    <p>Name : <%= fullName %>
+        <div class="basic row my-4">
+            <p class="fs-28 heading">Basic Details</p>
+            <div class="col-sm-6 row">
+                <div class="col-4">
+                    <p>Name :</p>
+                </div>
+                <div class="col-8">
+                    <p>
+                        <%= fullName %>
                     </p>
                 </div>
-                <div class="col-12">
-                    <p>Designation : <%= doctor.profile.designation %>
+                <div class="col-4">
+                    <p>Designation :</p>
+                </div>
+                <div class="col-8">
+                    <p>
+                        <%= doctor.profile.designation %>
                     </p>
                 </div>
-                <div class="col-12">
-                    <p>Specialisation : <%= doctor.profile.specialization %>
+                <div class="col-4">
+                    <p>Specialisation :</p>
+                </div>
+                <div class="col-8">
+                    <p>
+                        <%= doctor.profile.specialization %>
                     </p>
                 </div>
             </div>
-            <div class="column col-12 my-4">
-                <div class="basic1">
-                    <form>
-                        <h2 class="">Enter the Health Card Number :</h2>
-                        <div class="form-group row ">
-                            <div class="col-md-12">
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group login-btn row">
-                            <button class="btn  col-sm-12 text-center">Enter</button>
-                        </div>
-                    </form>
+            <div class="col-sm-6 row">
+                <div class="col-4">
+                    <p>Mobile No. :</p>
                 </div>
-            </div>
-            <div class="column basic1 my-4">
-                <p class="fs-28 bold">Basic Details</p>
-                <div class="col-12">
-                    <p>Mobile No. : <%= doctor.profile.mobileNo %>
+                <div class="col-8">
+                    <p>
+                        <%= doctor.profile.mobileNo %>
                     </p>
                 </div>
-                <div class="col-12">
-                    <p>Address : <%= doctor.profile.address %>
+                <div class="col-4">
+                    <p>Address :</p>
+                </div>
+                <div class="col-8">
+                    <p>
+                        <%= doctor.profile.address %>
                     </p>
                 </div>
-                <div class="col-12">
-                    <p>MCIR NO. : <%= doctor.profile.mcirno %>
+                <div class="col-4">
+                    <p>MCIR NO. :</p>
+                </div>
+                <div class="col-8">
+                    <p>
+                        <%= doctor.profile.mcirno %>
                     </p>
                 </div>
             </div>
         </div>
-
-
-
-        <!-- If there is/are any current treatments -->
-        <div class="current row">
-            <p class="fs-28">Treatments Related: </p>
-            <div class="col-4">
-                <p style="text-align: left;">Current patients :</p>
+        <div class="column col-12 my-4">
+            <div class="basic1">
+                <form>
+                    <h2 class="heading">Enter the Health Card Number :</h2>
+                    <div class="form-group row ">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group login-btn row">
+                        <button class="btn  col-sm-12 text-center">Enter</button>
+                    </div>
+                </form>
             </div>
-            <div class="col-8">
-                <p>50</p>
-            </div>
-            <div class="col-4">
-                <p>Previous Patients Treated :</p>
-            </div>
-            <div class="col-8">
-                <p>100</p>
-            </div>
-            <!-- <div class="col-4">
-                <p>Doctor :</p>
-            </div>
-            <div class="col-8">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae quasi repellendus nihil.</p>
-            </div> -->
         </div>
     </main>
     <!-- Optional JavaScript -->
