@@ -9,6 +9,7 @@
     margin: 1rem;
     padding-left: 4rem;
 } */
+<<<<<<< HEAD
 /* .header_navbar {
     display: flex;
     background-color: #ffc0c2;
@@ -21,6 +22,9 @@
 .header_navbar {
     text-align: center;
 } */
+=======
+
+>>>>>>> df340a0137d353b9c06f82f6d19e162dcbafa158
 * {
     margin: 0;
     padding: 0;
@@ -222,14 +226,14 @@ footer {
     .main_header_left {
         height: auto;
         margin: 5rem 0;
-        padding:0px
+        padding: 0px;
     }
     .main_header_right {
         height: auto;
     }
     .container-fluid {
-        min-height:380px;
-        background-size:cover;
+        min-height: 380px;
+        background-size: cover;
         background-position: left;
     }
 }

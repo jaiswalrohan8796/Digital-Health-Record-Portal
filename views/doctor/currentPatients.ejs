@@ -14,9 +14,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <!-- Custom Styling -->
-    <link rel="stylesheet" href="/css/lab/main.css">
-    <link rel="stylesheet" href="/css/lab/dashboard.css">
-    <link rel="stylesheet" href="/css/lab/home.css">
+    <link rel="stylesheet" href="/css/doctor/main.css">
+    <link rel="stylesheet" href="/css/doctor/dashboard.css">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -47,7 +46,7 @@
                                     <line x1="12" y1="2" x2="12" y2="15">
                                     </line>
                                 </svg>
-                                <a href="/lab/dashboard/logout">Logout</a>
+                                <a href="/doctor/dashboard/logout">Logout</a>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
                                     stroke-linejoin="round" class="feather feather-info">
@@ -63,7 +62,7 @@
                             </div>
                         </div>
                         <div class="menu-items mt-3">
-                            <a href="/lab/dashboard" class="menu-item-single">
+                            <a href="/doctor/dashboard/" class="menu-item-single">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="feather feather-home">
@@ -74,7 +73,7 @@
                                 </svg>
                                 <li>Home</li>
                             </a>
-                            <a href="/lab/dashboard/sent" class="menu-item-single">
+                            <a href="/doctor/dashboard/current" class="menu-item-single">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="feather feather-edit">
@@ -84,9 +83,9 @@
                                     </path>
                                 </svg>
 
-                                <li>Sent Reports</li>
+                                <li>Current Patients</li>
                             </a>
-                            <a href="/lab/dashboard/pending" class="menu-item-single">
+                            <a href="/doctor/dashboard/previous" class="menu-item-single">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="feather feather-archive">
@@ -98,9 +97,9 @@
                                     </line>
                                 </svg>
 
-                                <li>Pending Reports</li>
+                                <li>Previous Patients</li>
                             </a>
-                            <a href="/lab/dashboard/settings" class="menu-item-single">
+                            <a href="/doctor/dashboard/settings" class="menu-item-single">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="feather feather-settings">
@@ -119,17 +118,16 @@
         </div>
         <!-- Heading -->
         <div class="toolbar-header">
-            <p class="fs-32">Home</p>
+            <p class="fs-32">Current Patients</p>
         </div>
         <!-- Profile -->
         <div class="toolbar-profile">
             <div class="profile-name">
                 <p>
-                    <%= labName%>
+                    <%= fullName %>
                 </p>
             </div>
             <div class="profile-image">
-                <?xml version="1.0"?>
                 <!-- doctor-svg -->
                 <?xml version="1.0"?>
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -148,68 +146,7 @@
     <div class="toolbar-space"></div>
     <!-- alert for home only -->
     <main>
-        <div class="basic row my-4">
-            <p class="fs-28 heading">Basic Details</p>
-            <div class="col-sm-6 row">
-                <div class="col-4">
-                    <p class="bold">Name:</p>
-                </div>
-                <div class="col-8">
-                    <p>
-                        <%= lab.profile.labName %>
-                    </p>
-                </div>
-                <div class="col-4">
-                    <p class="bold">Registration No:</p>
-                </div>
-                <div class="col-8">
-                    <p>
-                        <%= lab.profile.registrationNo %>
-                    </p>
-                </div>
-                <div class="col-4">
-                    <p class="bold">Phone No:</p>
-                </div>
-                <div class="col-8">
-                    <p>
-                        <%= lab.profile.phoneNo %>
-                    </p>
-                </div>
-            </div>
-            <div class="col-sm-6 row">
-                <div class="col-4">
-                    <p class="bold">State:</p>
-                </div>
-                <div class="col-8">
-                    <p>
-                        <%= lab.profile.state %>
-                    </p>
-                </div>
-                <div class="col-4">
-                    <p class="bold">City:</p>
-                </div>
-                <div class="col-8">
-                    <p>
-                        <%= lab.profile.city %>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="column col-12 my-4">
-            <div class="basic1">
-                <form>
-                    <h2 class="heading text-center">Enter the Health Card Number</h2>
-                    <div class="form-group row ">
-                        <div class="col-md-12">
-                            <input type="text" class="form-control" name="search">
-                        </div>
-                    </div>
-                    <div class="form-group login-btn row">
-                        <button class="btn btn-grad col-sm-12 text-center">Search</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+
     </main>
     <!-- Optional JavaScript -->
     <!-- Bundled Bootstrap JS -->

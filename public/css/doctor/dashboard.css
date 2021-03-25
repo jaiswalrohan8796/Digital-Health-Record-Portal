@@ -10,7 +10,7 @@ html {
 .toolbar {
     width: 100%;
     height: 60px;
-    background-color: #ffc0c2;
+    background-color: #0e3150;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -201,116 +201,38 @@ main {
     padding: 16px 24px;
     color: #333;
 }
-.med-form-alert {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px;
-    background-color: #f8fa8a;
-    border-radius: 12px;
-}
-.med-form-alert p {
-    margin-bottom: 0;
-}
-.med-form-alert svg {
-    margin: 4px;
-}
+
 /* gutters for row */
 .row {
     --bs-gutter-x: 0;
     --bs-gutter-y: 0;
 }
-.column{
-    float: left;
-    width: 100%;
-    padding: 10px;
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
-    align-items: center;
-    overflow-y: hidden;
-  
-}
-.basic1{
-    border-radius: 24px;
-    border: 2px solid rgb(49, 3, 134);
-    background: linear-gradient(to right, #f5f8b7, #94f797);
-    padding: 8px 18px;
-    display:flex;
-    flex-direction:column;
-    flex-wrap: nowrap;
-    justify-content:center;
-}
-/* .basic {
-    width: 33.33%;
-    border-radius: 24px;
-    padding: 8px 18px;
-    margin: auto;
-    /* background: #76e3fc; fallback for old browsers
-    background: -webkit-linear-gradient(
-        to right,
-        #00b4db,
-        #25b7e7
-    );
-    border: 2px solid rgb(49, 3, 134);
-    background: linear-gradient(to right, #f5f8b7, #94f797);
-    display:flex;
-    flex-direction:row;
-    align-items:flex-start;
-} */
-.current {
-    width: 100%;
-    border-radius: 24px;
-    padding: 8px 18px;
-    background-image: linear-gradient(to right,#8fe4fd, #1399bb);
-}
-.current p {
-    text-align: justify;
-}
-/* Collapsible */
-.collapsible {
-    background-color: rgb(98, 201, 138);
-    color: white;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border-radius: 24px;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 28px;
-  }
-  
-  .active, .collapsible:hover {
-    background-color: rgb(60, 148, 75);
-  }
-  
-  .content {
-    padding: 8px;
-    display: none;
-    overflow: hidden;
-    border-radius: 24px;
-    background: linear-gradient(to right, #e7c056, #f13232);
-    width: 100%;
-  }
+
 /* media queries */
-@media (max-width: 355px) {
-    .toolbar .toolbar-header {
-        left: 70px;
+@media (max-width: 768px) {
+    .toolbar-header p {
+        font-size: 24px;
     }
 }
-
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
 @media (max-width: 576px) {
     .toolbar-profile .profile-name {
         display: none;
     }
+    .toolbar .toolbar-header {
+        left: 60px;
+    }
 }
 
-@media (max-width: 768px) {
-}
-@media screen and (max-width: 600px) {
-    .column {
-      width: 100%;
+@media (max-width: 355px) {
+    .toolbar .toolbar-header {
+        left: 70px;
     }
-  }
+    .toolbar-header p {
+        font-size: 20px;
+    }
+}

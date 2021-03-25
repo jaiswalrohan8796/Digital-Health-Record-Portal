@@ -10,20 +10,36 @@ passport.serializeUser((person, done) => {
 });
 
 passport.deserializeUser((id, done) => {
-    User.findOne({ _id: id }).then((user) => {
-        if (!user) {
-            Lab.findOne({ _id: id })
-                .then((lab) => {
-                    done(null, lab);
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
-        }
-        if (user) {
-            done(null, user);
-        }
-    });
+    User.findOne({ _id: id })
+        .then((user) => {
+            if (!user) {
+                Lab.findOne({ _id: id })
+                    .then((lab) => {
+                        if (lab) {
+                            done(null, lab);
+                        } else {
+                            Doctor.findOne({ _id: id })
+                                .then((doc) => {
+                                    if (doc) {
+                                        done(null, doc);
+                                    } else {
+                                        done(null, null);
+                                    }
+                                })
+                                .catch((err) => {
+                                    console.log(err);
+                                });
+                        }
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+            }
+            if (user) {
+                done(null, user);
+            }
+        })
+        .catch((err) => console.log(err));
 });
 //user passport-local
 passport.use(
@@ -107,7 +123,6 @@ passport.use(
                 if (!passwordMatched) {
                     return done(null, false, { message: "Password incorrect" });
                 }
-                console.log("Authentication done");
                 return done(null, doctor);
             } catch (err) {
                 console.log(err);
