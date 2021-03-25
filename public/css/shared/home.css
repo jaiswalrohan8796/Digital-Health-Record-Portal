@@ -9,7 +9,22 @@
     margin: 1rem;
     padding-left: 4rem;
 } */
+<<<<<<< HEAD
+/* .header_navbar {
+    display: flex;
+    background-color: #ffc0c2;
+    color: white;
+}
+.navbar a:hover {
+    background-color: #0e3150;
+    border: #fcb2b4;
+}
+.header_navbar {
+    text-align: center;
+} */
+=======
 
+>>>>>>> df340a0137d353b9c06f82f6d19e162dcbafa158
 * {
     margin: 0;
     padding: 0;
@@ -214,9 +229,18 @@ footer {
     }
 }
 @media (max-width: 768px) {
+<<<<<<< HEAD
     .navbar .fs-40 {
         font-size: 24px;
     }
+=======
+    .header {text-align: center;
+    }
+    .topnav {
+        background-color:#0e3150;
+        margin:0px;
+     }
+>>>>>>> fb6400f26871c35221fd59ea0b1277c52f172517
     .text-box {
         padding-left: 1rem;
     }
