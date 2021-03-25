@@ -23,6 +23,19 @@ body {
     display: flex;
     flex-direction: column;
 }
+.navbar {
+    background-color: #ffc0c2;
+}
+.navbar button:focus {
+    outline: none;
+}
+.navbar-collapse {
+    position: relative;
+    left: 140px;
+}
+.navbar .nav-item {
+    margin: 0 32px;
+}
 .row {
     margin: 0;
 }
@@ -42,7 +55,7 @@ body {
     text-align: center;
 }
 
-.container-fluid {
+.container-fluid-2 {
     background: url("../../images/shared/home/national-cancer-institute-NFvdKIhxYlU-unsplash.jpg");
     background-position: center;
     background-size: cover;
@@ -192,16 +205,21 @@ footer {
     filter: drop-shadow(10px 8px 8px rgba(0, 0, 0, 0.4));
 }
 
+@media (max-width: 992px) {
+    .navbar-collapse {
+        left: 10px;
+    }
+    .navbar .nav-item {
+        margin: 0;
+    }
+}
 @media (max-width: 768px) {
+    .navbar .fs-40 {
+        font-size: 24px;
+    }
     .text-box {
         padding-left: 1rem;
     }
-    /* .carousel {
-        height: 192px;
-    }
-    .carousel-inner {
-        height: 192px;
-    } */
     .main_header_left {
         height: auto;
         margin: 5rem 0;
@@ -210,9 +228,25 @@ footer {
     .main_header_right {
         height: auto;
     }
-    .container-fluid {
+    .container-fluid-2 {
         min-height: 380px;
         background-size: cover;
         background-position: left;
+    }
+}
+@media (max-width: 576px) {
+    .navbar .fs-40 {
+        font-size: 20px;
+    }
+    .main_header_left .fs-32 {
+        font-size: 20px;
+    }
+    .main_header_left .fs-20 {
+        font-size: 16px;
+    }
+}
+@media (max-width: 330px) {
+    .navbar .fs-40 {
+        font-size: 16px;
     }
 }
