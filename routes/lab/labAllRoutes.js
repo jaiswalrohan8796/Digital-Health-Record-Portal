@@ -5,8 +5,8 @@ const dashboardRoutes = require("../lab/dashboardRoutes");
 
 //authenticate check
 const isAuthenticated = (req, res, next) => {
-    if (!req.user) {
-        res.render("lab/login", { error: "", status: "Login first" });
+    if (!req.user || req.user.role !== "lab") {
+        return res.render("lab/login", { error: "", status: "Login first" });
     }
     next();
 };
