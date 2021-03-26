@@ -1,5 +1,5 @@
 const router = require("express").Router();
-
+const forgotPasswordRoutes = require("../routes/forgotPasswordRoutes.js");
 //get homepage
 router.get("/", (req, res, next) => {
     res.render("index");
@@ -18,6 +18,8 @@ router.get("/user/login", (req, res, next) => {
 router.get("/user/register", (req, res, next) => {
     res.render("user/register", { error: "", status: "" });
 });
+
+router.use("/user", forgotPasswordRoutes);
 
 //doctor routes
 router.get("/doctor/login", (req, res, next) => {
