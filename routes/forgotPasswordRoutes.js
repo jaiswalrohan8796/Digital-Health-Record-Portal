@@ -116,7 +116,7 @@ router.post("/new-password", async (req, res, next) => {
         });
         //notify user about new password set
         const message = {
-            to: email,
+            to: user.account.email,
             from: "Rohan Jaiswal <ronjazz8796@gmail.com>",
             subject: "New Password set successfully",
             html: `<body><h3 style={"text-align: center"}>Digital Health Record Portal</h3></body>
