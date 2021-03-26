@@ -19,7 +19,7 @@ router.get("/user/register", (req, res, next) => {
     res.render("user/register", { error: "", status: "" });
 });
 
-router.use("/user", forgotPasswordRoutes);
+router.use(forgotPasswordRoutes);
 
 //doctor routes
 router.get("/doctor/login", (req, res, next) => {

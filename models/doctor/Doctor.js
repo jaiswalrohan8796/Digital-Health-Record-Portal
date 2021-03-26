@@ -31,10 +31,10 @@ const DoctorSchema = mongoose.Schema({
             type: String,
             required: true,
         },
-        mcirno:{
-            type:Number,
-            required:true
-        }
+        mcirno: {
+            type: Number,
+            required: true,
+        },
     },
     account: {
         email: {
@@ -45,8 +45,12 @@ const DoctorSchema = mongoose.Schema({
             type: String,
             required: true,
         },
-    }
-     
+        resetToken: {
+            type: String,
+            default: undefined,
+        },
+        resetTokenExpiration: Date,
+    },
 });
 
 const Doctor = mongoose.model("Doctor", DoctorSchema);

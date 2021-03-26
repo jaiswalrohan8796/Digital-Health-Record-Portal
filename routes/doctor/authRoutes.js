@@ -42,6 +42,7 @@ router.post(
             .isNumeric()
             .withMessage("mcir should be a number")
             .isLength({ min: 6, max: 6 })
+            .withMessage("MCIR number should be 6 digit")
             .trim(),
         check("email")
             .notEmpty()
@@ -100,7 +101,9 @@ router.post(
                     status: "",
                 });
             }
-            const alreadyUser = await Doctor.findOne({ "account.email": email });
+            const alreadyUser = await Doctor.findOne({
+                "account.email": email,
+            });
             if (alreadyUser) {
                 return res.render("doctor/register", {
                     error: "Already a user, please login",

@@ -45,6 +45,11 @@ const LabSchema = mongoose.Schema({
             type: String,
             required: true,
         },
+        resetToken: {
+            type: String,
+            default: undefined,
+        },
+        resetTokenExpiration: Date,
     }
      
 });
