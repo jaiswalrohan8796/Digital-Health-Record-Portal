@@ -24,3 +24,8 @@ NEXT TO DO :-
 5.design all user dashboard pages
 5.design all doctor dashboard pages
 5.design all lab dashboard pages
+
+
+User => rohan@gmail.com : test 
+Doctor => ansari@gmail.com : text@123
+Lab => lab@gmail.com : test123
