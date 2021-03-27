@@ -25,6 +25,18 @@ router.get("/dashboard/settings", (req, res, next) => {
         fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
     });
 });
+router.get("/dashboard/patientDetail", (req, res, next) => {
+    res.render("doctor/patientDetail", {
+        doctor: req.user,
+        fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
+    });
+});
+router.get("/dashboard/newForm", (req, res, next) => {
+    res.render("doctor/newForm", {
+        doctor: req.user,
+        fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
+    });
+});
 router.get("/dashboard/logout", (req, res, next) => {
     req.logout();
     res.redirect("/");
