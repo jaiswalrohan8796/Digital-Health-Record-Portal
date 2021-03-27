@@ -35,6 +35,33 @@ body {
 .row {
     margin: 0;
 }
+/* about csse */
+.about{
+    margin-top: 20px;
+    color: black;
+    background-color:white;
+    border-bottom: 5px solid #ffbbbd;
+    box-shadow: 4px 6px 12px 4px rgb(224, 214, 214);
+    border-radius: 20px;
+    padding:20px;
+}
+.title
+{
+    border-bottom: 5px solid #ffbbbd;
+    font-size:20px;
+    font-weight:bold;
+}
+.aboutInfo{
+    padding-top: 15px;
+    padding-left: 50px;
+
+}
+@media (max-width:576px)
+{
+    .about{
+
+    }
+}
 .main_header_left {
     height: 70rem;
     display: flex;
