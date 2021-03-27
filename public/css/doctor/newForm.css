@@ -1,0 +1,12 @@
+.center{
+    width: 100px;
+}
+.body-wrapper {
+    margin: 1rem;
+}
+.container{
+    box-shadow: 4px 6px 12px 4px rgb(224, 214, 214);
+    border-radius: 32px;
+    margin:auto;
+    padding:inherit;
+}
