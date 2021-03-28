@@ -203,10 +203,10 @@ main {
 }
 
 /* gutters for row */
-.row {
+/* .row {
     --bs-gutter-x: 0;
     --bs-gutter-y: 0;
-}
+} */
 
 /* media queries */
 @media (max-width: 768px) {

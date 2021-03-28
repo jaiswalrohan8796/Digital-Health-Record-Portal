@@ -1,23 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Dashboard</title>
+    <title>Settings</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
-
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icon  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
     <!-- Custom Styling -->
+    <!-- <link rel="stylesheet" href="css/shared/main.css"> -->
     <link rel="stylesheet" href="/css/doctor/main.css">
     <link rel="stylesheet" href="/css/doctor/dashboard.css">
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/doctor/settings.css">
+
 </head>
 
 <body>
@@ -99,7 +101,7 @@
 
                                 <li>Previous Patients</li>
                             </a>
-                            <a href="/doctor/dashboard/settings" class="menu-item-single">
+                            <a href="#" class="menu-item-single">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="feather feather-settings">
@@ -118,13 +120,13 @@
         </div>
         <!-- Heading -->
         <div class="toolbar-header">
-            <p class="fs-32">Settings</p>
+            <p class="fs-32">Home</p>
         </div>
         <!-- Profile -->
         <div class="toolbar-profile">
             <div class="profile-name">
                 <p>
-                    <%= fullName %>
+                    Rohan Jaiswal
                 </p>
             </div>
             <div class="profile-image">
@@ -144,15 +146,99 @@
     </div>
     <!-- toolbar space fix -->
     <div class="toolbar-space"></div>
-    <!-- alert for home only -->
     <main>
+        <!-- Settings  -->
+        <!-- profile -->
+        <form class="profile row my-4" action="/doctor/dashboard/setting/profile" method="POST">
+            <div class="heading">
+                <p class="fs-28 bold">Profile</p>
+            </div>
+            <i class="bi bi-pencil-square edit-icon" id="profile-edit-icon" onclick="enableEdit()"></i>
 
+            <div class="col-sm-6 row mt-4">
+                <div class="col-4">
+                    <label for="firstName" class="form-label">First name</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control" type="text" name="firstName" value="John">
+                </div>
+            </div>
+            <div class="col-sm-6 row mt-4">
+                <div class="col-4">
+                    <label for="lastName" class="form-label">Last Name</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control" type="text" name="lastName" value="Doe">
+                </div>
+            </div>
+            <div class="col-sm-6 row mt-4">
+                <div class="col-4">
+                    <label for="designation" class="form-label">Designation</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control" type="text" name="designation" value="MBBS">
+                </div>
+            </div>
+            <div class="col-sm-6 row mt-4">
+                <div class="col-4">
+                    <label for="specialization" class="form-label">Specialization</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control" type="text" name="specialization" value="Cardiology">
+                </div>
+            </div>
+            <div class="col-sm-6 row mt-4">
+                <div class="col-4">
+                    <label for="mcirNo" class="form-label">MCIR No</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control" type="text" name="designation" value="555444332">
+                </div>
+            </div>
+            <div class="col-sm-6 row my-4">
+                <div class="col-4">
+                    <label for="mobileNo" class="form-label">Mobile No</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control" type="number" name="mobileNo" value="8793178561">
+                </div>
+            </div>
+            <div class="col-12 saveButton-container">
+                <button id="saveButton" type="submit" class="btn">Save</button>
+            </div>
+        </form>
+        <form action="" class="account row" method="POST">
+            <div class="heading">
+                <p class="fs-28 bold">Account</p>
+            </div>
+            <div class="col-12 row text-center mt-4">
+                <div class="col-sm-4">
+                    <p>Email</p>
+                </div>
+                <div class="col-sm-4">
+                    <p>dummy@gmail.com</p>
+                </div>
+                <div class="col-sm-4">
+                    <a class="change-btn" href="/doctor/dashboard/setting/change-email">Change Email</a>
+                </div>
+            </div>
+            <div class="col-12 row text-center my-4">
+                <div class="col-sm-4">
+                    <p>Password</p>
+                </div>
+                <div class="col-sm-4">
+                    <p>* * * * * * * *</p>
+                </div>
+                <div class="col-sm-4">
+                    <a class="change-btn" href="/doctor/forgotpassword">Change Password</a>
+                </div>
+            </div>
+        </form>
     </main>
-    <!-- Optional JavaScript -->
-    <!-- Bundled Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-        crossorigin="anonymous"></script>
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+        </script>
+    <script src="/js/doctor/settings.js"></script>
 </body>
 
 </html>
