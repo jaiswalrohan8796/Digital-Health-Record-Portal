@@ -1,6 +1,6 @@
 var inputs = document.querySelectorAll(".profile input");
 const saveButton = document.getElementById("saveButton");
-
+const statusBar = document.getElementById("status");
 inputs.forEach((input) => {
     input.disabled = true;
 });
@@ -22,3 +22,7 @@ const enableEdit = () => {
     }
     console.log("enable input function called");
 };
+
+setInterval(() => {
+    statusBar.style.display = "none";
+}, 5000);
