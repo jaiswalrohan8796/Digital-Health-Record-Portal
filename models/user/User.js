@@ -7,7 +7,7 @@ const UserSchema = mongoose.Schema({
         required: true,
     },
     AccessID:{
-        uniqueId:{
+        HealthId:{
             type:Number,
         }
     },

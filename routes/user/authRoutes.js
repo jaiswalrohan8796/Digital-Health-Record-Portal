@@ -79,7 +79,6 @@ router.post(
     ],
     async (req, res, next) => {
         const {
-            uniqueId,
             firstName,
             lastName,
             address,
