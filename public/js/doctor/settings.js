@@ -1,4 +1,4 @@
-var inputs = document.querySelectorAll("input");
+var inputs = document.querySelectorAll(".profile input");
 const saveButton = document.getElementById("saveButton");
 
 inputs.forEach((input) => {
