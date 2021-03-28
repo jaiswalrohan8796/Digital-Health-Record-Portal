@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/css/user/main.css">
     <link rel="stylesheet" href="/css/user/dashboard.css">
     <link rel="stylesheet" href="/css/user/home.css">
+    <link rel="stylesheet" href="/css/user/settings.css">
 
 </head>
 
@@ -196,13 +197,168 @@
     <!-- toolbar space fix -->
     <div class="toolbar-space"></div>
     <main>
+        <!-- Settings  -->
+        <!-- profile -->
+        <form class="profile row my-4" action="/user/dashboard/setting/profile" method="POST">
+            <div class="heading">
+                <p class="fs-28 bold">Profile</p>
+            </div>
+            <i class="bi bi-pencil-square edit-icon iconic" id="profile-edit-icon" onclick="enableprofileEdit()"></i>
 
+            <div class="col-sm-6 row mt-4">
+                <div class="col-4">
+                    <label for="firstName" class="form-label">First name</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control profileinput" type="text" name="firstName" value="John">
+                </div>
+            </div>
+            <div class="col-sm-6 row mt-4">
+                <div class="col-4">
+                    <label for="lastName" class="form-label">Last Name</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control profileinput" type="text" name="lastName" value="Doe">
+                </div>
+            </div>
+            <div class="col-sm-6 row mt-4">
+                <div class="col-4">
+                    <label for="DOB" class="form-label">Date of Birth</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control profileinput" type="date" name="DOB" value="">
+                </div>
+            </div>
+            <div class="col-sm-6 row mt-4">
+                <div class="col-4">
+                    <label for="Gender" class="form-label">Gender</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control profileinput" type="text" name="gender" value="Male">
+                </div>
+            </div>
+            <div class="col-sm-6 row mt-4">
+                <div class="col-4">
+                    <label for="bloodgroup" class="form-label">Blood Group</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control profileinput" type="text" name="bloodgroup" value="A+">
+                </div>
+            </div>
+            <div class="col-sm-6 row my-4">
+                <div class="col-4">
+                    <label for="mobileNo" class="form-label">Mobile No</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control profileinput" type="number" name="mobileNo" value="8793178561">
+                </div>
+            </div>
+            <div class="col-sm-12 row mb-4 ">
+                <div class="col-2">
+                    <label for="address" class="form-label">Address</label>
+                </div>
+                <div class="col-10">
+                    <input class="form-control profileinput" type="text" name="address" value="XYZ">
+                </div>
+            </div>
+            <div class="col-sm-6 row mb-4">
+                <div class="col-4">
+                    <label for="city" class="form-label">City</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control profileinput" type="text" name="city" value="Bhiwandi">
+                </div>
+            </div>
+            <div class="col-sm-6 row ">
+                <div class="col-4">
+                    <label for="state" class="form-label">State</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control profileinput" type="text" name="state" value="Maharashtra">
+                </div>
+            </div>
+            <div class="col-12 profilesaveButton-container">
+                <button id="profilesaveButton" type="submit" class="btn">Save</button>
+            </div>
+        </form>
+        <!-- Settings  -->
+        <!-- Medical -->
+        <form class="profile row my-4" action="/user/dashboard/setting/medical" method="POST">
+            <div class="heading">
+                <p class="fs-28 bold">Medical</p>
+            </div>
+            <i class="bi bi-pencil-square edit-icon" id="medical-edit-icon" onclick="enableMedicalEdit()"></i>
+
+            <div class="col-sm-6 row mt-4">
+                <div class="col-4">
+                    <label for="medicalDiagnosis" class="form-label">Medical Diagnosis</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control medicalinput" type="text" name="medicalDiagnosis" value="Diabetes">
+                </div>
+            </div>
+            <div class="col-sm-6 row mt-4">
+                <div class="col-4">
+                    <label for="allergies" class="form-label">Allergies</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control medicalinput" type="text" name="allergies" value="Peanut">
+                </div>
+            </div>
+            <div class="col-sm-6 row mt-4">
+                <div class="col-4">
+                    <label for="functionalStatus" class="form-label">Functional Status</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control medicalinput" type="text" name="functionalStatus" value="left leg Amputee">
+                </div>
+            </div>
+            <div class="col-sm-6 row mt-4">
+                <div class="col-4">
+                    <label for="equipmentDevice" class="form-label">Equipment Device</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control medicalinput" type="text" name="equipmentDevice" value="Wheel Chair">
+                </div>
+            </div>
+            <div class="col-12 medicalsaveButton-container">
+                <button id="medicalsaveButton" type="submit" class="btn">Save</button>
+            </div>
+        </form>
+        <form action="" class="account row" method="POST">
+            <div class="heading">
+                <p class="fs-28 bold">Account</p>
+            </div>
+            <div class="col-12 row text-center mt-4">
+                <div class="col-sm-4">
+                    <p>Email</p>
+                </div>
+                <div class="col-sm-4">
+                    <p>dummy@gmail.com</p>
+                </div>
+                <div class="col-sm-4">
+                    <a class="change-btn" href="/user/dashboard/setting/change-email">Change Email</a>
+                </div>
+            </div>
+            <div class="col-12 row text-center my-4">
+                <div class="col-sm-4">
+                    <p>Password</p>
+                </div>
+                <div class="col-sm-4">
+                    <p>* * * * * * * *</p>
+                </div>
+                <div class="col-sm-4">
+                    <a class="change-btn" href="/user/forgotpassword">Change Password</a>
+                </div>
+            </div>
+        </form>
     </main>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
         </script>
+    <script src="/js/user/settings.js"></script>
 </body>
 
 </html>
