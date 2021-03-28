@@ -1,0 +1,81 @@
+/* about csse */
+.about{
+    
+    margin-top: 20px;
+    color: black;
+    background-color:white;
+    border-bottom: 10px solid #ffbbbd;
+    box-shadow: 4px 6px 12px 4px #0b243b;
+    border-radius: 20px;
+    padding:20px;
+}
+.title
+{
+    border-bottom: 5px solid #ffbbbd;
+    font-size:20px;
+    font-weight:bold;
+}
+.aboutInfo{
+    padding-top: 15px;
+    padding-left: 50px;
+
+}
+.card-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 1rem;
+}
+.card {
+    height: 280px;
+    width: 300px;
+    box-shadow: 8px 8px 16px 8px #b0c7db;
+    border-radius: 16px;
+    list-style: none;
+    margin: 1rem;
+    color: #0b243b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+.card .link {
+    width: 100%;
+    margin-top: 26px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.card .link button {
+    margin: 0 4rem;
+    font-size: 2rem;
+}
+.card .link button a:hover {
+    text-decoration: none;
+}
+@media (max-width:576px)
+{
+
+}
+@media (max-width:450px){
+    .navbar .fs-40 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width:1210px)
+{
+    .navbar .icons{
+        margin-left:-20px;
+    }
+}
+@media (max-width:1125px)
+{
+    .navbar .icons{
+        margin-left:-50px;
+    }
+}
+ 
