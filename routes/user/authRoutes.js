@@ -2,6 +2,7 @@ const router = require("express").Router();
 const passport = require("passport");
 const bcrypt = require("bcrypt");
 const { check, validationResult } = require("express-validator");
+const generateUniqueId = require('generate-unique-id');
 
 const User = require("../../models/user/User.js");
 require("../../utils/passportConfig.js");
@@ -78,6 +79,7 @@ router.post(
     ],
     async (req, res, next) => {
         const {
+            uniqueId,
             firstName,
             lastName,
             address,
@@ -109,8 +111,15 @@ router.post(
                 });
             }
             const hashedPassword = await bcrypt.hash(password, 10);
+            const Id = generateUniqueId({
+                length: 6,
+                useLetters: false,
+                useNumbe:true,
+                excludeSymbols: ['!','@','#','$','%','&','*','~','^']
+              });
             const newUser = new User({
                 role: "user",
+                AccessID:{uniqueId:Id},
                 profile: {
                     firstName: firstName,
                     lastName: lastName,

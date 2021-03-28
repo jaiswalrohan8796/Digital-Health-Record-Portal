@@ -6,6 +6,11 @@ const UserSchema = mongoose.Schema({
         enum: ["user", "doctor", "lab"],
         required: true,
     },
+    AccessID:{
+        uniqueId:{
+            type:Number,
+        }
+    },
     profile: {
         firstName: {
             type: String,

@@ -26,6 +26,7 @@
     "express-flash": "0.0.2",
     "express-session": "^1.17.1",
     "express-validator": "^6.10.0",
+    "generate-unique-id": "^2.0.1",
     "mongoose": "^5.12.2",
     "nodemailer": "^6.5.0",
     "passport": "^0.4.1",

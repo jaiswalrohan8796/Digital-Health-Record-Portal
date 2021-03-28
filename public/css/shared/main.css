@@ -139,25 +139,21 @@ footer {
 /* Media Queries  */
 
 @media (max-width: 768px) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+  
     .header .header_navbar {
         text-align: center;
-        
-=======
+    } 
+
     .header_navbar {
         justify-content: center;
         padding: 0;
     }
->>>>>>> fb6400f26871c35221fd59ea0b1277c52f172517
+
     .footer-div {
         width: auto;
->>>>>>> df340a0137d353b9c06f82f6d19e162dcbafa158
+
     }
-}
-<<<<<<< HEAD
-=======
+} 
 
 @media (max-width: 576px) {
     .header .fs-32 {
@@ -173,14 +169,9 @@ footer {
         font-size: 16px;
     }
 }
-<<<<<<< HEAD
 @media (max-width:330px) {
     .header .fs-32{
-=======
-@media (max-width: 330px) {
-    .header .fs-40 {
->>>>>>> df340a0137d353b9c06f82f6d19e162dcbafa158
         font-size: 20px;
     }
 }
->>>>>>> fb6400f26871c35221fd59ea0b1277c52f172517
+ 
