@@ -13,7 +13,7 @@ p {
     height: 32px;
     width: 32px !important;
     position: absolute;
-    top: 110px;
+    top: 170px;
     right: 40px;
     cursor: pointer;
 }
@@ -93,7 +93,30 @@ a.change-btn {
     background-color: #6dc9c8;
     color: #fff;
 }
-
+.validatorErrorsList .validatorErrors {
+    font-size: 12px;
+    list-style-type: none;
+    padding: 4px 4px;
+    margin: 8px 4px;
+    background-color: white;
+    color: #333;
+    border: 2px solid rgb(156, 156, 156);
+    border-top: 3px solid red;
+    border-radius: 8px;
+}
+.status-wrap {
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.status {
+    background-color: #73d8d8;
+    padding: 8px;
+    color: white;
+    border-radius: 12px;
+}
 @media (max-width: 768px) {
     form {
         padding: 8px;

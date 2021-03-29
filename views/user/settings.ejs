@@ -199,9 +199,31 @@
     <!-- toolbar space fix -->
     <div class="toolbar-space"></div>
     <main>
+        <!-- Error View  -->
+        <ul class="validatorErrorsList">
+            <% if (error instanceof Array) { %>
+                <% error.forEach((err)=> { %>
+                    <li class=" validatorErrors  text-center">
+                        <%= err.msg %>
+                    </li>
+                    <% }) %>
+                        <% } else { %>
+        </ul>
+        <% if (error) { %>
+            <h5 class="text-center" style="text-align: center;">
+                <%= error %>
+            </h5>
+            <% } %>
+                <% } %>
+                    <!-- Status View  -->
+                    <div class='status-wrap'>
+                        <p class="status" id="status">
+                            <%= status %>
+                        </p>
+                    </div>
         <!-- Settings  -->
         <!-- profile -->
-        <form class="profile row my-4" action="/user/dashboard/setting/profile" method="POST">
+        <form class="profile row my-4" action="/user/dashboard/settings/profile" method="POST">
             <div class="heading">
                 <p class="fs-28 bold">Profile</p>
             </div>
@@ -212,7 +234,7 @@
                     <label for="firstName" class="form-label">First name</label>
                 </div>
                 <div class="col-8">
-                    <input class="form-control profileinput" type="text" name="firstName" value="John">
+                    <input class="form-control profileinput" type="text" name="firstName" value="<%= user.profile.firstName %>">
                 </div>
             </div>
             <div class="col-sm-6 row mt-4">
@@ -220,7 +242,7 @@
                     <label for="lastName" class="form-label">Last Name</label>
                 </div>
                 <div class="col-8">
-                    <input class="form-control profileinput" type="text" name="lastName" value="Doe">
+                    <input class="form-control profileinput" type="text" name="lastName" value="<%= user.profile.lastName %>">
                 </div>
             </div>
             <div class="col-sm-6 row mt-4">
@@ -228,7 +250,7 @@
                     <label for="DOB" class="form-label">Date of Birth</label>
                 </div>
                 <div class="col-8">
-                    <input class="form-control profileinput" type="date" name="DOB" value="">
+                    <input class="form-control profileinput" type="date" name="DOB" value="<%= user.profile.DOB %>">
                 </div>
             </div>
             <div class="col-sm-6 row mt-4">
@@ -236,7 +258,7 @@
                     <label for="Gender" class="form-label">Gender</label>
                 </div>
                 <div class="col-8">
-                    <input class="form-control profileinput" type="text" name="gender" value="Male">
+                    <input class="form-control profileinput" type="text" name="gender" value="<%= user.profile.gender %>">
                 </div>
             </div>
             <div class="col-sm-6 row mt-4">
@@ -244,7 +266,7 @@
                     <label for="bloodgroup" class="form-label">Blood Group</label>
                 </div>
                 <div class="col-8">
-                    <input class="form-control profileinput" type="text" name="bloodgroup" value="A+">
+                    <input class="form-control profileinput" type="text" name="bloodgroup" value="<%= user.profile.bloodgroup %>">
                 </div>
             </div>
             <div class="col-sm-6 row my-4">
@@ -252,7 +274,7 @@
                     <label for="mobileNo" class="form-label">Mobile No</label>
                 </div>
                 <div class="col-8">
-                    <input class="form-control profileinput" type="number" name="mobileNo" value="8793178561">
+                    <input class="form-control profileinput" type="number" name="mobileNo" value="<%= user.profile.mobileNo %>">
                 </div>
             </div>
             <div class="col-sm-12 row mb-4 ">
@@ -260,7 +282,7 @@
                     <label for="address" class="form-label">Address</label>
                 </div>
                 <div class="col-10">
-                    <input class="form-control profileinput" type="text" name="address" value="XYZ">
+                    <input class="form-control profileinput" type="text" name="address" value="<%= user.profile.address%>">
                 </div>
             </div>
             <div class="col-sm-6 row mb-4">
@@ -268,7 +290,7 @@
                     <label for="city" class="form-label">City</label>
                 </div>
                 <div class="col-8">
-                    <input class="form-control profileinput" type="text" name="city" value="Bhiwandi">
+                    <input class="form-control profileinput" type="text" name="city" value="<%= user.profile.city %>">
                 </div>
             </div>
             <div class="col-sm-6 row ">
@@ -276,7 +298,7 @@
                     <label for="state" class="form-label">State</label>
                 </div>
                 <div class="col-8">
-                    <input class="form-control profileinput" type="text" name="state" value="Maharashtra">
+                    <input class="form-control profileinput" type="text" name="state" value="<%= user.profile.state %>">
                 </div>
             </div>
             <div class="col-12 profilesaveButton-container">
@@ -285,7 +307,7 @@
         </form>
         <!-- Settings  -->
         <!-- Medical -->
-        <form class="profile row my-4" action="/user/dashboard/setting/medical" method="POST">
+        <form class="profile row my-4" action="/user/dashboard/settings/medical" method="POST">
             <div class="heading">
                 <p class="fs-28 bold">Medical</p>
             </div>
