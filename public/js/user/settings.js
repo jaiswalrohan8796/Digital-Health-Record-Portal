@@ -3,6 +3,8 @@ const profilesaveButton = document.getElementById("profilesaveButton");
 var medicalinputs = document.querySelectorAll(".medicalinput");
 const medicalsaveButton = document.getElementById("medicalsaveButton");
 
+const statusBar = document.getElementById("status");
+
 profileinputs.forEach((profileinput) => {
     profileinput.disabled = true;
 });
@@ -45,3 +47,7 @@ const enableMedicalEdit = () => {
     }
     console.log("enable input function called");
 };
+
+setInterval(() => {
+    statusBar.style.display = "none";
+}, 5000);

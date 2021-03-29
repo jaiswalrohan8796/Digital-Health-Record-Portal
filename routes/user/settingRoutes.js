@@ -30,16 +30,13 @@ router.post(
             .withMessage("Mobile number should be ten digit number")
             .isNumeric()
             .withMessage("Mobile number should contain only numerics"),
-        check("DOB")
-            .notEmpty()
-            .withMessage("Date of Birth is required")
-            .isDate()
-            .withMessage("Date of Birth should be a date"),
+        check("DOB").notEmpty().withMessage("Date of Birth is required"),
         check("gender").notEmpty().withMessage("Gender is required"),
         check("bloodGroup").notEmpty().withMessage("Blood Group is required"),
     ],
     async (req, res, next) => {
-        const {
+        var {
+            id,
             firstName,
             lastName,
             address,
@@ -54,8 +51,8 @@ router.post(
             var user = await User.findOne({ _id: id });
             if (!user) {
                 res.render("user/settings", {
-                    user: user,
-                    fullName: `${user.profile.firstName} ${user.profile.lastName}`,
+                    user: req.user,
+                    fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
                     status: "User not found",
                     error: "",
                 });
@@ -69,6 +66,7 @@ router.post(
                     error: errors.array(),
                 });
             }
+            DOB = new Date(DOB);
             user.profile = {
                 firstName,
                 lastName,
