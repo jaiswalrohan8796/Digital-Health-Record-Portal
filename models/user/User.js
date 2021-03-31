@@ -6,10 +6,10 @@ const UserSchema = mongoose.Schema({
         enum: ["user", "doctor", "lab"],
         required: true,
     },
-    AccessID:{
-        HealthId:{
-            type:Number,
-        }
+    AccessID: {
+        HealthId: {
+            type: Number,
+        },
     },
     profile: {
         firstName: {
@@ -65,6 +65,7 @@ const UserSchema = mongoose.Schema({
         resetTokenExpiration: Date,
     },
     medical: {
+        filled: Boolean,
         medicalDiagnosis: String,
         allergies: [String],
         functionalStatus: String,

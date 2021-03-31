@@ -303,7 +303,9 @@
                                     <p class="bold">Allergies :</p>
                                 </div>
                                 <div class="col-8">
-                                    <p>Nothing</p>
+                                    <p>
+                                        <%= user.medical.allergies.join(',') %>
+                                    </p>
                                 </div>
                                 <div class="col-4">
                                     <p class="bold">Blood Group :</p>

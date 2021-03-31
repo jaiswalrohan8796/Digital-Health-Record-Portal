@@ -2,7 +2,7 @@ const router = require("express").Router();
 const passport = require("passport");
 const bcrypt = require("bcrypt");
 const { check, validationResult } = require("express-validator");
-const generateUniqueId = require('generate-unique-id');
+const generateUniqueId = require("generate-unique-id");
 
 const User = require("../../models/user/User.js");
 require("../../utils/passportConfig.js");
@@ -113,13 +113,13 @@ router.post(
             const Id = generateUniqueId({
                 length: 6,
                 useLetters: false,
-                useNumbe:true,
-                excludeSymbols: ['!','@','#','$','%','&','*','~','^']
-              });
-              //check 
+                useNumbe: true,
+                excludeSymbols: ["!", "@", "#", "$", "%", "&", "*", "~", "^"],
+            });
+            //check
             const newUser = new User({
                 role: "user",
-                AccessID:{uniqueId:Id},
+                AccessID: { uniqueId: Id },
                 profile: {
                     firstName: firstName,
                     lastName: lastName,
@@ -135,6 +135,9 @@ router.post(
                 account: {
                     email: email,
                     password: hashedPassword,
+                },
+                medical: {
+                    filled: false,
                 },
             });
             const saved = newUser.save();

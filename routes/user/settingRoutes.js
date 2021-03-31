@@ -50,7 +50,7 @@ router.post(
         try {
             var user = await User.findOne({ _id: id });
             if (!user) {
-                res.render("user/settings", {
+                return res.render("user/settings", {
                     user: req.user,
                     fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
                     status: "User not found",
@@ -104,5 +104,57 @@ router.post(
         }
     }
 );
+
+router.post("/settings/medical", async (req, res, next) => {
+    var {
+        id,
+        medicalDiagnosis,
+        allergies,
+        functionalStatus,
+        equipmentDevice,
+    } = req.body;
+    allergies = allergies.split(",");
+    try {
+        const user = await User.findOne({ _id: id });
+        if (!user) {
+            return res.render("user/settings", {
+                user: req.user,
+                fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
+                status: "User not found",
+                error: "",
+            });
+        }
+        user.medical = {
+            filled: true,
+            medicalDiagnosis,
+            allergies,
+            functionalStatus,
+            equipmentDevice,
+        };
+        const result = await user.save();
+        if (!result) {
+            return res.render("user/settings", {
+                user: req.user,
+                fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
+                status: "Server Error",
+                error: "",
+            });
+        }
+        res.render("user/settings", {
+            user: user,
+            fullName: `${user.profile.firstName} ${user.profile.lastName}`,
+            status: "Changes saved !",
+            error: "",
+        });
+    } catch (e) {
+        console.log(e);
+        res.render("user/settings", {
+            user: req.user,
+            fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
+            status: "Server Error",
+            error: "",
+        });
+    }
+});
 
 module.exports = router;

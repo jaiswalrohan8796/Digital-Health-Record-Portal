@@ -1,14 +1,14 @@
 const router = require("express").Router();
-
 const User = require("../../models/user/User.js");
 const settingRoutes = require("../user/settingRoutes.js");
 
 //dashboard home
 router.get("/dashboard", async (req, res, next) => {
+    const medformfilled = req.user.medical.filled
     res.render("user/home", {
         user: req.user,
         fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
-        medform: true,
+        medform: !medformfilled,
         status: null,
     });
 });
@@ -67,6 +67,7 @@ router.post("/dashboard/medicaldetailform", async (req, res, next) => {
             });
         }
         user.medical = {
+            filled: true,
             medicalDiagnosis,
             allergies,
             functionalStatus,

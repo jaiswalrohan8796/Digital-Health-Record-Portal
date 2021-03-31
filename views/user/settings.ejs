@@ -338,15 +338,13 @@
                                     <i class="bi bi-pencil-square edit-medical-icon" id="medical-edit-icon"
                                         onclick="enableMedicalEdit()"></i>
                                 </div>
-
-
                                 <div class="col-sm-6 row mt-4">
                                     <div class="col-4">
                                         <label for="medicalDiagnosis" class="form-label">Medical Diagnosis</label>
                                     </div>
                                     <div class="col-8">
                                         <input class="form-control medicalinput" type="text" name="medicalDiagnosis"
-                                            value="Diabetes">
+                                            value="<%= user.medical.medicalDiagnosis %>">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 row mt-4">
@@ -355,7 +353,7 @@
                                     </div>
                                     <div class="col-8">
                                         <input class="form-control medicalinput" type="text" name="allergies"
-                                            value="Peanut">
+                                            value="<%= user.medical.allergies.join(',') %>">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 row mt-4">
@@ -364,7 +362,7 @@
                                     </div>
                                     <div class="col-8">
                                         <input class="form-control medicalinput" type="text" name="functionalStatus"
-                                            value="left leg Amputee">
+                                            value="<%= user.medical.functionalStatus %>">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 row mt-4">
@@ -373,9 +371,10 @@
                                     </div>
                                     <div class="col-8">
                                         <input class="form-control medicalinput" type="text" name="equipmentDevice"
-                                            value="Wheel Chair">
+                                            value="<%= user.medical.equipmentDevice %>">
                                     </div>
                                 </div>
+                                <input type="hidden" name="id" value="<%= user._id %>">
                                 <div class="col-12 medicalsaveButton-container">
                                     <button id="medicalsaveButton" type="submit" class="btn">Save</button>
                                 </div>
@@ -389,7 +388,9 @@
                                         <p>Email</p>
                                     </div>
                                     <div class="col-sm-4">
-                                        <p>dummy@gmail.com</p>
+                                        <p>
+                                            <%= user.account.email %>
+                                        </p>
                                     </div>
                                     <div class="col-sm-4">
                                         <a class="change-btn" href="/user/dashboard/settings/change-email">Change
