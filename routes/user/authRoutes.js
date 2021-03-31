@@ -116,6 +116,7 @@ router.post(
                 useNumbe:true,
                 excludeSymbols: ['!','@','#','$','%','&','*','~','^']
               });
+              //check 
             const newUser = new User({
                 role: "user",
                 AccessID:{uniqueId:Id},

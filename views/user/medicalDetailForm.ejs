@@ -197,54 +197,56 @@
     <!-- toolbar space fix -->
     <div class="toolbar-space"></div>
     <main>
-        <form class="profile row my-4" action="/user/medicalDetail" method="POST">
-            <div class="heading">
-                <span class="fs-28 bold">Medical Details</span>
-                
-            </div>
+        <% if (error) { %>
+            <p id="error">
+                <%= error %>
+            </p>
+            <% } %>
+                <form class="profile row my-4" action="/user/dashboard/medicaldetailform" method="POST">
+                    <div class="heading">
+                        <span class="fs-28 bold">Medical Details</span>
+                    </div>
 
-            <div class="col-sm-6 row mt-4">
-                <div class="col-4">
-                    <label for="medicalDiagnosis" class="form-label">Medical Diagnosis</label>
-                </div>
-                <div class="col-8">
-                    <input class="form-control" type="text" name="medicalDiagnosis"
-                        value="">
-                </div>
-            </div>
-            <div class="col-sm-6 row mt-4">
-                <div class="col-4">
-                    <label for="allergies" class="form-label">Allergies</label>
-                </div>
-                <div class="col-8">
-                    <input class="form-control" type="text" name="allergies"
-                        value="">
-                    <small id="allergies" class="form-text text-muted">Add comma for adding more allergies</small>
-                </div>
-            </div>
-            <div class="col-sm-6 row mt-4">
-                <div class="col-4">
-                    <label for="functionalStatus" class="form-label">Functional Status</label>
-                </div>
-                <div class="col-8">
-                    <input class="form-control" type="text" name="functionalStatus"
-                        value="">
-                </div>
-            </div>
-            <div class="col-sm-6 row mt-4">
-                <div class="col-4">
-                    <label for="equipmentDevice" class="form-label">Equipment Device</label>
-                </div>
-                <div class="col-8">
-                    <input class="form-control" type="text" name="equipmentDevice"
-                        value="">
-                </div>
-            </div>
-            <div class="col-12 saveButton-container">
-                <button id="saveButton" type="submit" class="btn">Save</button>
-            </div>
-            
-        </form>
+                    <div class="col-sm-6 row mt-4">
+                        <div class="col-4">
+                            <label for="medicalDiagnosis" class="form-label">Medical Diagnosis</label>
+                        </div>
+                        <div class="col-8">
+                            <input class="form-control" type="text" name="medicalDiagnosis" value="">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 row mt-4">
+                        <div class="col-4">
+                            <label for="allergies" class="form-label">Allergies</label>
+                        </div>
+                        <div class="col-8">
+                            <input class="form-control" type="text" name="allergies" value="">
+                            <small id="allergies" class="form-text text-muted">Seperate by a comma , for multiple
+                                allergies</small>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 row mt-4">
+                        <div class="col-4">
+                            <label for="functionalStatus" class="form-label">Functional Status</label>
+                        </div>
+                        <div class="col-8">
+                            <input class="form-control" type="text" name="functionalStatus" value="">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 row mt-4">
+                        <div class="col-4">
+                            <label for="equipmentDevice" class="form-label">Equipment Device</label>
+                        </div>
+                        <div class="col-8">
+                            <input class="form-control" type="text" name="equipmentDevice" value="">
+                        </div>
+                    </div>
+                    <input type="hidden" name="id" value="<%= user._id %>">
+                    <div class="col-12 saveButton-container">
+                        <button id="saveButton" type="submit" class="btn">Save</button>
+                    </div>
+
+                </form>
     </main>
 
 
