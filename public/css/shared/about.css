@@ -1,5 +1,17 @@
 /* about csse */
-.about{
+.container{
+    width: 100%;
+    margin:auto;
+    padding:8px 18px;
+    color: black;
+    background-color:white;
+    /* border-bottom: 10px solid #ffbbbd; */
+    box-shadow: 4px 6px 12px 4px #0b243b;
+    border-radius: 20px;
+    margin-top:20px;
+
+}
+/* .about{
     
     margin-top: 20px;
     color: black;
@@ -8,7 +20,7 @@
     box-shadow: 4px 6px 12px 4px #0b243b;
     border-radius: 20px;
     padding:20px;
-}
+} */
 .title
 {
     border-bottom: 5px solid #ffbbbd;
@@ -27,8 +39,8 @@
     flex-wrap: wrap;
     margin: 1rem;
 }
-.card {
-    height: 280px;
+.cardCon {
+    /* height: 280px; */
     width: 300px;
     box-shadow: 8px 8px 16px 8px #b0c7db;
     border-radius: 16px;
@@ -40,7 +52,7 @@
     align-items: center;
     /* justify-content: center; */
 }
-.card .link {
+.cardCon .link {
     width: 100%;
     margin-top: 26px;
     display: flex;
@@ -49,19 +61,20 @@
     align-items: center;
     overflow: hidden;
 }
-.card .link button {
+.cardCon .link button {
     margin: 0 4rem;
     font-size: 2rem;
 }
-.card .link button a:hover {
+.cardCon .link button a:hover {
     text-decoration: none;
 }
+
 @media (max-width:576px)
 {
 
 }
 @media (max-width:450px){
-    .navbar .fs-40 {
+    .navbar .fs-32 {
         font-size: 18px;
     }
 }
