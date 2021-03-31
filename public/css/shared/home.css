@@ -221,7 +221,7 @@ body {
     }
 }
 @media (max-width: 768px) {
-    .navbar .fs-40 {
+    .navbar .fs-32 {
         font-size: 36px;
     }
     .text-box {
@@ -242,7 +242,7 @@ body {
     }
 }
 @media (max-width: 576px) {
-    .navbar .fs-40 {
+    .navbar .fs-32 {
         font-size: 28px;
     }
     .main_header_left .fs-32 {
@@ -254,7 +254,7 @@ body {
 }
  
 @media (max-width: 330px) {
-    .navbar .fs-40 {
+    .navbar .fs-32 {
         font-size: 16px;
     }
     .footer-social{
