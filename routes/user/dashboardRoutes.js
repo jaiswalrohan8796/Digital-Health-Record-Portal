@@ -27,6 +27,12 @@ router.get("/dashboard/labreports", async (req, res, next) => {
         fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
     });
 });
+router.get("/dashboard/medicalDetail", async (req, res, next) => {
+    res.render("user/medicalDetail", {
+        user: req.user,
+        fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
+    });
+});
 router.get("/dashboard/settings", async (req, res, next) => {
     res.render("user/settings", {
         user: req.user,
