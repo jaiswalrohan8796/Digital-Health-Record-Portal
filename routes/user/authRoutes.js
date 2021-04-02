@@ -110,16 +110,34 @@ router.post(
                 });
             }
             const hashedPassword = await bcrypt.hash(password, 10);
-            const Id = generateUniqueId({
+            const arr=[]
+            var Id;
+            const id=(generateUniqueId({
                 length: 6,
                 useLetters: false,
                 useNumbe: true,
-                excludeSymbols: ["!", "@", "#", "$", "%", "&", "*", "~", "^"],
-            });
+                excludeSymbols: ["!", "@", "#", "$", "%", "&", "*", "~", "^"]})
+                );
+            const alreadyId=await arr.includes(id)
+            if (!alreadyId){
+                const id = generateUniqueId({
+                    length: 6,
+                    useLetters: false,
+                    useNumbe: true,
+                    excludeSymbols: ["!", "@", "#", "$", "%", "&", "*", "~", "^"],
+                });
+                Id=id
+            }
+            else
+            {
+              Id=id   
+            }
+            arr.push(Id);
+            console.log(arr)
             //check
             const newUser = new User({
                 role: "user",
-                AccessID: { uniqueId: Id },
+                AccessID: { HealthId: Id },
                 profile: {
                     firstName: firstName,
                     lastName: lastName,

@@ -31,6 +31,10 @@ body {
 .navbar .nav-item {
     margin: 0 32px;
 }
+.navbar-nav .nav-link {
+    padding-right: 0;
+    padding-left: 40px;
+}
 
 .row {
     margin: 0;
@@ -205,6 +209,9 @@ body {
 }
 .container-fluid .footer-social i {
     margin: 12px;
+}
+.footer-text {
+    color:#0b243b
 }
 .container-fluid 
 .footer-social i:hover {
