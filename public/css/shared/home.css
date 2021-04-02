@@ -9,7 +9,7 @@
     margin: 1rem;
     padding-left: 4rem;
 } */
- 
+
 html {
     font-size: 62.5%;
 }
@@ -39,7 +39,7 @@ body {
 .row {
     margin: 0;
 }
- 
+
 .main_header_left {
     height: 70rem;
     display: flex;
@@ -181,7 +181,7 @@ body {
     position: fixed;
     left: 0;
     bottom: 0;
-    background-color:green;
+    background-color: green;
     height: fit-content;
 }
 .container-fluid .footer-div {
@@ -201,20 +201,19 @@ body {
     justify-content: center;
     align-items: center;
 }
-  .footerback{
-    background-color: #6DC9C8;
+.footerback {
+    background-color: #6dc9c8;
 }
-.footer-svg{
-    bottom:-20px;
+.footer-svg {
+    bottom: -20px;
 }
 .container-fluid .footer-social i {
     margin: 12px;
 }
 .footer-text {
-    color:#0b243b
+    color: #0b243b;
 }
-.container-fluid 
-.footer-social i:hover {
+.container-fluid .footer-social i:hover {
     cursor: pointer;
     filter: drop-shadow(10px 8px 8px rgba(0, 0, 0, 0.4));
 }
@@ -229,7 +228,7 @@ body {
 }
 @media (max-width: 768px) {
     .navbar .fs-32 {
-        font-size: 36px;
+        font-size: 32px;
     }
     .text-box {
         padding-left: 1rem;
@@ -243,7 +242,7 @@ body {
         height: auto;
     }
     .container-fluid-2 {
-        min-height: 380px;
+        min-height: 100vh;
         background-size: cover;
         background-position: left;
     }
@@ -259,39 +258,32 @@ body {
         font-size: 16px;
     }
 }
- 
+
 @media (max-width: 330px) {
     .navbar .fs-32 {
         font-size: 16px;
     }
-    .footer-social{
-
-        font-size:16px
+    .footer-social {
+        font-size: 16px;
     }
 }
- 
-
 
 /********************* for navbar *******************/
-@media (max-width:576px)
-{
-
+@media (max-width: 576px) {
 }
-@media (max-width:450px){
+@media (max-width: 450px) {
     .navbar .fs-40 {
         font-size: 18px;
     }
 }
 
-@media (max-width:1210px)
-{
-    .navbar .icons{
-        margin-left:-20px;
+@media (max-width: 1210px) {
+    .navbar .icons {
+        margin-left: -20px;
     }
 }
-@media (max-width:1125px)
-{
-    .navbar .icons{
-        margin-left:-50px;
+@media (max-width: 1125px) {
+    .navbar .icons {
+        margin-left: -50px;
     }
 }
