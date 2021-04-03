@@ -10,3 +10,6 @@
     margin:auto;
     padding:inherit;
 }
+.head span{
+    border-bottom: 4px solid #6dc9c8
+}
