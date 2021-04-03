@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Reset Password</title>
+    <title>Change Email</title>
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/shared/main.css">
@@ -19,7 +19,7 @@
     <div class="form-wrapper">
 
         <h2 class="text-center ftsz-24">
-            New Password
+            New Email
         </h2>
         <% if (error) { %>
             <h5 class="text-center" style="text-align: center;">
@@ -31,22 +31,22 @@
                         <%= status %>
                     </h5>
                     <% } %>
-                        <form action="/user/new-password" method="POST">
+                        <form action="/user/new-email" method="POST">
                             <% if (messages.error) { %>
                                 <h5 class="text-center">
                                     <%= messages.error %>
                                 </h5>
                                 <% } %>
                                     <div class="form-group row ">
-                                        <label for="password" class="col-sm-3 col-form-label">New password</label>
+                                        <label for="email" class="col-sm-3 col-form-label">New Email</label>
                                         <div class="col-sm-9">
-                                            <input type="password" class="form-control" id="password" name="password">
+                                            <input type="email" class="form-control" id="email" name="email">
                                         </div>
                                     </div>
                                     <div class="form-group row ">
-                                        <label for="password" class="col-sm-3 col-form-label">Confirm password</label>
+                                        <label for="email" class="col-sm-3 col-form-label">Confirm Email</label>
                                         <div class="col-sm-9">
-                                            <input type="password" class="form-control" id="cpassword" name="cpassword">
+                                            <input type="email" class="form-control" id="cemail" name="cemail">
                                         </div>
                                     </div>
                                     <input type="hidden" name="token" value="<%= token %>" class="form-group login-btn row">

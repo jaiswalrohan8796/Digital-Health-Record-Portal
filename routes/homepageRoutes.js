@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const forgotPasswordRoutes = require("../routes/forgotPasswordRoutes.js");
+const changeEmailRoutes = require("../routes/changeEmailRoutes.js");
 //get homepage
 router.get("/", (req, res, next) => {
     res.render("index");
@@ -20,6 +21,7 @@ router.get("/user/register", (req, res, next) => {
 });
 
 router.use(forgotPasswordRoutes);
+router.use(changeEmailRoutes)
 
 //doctor routes
 router.get("/doctor/login", (req, res, next) => {
