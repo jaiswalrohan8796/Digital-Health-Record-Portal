@@ -29,9 +29,8 @@ router.post("/user/changeemail", async (req, res, next) => {
                 error: "Server Error",
                 status: "",
             });
-
         }
-       
+
         token = buffer.toString("hex");
         console.log(token);
         validUser.account.resetToken = token;
@@ -45,7 +44,7 @@ router.post("/user/changeemail", async (req, res, next) => {
             html: `<body><h3 style={"text-align: center"}>Digital Health Record Portal</h3></body>
                     <h4>To change email click on the link below</h4>
                     <h6>If its not you the <b>don't click this link.</h6><br>
-                    <a href="http://localhost:3000/user/newemail/${token}">this link</a>
+                    <a href="http://localhost:3000/user/new-email/${token}">this link</a>
                     `,
         };
         //send link to change Email
@@ -60,10 +59,10 @@ router.post("/user/changeemail", async (req, res, next) => {
                 console.log("Email sent successfully");
                 res.render("user/login", {
                     error: "",
-                    status: "Email Change link mailed to you on Register mail-Id",
+                    status:
+                        "Email Change link mailed to you on Register mail-Id",
                 });
             }
-
         });
     } catch (e) {
         console.log(e);
@@ -76,41 +75,40 @@ router.post("/user/changeemail", async (req, res, next) => {
 
 router.get("/user/new-email/:token", (req, res, next) => {
     token = req.params.token;
-    res.render("user/changeemail", { error: "", status: "", token: token });
+    res.render("user/newemail", { error: "", status: "", token: token });
 });
 
 router.post("/user/new-email", async (req, res, next) => {
     const { token, email, cemail } = req.body;
     if (email !== cemail) {
-        return res.render("user/changeemail", {
+        return res.render("user/newemail", {
             error: "Email not matched",
             status: "",
             token: token,
         });
     }
     try {
-        const Email = email;
         const user = await User.findOne({ "account.resetToken": token });
         if (!user) {
-            return res.render("user/changeemail", {
+            return res.render("user/newemail", {
                 error: "Token not found",
                 status: "",
                 token: token,
             });
         }
         if (user.account.resetTokenExpiration < Date.now()) {
-            return res.render("user/changeemail", {
+            return res.render("user/newemail", {
                 error: "Token expired",
                 status: "",
                 token: token,
             });
         }
-        user.account.email = Email;
+        user.account.email = email;
         user.account.resetToken = undefined;
         user.account.resetTokenExpiration = Date.now();
         const saved = await user.save();
         if (!saved) {
-            return res.render("user/changeemail", {
+            return res.render("user/newemail", {
                 error: "Cannot update Email at the moment",
                 status: "",
                 token: token,
@@ -127,7 +125,7 @@ router.post("/user/new-email", async (req, res, next) => {
             from: "Rohan Jaiswal <ronjazz8796@gmail.com>",
             subject: "New Password set successfully",
             html: `<body><h3 style={"text-align: center"}>Digital Health Record Portal</h3></body>
-                    <h4>You changed your password just now. If it wasn't you then report to us <a href="http://localhost:3000/user/forgotpassword">by clicking here</a></h4>
+                    <h4>New email is registered with your account.</h4>
                     `,
         };
         transporter.sendMail(message, function (err, data) {
@@ -137,7 +135,7 @@ router.post("/user/new-email", async (req, res, next) => {
         });
     } catch (e) {
         console.log(e);
-        res.render("user/changeemail", {
+        res.render("user/newemail", {
             error: "Server Error",
             status: "",
             token: token,
