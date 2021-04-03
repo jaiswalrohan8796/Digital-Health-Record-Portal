@@ -1,0 +1,30 @@
+.row {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+}
+
+p {
+    margin-bottom: 12px;
+}
+.treatment {
+    width: 100%;
+    border-radius: 24px;
+    box-shadow: 4px 6px 12px 4px rgb(224, 214, 214);
+}
+.treatment-header {
+    padding: 12px 12px 0px 12px;
+    background-color: #c9ffff;
+    border-radius: 24px;
+}
+.treatment-body {
+    padding: 8px 18px;
+}
+.treatment-time {
+    text-align: right;
+}
+
+@media (max-width: 768px) {
+    .treatment-body {
+        padding: 8px;
+    }
+}
