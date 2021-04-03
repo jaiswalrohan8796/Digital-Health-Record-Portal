@@ -109,35 +109,49 @@ router.post(
                     status: "",
                 });
             }
+            //password hashing
             const hashedPassword = await bcrypt.hash(password, 10);
-            const arr=[]
-            var Id;
-            const id=(generateUniqueId({
+            //all documents with id
+            const allHealthIDObject = await User.find(
+                {},
+                { "accessID.healthID": 1 }
+            );
+            //converted to list
+            const allHealthIDList = allHealthIDObject.map((obj) => obj._id);
+            console.log(allHealthIDList);
+            //generate unique healthID
+            var newID = await generateUniqueId({
                 length: 6,
                 useLetters: false,
-                useNumbe: true,
-                excludeSymbols: ["!", "@", "#", "$", "%", "&", "*", "~", "^"]})
-                );
-            const alreadyId=await arr.includes(id)
-            if (!alreadyId){
-                const id = generateUniqueId({
+                useNumbers: true,
+                excludeSymbols: ["!", "@", "#", "$", "%", "&", "*", "~", "^"],
+            });
+            console.log(newID);
+            //check if exist
+            const alreadyID = allHealthIDList.includes(newID);
+            if (alreadyID) {
+                //regenerate
+                newID = generateUniqueId({
                     length: 6,
                     useLetters: false,
                     useNumbe: true,
-                    excludeSymbols: ["!", "@", "#", "$", "%", "&", "*", "~", "^"],
+                    excludeSymbols: [
+                        "!",
+                        "@",
+                        "#",
+                        "$",
+                        "%",
+                        "&",
+                        "*",
+                        "~",
+                        "^",
+                    ],
                 });
-                Id=id
             }
-            else
-            {
-              Id=id   
-            }
-            arr.push(Id);
-            console.log(arr)
-            //check
+            //create new user
             const newUser = new User({
                 role: "user",
-                AccessID: { HealthId: Id },
+                accessID: { healthID: newID },
                 profile: {
                     firstName: firstName,
                     lastName: lastName,

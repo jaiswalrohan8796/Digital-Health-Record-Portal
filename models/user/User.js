@@ -6,9 +6,10 @@ const UserSchema = mongoose.Schema({
         enum: ["user", "doctor", "lab"],
         required: true,
     },
-    AccessID: {
-        HealthId: {
+    accessID: {
+        healthID: {
             type: Number,
+            required: true,
         },
     },
     profile: {

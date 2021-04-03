@@ -4,13 +4,14 @@ const transporter = require("../utils/email.js");
 const User = require("../models/user/User.js");
 const Doctor = require("../models/doctor/Doctor.js");
 const Lab = require("../models/lab/Lab.js");
+
 //USER
 
-//get forgotpassword page
+//get changeemail page
 router.get("/user/changeemail", (req, res, next) => {
     res.render("user/changeemail", { error: "", status: "" });
 });
-//submitted email for link
+//submit email for link
 router.post("/user/changeemail", async (req, res, next) => {
     const email = req.body.email;
     try {
@@ -42,7 +43,9 @@ router.post("/user/changeemail", async (req, res, next) => {
             from: "Rohan Jaiswal <ronjazz8796@gmail.com>",
             subject: "Reset Password!",
             html: `<body><h3 style={"text-align: center"}>Digital Health Record Portal</h3></body>
-                    <h4>Set a new Password at <a href="http://localhost:3000/user/new-password/${token}">this link</a></h4>
+                    <h4>To change email click on the link below</h4>
+                    <h6>If its not you the <b>don't click this link.</h6><br>
+                    <a href="http://localhost:3000/user/newemail/${token}">this link</a>
                     `,
         };
         //send link to change Email
