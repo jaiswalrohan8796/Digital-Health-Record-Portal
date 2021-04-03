@@ -143,4 +143,6 @@ router.post("/user/new-email", async (req, res, next) => {
     }
 });
 
+
+//DOCTOR
 module.exports = router;
