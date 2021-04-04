@@ -1,6 +1,9 @@
 const nodemailer = require("nodemailer");
-
+const Email = require("email-templates");
+const path = require("path");
 require("dotenv").config();
+
+//transporter
 const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     service: "gmail",
@@ -16,4 +19,17 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-module.exports = transporter;
+//templates
+const emailTemplate = new Email({
+    transport: transporter,
+    send: true,
+    preview: false,
+    views: {
+        options: {
+            extension: "ejs",
+        },
+        root: "email-templates",
+    },
+});
+
+module.exports = emailTemplate;

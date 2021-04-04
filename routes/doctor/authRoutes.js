@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const passport = require("passport");
 const bcrypt = require("bcrypt");
+const emailTemplate = require("../../utils/email.js")
 const { check, validationResult } = require("express-validator");
 
 const Doctor = require("../../models/doctor/Doctor.js");
@@ -138,10 +139,26 @@ router.post(
                 });
             }
             console.log(saved);
-            return res.render("doctor/login", {
+            res.render("doctor/login", {
                 error: "",
                 status: "Success! Now Login",
             });
+            emailTemplate
+                .send({
+                    template: "register",
+                    message: {
+                        from:
+                            "Digital Health Record Portal <digitalhealthrecord1@gmail.com>",
+                        to: email,
+                    },
+                    locals: {
+                        fname: firstName,
+                        lname: lastName,
+                        dashboardLink: "${process.env.HOST_URL}/doctor/dashboard",
+                    },
+                })
+                .then(() => console.log("email has been send!"))
+                .catch((e) => console.log(e));
         } catch (e) {
             console.log(e);
             res.render("doctor/register", {

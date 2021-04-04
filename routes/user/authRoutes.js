@@ -3,6 +3,7 @@ const passport = require("passport");
 const bcrypt = require("bcrypt");
 const { check, validationResult } = require("express-validator");
 const generateUniqueId = require("generate-unique-id");
+const emailTemplate = require("../../utils/email.js");
 
 const User = require("../../models/user/User.js");
 require("../../utils/passportConfig.js");
@@ -180,10 +181,26 @@ router.post(
                 });
             }
             console.log(saved);
-            return res.render("user/login", {
+            res.render("user/login", {
                 error: "",
                 status: "Success! Now Login",
             });
+            emailTemplate
+                .send({
+                    template: "register",
+                    message: {
+                        from:
+                            "Digital Health Record Portal <digitalhealthrecord1@gmail.com>",
+                        to: email,
+                    },
+                    locals: {
+                        fname: firstName,
+                        lname: lastName,
+                        dashboardLink: "${process.env.HOST_URL}/user/dashboard",
+                    },
+                })
+                .then(() => console.log("email has been send!"))
+                .catch((e) => console.log(e));
         } catch (e) {
             console.log(e);
             res.render("user/register", {
