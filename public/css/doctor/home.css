@@ -17,7 +17,7 @@ main {
     box-shadow: 4px 6px 12px 4px rgb(224, 214, 214);
 }
 .basic .heading {
-    border-bottom: 5px solid #ffbbbd;
+    border-bottom: 5px solid #6dc9c8;
 }
 .basic p {
     text-align: left;
@@ -34,7 +34,7 @@ main {
     overflow-y: hidden;
 }
 h2 {
-    border-bottom: 5px solid #ffbbbd;
+    border-bottom: 5px solid #6dc9c8;
 }
 .basic1 {
     border-radius: 24px;
