@@ -13,3 +13,17 @@
 .head span{
     border-bottom: 4px solid #6dc9c8
 }
+a.change-btn {
+    height: 24px;
+    width: 56px !important;
+    text-decoration: none;
+    padding: 8px 12px;
+    background-color: #fff;
+    color: #6dc9c8;
+    border-radius: 24px;
+    border: 1px solid #6dc9c8;
+}
+.change-btn:hover {
+    color: #fff;
+    background-color: rgb(109, 201, 200);
+}
