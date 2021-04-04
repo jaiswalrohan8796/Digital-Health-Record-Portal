@@ -39,12 +39,12 @@ router.post("/user/changeemail", async (req, res, next) => {
         console.log(validUser);
         const message = {
             to: email,
-            from: "Rohan Jaiswal <ronjazz8796@gmail.com>",
-            subject: "Reset Password!",
+            from: "Digital Health Record Portal<digitalhealthrecord1@gmail.com>",
+            subject: "Change Email!",
             html: `<body><h3 style={"text-align: center"}>Digital Health Record Portal</h3></body>
                     <h4>To change email click on the link below</h4>
                     <h6>If its not you the <b>don't click this link.</h6><br>
-                    <a href="http://localhost:3000/user/new-email/${token}">this link</a>
+                    <a href="${process.env.HOST_URL}/user/new-email/${token}">this link</a>
                     `,
         };
         //send link to change Email
@@ -122,7 +122,7 @@ router.post("/user/new-email", async (req, res, next) => {
         //notify user about new password set
         const message = {
             to: user.account.email,
-            from: "Rohan Jaiswal <ronjazz8796@gmail.com>",
+            from: "Digital Health Record Portal<digitalhealthrecord1@gmail.com>",
             subject: "New Password set successfully",
             html: `<body><h3 style={"text-align: center"}>Digital Health Record Portal</h3></body>
                     <h4>New email is registered with your account.</h4>

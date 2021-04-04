@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const crypto = require("crypto");
 const bcrypt = require("bcrypt");
+require("dotenv").config()
 const transporter = require("../utils/email.js");
 const User = require("../models/user/User.js");
 const Doctor = require("../models/doctor/Doctor.js");
@@ -38,10 +39,10 @@ router.post("/user/forgotpassword", async (req, res, next) => {
         console.log(validUser);
         const message = {
             to: email,
-            from: "Rohan Jaiswal <ronjazz8796@gmail.com>",
+            from: "Digital Health Record Portal<digitalhealthrecord1@gmail.com>",
             subject: "Reset Password!",
             html: `<body><h3 style={"text-align: center"}>Digital Health Record Portal</h3></body>
-                    <h4>Set a new Password at <a href="http://localhost:3000/user/new-password/${token}">this link</a></h4>
+                    <h4>Set a new Password at <a href="${process.env.HOST_URL}/user/new-password/${token}">this link</a></h4>
                     `,
         };
         //send link to reset password
@@ -119,10 +120,10 @@ router.post("/user/new-password", async (req, res, next) => {
         //notify user about new password set
         const message = {
             to: user.account.email,
-            from: "Rohan Jaiswal <ronjazz8796@gmail.com>",
+            from: "Digital Health Record Portal<digitalhealthrecord1@gmail.com>",
             subject: "New Password set successfully",
             html: `<body><h3 style={"text-align: center"}>Digital Health Record Portal</h3></body>
-                    <h4>You changed your password just now. If it wasn't you then report to us <a href="http://localhost:3000/user/forgotpassword">by clicking here</a></h4>
+                    <h4>You changed your password just now. If it wasn't you then report to us <a href="${process.env.HOST_URL}/user/forgotpassword">by clicking here</a></h4>
                     `,
         };
         transporter.sendMail(message, function (err, data) {
@@ -173,10 +174,10 @@ router.post("/doctor/forgotpassword", async (req, res, next) => {
         console.log(validUser);
         const message = {
             to: email,
-            from: "Rohan Jaiswal <ronjazz8796@gmail.com>",
+            from: "Digital Health Record Portal<digitalhealthrecord1@gmail.com>",
             subject: "Reset Password!",
             html: `<body><h3 style={"text-align: center"}>Digital Health Record Portal</h3></body>
-                    <h4>Set a new Password at <a href="http://localhost:3000/doctor/new-password/${token}">this link</a></h4>
+                    <h4>Set a new Password at <a href="${process.env.HOST_URL}/doctor/new-password/${token}">this link</a></h4>
                     `,
         };
         //send link to reset password
@@ -255,10 +256,10 @@ router.post("/doctor/new-password", async (req, res, next) => {
         //notify user about new password set
         const message = {
             to: user.account.email,
-            from: "Rohan Jaiswal <ronjazz8796@gmail.com>",
+            from: "Digital Health Record Portal<digitalhealthrecord1@gmail.com>",
             subject: "New Password set successfully",
             html: `<body><h3 style={"text-align: center"}>Digital Health Record Portal</h3></body>
-                    <h4>You changed your password just now. If it wasn't you then report to us <a href="http://localhost:3000/doctor/forgotpassword">by clicking here</a></h4>
+                    <h4>You changed your password just now. If it wasn't you then report to us <a href="${process.env.HOST_URL}/doctor/forgotpassword">by clicking here</a></h4>
                     `,
         };
         transporter.sendMail(message, function (err, data) {
@@ -309,10 +310,10 @@ router.post("/lab/forgotpassword", async (req, res, next) => {
         console.log(validUser);
         const message = {
             to: email,
-            from: "Rohan Jaiswal <ronjazz8796@gmail.com>",
+            from: "Digital Health Record Portal<digitalhealthrecord1@gmail.com>",
             subject: "Reset Password!",
             html: `<body><h3 style={"text-align: center"}>Digital Health Record Portal</h3></body>
-                    <h4>Set a new Password at <a href="http://localhost:3000/lab/new-password/${token}">this link</a></h4>
+                    <h4>Set a new Password at <a href="${process.env.HOST_URL}/lab/new-password/${token}">this link</a></h4>
                     `,
         };
         //send link to reset password
@@ -391,10 +392,10 @@ router.post("/lab/new-password", async (req, res, next) => {
         //notify user about new password set
         const message = {
             to: user.account.email,
-            from: "Rohan Jaiswal <ronjazz8796@gmail.com>",
+            from: "Digital Health Record Portal<digitalhealthrecord1@gmail.com>",
             subject: "New Password set successfully",
             html: `<body><h3 style={"text-align: center"}>Digital Health Record Portal</h3></body>
-                    <h4>You changed your password just now. If it wasn't you then report to us <a href="http://localhost:3000/lab/forgotpassword">by clicking here</a></h4>
+                    <h4>You changed your password just now. If it wasn't you then report to us <a href="${process.env.HOST_URL}/lab/forgotpassword">by clicking here</a></h4>
                     `,
         };
         transporter.sendMail(message, function (err, data) {
