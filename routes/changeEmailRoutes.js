@@ -123,7 +123,7 @@ router.post("/user/new-email", async (req, res, next) => {
         const message = {
             to: user.account.email,
             from: "Digital Health Record Portal<digitalhealthrecord1@gmail.com>",
-            subject: "New Password set successfully",
+            subject: "New Email updated successfully",
             html: `<body><h3 style={"text-align: center"}>Digital Health Record Portal</h3></body>
                     <h4>New email is registered with your account.</h4>
                     `,
