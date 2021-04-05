@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, lab-scalable=no">
+    <title>Change Email</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/shared/main.css">
+    <link rel="stylesheet" href="/css/shared/login.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="form-wrapper pt-4">
+
+        <h2 class="text-center ftsz-24">
+           Change Your Email 
+        </h2>
+        <% if (error) { %>
+            <h5 class="text-center" style="text-align: center;">
+                <%= error %>
+            </h5>
+            <% } %>
+                <% if (status) { %>
+                    <h5 class="text-center" style="text-align: center;">
+                        <%= status %>
+                    </h5>
+                    <% } %>
+                        <form action="/lab/changeemail" method="POST">
+                            <% if (messages.error) { %>
+                                <h5 class="text-center">
+                                    <%= messages.error %>
+                                </h5>
+                                <% } %>
+                                    <div class="form-group row ">
+                                        <label for="email" class="col-sm-3 col-form-label">Old Email</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="email" name="email">
+                                        </div>
+                                    </div>
+                                    <h6 class="ml-3" style="color:#f6f6f7">Note: After clicking on get link you will received link on your register Email</h6>
+                                    <div class="form-group login-btn row">
+                                        <button class="btn  col-sm-12 text-center" type="submit">Get Link</button>
+                                    </div>
+                        </form>
+                        <div class="other-action">
+                            <a href="/">
+                                Back</a>
+                        </div>
+
+    </div>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
