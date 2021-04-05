@@ -1,8 +1,8 @@
 const router = require("express").Router();
 const crypto = require("crypto");
 const bcrypt = require("bcrypt");
-require("dotenv").config()
-const transporter = require("../utils/email.js");
+require("dotenv").config();
+const emailTemplate = require("../utils/email.js");
 const User = require("../models/user/User.js");
 const Doctor = require("../models/doctor/Doctor.js");
 const Lab = require("../models/lab/Lab.js");
@@ -37,30 +37,22 @@ router.post("/user/forgotpassword", async (req, res, next) => {
         validUser.account.resetTokenExpiration = Date.now() + 3600000;
         const saved = await validUser.save();
         console.log(validUser);
-        const message = {
-            to: email,
-            from: "Digital Health Record Portal<digitalhealthrecord1@gmail.com>",
-            subject: "Reset Password!",
-            html: `<body><h3 style={"text-align: center"}>Digital Health Record Portal</h3></body>
-                    <h4>Set a new Password at <a href="${process.env.HOST_URL}/user/new-password/${token}">this link</a></h4>
-                    `,
-        };
         //send link to reset password
-        transporter.sendMail(message, function (err, data) {
-            if (err) {
-                console.log(err);
-                return res.render("user/forgotpassword", {
-                    error: "Server Error",
-                    status: "",
-                });
-            } else {
-                console.log("Email sent successfully");
-                res.render("user/login", {
-                    error: "",
-                    status: "Password reset link mailed to you",
-                });
-            }
-        });
+        emailTemplate
+            .send({
+                template: "resetpassword",
+                message: {
+                    from:
+                        "Digital Health Record Portal <digitalhealthrecord1@gmail.com>",
+                    to: email,
+                },
+                locals: {
+                    fname: `${firstName} ${lastName}`,
+                    passwordResetLink: `${process.env.HOST_URL}/user/new-password/${token}`,
+                },
+            })
+            .then(() => console.log("email has been send!"))
+            .catch((e) => console.log(e));
     } catch (e) {
         console.log(e);
         res.render("user/forgotpassword", {
@@ -118,19 +110,21 @@ router.post("/user/new-password", async (req, res, next) => {
             status: "Password reset successfull, now login",
         });
         //notify user about new password set
-        const message = {
-            to: user.account.email,
-            from: "Digital Health Record Portal<digitalhealthrecord1@gmail.com>",
-            subject: "New Password set successfully",
-            html: `<body><h3 style={"text-align: center"}>Digital Health Record Portal</h3></body>
-                    <h4>You changed your password just now. If it wasn't you then report to us <a href="${process.env.HOST_URL}/user/forgotpassword">by clicking here</a></h4>
-                    `,
-        };
-        transporter.sendMail(message, function (err, data) {
-            if (err) {
-                console.log(err);
-            }
-        });
+        emailTemplate
+            .send({
+                template: "passwordchanged",
+                message: {
+                    from:
+                        "Digital Health Record Portal <digitalhealthrecord1@gmail.com>",
+                    to: user.account.email,
+                },
+                locals: {
+                    fname: `${firstName} ${lastName}`,
+                    forgotPasswordLink: `${process.env.HOST_URL}/user/forgotpassword`,
+                },
+            })
+            .then(() => console.log("email has been send!"))
+            .catch((e) => console.log(e));
     } catch (e) {
         console.log(e);
         res.render("user/newpassword", {
@@ -172,30 +166,23 @@ router.post("/doctor/forgotpassword", async (req, res, next) => {
         validUser.account.resetTokenExpiration = Date.now() + 3600000;
         const saved = await validUser.save();
         console.log(validUser);
-        const message = {
-            to: email,
-            from: "Digital Health Record Portal<digitalhealthrecord1@gmail.com>",
-            subject: "Reset Password!",
-            html: `<body><h3 style={"text-align: center"}>Digital Health Record Portal</h3></body>
-                    <h4>Set a new Password at <a href="${process.env.HOST_URL}/doctor/new-password/${token}">this link</a></h4>
-                    `,
-        };
+
         //send link to reset password
-        transporter.sendMail(message, function (err, data) {
-            if (err) {
-                console.log(err);
-                return res.render("doctor/forgotpassword", {
-                    error: "Server Error",
-                    status: "",
-                });
-            } else {
-                console.log("Email sent successfully");
-                res.render("doctor/login", {
-                    error: "",
-                    status: "Password reset link mailed to you",
-                });
-            }
-        });
+        emailTemplate
+            .send({
+                template: "resetpassword",
+                message: {
+                    from:
+                        "Digital Health Record Portal <digitalhealthrecord1@gmail.com>",
+                    to: email,
+                },
+                locals: {
+                    fname: `${firstName} ${lastName}`,
+                    passwordResetLink: `${process.env.HOST_URL}/doctor/new-password/${token}`,
+                },
+            })
+            .then(() => console.log("email has been send!"))
+            .catch((e) => console.log(e));
     } catch (e) {
         console.log(e);
         res.render("doctor/forgotpassword", {
@@ -254,19 +241,21 @@ router.post("/doctor/new-password", async (req, res, next) => {
             status: "Password reset successfull, now login",
         });
         //notify user about new password set
-        const message = {
-            to: user.account.email,
-            from: "Digital Health Record Portal<digitalhealthrecord1@gmail.com>",
-            subject: "New Password set successfully",
-            html: `<body><h3 style={"text-align: center"}>Digital Health Record Portal</h3></body>
-                    <h4>You changed your password just now. If it wasn't you then report to us <a href="${process.env.HOST_URL}/doctor/forgotpassword">by clicking here</a></h4>
-                    `,
-        };
-        transporter.sendMail(message, function (err, data) {
-            if (err) {
-                console.log(err);
-            }
-        });
+        emailTemplate
+            .send({
+                template: "passwordchanged",
+                message: {
+                    from:
+                        "Digital Health Record Portal <digitalhealthrecord1@gmail.com>",
+                    to: user.account.email,
+                },
+                locals: {
+                    fname: `${firstName} ${lastName}`,
+                    forgotPasswordLink: `${process.env.HOST_URL}/doctor/forgotpassword`,
+                },
+            })
+            .then(() => console.log("email has been send!"))
+            .catch((e) => console.log(e));
     } catch (e) {
         console.log(e);
         res.render("doctor/newpassword", {
@@ -308,30 +297,21 @@ router.post("/lab/forgotpassword", async (req, res, next) => {
         validUser.account.resetTokenExpiration = Date.now() + 3600000;
         const saved = await validUser.save();
         console.log(validUser);
-        const message = {
-            to: email,
-            from: "Digital Health Record Portal<digitalhealthrecord1@gmail.com>",
-            subject: "Reset Password!",
-            html: `<body><h3 style={"text-align: center"}>Digital Health Record Portal</h3></body>
-                    <h4>Set a new Password at <a href="${process.env.HOST_URL}/lab/new-password/${token}">this link</a></h4>
-                    `,
-        };
-        //send link to reset password
-        transporter.sendMail(message, function (err, data) {
-            if (err) {
-                console.log(err);
-                return res.render("lab/forgotpassword", {
-                    error: "Server Error",
-                    status: "",
-                });
-            } else {
-                console.log("Email sent successfully");
-                res.render("lab/login", {
-                    error: "",
-                    status: "Password reset link mailed to you",
-                });
-            }
-        });
+        emailTemplate
+            .send({
+                template: "resetpassword",
+                message: {
+                    from:
+                        "Digital Health Record Portal <digitalhealthrecord1@gmail.com>",
+                    to: email,
+                },
+                locals: {
+                    fname: `${firstName} ${lastName}`,
+                    passwordResetLink: `${process.env.HOST_URL}/lab/new-password/${token}`,
+                },
+            })
+            .then(() => console.log("email has been send!"))
+            .catch((e) => console.log(e));
     } catch (e) {
         console.log(e);
         res.render("lab/forgotpassword", {
@@ -390,19 +370,21 @@ router.post("/lab/new-password", async (req, res, next) => {
             status: "Password reset successfull, now login",
         });
         //notify user about new password set
-        const message = {
-            to: user.account.email,
-            from: "Digital Health Record Portal<digitalhealthrecord1@gmail.com>",
-            subject: "New Password set successfully",
-            html: `<body><h3 style={"text-align: center"}>Digital Health Record Portal</h3></body>
-                    <h4>You changed your password just now. If it wasn't you then report to us <a href="${process.env.HOST_URL}/lab/forgotpassword">by clicking here</a></h4>
-                    `,
-        };
-        transporter.sendMail(message, function (err, data) {
-            if (err) {
-                console.log(err);
-            }
-        });
+        emailTemplate
+            .send({
+                template: "passwordchanged",
+                message: {
+                    from:
+                        "Digital Health Record Portal <digitalhealthrecord1@gmail.com>",
+                    to: user.account.email,
+                },
+                locals: {
+                    fname: `${firstName} ${lastName}`,
+                    forgotPasswordLink: `${process.env.HOST_URL}/lab/forgotpassword`,
+                },
+            })
+            .then(() => console.log("email has been send!"))
+            .catch((e) => console.log(e));
     } catch (e) {
         console.log(e);
         res.render("lab/newpassword", {

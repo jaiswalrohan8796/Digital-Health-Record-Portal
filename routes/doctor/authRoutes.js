@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const passport = require("passport");
 const bcrypt = require("bcrypt");
-const emailTemplate = require("../../utils/email.js")
+const emailTemplate = require("../../utils/email.js");
 const { check, validationResult } = require("express-validator");
 
 const Doctor = require("../../models/doctor/Doctor.js");
@@ -152,12 +152,11 @@ router.post(
                         to: email,
                     },
                     locals: {
-                        fname: firstName,
-                        lname: lastName,
-                        dashboardLink: "${process.env.HOST_URL}/doctor/dashboard",
+                        fname: `${firstName} ${lastName}`,
+                        dashboardLink: `${process.env.HOST_URL}/doctor/dashboard`,
                     },
                 })
-                .then(() => console.log("email has been send!"))
+                .then(() => console.log("email has been send to doctor!"))
                 .catch((e) => console.log(e));
         } catch (e) {
             console.log(e);

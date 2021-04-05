@@ -194,9 +194,8 @@ router.post(
                         to: email,
                     },
                     locals: {
-                        fname: firstName,
-                        lname: lastName,
-                        dashboardLink: "${process.env.HOST_URL}/user/dashboard",
+                        fname: `${firstName} ${lastName}`,
+                        dashboardLink: `${process.env.HOST_URL}/user/dashboard`,
                     },
                 })
                 .then(() => console.log("email has been send!"))

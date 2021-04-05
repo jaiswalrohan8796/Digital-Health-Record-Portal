@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const crypto = require("crypto");
-const transporter = require("../utils/email.js");
+const emailTemplate = require("../utils/email.js");
 const User = require("../models/user/User.js");
 const Doctor = require("../models/doctor/Doctor.js");
 const Lab = require("../models/lab/Lab.js");
@@ -37,33 +37,25 @@ router.post("/user/changeemail", async (req, res, next) => {
         validUser.account.resetTokenExpiration = Date.now() + 3600000;
         const saved = await validUser.save();
         console.log(validUser);
-        const message = {
-            to: email,
-            from: "Digital Health Record Portal<digitalhealthrecord1@gmail.com>",
-            subject: "Change Email!",
-            html: `<body><h3 style={"text-align: center"}>Digital Health Record Portal</h3></body>
-                    <h4>To change email click on the link below</h4>
-                    <h6>If its not you the <b>don't click this link.</h6><br>
-                    <a href="${process.env.HOST_URL}/doctor/new-email/${token}">this link</a>
-                    `,
-        };
-        //send link to change Email
-        transporter.sendMail(message, function (err, data) {
-            if (err) {
-                console.log(err);
-                return res.render("user/changeemail", {
-                    error: "Server Error",
-                    status: "",
-                });
-            } else {
-                console.log("Email sent successfully");
-                res.render("doctor/login", {
-                    error: "",
-                    status:
-                        "Email Change link mailed to you on Register mail-Id",
-                });
-            }
+        res.render("user/login", {
+            error: "",
+            status: "Check your mail for link",
         });
+        emailTemplate
+            .send({
+                template: "resetemail",
+                message: {
+                    from:
+                        "Digital Health Record Portal <digitalhealthrecord1@gmail.com>",
+                    to:email,
+                },
+                locals: {
+                    fname: `${validUser.profile.firstName} ${validUser.profile.lastName}`,
+                    changeEmailLink: `${process.env.HOST_URL}/user/new-email/${token}`,
+                },
+            })
+            .then(() => console.log("email has been send!"))
+            .catch((e) => console.log(e));
     } catch (e) {
         console.log(e);
         res.render("user/changeemail", {
@@ -75,7 +67,7 @@ router.post("/user/changeemail", async (req, res, next) => {
 
 router.get("/user/new-email/:token", (req, res, next) => {
     token = req.params.token;
-    res.render("doctor/newemail", { error: "", status: "", token: token });
+    res.render("user/newemail", { error: "", status: "", token: token });
 });
 
 router.post("/user/new-email", async (req, res, next) => {
@@ -88,25 +80,25 @@ router.post("/user/new-email", async (req, res, next) => {
         });
     }
     try {
-        const doctor = await User.findOne({ "account.resetToken": token });
-        if (!doctor) {
+        const user = await User.findOne({ "account.resetToken": token });
+        if (!user) {
             return res.render("user/newemail", {
                 error: "Token not found",
                 status: "",
                 token: token,
             });
         }
-        if (doctor.account.resetTokenExpiration < Date.now()) {
+        if (user.account.resetTokenExpiration < Date.now()) {
             return res.render("user/newemail", {
                 error: "Token expired",
                 status: "",
                 token: token,
             });
         }
-        doctor.account.email = email;
-        doctor.account.resetToken = undefined;
-        doctor.account.resetTokenExpiration = Date.now();
-        const saved = await doctor.save();
+        user.account.email = email;
+        user.account.resetToken = undefined;
+        user.account.resetTokenExpiration = Date.now();
+        const saved = await user.save();
         if (!saved) {
             return res.render("user/newemail", {
                 error: "Cannot update Email at the moment",
@@ -120,19 +112,21 @@ router.post("/user/new-email", async (req, res, next) => {
             status: "Your Email Updated successfull, now login",
         });
         //notify doctor about new password set
-        const message = {
-            to: doctor.account.email,
-            from: "Digital Health Record Portal<digitalhealthrecord1@gmail.com>",
-            subject: "New Email updated successfully",
-            html: `<body><h3 style={"text-align: center"}>Digital Health Record Portal</h3></body>
-                    <h4>New email is registered with your account.</h4>
-                    `,
-        };
-        transporter.sendMail(message, function (err, data) {
-            if (err) {
-                console.log(err);
-            }
-        });
+        emailTemplate
+            .send({
+                template: "emailchanged",
+                message: {
+                    from:
+                        "Digital Health Record Portal <digitalhealthrecord1@gmail.com>",
+                    to: user.account.email,
+                },
+                locals: {
+                    fname: `${user.profile.firstName} ${user.profile.lastName}`,
+                    dashboardLink: `${process.env.HOST_URL}/user/dashboard`,
+                },
+            })
+            .then(() => console.log("email has been send!"))
+            .catch((e) => console.log(e));
     } catch (e) {
         console.log(e);
         res.render("user/newemail", {
@@ -142,7 +136,6 @@ router.post("/user/new-email", async (req, res, next) => {
         });
     }
 });
-
 
 //DOCTOR
 
@@ -176,33 +169,25 @@ router.post("/doctor/changeemail", async (req, res, next) => {
         validUser.account.resetTokenExpiration = Date.now() + 3600000;
         const saved = await validUser.save();
         console.log(validUser);
-        const message = {
-            to: email,
-            from: "Digital Health Record Portal<digitalhealthrecord1@gmail.com>",
-            subject: "Change Email!",
-            html: `<body><h3 style={"text-align: center"}>Digital Health Record Portal</h3></body>
-                    <h4>To change email click on the link below</h4>
-                    <h6>If its not you the <b>don't click this link.</h6><br>
-                    <a href="${process.env.HOST_URL}/doctor/new-email/${token}">this link</a>
-                    `,
-        };
-        //send link to change Email
-        transporter.sendMail(message, function (err, data) {
-            if (err) {
-                console.log(err);
-                return res.render("doctor/changeemail", {
-                    error: "Server Error",
-                    status: "",
-                });
-            } else {
-                console.log("Email sent successfully");
-                res.render("doctor/login", {
-                    error: "",
-                    status:
-                        "Email Change link mailed to you on Register mail-Id",
-                });
-            }
+        res.render("doctor/login", {
+            error: "",
+            status: "Check your mail for link",
         });
+        emailTemplate
+            .send({
+                template: "resetemail",
+                message: {
+                    from:
+                        "Digital Health Record Portal <digitalhealthrecord1@gmail.com>",
+                    to: email,
+                },
+                locals: {
+                    fname: `${validUser.profile.firstName} ${validUser.profile.lastName}`,
+                    changeEmailLink: `${process.env.HOST_URL}/doctor/new-email/${token}`,
+                },
+            })
+            .then(() => console.log("email has been send!"))
+            .catch((e) => console.log(e));
     } catch (e) {
         console.log(e);
         res.render("doctor/changeemail", {
@@ -227,25 +212,25 @@ router.post("/doctor/new-email", async (req, res, next) => {
         });
     }
     try {
-        const doctor = await Doctor.findOne({ "account.resetToken": token });
-        if (!doctor) {
+        const validUser = await Doctor.findOne({ "account.resetToken": token });
+        if (!validUser) {
             return res.render("doctor/newemail", {
                 error: "Token not found",
                 status: "",
                 token: token,
             });
         }
-        if (doctor.account.resetTokenExpiration < Date.now()) {
+        if (validUser.account.resetTokenExpiration < Date.now()) {
             return res.render("doctor/newemail", {
                 error: "Token expired",
                 status: "",
                 token: token,
             });
         }
-        doctor.account.email = email;
-        doctor.account.resetToken = undefined;
-        doctor.account.resetTokenExpiration = Date.now();
-        const saved = await doctor.save();
+        validUser.account.email = email;
+        validUser.account.resetToken = undefined;
+        validUser.account.resetTokenExpiration = Date.now();
+        const saved = await validUser.save();
         if (!saved) {
             return res.render("doctor/newemail", {
                 error: "Cannot update Email at the moment",
@@ -258,20 +243,22 @@ router.post("/doctor/new-email", async (req, res, next) => {
             error: "",
             status: "Your Email Updated successfull, now login",
         });
-        //notify doctor about new password set
-        const message = {
-            to: doctor.account.email,
-            from: "Digital Health Record Portal<digitalhealthrecord1@gmail.com>",
-            subject: "New Email updated successfully",
-            html: `<body><h3 style={"text-align: center"}>Digital Health Record Portal</h3></body>
-                    <h4>New email is registered with your account.</h4>
-                    `,
-        };
-        transporter.sendMail(message, function (err, data) {
-            if (err) {
-                console.log(err);
-            }
-        });
+        //notify doctor about new email set
+        emailTemplate
+            .send({
+                template: "emailchanged",
+                message: {
+                    from:
+                        "Digital Health Record Portal <digitalhealthrecord1@gmail.com>",
+                    to: email,
+                },
+                locals: {
+                    fname: `${validUser.profile.firstName} ${validUser.profile.lastName}`,
+                    dashboardLink: `${process.env.HOST_URL}/doctor/dashboard`,
+                },
+            })
+            .then(() => console.log("email has been send!"))
+            .catch((e) => console.log(e));
     } catch (e) {
         console.log(e);
         res.render("doctor/newemail", {
@@ -314,33 +301,25 @@ router.post("/lab/changeemail", async (req, res, next) => {
         validUser.account.resetTokenExpiration = Date.now() + 3600000;
         const saved = await validUser.save();
         console.log(validUser);
-        const message = {
-            to: email,
-            from: "Digital Health Record Portal<digitalhealthrecord1@gmail.com>",
-            subject: "Change Email!",
-            html: `<body><h3 style={"text-align: center"}>Digital Health Record Portal</h3></body>
-                    <h4>To change email click on the link below</h4>
-                    <h6>If its not you the <b>don't click this link.</h6><br>
-                    <a href="${process.env.HOST_URL}/doctor/new-email/${token}">this link</a>
-                    `,
-        };
-        //send link to change Email
-        transporter.sendMail(message, function (err, data) {
-            if (err) {
-                console.log(err);
-                return res.render("lab/changeemail", {
-                    error: "Server Error",
-                    status: "",
-                });
-            } else {
-                console.log("Email sent successfully");
-                res.render("lab/login", {
-                    error: "",
-                    status:
-                        "Email Change link mailed to you on Register mail-Id",
-                });
-            }
+        res.render("lab/login", {
+            error: "",
+            status: "Check your mail for link",
         });
+        emailTemplate
+            .send({
+                template: "resetemail",
+                message: {
+                    from:
+                        "Digital Health Record Portal <digitalhealthrecord1@gmail.com>",
+                    to: email,
+                },
+                locals: {
+                    fname: `${validUser.profile.labName}`,
+                    changeEmailLink: `${process.env.HOST_URL}/lab/new-email/${token}`,
+                },
+            })
+            .then(() => console.log("email has been send!"))
+            .catch((e) => console.log(e));
     } catch (e) {
         console.log(e);
         res.render("lab/changeemail", {
@@ -365,25 +344,25 @@ router.post("/lab/new-email", async (req, res, next) => {
         });
     }
     try {
-        const doctor = await Lab.findOne({ "account.resetToken": token });
-        if (!doctor) {
+        const user = await Lab.findOne({ "account.resetToken": token });
+        if (!user) {
             return res.render("lab/newemail", {
                 error: "Token not found",
                 status: "",
                 token: token,
             });
         }
-        if (doctor.account.resetTokenExpiration < Date.now()) {
+        if (user.account.resetTokenExpiration < Date.now()) {
             return res.render("lab/newemail", {
                 error: "Token expired",
                 status: "",
                 token: token,
             });
         }
-        doctor.account.email = email;
-        doctor.account.resetToken = undefined;
-        doctor.account.resetTokenExpiration = Date.now();
-        const saved = await doctor.save();
+        user.account.email = email;
+        user.account.resetToken = undefined;
+        user.account.resetTokenExpiration = Date.now();
+        const saved = await user.save();
         if (!saved) {
             return res.render("lab/newemail", {
                 error: "Cannot update Email at the moment",
@@ -396,20 +375,22 @@ router.post("/lab/new-email", async (req, res, next) => {
             error: "",
             status: "Your Email Updated successfull, now login",
         });
-        //notify doctor about new password set
-        const message = {
-            to: doctor.account.email,
-            from: "Digital Health Record Portal<digitalhealthrecord1@gmail.com>",
-            subject: "New Email updated successfully",
-            html: `<body><h3 style={"text-align: center"}>Digital Health Record Portal</h3></body>
-                    <h4>New email is registered with your account.</h4>
-                    `,
-        };
-        transporter.sendMail(message, function (err, data) {
-            if (err) {
-                console.log(err);
-            }
-        });
+        //notify doctor about new email set
+        emailTemplate
+            .send({
+                template: "emailchanged",
+                message: {
+                    from:
+                        "Digital Health Record Portal <digitalhealthrecord1@gmail.com>",
+                    to: email,
+                },
+                locals: {
+                    fname: `${user.profile.labName}`,
+                    dashboardLink: `${process.env.HOST_URL}/lab/dashboard`,
+                },
+            })
+            .then(() => console.log("email has been send!"))
+            .catch((e) => console.log(e));
     } catch (e) {
         console.log(e);
         res.render("lab/newemail", {
