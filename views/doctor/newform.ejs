@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
 
     <!-- Bootstrap CSS -->
+    <link  rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <!-- Font -->
@@ -19,8 +20,17 @@
     <link rel="stylesheet" href="/css/doctor/newForm.css">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .timetable .center {
+        width: 100%;
+        border: 3px solid #ffbbbd;
+        padding: 10px;
+        }
+        .glyphicon{
+            color:red;
+        }
+    </style>
 </head>
-
 <body>
     <!-- toolbar -->
     <div class="toolbar">
@@ -189,6 +199,35 @@
                 </div>
                 <div class="row col-12 my-4">
                     <div class="col-sm-2">
+                        <label for="Medicine Time">Medicine Time</label>
+                    </div>
+                    <div class="col-sm-8 timetable">
+                        <form action="/sign_up" method="post"> 		
+                            <table  class="table table-hover small-text center" id="tb">
+                                <tr class="tr-header">
+                                <th>Sr.No.</th>
+                                <th>Medicine Name</th>
+                                <th>Time</th>
+                                <th><a href="javascript:void(0);" style="font-size:18px;" id="addMoreData" title="Add More Person"><span class="glyphicon glyphicon-plus"></span></a></th>
+                                <tr>
+                                <td><input type="text" name="" class="form-control"></td>
+                                <td><input type="text" name="madicinename" class="form-control"></td>
+                                <td><input type="text" name="time" class="form-control"></td>
+                                <td><a href='javascript:void(0);'  class='remove'><span class='glyphicon glyphicon-remove'></span></a></td>
+                                </tr>
+                                </table>   	  			
+                            <!-- <button type="button" class="btn btn">
+                                <input type="submit" id="submitDetails"
+                            name="submitDetails" value="Submit"> -->
+                            </button>       
+                        </form>
+                    </div><hr style="color: white;">
+                    <div class="center mx-auto ">
+                        <a class="change-btn" href="">submit</a>
+                    </div>
+                </div> 
+                <div class="row col-12 my-4">
+                    <div class="col-sm-2">
                         <label for="Response">Response</label>
                     </div>
                     <div class="col-sm-8">
@@ -214,6 +253,26 @@
     </main>
     <!-- Optional JavaScript -->
     <!-- Bundled Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> 
+<script>   
+$(function(){
+    
+    $('#addMoreData').on('click', function() {
+              var data = $("#tb tr:eq(1)").clone(true).appendTo("#tb");
+              data.find("input").val('');
+     });
+     $(document).on('click', '.remove', function() {
+         var trIndex = $(this).closest("tr").index();
+            if(trIndex>1) {
+             $(this).closest("tr").remove();
+           } else {
+             alert("Sorry!! App apne limit me rho aap ye row delete nhi kar skte ho!    ");
+           }
+      });
+});      
+</script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
         crossorigin="anonymous"></script>
