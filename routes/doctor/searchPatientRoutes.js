@@ -31,4 +31,14 @@ router.post("/search", async (req, res, next) => {
     }
 });
 
+//patient new record form
+router.post("/patient/form", async (req, res, next) => {
+    const healthID = req.body.healthID;
+    const patient = await User.findOne({ "accessID.healthID": healthID });
+    res.render("doctor/newform", {
+        doctor: req.user,
+        fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
+        patient: patient,
+    });
+});
 module.exports = router;

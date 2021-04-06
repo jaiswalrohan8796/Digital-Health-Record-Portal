@@ -121,7 +121,7 @@
         </div>
         <!-- Heading -->
         <div class="toolbar-header">
-            <p class="fs-32">New Form</p>
+            <p class="fs-32">Patient's Treatment</p>
         </div>
         <!-- Profile -->
         <div class="toolbar-profile">
@@ -150,19 +150,14 @@
     <!-- alert for home only -->
     <main>
         <div class="container body-wrapper">
-            <form action="">
-                <h3 class="title fs-28 text-center heading head"><span>New Record Adding</span></h3>
+            <form action="/doctor/dashboard/patient/new">
+                <h3 class="title fs-28 text-center heading head"><span>New Treatment</span></h3>
                 <div class="col-12 my-4">
                     <div class="form-group row ">
                         <label for="Duration" class="col-sm-2 col-form-label ">Duration </label>
                         <div class="col-sm-3">
                             <input type="date" class="form-control" id="Duration" name="Duration">
                         </div>
-
-                        <!-- <div class="col-sm-2 mx-auto">to</div>
-                        <div class="col-sm-3">
-                            <input type="date" class="form-control" id="Duration" name="Duration">
-                        </div> -->
                     </div>
                 </div>
                 <div class="row col-12 my-4">
@@ -170,7 +165,7 @@
                         <label for="DocName">Doctor</label>
                     </div>
                     <div class="col-sm-8">
-                        <%= fullName %>
+                        <input type="text" class="form-control"  name="doctor" value="<%= fullName %>" disabled>
                     </div>
                 </div>
                 <div class="row col-12 my-4">
@@ -238,17 +233,6 @@
                         <textarea class="form-control" id="Response" rows="3"></textarea>
                     </div>
                 </div>
-                <!-- <div class="row col-12 my-4">
-                    <div class="col-sm-2">
-                        <label for="labReport">Lab Reports</label>
-                    </div>
-                    <div class="col-sm-8">
-                        <input class="form-control form-control-lg" id="formFileLg" type="file">
-                    </div>
-                </div> -->
-                <!-- <div class="center mx-auto">
-                    <button type="button" class="btn btn-outline-success ">Submit</button>
-                </div> -->
                 <div class="center mx-auto ">
                     <a class="change-btn" href="">Save</a>
                 </div>
