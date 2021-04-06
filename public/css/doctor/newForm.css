@@ -1,6 +1,10 @@
 .center{
     width: 100px;
 }
+
+.timetable .center {
+    width: 100%;
+} 
 .body-wrapper {
     margin: 1rem;
 }

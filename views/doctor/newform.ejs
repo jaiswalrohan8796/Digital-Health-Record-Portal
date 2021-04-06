@@ -20,13 +20,7 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
-    <style>
-        .timetable .center {
-            width: 100%;
-        }
-
-        
-    </style>
+   
 </head>
 
 <body>
@@ -200,18 +194,19 @@
                         <label for="Medicine Time">Medicine Time</label>
                     </div>
                     <div class="col-sm-8 timetable">
-                            <table class="table table-hover small-text center" id="tb">
+                            <table class="table  small-text" id="tb">
                                 <tr class="tr-header">
                                     <a href="javascript:void(0);" style="font-size:18px;" id="addMoreData"
                                             title="Add More Person"><i class="bi bi-plus-circle" style="color:#ffc0c2; float:right"></i></a>
                                 </tr>
-                                <td>
+                                <hr style="color: white; margin:5px;">
+                                <td style="background-color:white">
                                      
-                                <div class="row col-12  ">
+                                <div class="row col-12   ">
                                     <div class="col-sm-2 ">
                                         <label for="Medicine">Medicine</label>
                                     </div>
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-10 center">
                                         <textarea class="form-control" name="medicinename" rows="2"></textarea>
                                     </div>
                                 </div>
@@ -220,7 +215,7 @@
                                     <div class="col-sm-2 ">
                                         <label for="timing">Timing</label>
                                     </div>
-                                    <div class="col-sm-10 ">
+                                    <div class="col-sm-10 center">
                                         <textarea class="form-control" mane="time" rows="2"></textarea>
                                     </div>
                                 </div>
@@ -276,7 +271,7 @@
                 if (trIndex > 1) {
                     $(this).closest("tr").remove();
                 } else {
-                    alert("Sorry!! App apne limit me rho aap ye row delete nhi kar skte ho!    ");
+                    alert("Sorry!! You cant't Delete this Row' ");
                 }
             });
         });
