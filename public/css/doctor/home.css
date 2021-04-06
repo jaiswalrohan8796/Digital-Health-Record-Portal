@@ -64,6 +64,11 @@ form .btn {
     font-weight: bold;
     border-radius: 24px;
 }
+.search-status {
+    margin-bottom: 0px;
+    font-size: 20px;
+    color: crimson;
+}
 button:hover {
     color: #ffffff;
 }
