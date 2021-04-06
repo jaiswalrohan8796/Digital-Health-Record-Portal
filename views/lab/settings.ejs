@@ -147,7 +147,80 @@
     <div class="toolbar-space"></div>
     <!-- alert for home only -->
     <main>
-        
+        <!-- Error View  -->
+        <ul class="validatorErrorsList">
+            <% if (error instanceof Array) { %>
+                <% error.forEach((err)=> { %>
+                    <li class=" validatorErrors  text-center">
+                        <%= err.msg %>
+                    </li>
+                    <% }) %>
+                        <% } else { %>
+        </ul>
+        <% if (error) { %>
+            <h5 class="text-center" style="text-align: center;">
+                <%= error %>
+            </h5>
+            <% } %>
+                <% } %>
+                    <!-- Status View  -->
+                    <div class='status-wrap'>
+                        <p class="status" id="status">
+                            <%= status %>
+                        </p>
+                    </div>
+                    <!-- Settings  -->
+                    <!-- profile -->
+                    <form class="profile row my-4" action="/lab/dashboard/settings/profile" method="POST">
+                        <div class="heading">
+                            <span class="fs-28 bold">Profile</span>
+                            <i class="bi bi-pencil-square edit-icon" id="profile-edit-icon" onclick="enableEdit()"></i>
+                        </div>
+
+                        <div class="col-sm-6 row mt-4">
+                            <div class="col-4">
+                                <label for="labName" class="form-label">Lab Name</label>
+                            </div>
+                            <div class="col-8">
+                                <input class="form-control" type="text" name="labName"
+                                    value="<%= lab.profile.labName %>">
+                            </div>
+                        </div>
+                        
+                        <input type="hidden" value="<%= lab._id %>" name="id">
+                        <div class="col-12 saveButton-container">
+                            <button id="saveButton" type="submit" class="btn">Save</button>
+                        </div>
+                    </form>
+                    <form action="" class="account row" method="POST">
+                        <div class="heading">
+                            <p class="fs-28 bold">Account</p>
+                        </div>
+                        <div class="col-12 row text-center mt-4">
+                            <div class="col-sm-4">
+                                <p>Email</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <p>
+                                    <%= doctor.account.email %>
+                                </p>
+                            </div>
+                            <div class="col-sm-4">
+                                <a class="change-btn" href="/lab/changeemail">Change Email</a>
+                            </div>
+                        </div>
+                        <div class="col-12 row text-center my-4">
+                            <div class="col-sm-4">
+                                <p>Password</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <p>* * * * * * * *</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <a class="change-btn" href="/lab/forgotpassword">Change Password</a>
+                            </div>
+                        </div>
+                    </form>
     </main>
     <!-- Optional JavaScript -->
     <!-- Bundled Bootstrap JS -->
