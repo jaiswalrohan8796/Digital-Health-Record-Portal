@@ -2,7 +2,7 @@ const router = require("express").Router();
 const Doctor = require("../../models/doctor/Doctor.js");
 const searchPatientRoutes = require("../doctor/searchPatientRoutes.js")
 const settingRoutes = require("../doctor/settingRoutes.js");
-const labSettingsRoutes=require("../lab/labSettingsRoutes.js")
+
 
 
 //dashboard menu routes
@@ -46,7 +46,7 @@ router.use("/dashboard", settingRoutes);
 //search patient routes  
 router.use("/dashboard",searchPatientRoutes)
 
-router.use("/dashboard",labSettingsRoutes);
+
 
 //logout
 router.get("/dashboard/logout", (req, res, next) => {

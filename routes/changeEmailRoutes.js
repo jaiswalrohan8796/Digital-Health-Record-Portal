@@ -272,7 +272,7 @@ router.post("/doctor/new-email", async (req, res, next) => {
 //lab
 
 //get changeemail page
-router.get("/labchangeemail", (req, res, next) => {
+router.get("/lab/changeemail", (req, res, next) => {
     res.render("lab/changeemail", { error: "", status: "" });
 });
 //submit email for link

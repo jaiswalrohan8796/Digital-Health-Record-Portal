@@ -16,6 +16,7 @@
     <!-- Custom Styling -->
     <link rel="stylesheet" href="/css/lab/main.css">
     <link rel="stylesheet" href="/css/lab/dashboard.css">
+    <link rel="stylesheet" href="/css/lab/labSettings.css">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -174,7 +175,7 @@
                     <form class="profile row my-4" action="/lab/dashboard/settings/profile" method="POST">
                         <div class="heading">
                             <span class="fs-28 bold">Profile</span>
-                            <i class="bi bi-pencil-square edit-icon" id="profile-edit-icon" onclick="enableEdit()"></i>
+                            <i class="bi bi-pencil-square edit-icon" style="color:pink" id="profile-edit-icon" onclick="enableEdit()"></i>
                         </div>
 
                         <div class="col-sm-6 row mt-4">
@@ -186,7 +187,60 @@
                                     value="<%= lab.profile.labName %>">
                             </div>
                         </div>
-                        
+                        <div class="col-sm-6 row mt-4">
+                            <div class="col-4">
+                                <label for="registrationNo" class="form-label">Registration No.</label>
+                            </div>
+                            <div class="col-8">
+                                <input class="form-control" type="text" name="registrationNo"
+                                    value="<%= lab.profile.registrationNo %>">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 row mt-4">
+                            <div class="col-4">
+                                <label for="phoneNo" class="form-label">Phone No.</label>
+                            </div>
+                            <div class="col-8">
+                                <input class="form-control" type="text" name="phoneNo"
+                                    value="<%= lab.profile.phoneNo %>">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 row mt-4">
+                            <div class="col-4">
+                                <label for="address" class="form-label">Address</label>
+                            </div>
+                            <div class="col-8">
+                                <input class="form-control" type="text" name="address"
+                                    value="<%= lab.profile.address %>">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 row mt-4">
+                            <div class="col-4">
+                                <label for="city" class="form-label">City</label>
+                            </div>
+                            <div class="col-8">
+                                <input class="form-control" type="text" name="city"
+                                    value="<%= lab.profile.city %>">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 row mt-4">
+                            <div class="col-4">
+                                <label for="state" class="form-label">State</label>
+                            </div>
+                            <div class="col-8">
+                                <input class="form-control" type="text" name="state"
+                                    value="<%= lab.profile.state %>">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 row mt-4">
+                            <div class="col-4">
+                                <label for="pincode" class="form-label">Pincode</label>
+                            </div>
+                            <div class="col-8">
+                                <input class="form-control" type="text" name="pincode"
+                                    value="<%= lab.profile.pincode %>">
+                            </div>
+                        </div>
                         <input type="hidden" value="<%= lab._id %>" name="id">
                         <div class="col-12 saveButton-container">
                             <button id="saveButton" type="submit" class="btn">Save</button>
@@ -202,7 +256,7 @@
                             </div>
                             <div class="col-sm-4">
                                 <p>
-                                    <%= doctor.account.email %>
+                                    <%= lab.account.email %>
                                 </p>
                             </div>
                             <div class="col-sm-4">

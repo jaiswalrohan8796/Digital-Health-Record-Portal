@@ -1,5 +1,4 @@
 const router = require("express").Router();
-
 const authRoutes = require("../doctor/authRoutes.js");
 const dashboardRoutes = require("../doctor/dashboardRoutes.js");
 

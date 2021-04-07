@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const User = require("../../models/user/User.js");
 const settingRoutes = require("../user/settingRoutes.js");
+ 
 
 //dashboard home
 router.get("/dashboard", async (req, res, next) => {
