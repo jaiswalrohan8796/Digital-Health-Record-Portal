@@ -51,6 +51,12 @@ const DoctorSchema = mongoose.Schema({
         },
         resetTokenExpiration: Date,
     },
+    currentPatients: [{
+
+    }],
+    previousPatients: [{
+        
+    }]
 });
 
 const Doctor = mongoose.model("Doctor", DoctorSchema);
