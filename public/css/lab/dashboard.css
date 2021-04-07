@@ -197,7 +197,10 @@ html {
     max-width: 160px;
 }
 /* Main */
-
+main {
+    padding: 16px 24px;
+    color: #333;
+}
 /* media queries */
 @media (max-width: 768px) {
     .toolbar-header p {

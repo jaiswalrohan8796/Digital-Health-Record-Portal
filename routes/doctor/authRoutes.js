@@ -50,8 +50,7 @@ router.post(
             .withMessage("Email should not be empty ")
             .isEmail()
             .withMessage("Email should be valid")
-            .trim()
-            .normalizeEmail(),
+            .trim(),
         check("mobileNo")
             .isLength({ min: 10, max: 10 })
             .withMessage("Mobile number should be ten digit number")

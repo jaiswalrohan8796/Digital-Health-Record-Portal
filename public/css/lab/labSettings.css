@@ -8,6 +8,16 @@ p {
     margin-bottom: 0px;
 }
 
+i {
+    font-size: 26px;
+    color: #6dc9c8;
+    height: 32px;
+    width: 32px !important;
+    /* position: absolute;
+    top: 164px;
+    right: 40px; */
+    cursor: pointer;
+}
 
 form {
     width: 100%;
