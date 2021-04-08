@@ -1,0 +1,44 @@
+.body-wrapper {
+    height: 100vh;
+    width: 100vw;
+    --bs-gutter-x: 0;
+}
+.left .content {
+    padding-left: 72px;
+}
+.content {
+    text-align: left;
+}
+.content .fourOfour {
+    font-weight: bolder;
+    font-size: 92px;
+}
+.content .heading {
+    margin-bottom: 24px;
+}
+.content .home-btn {
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 2px;
+    border: 1px solid #eee;
+    color: #eee;
+}
+.content .home-btn:hover {
+    background-color: #eee;
+    color: #0e3150;
+}
+.right img {
+    height: 80%;
+    width: 80%;
+}
+
+@media (max-width: 768px) {
+    .left {
+        margin-top: 12px;
+        height: 50vw;
+    }
+    .left .content {
+        text-align: center;
+        padding-left: 16px;
+    }
+}

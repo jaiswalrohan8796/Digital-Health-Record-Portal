@@ -39,6 +39,11 @@ app.use(userAllRoutes);
 app.use(labAllRoutes);
 app.use(doctorAllRoutes);
 
+//404 page route
+app.get("*", (req, res) => {
+    res.render("404");
+});
+
 //server process.env.mongoDBURI
 mongoose.connect(
     process.env.mongoDBURI,

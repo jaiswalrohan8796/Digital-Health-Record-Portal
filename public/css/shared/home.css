@@ -35,7 +35,12 @@ body {
     padding-right: 0;
     padding-left: 40px;
 }
-
+.nav-link:hover {
+    text-decoration: none;
+}
+.navbar-brand:hover {
+    text-decoration: none;
+}
 .row {
     margin: 0;
 }
@@ -249,7 +254,7 @@ body {
 }
 @media (max-width: 576px) {
     .navbar .fs-32 {
-        font-size: 28px;
+        font-size: 20px;
     }
     .main_header_left .fs-32 {
         font-size: 20px;
