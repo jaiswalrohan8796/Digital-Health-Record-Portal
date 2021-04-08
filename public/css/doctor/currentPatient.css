@@ -1,0 +1,40 @@
+.row {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+}
+/* p {
+    margin-bottom: 12px;
+} */
+.container-fluid{
+    width: 100%;
+    padding: 8px 18px;
+    background-color: #c9ffff;
+    /* border-radius: 24px; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.currentbody{
+    margin-top: 15px;
+}
+.currentbodypad{
+    margin-top: 10px;
+    padding-left: 200px;
+}
+/* .spaceFix{
+    padding-left:100px;
+}
+.padmodel{
+    padding: 8px 18px;
+} */
+.end-btn{
+    text-align: right;
+    border-radius:24px;
+    margin: auto;
+    padding: 8px 18px;
+}
+@media (max-width: 768px) {
+    .currentbodypad{
+        padding-left: 100px;
+    }
+}

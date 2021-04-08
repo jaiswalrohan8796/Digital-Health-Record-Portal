@@ -16,6 +16,7 @@
     <!-- Custom Styling -->
     <link rel="stylesheet" href="/css/doctor/main.css">
     <link rel="stylesheet" href="/css/doctor/dashboard.css">
+    <link rel="stylesheet" href="/css/doctor/currentPatient.css">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -146,7 +147,86 @@
     <div class="toolbar-space"></div>
     <!-- alert for home only -->
     <main>
-
+        <div class="container-fluid">
+            <div class="row col-12">
+                <div class="col-sm-3 row currentbody">
+                    <div class="col-sm-4">
+                        <p>Health ID :</p>
+                    </div>
+                    <div class="col-sm-8">
+                        <p>123456</p>
+                    </div>
+                </div>
+                <div class="col-sm-3 row currentbody">
+                    <div class="col-sm-4">
+                        <p>Name :</p>
+                    </div>
+                    <div class="col-sm-8">
+                        <p>Patients name</p>
+                    </div>
+                </div>
+                <div class="col-sm-3 currentbodypad">
+                    <!-- Scrollable modal -->
+               <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary end-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                 View Details
+                </button>
+  
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" >Patient Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                 </div>
+                <div class="modal-body">
+                 <div class="col-12 row">
+                     <div class="col-sm-4 bold">
+                        Disease & History:
+                     </div>
+                     <div class="col-sm-8">
+                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi aspernatur minus tempore ratione placeat suscipit laboriosam eos, vero dicta velit ut eum, doloribus, voluptatum neque minima sint repudiandae incidunt autem. Aspernatur, inventore saepe corporis labore quaerat provident ipsa delectus, excepturi porro repellendus explicabo officia laudantium nostrum fugiat nam odit minima.
+                     </div>
+                 </div>
+                 <div class="col-12 row">
+                     <div class="col-sm-4 bold">
+                        Prescription:
+                     </div>
+                     <div class="col-sm-8">
+                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi aspernatur minus tempore ratione placeat suscipit laboriosam eos, vero dicta velit ut eum, doloribus, voluptatum neque minima sint repudiandae incidunt autem. Aspernatur, inventore saepe corporis labore quaerat provident ipsa delectus, excepturi porro repellendus explicabo officia laudantium nostrum fugiat nam odit minima.
+                     </div>
+                 </div>
+                 <div class="col-12 row">
+                     <div class="col-sm-4 bold">
+                        Medicine:
+                     </div>
+                     <div class="col-sm-8">
+                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi aspernatur minus tempore ratione placeat suscipit laboriosam eos, vero dicta velit ut eum, doloribus, voluptatum neque minima sint repudiandae incidunt autem. Aspernatur, inventore saepe corporis labore quaerat provident ipsa delectus, excepturi porro repellendus explicabo officia laudantium nostrum fugiat nam odit minima.
+                     </div>
+                 </div>
+                 <div class="col-12 row">
+                     <div class="col-sm-4 bold">
+                        Response:
+                     </div>
+                     <div class="col-sm-8">
+                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi aspernatur minus tempore ratione placeat suscipit laboriosam eos, vero dicta velit ut eum, doloribus, voluptatum neque minima sint repudiandae incidunt autem. Aspernatur, inventore saepe corporis labore quaerat provident ipsa delectus, excepturi porro repellendus explicabo officia laudantium nostrum fugiat nam odit minima.
+                     </div>
+                 </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Understood</button> -->
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                <div class="col-sm-3 end-btn">
+                    <button type="button" class="btn btn-danger end-btn ">End</button>
+                </div>
+            </div>
+        </div>
     </main>
     <!-- Optional JavaScript -->
     <!-- Bundled Bootstrap JS -->
