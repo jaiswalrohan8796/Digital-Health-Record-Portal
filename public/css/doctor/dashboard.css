@@ -213,6 +213,10 @@ main {
     .toolbar-header p {
         font-size: 24px;
     }
+    main {
+        padding: 8px 8px;
+        color: #333;
+    }
 }
 @media screen and (max-width: 600px) {
     .column {
