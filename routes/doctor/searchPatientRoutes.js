@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const User = require("../../models/user/User.js");
 const Doctor = require("../../models/doctor/Doctor.js");
+const generateUniqueId = require("generate-unique-id");
 //search handler
 router.post("/search", async (req, res, next) => {
     const searchQuery = Number(req.body.search);
@@ -59,11 +60,42 @@ router.post("/patient/new", async (req, res, next) => {
 
         //save patient current treatment
         let medObj = {};
-        medicineName.forEach((med, i) => {
-            medObj[med] = time[i];
+        if (medicineName instanceof Array){
+            medicineName.forEach((med, i) => {
+                medObj[med] = time[i];
+            });
+        }
+        medObj[medicineName]=time
+        
+        const alltreatmentNoObject = await User.find(
+            {},
+            { "previousTreatments": 1 , "currentTreatments":1}
+        );
+        console.log(alltreatmentNoObject)
+        //converted to list
+        const alltreatmentNoList = alltreatmentNoObject.map((obj) => obj.treatmentNo);
+        console.log(alltreatmentNoList);
+         //Generate Treatment Number 
+        var treatmentNo = await generateUniqueId({
+            length: 4,
+            useLetters: false,
+            useNumbers: true,
+            excludeSymbols: ["!", "@", "#", "$", "%", "&", "*", "~", "^"],
         });
-        //funct to generate treatmentID also do in schema
+        console.log(treatmentNo);
+        //check if exist
+        const alreadytreatmentNo = alltreatmentNoList.includes(treatmentNo);
+        if (alreadytreatmentNo) {
+            //regenerate
+            treatmentNo = generateUniqueId({
+                length: 4,
+                useLetters: false,
+                useNumbe: true,
+                excludeSymbols: ["!","@","#","$","%","&","*","~","^",],
+            });
+        }
         let currTreatObj = {
+            treatmentNo:treatmentNo,
             history: diseaseDesc,
             labReports: "",
             doctor: doctor,
@@ -72,6 +104,7 @@ router.post("/patient/new", async (req, res, next) => {
             response: response,
             startDate: startDate,
         };
+        console.log(currTreatObj)
         patient.currentTreatments.push(currTreatObj);
         const saved = await patient.save();
         if (!saved) {

@@ -74,6 +74,7 @@ const UserSchema = mongoose.Schema({
     },
     previousTreatments: [
         {
+            treatmentNo:Number,
             history: String,
             labReports: String,
             doctor: {
@@ -89,6 +90,7 @@ const UserSchema = mongoose.Schema({
     ],
     currentTreatments: [
         {
+            treatmentNo:Number,
             history: String,
             labReports: String,
             doctor: {
