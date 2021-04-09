@@ -7,6 +7,12 @@ ROHAN => {
 
 ABDUL => {
     1.homepage navbar fix pending  
+    doctor
+    abdulrahimansari@gmail.com
+    pass 123456
+    user 
+    jaiswalrohan8796@gmail.com
+    123456
 }
 ZEESHAN => {
     1. Register page is done for patient and lab but there is some problem related to doctor page.(done)

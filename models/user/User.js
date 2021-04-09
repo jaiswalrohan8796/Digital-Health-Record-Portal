@@ -75,13 +75,18 @@ const UserSchema = mongoose.Schema({
     previousTreatments: [
         {
             treatmentNo:Number,
+            healthID:Number,
+            treatmentNo: Number,
             history: String,
             labReports: String,
             doctor: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Doctor",
             },
-            medicines: { medicineName: String, time: String },
+            medicines:{
+                name:[String],
+                time:[String],
+            },
             prescriptions: String,
             response: String,
             startDate: Date,
@@ -91,6 +96,8 @@ const UserSchema = mongoose.Schema({
     currentTreatments: [
         {
             treatmentNo:Number,
+            healthID:Number,
+            treatmentNo: Number,
             history: String,
             labReports: String,
             doctor: {
@@ -98,7 +105,10 @@ const UserSchema = mongoose.Schema({
                 ref: "Doctor",
             },
             prescriptions: String,
-            medicines: { medName: String, time: String },
+            medicines:{
+                name:[String],
+                time:[String],
+            },
             response: String,
             startDate: Date,
             endDate: Date,

@@ -52,17 +52,44 @@ const DoctorSchema = mongoose.Schema({
     },
     currentPatients: [
         {
+            healthID:Number,
             treatmentNo: Number,
+            doctorName:String,
             history: String,
             labReports: String,
-            doctor: Object,
+            patient: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "User",
+            },
             prescriptions: String,
-            medicines: Object,
+            medicines:{
+                name:[String],
+                time:[String],
+            },
             response: String,
             startDate: Date,
+            endDate: Date,
         },
     ],
-    previousPatients: [{}],
+    previousPatients: [{
+        healthID:Number,
+        treatmentNo: Number,
+        doctorName:String,
+            history: String,
+            labReports: String,
+            patient: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "User",
+            },
+            prescriptions: String,
+            medicines:{
+                name:[String],
+                time:[String],
+            },
+            response: String,
+            startDate: Date,
+            endDate: Date,
+    }],
 });
 
 const Doctor = mongoose.model("Doctor", DoctorSchema);

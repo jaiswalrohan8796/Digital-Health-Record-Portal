@@ -59,22 +59,40 @@ router.post("/patient/new", async (req, res, next) => {
         const doctor = await Doctor.findOne({ _id: doctorID });
 
         //save patient current treatment
-        let medObj = {};
-        if (medicineName instanceof Array){
-            medicineName.forEach((med, i) => {
-                medObj[med] = time[i];
-            });
-        }
-        medObj[medicineName]=time
+        // let medObj = {};
+        // if (medicineName instanceof Array){
+        //     medicineName.forEach((med, i) => {
+        //         medObj[med] = time[i];
+        //     });
+        // }
+        // medObj[medicineName]=time
+
         
+        let medArray=[]
+        let timeArray=[]
+        if (medicineName instanceof String)
+        {
+            medArray.push(medicineName)
+            timeArray.push(time)
+        }
+
+        else{
+            medArray=[...medicineName]
+            timeArray=[...time]
+        }
+        let medObj={
+            name:medArray,
+            time:timeArray
+        }
+         
         const alltreatmentNoObject = await User.find(
             {},
             { "previousTreatments": 1 , "currentTreatments":1}
         );
-        console.log(alltreatmentNoObject)
+         
         //converted to list
         const alltreatmentNoList = alltreatmentNoObject.map((obj) => obj.treatmentNo);
-        console.log(alltreatmentNoList);
+         
          //Generate Treatment Number 
         var treatmentNo = await generateUniqueId({
             length: 4,
@@ -82,39 +100,60 @@ router.post("/patient/new", async (req, res, next) => {
             useNumbers: true,
             excludeSymbols: ["!", "@", "#", "$", "%", "&", "*", "~", "^"],
         });
-        console.log(treatmentNo);
+         
         //check if exist
         const alreadytreatmentNo = alltreatmentNoList.includes(treatmentNo);
         if (alreadytreatmentNo) {
             //regenerate
             treatmentNo = generateUniqueId({
-                length: 4,
+                length: 3,
                 useLetters: false,
                 useNumbe: true,
                 excludeSymbols: ["!","@","#","$","%","&","*","~","^",],
             });
         }
         let currTreatObj = {
+            healthID:healthID,
             treatmentNo:treatmentNo,
+            doctorName:doctorName,
             history: diseaseDesc,
             labReports: "",
             doctor: doctor,
             prescriptions: prescription,
-            medicines: medObj,
+            medicines:medObj ,
             response: response,
             startDate: startDate,
         };
-        console.log(currTreatObj)
+         console.log(currTreatObj);
         patient.currentTreatments.push(currTreatObj);
         const saved = await patient.save();
+        console.log(" patient trt added")
+
         if (!saved) {
-            res.render("doctor/newform", {
+          return  res.render("doctor/newform", {
                 doctor: req.user,
                 fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
                 patient: patient,
             });
         }
         //doctor currentTreatments
+
+        //current patients push
+        doctor.currentPatients.push(currTreatObj);
+        console.log(" doctor trt added")
+        const saved2 = await patient.save();
+        if (!saved2) {
+          return  res.render("doctor/newform", {
+                doctor: req.user,
+                fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
+                patient: patient,
+            });
+        }
+        res.render("doctor/patientDetail", {
+            doctor: req.user,
+            fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
+            patient: patient,
+        });
     } catch (e) {
         console.log(e);
         const patient = await User.findOne({ "accessID.healthID": healthID });
@@ -125,4 +164,6 @@ router.post("/patient/new", async (req, res, next) => {
         });
     }
 });
+
+
 module.exports = router;
