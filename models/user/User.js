@@ -74,7 +74,6 @@ const UserSchema = mongoose.Schema({
     },
     previousTreatments: [
         {
-            treatmentNo:Number,
             healthID:Number,
             treatmentNo: Number,
             history: String,
@@ -95,7 +94,6 @@ const UserSchema = mongoose.Schema({
     ],
     currentTreatments: [
         {
-            treatmentNo:Number,
             healthID:Number,
             treatmentNo: Number,
             history: String,
