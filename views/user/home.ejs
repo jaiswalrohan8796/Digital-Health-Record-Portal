@@ -262,7 +262,14 @@
                     <% } %>
 
                         <div class="basic row my-4">
-                            <p class="fs-28 heading">Basic Details</p>
+                            <div class="col-12 row1 heading mb-3">
+                                <div class="col-sm-6 fs-28 ">Basic Details</div>
+                                <div class="col-sm-6 fs-28 align">Health ID : <%=user.accessID.healthID%></div>   
+                            </div>
+                            <!-- <div class="col-12 row1">
+                                <p class="fs-28 heading">Basic Details</p>
+                                <p class="fs-28 heading">Health Id: <%=user.accessID.healthID %></p>
+                            </div> -->
                             <div class="col-sm-6 row">
                                 <div class="col-4">
                                     <p class="bold">Name :</p>
@@ -289,14 +296,6 @@
                                         <%= user.profile.gender %>
                                     </p>
                                 </div>
-                                <div class="col-4">
-                                    <p class="bold">City :</p>
-                                </div>
-                                <div class="col-8">
-                                    <p>
-                                        <%= user.profile.city %>
-                                    </p>
-                                </div>
                             </div>
                             <div class="col-sm-6 row">
                                 <div class="col-4">
@@ -321,14 +320,6 @@
                                 <div class="col-8">
                                     <p>
                                         <%= user.profile.bloodGroup %>
-                                    </p>
-                                </div>
-                                <div class="col-4">
-                                    <p class="bold">Health ID :</p>
-                                </div>
-                                <div class="col-8">
-                                    <p>
-                                        <%= user.accessID.healthID %>
                                     </p>
                                 </div>
                             </div>
