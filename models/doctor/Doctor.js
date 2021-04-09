@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const DoctorSchema = mongoose.Schema({
     role: {
         type: String,
@@ -53,6 +52,14 @@ const DoctorSchema = mongoose.Schema({
     },
     currentPatients: [{
 
+            treatmentNo:Number,
+            history: String,
+            labReports:String,
+            doctor: Object,
+            prescriptions: String,
+            medicines: Object,
+            response:String,
+            startDate: Date,
     }],
     previousPatients: [{
         
