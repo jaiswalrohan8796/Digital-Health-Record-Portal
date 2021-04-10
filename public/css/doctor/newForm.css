@@ -41,3 +41,6 @@ td {
     color: #fff;
     background-color: #6dc9c8;
 }
+.row {
+    --bs-gutter-x: 0;
+}

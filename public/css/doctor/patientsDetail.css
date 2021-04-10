@@ -64,3 +64,6 @@ button.collapsible:after {
 button.collapsible.active:after {
     content: "\2212";
 }
+.row {
+    --bs-gutter-x: 0;
+}

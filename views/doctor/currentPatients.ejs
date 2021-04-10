@@ -169,7 +169,8 @@
                         <div class="name">
                             <p class="bold">Name :</p>
                             <p>
-
+                                <%= currPat.patient.profile.firstName %>
+                                    <%= currPat.patient.profile.lastName %>
                             </p>
                         </div>
                         <div class="date">
@@ -182,7 +183,7 @@
                     <div class="patient-action text-center">
                         <div class="view">
                             <button class="btn btn-view" data-bs-toggle="modal"
-                                data-bs-target="#treatment- <%= currPat._id %>-modal">View</button>
+                                data-bs-target="#modal<%= currPat._id %>">View</button>
                         </div>
                         <div class="end">
                             <button class="btn btn-end">End</button>
@@ -190,8 +191,8 @@
                     </div>
                 </div>
                 <!-- modal -->
-                <div class="modal fade" id="treatment- <%= currPat._id %>-modal" tabindex="-1"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="modal<%= currPat._id %>" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -221,12 +222,11 @@
                                         Medicine:
                                     </div>
                                     <div class="col-sm-8 text">
-                                        <% currPat.medicines.name.forEach((medName)=> {%>
-                                            <p>medName</p>
+                                        <% currPat.medicines.name.forEach((medName,i)=> {%>
+                                            <p>
+                                                <%=medName%> - <%= currPat.medicines.time[i] %>
+                                            </p>
                                             <% }) %>
-                                                <% currPat.medicines.time.forEach((timeName)=> { %>
-                                                    <p>timeName</p>
-                                                    <% }) %>
                                     </div>
                                 </div>
                                 <div class="col-12 row">
@@ -257,3 +257,4 @@
 </body>
 
 </html>
+

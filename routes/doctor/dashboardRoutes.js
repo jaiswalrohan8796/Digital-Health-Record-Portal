@@ -13,19 +13,12 @@ router.get("/dashboard", (req, res, next) => {
     });
 });
 router.get("/dashboard/current", async (req, res, next) => {
-    let patientList = [];
-    req.user.currentPatients.forEach(async (currPat) => {
-        const pat = await User.findOne({
-            "accessID.healthID": currPat.healthID,
-        });
-        patientList.push(pat);
-    });
-    console.log(req.user.currentPatients);
-    console.log(patientList);
+    const doctor = await Doctor.findOne({ _id: req.user._id }).populate(
+        "currentPatients.patient"
+    );
     res.render("doctor/currentPatients", {
-        doctor: req.user,
-        fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
-        patientList: patientList,
+        doctor: doctor,
+        fullName: `${doctor.profile.firstName} ${doctor.profile.lastName}`,
     });
 });
 router.get("/dashboard/previous", (req, res, next) => {
