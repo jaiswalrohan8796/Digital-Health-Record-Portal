@@ -1,22 +1,31 @@
 const router = require("express").Router();
+const User = require("../../models/user/User.js");
 const Doctor = require("../../models/doctor/Doctor.js");
-const searchPatientRoutes = require("../doctor/searchPatientRoutes.js")
+const searchPatientRoutes = require("../doctor/searchPatientRoutes.js");
 const settingRoutes = require("../doctor/settingRoutes.js");
-
-
 
 //dashboard menu routes
 router.get("/dashboard", (req, res, next) => {
     res.render("doctor/home", {
         doctor: req.user,
         fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
-        searchStatus:null
+        searchStatus: null,
     });
 });
-router.get("/dashboard/current", (req, res, next) => {
+router.get("/dashboard/current", async (req, res, next) => {
+    let patientList = [];
+    req.user.currentPatients.forEach(async (currPat) => {
+        const pat = await User.findOne({
+            "accessID.healthID": currPat.healthID,
+        });
+        patientList.push(pat);
+    });
+    console.log(req.user.currentPatients);
+    console.log(patientList);
     res.render("doctor/currentPatients", {
         doctor: req.user,
         fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
+        patientList: patientList,
     });
 });
 router.get("/dashboard/previous", (req, res, next) => {
@@ -34,19 +43,13 @@ router.get("/dashboard/settings", (req, res, next) => {
     });
 });
 
-
-
 //imported routes
-
 
 //settings routes
 router.use("/dashboard", settingRoutes);
 
-
-//search patient routes  
-router.use("/dashboard",searchPatientRoutes)
-
-
+//search patient routes
+router.use("/dashboard", searchPatientRoutes);
 
 //logout
 router.get("/dashboard/logout", (req, res, next) => {

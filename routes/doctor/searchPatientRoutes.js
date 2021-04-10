@@ -67,12 +67,11 @@ router.post("/patient/new", async (req, res, next) => {
         //     });
         // }
         // medObj[medicineName]=time
-
         let medArray = [];
         let timeArray = [];
-        if (medicineName instanceof String) {
-            medArray.push(medicineName);
-            timeArray.push(time);
+        if (!(medicineName instanceof Array)) {
+            medArray = [medicineName];
+            timeArray = [time];
         } else {
             medArray = [...medicineName];
             timeArray = [...time];
@@ -81,7 +80,6 @@ router.post("/patient/new", async (req, res, next) => {
             name: medArray,
             time: timeArray,
         };
-
         const alltreatmentNoObject = await User.find(
             {},
             { previousTreatments: 1 }
@@ -123,10 +121,20 @@ router.post("/patient/new", async (req, res, next) => {
             response: response,
             startDate: startDate,
         };
-        console.log(currTreatObj);
+        let currPatObj = {
+            healthID: healthID,
+            treatmentNo: treatmentNo,
+            doctorName: doctorName,
+            history: diseaseDesc,
+            labReports: "",
+            patient: patient,
+            prescriptions: prescription,
+            medicines: medObj,
+            response: response,
+            startDate: startDate,
+        };
         patient.currentTreatments.push(currTreatObj);
         const saved = await patient.save();
-        console.log(" patient trt added");
         if (!saved) {
             return res.render("doctor/newform", {
                 doctor: req.user,
@@ -137,7 +145,7 @@ router.post("/patient/new", async (req, res, next) => {
         //doctor currentTreatments
 
         //current patients push
-        doctor.currentPatients.push(currTreatObj);
+        doctor.currentPatients.push(currPatObj);
         const saved2 = await doctor.save();
         if (!saved2) {
             return res.render("doctor/newform", {
@@ -146,7 +154,6 @@ router.post("/patient/new", async (req, res, next) => {
                 patient: patient,
             });
         }
-        console.log(" doctor trt added");
         res.render("doctor/patientDetail", {
             doctor: req.user,
             fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
