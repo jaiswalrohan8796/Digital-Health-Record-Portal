@@ -14,13 +14,11 @@
     background-color: white;
 }
 
-.content {
+.content-wrapper {
     padding-top: 20px;
     display: none;
     overflow: hidden;
     background-color: white;
-    border-radius: 24px;
-    box-shadow: 4px 6px 12px 4px rgb(224, 214, 214);
 }
 .spaceFix {
     padding-top: 1rem;
@@ -66,4 +64,126 @@ button.collapsible.active:after {
 }
 .row {
     --bs-gutter-x: 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 2px 2px 12px 4px rgb(239, 239, 239);
+    min-height: 64px;
+    border-radius: 8px;
+}
+.wrapper:last-child {
+    margin-bottom: 64px;
+}
+.content:hover {
+    box-shadow: 2px 2px 12px 4px rgb(204, 204, 204);
+    cursor: pointer;
+}
+.content p {
+    margin-bottom: 0;
+    padding: 2px;
+}
+.content .btn {
+    width: 68px;
+}
+.patient-detail {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 16px;
+}
+.patient-detail .id {
+    display: flex;
+    flex-direction: row;
+    margin: 0 8px;
+}
+.patient-detail .name {
+    display: flex;
+    flex-direction: row;
+    margin: 0 8px;
+}
+.patient-detail .date {
+    display: flex;
+    flex-direction: row;
+    margin: 0 8px;
+}
+.patient-action {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0 8px;
+}
+.patient-action .view {
+    margin: 2px 8px;
+}
+.patient-action .end {
+    margin: 2px 8px;
+}
+.btn:focus {
+    box-shadow: none;
+}
+.btn-view {
+    border: 2px solid #6dc9c8;
+    color: #6dc9c8;
+    border-radius: 24px;
+}
+.btn-view:hover {
+    background-color: #6dc9c8;
+    color: white;
+}
+.btn-end {
+    border: 2px solid #df0b0b;
+    color: #df0b0b;
+    border-radius: 24px;
+}
+.btn-end:hover {
+    background-color: #df0b0b;
+    color: white;
+}
+.row {
+    --bs-gutter-x: 0;
+}
+.modal-body .text {
+    text-align: justify;
+}
+
+/* media-queries */
+@media (max-width: 768px) {
+    .content {
+        height: 160px;
+    }
+    .patient-detail {
+        margin: 0;
+        margin-left: 4px;
+    }
+    .patient-detail .id {
+        margin: 4px 8px;
+    }
+    .patient-detail .name {
+        margin: 4px 8px;
+    }
+    .patient-action .view {
+        margin: 2px 2px;
+        width: 100%;
+    }
+    .patient-action .end {
+        margin: 2px 2px;
+        width: 100%;
+    }
+    .modal-dialog-centered {
+        min-height: calc(100% - 8rem);
+    }
+
+    .modal-dialog-scrollable {
+        height: calc(100% - 6rem);
+    }
+
+    .modal-dialog {
+        margin: 0.5rem;
+        margin-top: 5rem;
+    }
 }

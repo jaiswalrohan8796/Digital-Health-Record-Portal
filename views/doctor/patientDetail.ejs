@@ -152,7 +152,7 @@
         <div class="col-12">
             <div class="col-sm-6 row patient-body">
                 <div class="col-4">
-                    <p class="bold">Name :</p>
+                    <p class="bold">Doctor :</p>
                 </div>
                 <div class="col-8">
                     <p>
@@ -207,41 +207,288 @@
         <div class="spaceFix"></div>
         <button type="button" class="collapsible fs-28">Previous Treatments</button>
         <!-- All previous treatments -->
-        <div class="content">
-            <div class="col-12 row patient-body">
-                <div class="col-4">
-                    <p>Doctor</p>
+        <div class="content-wrapper">
+            <div class="wrapper mt-2">
+                <!-- block -->
+                <div class="content">
+                    <div class="patient-detail">
+                        <div class="id">
+                            <p class="bold">Health ID :</p>
+                            <p>
+                                123456
+                            </p>
+                        </div>
+                        <div class="name">
+                            <p class="bold">Treatment ID :</p>
+                            <p>
+                                9876
+                            </p>
+                        </div>
+
+                        <div class="name">
+                            <p class="bold">Doctor :</p>
+                            <p>
+                                Rohan Jaiswal
+                            </p>
+                        </div>
+                        <div class="date">
+                            <p class="bold">Date:</p>
+                            <p>
+                                6/12/21
+                            </p>
+                        </div>
+                    </div>
+                    <div class="patient-action text-center">
+                        <div class="view">
+                            <button class="btn btn-view" data-bs-toggle="modal" data-bs-target="#modal">View</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-8">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+                <!-- modal -->
+                <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-center" id="exampleModalLabel">Treatment Detail </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="col-12 row">
+                                    <div class="col-sm-4 bold">
+                                        Disease & History:
+                                    </div>
+                                    <div class="col-sm-8 text text-justify">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At placeat cupiditate
+                                        recusandae voluptatem cumque aperiam quis tempora id. Consequuntur doloremque
+                                        rerum blanditiis veniam architecto accusamus fuga vero aut, sequi rem!
+                                    </div>
+                                </div>
+                                <div class="col-12 row">
+                                    <div class="col-sm-4 bold">
+                                        Prescription:
+                                    </div>
+                                    <div class="col-sm-8 text">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At placeat cupiditate
+                                        recusandae voluptatem cumque aperiam quis tempora id. Consequuntur doloremque
+                                        rerum blanditiis veniam architecto accusamus fuga vero aut, sequi rem!
+                                    </div>
+                                </div>
+                                <div class="col-12 row">
+                                    <div class="col-sm-4 bold">
+                                        Medicine:
+                                    </div>
+                                    <div class="col-sm-8 text">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At placeat cupiditate
+                                        recusandae voluptatem cumque aperiam quis tempora id. Consequuntur doloremque
+                                        rerum blanditiis veniam architecto accusamus fuga vero aut, sequi rem!
+                                    </div>
+                                </div>
+                                <div class="col-12 row">
+                                    <div class="col-sm-4 bold">
+                                        Response:
+                                    </div>
+                                    <div class="col-sm-8 text">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At placeat cupiditate
+                                        recusandae voluptatem cumque aperiam quis tempora id. Consequuntur doloremque
+                                        rerum blanditiis veniam architecto accusamus fuga vero aut, sequi rem!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-4">
-                    <p>Disease & History</p>
+            </div>
+            <div class="wrapper mt-2">
+                <!-- block -->
+                <div class="content">
+                    <div class="patient-detail">
+                        <div class="id">
+                            <p class="bold">Health ID :</p>
+                            <p>
+                                123456
+                            </p>
+                        </div>
+                        <div class="name">
+                            <p class="bold">Treatment ID :</p>
+                            <p>
+                                9876
+                            </p>
+                        </div>
+
+                        <div class="name">
+                            <p class="bold">Doctor :</p>
+                            <p>
+                                Rohan Jaiswal
+                            </p>
+                        </div>
+                        <div class="date">
+                            <p class="bold">Date:</p>
+                            <p>
+                                6/12/21
+                            </p>
+                        </div>
+                    </div>
+                    <div class="patient-action text-center">
+                        <div class="view">
+                            <button class="btn btn-view" data-bs-toggle="modal" data-bs-target="#modal">View</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-8">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet dolores asperiores ipsa
-                        temporibus in sit dicta pariatur sapiente eos, quas blanditiis!</p>
+                <!-- modal -->
+                <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-center" id="exampleModalLabel">Treatment Detail </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="col-12 row">
+                                    <div class="col-sm-4 bold">
+                                        Disease & History:
+                                    </div>
+                                    <div class="col-sm-8 text text-justify">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At placeat cupiditate
+                                        recusandae voluptatem cumque aperiam quis tempora id. Consequuntur doloremque
+                                        rerum blanditiis veniam architecto accusamus fuga vero aut, sequi rem!
+                                    </div>
+                                </div>
+                                <div class="col-12 row">
+                                    <div class="col-sm-4 bold">
+                                        Prescription:
+                                    </div>
+                                    <div class="col-sm-8 text">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At placeat cupiditate
+                                        recusandae voluptatem cumque aperiam quis tempora id. Consequuntur doloremque
+                                        rerum blanditiis veniam architecto accusamus fuga vero aut, sequi rem!
+                                    </div>
+                                </div>
+                                <div class="col-12 row">
+                                    <div class="col-sm-4 bold">
+                                        Medicine:
+                                    </div>
+                                    <div class="col-sm-8 text">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At placeat cupiditate
+                                        recusandae voluptatem cumque aperiam quis tempora id. Consequuntur doloremque
+                                        rerum blanditiis veniam architecto accusamus fuga vero aut, sequi rem!
+                                    </div>
+                                </div>
+                                <div class="col-12 row">
+                                    <div class="col-sm-4 bold">
+                                        Response:
+                                    </div>
+                                    <div class="col-sm-8 text">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At placeat cupiditate
+                                        recusandae voluptatem cumque aperiam quis tempora id. Consequuntur doloremque
+                                        rerum blanditiis veniam architecto accusamus fuga vero aut, sequi rem!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-4">
-                    <p>Prescription</p>
+            </div>
+            <div class="wrapper mt-2">
+                <!-- block -->
+                <div class="content">
+                    <div class="patient-detail">
+                        <div class="id">
+                            <p class="bold">Health ID :</p>
+                            <p>
+                                123456
+                            </p>
+                        </div>
+                        <div class="name">
+                            <p class="bold">Treatment ID :</p>
+                            <p>
+                                9876
+                            </p>
+                        </div>
+
+                        <div class="name">
+                            <p class="bold">Doctor :</p>
+                            <p>
+                                Rohan Jaiswal
+                            </p>
+                        </div>
+                        <div class="date">
+                            <p class="bold">Date:</p>
+                            <p>
+                                6/12/21
+                            </p>
+                        </div>
+                    </div>
+                    <div class="patient-action text-center">
+                        <div class="view">
+                            <button class="btn btn-view" data-bs-toggle="modal" data-bs-target="#modal">View</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-8">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet dolores asperiores ipsa
-                        temporibus in sit dicta pariatur sapiente eos, quas blanditiis!</p>
-                </div>
-                <div class="col-4">
-                    <p>Lab Reports</p>
-                </div>
-                <div class="col-8">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet dolores asperiores ipsa
-                        temporibus in sit dicta pariatur sapiente eos, quas blanditiis!</p>
-                </div>
-                <div class="col-4">
-                    <p>Response</p>
-                </div>
-                <div class="col-8">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet dolores asperiores ipsa
-                        temporibus in sit dicta pariatur sapiente eos, quas blanditiis!</p>
+                <!-- modal -->
+                <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-center" id="exampleModalLabel">Treatment Detail </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="col-12 row">
+                                    <div class="col-sm-4 bold">
+                                        Disease & History:
+                                    </div>
+                                    <div class="col-sm-8 text text-justify">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At placeat cupiditate
+                                        recusandae voluptatem cumque aperiam quis tempora id. Consequuntur doloremque
+                                        rerum blanditiis veniam architecto accusamus fuga vero aut, sequi rem!
+                                    </div>
+                                </div>
+                                <div class="col-12 row">
+                                    <div class="col-sm-4 bold">
+                                        Prescription:
+                                    </div>
+                                    <div class="col-sm-8 text">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At placeat cupiditate
+                                        recusandae voluptatem cumque aperiam quis tempora id. Consequuntur doloremque
+                                        rerum blanditiis veniam architecto accusamus fuga vero aut, sequi rem!
+                                    </div>
+                                </div>
+                                <div class="col-12 row">
+                                    <div class="col-sm-4 bold">
+                                        Medicine:
+                                    </div>
+                                    <div class="col-sm-8 text">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At placeat cupiditate
+                                        recusandae voluptatem cumque aperiam quis tempora id. Consequuntur doloremque
+                                        rerum blanditiis veniam architecto accusamus fuga vero aut, sequi rem!
+                                    </div>
+                                </div>
+                                <div class="col-12 row">
+                                    <div class="col-sm-4 bold">
+                                        Response:
+                                    </div>
+                                    <div class="col-sm-8 text">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At placeat cupiditate
+                                        recusandae voluptatem cumque aperiam quis tempora id. Consequuntur doloremque
+                                        rerum blanditiis veniam architecto accusamus fuga vero aut, sequi rem!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -249,44 +496,292 @@
         <!-- For Current Treatment -->
         <button type="button" class="collapsible  fs-28">Current Treatments</button>
         <!-- All current treatmenst -->
-        <div class="content">
-            <div class="col-12 row patient-body">
-                <div class="col-4">
-                    <p>Doctor</p>
+        <div class="content-wrapper">
+            <div class="wrapper mt-2">
+                <!-- block -->
+                <div class="content">
+                    <div class="patient-detail">
+                        <div class="id">
+                            <p class="bold">Health ID :</p>
+                            <p>
+                                123456
+                            </p>
+                        </div>
+                        <div class="name">
+                            <p class="bold">Treatment ID :</p>
+                            <p>
+                                9876
+                            </p>
+                        </div>
+
+                        <div class="name">
+                            <p class="bold">Doctor :</p>
+                            <p>
+                                Rohan Jaiswal
+                            </p>
+                        </div>
+                        <div class="date">
+                            <p class="bold">Date:</p>
+                            <p>
+                                6/12/21
+                            </p>
+                        </div>
+                    </div>
+                    <div class="patient-action text-center">
+                        <div class="view">
+                            <button class="btn btn-view" data-bs-toggle="modal" data-bs-target="#modal">View</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-8">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+                <!-- modal -->
+                <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-center" id="exampleModalLabel">Treatment Detail </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="col-12 row">
+                                    <div class="col-sm-4 bold">
+                                        Disease & History:
+                                    </div>
+                                    <div class="col-sm-8 text text-justify">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At placeat cupiditate
+                                        recusandae voluptatem cumque aperiam quis tempora id. Consequuntur doloremque
+                                        rerum blanditiis veniam architecto accusamus fuga vero aut, sequi rem!
+                                    </div>
+                                </div>
+                                <div class="col-12 row">
+                                    <div class="col-sm-4 bold">
+                                        Prescription:
+                                    </div>
+                                    <div class="col-sm-8 text">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At placeat cupiditate
+                                        recusandae voluptatem cumque aperiam quis tempora id. Consequuntur doloremque
+                                        rerum blanditiis veniam architecto accusamus fuga vero aut, sequi rem!
+                                    </div>
+                                </div>
+                                <div class="col-12 row">
+                                    <div class="col-sm-4 bold">
+                                        Medicine:
+                                    </div>
+                                    <div class="col-sm-8 text">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At placeat cupiditate
+                                        recusandae voluptatem cumque aperiam quis tempora id. Consequuntur doloremque
+                                        rerum blanditiis veniam architecto accusamus fuga vero aut, sequi rem!
+                                    </div>
+                                </div>
+                                <div class="col-12 row">
+                                    <div class="col-sm-4 bold">
+                                        Response:
+                                    </div>
+                                    <div class="col-sm-8 text">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At placeat cupiditate
+                                        recusandae voluptatem cumque aperiam quis tempora id. Consequuntur doloremque
+                                        rerum blanditiis veniam architecto accusamus fuga vero aut, sequi rem!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-4">
-                    <p>Disease & History</p>
+            </div>
+            <div class="wrapper mt-2">
+                <!-- block -->
+                <div class="content">
+                    <div class="patient-detail">
+                        <div class="id">
+                            <p class="bold">Health ID :</p>
+                            <p>
+                                123456
+                            </p>
+                        </div>
+                        <div class="name">
+                            <p class="bold">Treatment ID :</p>
+                            <p>
+                                9876
+                            </p>
+                        </div>
+
+                        <div class="name">
+                            <p class="bold">Doctor :</p>
+                            <p>
+                                Rohan Jaiswal
+                            </p>
+                        </div>
+                        <div class="date">
+                            <p class="bold">Date:</p>
+                            <p>
+                                6/12/21
+                            </p>
+                        </div>
+                    </div>
+                    <div class="patient-action text-center">
+                        <div class="view">
+                            <button class="btn btn-view" data-bs-toggle="modal" data-bs-target="#modal">View</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-8">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet dolores asperiores ipsa
-                        temporibus in sit dicta pariatur sapiente eos, quas blanditiis!</p>
+                <!-- modal -->
+                <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-center" id="exampleModalLabel">Treatment Detail </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="col-12 row">
+                                    <div class="col-sm-4 bold">
+                                        Disease & History:
+                                    </div>
+                                    <div class="col-sm-8 text text-justify">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At placeat cupiditate
+                                        recusandae voluptatem cumque aperiam quis tempora id. Consequuntur doloremque
+                                        rerum blanditiis veniam architecto accusamus fuga vero aut, sequi rem!
+                                    </div>
+                                </div>
+                                <div class="col-12 row">
+                                    <div class="col-sm-4 bold">
+                                        Prescription:
+                                    </div>
+                                    <div class="col-sm-8 text">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At placeat cupiditate
+                                        recusandae voluptatem cumque aperiam quis tempora id. Consequuntur doloremque
+                                        rerum blanditiis veniam architecto accusamus fuga vero aut, sequi rem!
+                                    </div>
+                                </div>
+                                <div class="col-12 row">
+                                    <div class="col-sm-4 bold">
+                                        Medicine:
+                                    </div>
+                                    <div class="col-sm-8 text">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At placeat cupiditate
+                                        recusandae voluptatem cumque aperiam quis tempora id. Consequuntur doloremque
+                                        rerum blanditiis veniam architecto accusamus fuga vero aut, sequi rem!
+                                    </div>
+                                </div>
+                                <div class="col-12 row">
+                                    <div class="col-sm-4 bold">
+                                        Response:
+                                    </div>
+                                    <div class="col-sm-8 text">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At placeat cupiditate
+                                        recusandae voluptatem cumque aperiam quis tempora id. Consequuntur doloremque
+                                        rerum blanditiis veniam architecto accusamus fuga vero aut, sequi rem!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-4">
-                    <p>Prescription</p>
+            </div>
+            <div class="wrapper mt-2">
+                <!-- block -->
+                <div class="content">
+                    <div class="patient-detail">
+                        <div class="id">
+                            <p class="bold">Health ID :</p>
+                            <p>
+                                123456
+                            </p>
+                        </div>
+                        <div class="name">
+                            <p class="bold">Treatment ID :</p>
+                            <p>
+                                9876
+                            </p>
+                        </div>
+
+                        <div class="name">
+                            <p class="bold">Doctor :</p>
+                            <p>
+                                Rohan Jaiswal
+                            </p>
+                        </div>
+                        <div class="date">
+                            <p class="bold">Date:</p>
+                            <p>
+                                6/12/21
+                            </p>
+                        </div>
+                    </div>
+                    <div class="patient-action text-center">
+                        <div class="view">
+                            <button class="btn btn-view" data-bs-toggle="modal" data-bs-target="#modal">View</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-8">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet dolores asperiores ipsa
-                        temporibus in sit dicta pariatur sapiente eos, quas blanditiis!</p>
-                </div>
-                <div class="col-4">
-                    <p>Lab Reports</p>
-                </div>
-                <div class="col-8">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet dolores asperiores ipsa
-                        temporibus in sit dicta pariatur sapiente eos, quas blanditiis!</p>
-                </div>
-                <div class="col-4">
-                    <p>Response</p>
-                </div>
-                <div class="col-8">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet dolores asperiores ipsa
-                        temporibus in sit dicta pariatur sapiente eos, quas blanditiis!</p>
+                <!-- modal -->
+                <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-center" id="exampleModalLabel">Treatment Detail </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="col-12 row">
+                                    <div class="col-sm-4 bold">
+                                        Disease & History:
+                                    </div>
+                                    <div class="col-sm-8 text text-justify">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At placeat cupiditate
+                                        recusandae voluptatem cumque aperiam quis tempora id. Consequuntur doloremque
+                                        rerum blanditiis veniam architecto accusamus fuga vero aut, sequi rem!
+                                    </div>
+                                </div>
+                                <div class="col-12 row">
+                                    <div class="col-sm-4 bold">
+                                        Prescription:
+                                    </div>
+                                    <div class="col-sm-8 text">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At placeat cupiditate
+                                        recusandae voluptatem cumque aperiam quis tempora id. Consequuntur doloremque
+                                        rerum blanditiis veniam architecto accusamus fuga vero aut, sequi rem!
+                                    </div>
+                                </div>
+                                <div class="col-12 row">
+                                    <div class="col-sm-4 bold">
+                                        Medicine:
+                                    </div>
+                                    <div class="col-sm-8 text">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At placeat cupiditate
+                                        recusandae voluptatem cumque aperiam quis tempora id. Consequuntur doloremque
+                                        rerum blanditiis veniam architecto accusamus fuga vero aut, sequi rem!
+                                    </div>
+                                </div>
+                                <div class="col-12 row">
+                                    <div class="col-sm-4 bold">
+                                        Response:
+                                    </div>
+                                    <div class="col-sm-8 text">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. At placeat cupiditate
+                                        recusandae voluptatem cumque aperiam quis tempora id. Consequuntur doloremque
+                                        rerum blanditiis veniam architecto accusamus fuga vero aut, sequi rem!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
         <!-- To Add new File -->
         <div class="addNew">
             <form action="/doctor/dashboard/patient/form" method="POST">
