@@ -187,66 +187,79 @@
     <main>
         <!-- Current Treatments List  -->
         <% user.currentTreatments.forEach((currPat,i)=> { %>
-        <div class="row my-4 treatment">
-            <div class="col-12 row treatment-header bold mb-2">
-                <div class="col-6 row treatment-id">
-                    <div class="col-sm-4 mt-2">
-                        <p>Treatment No: </p>
+            <div class="row my-4 treatment">
+                <div class="col-12 row treatment-header bold mb-2">
+                    <div class="col-6 row treatment-id">
+                        <div class="col-sm-4 mt-2">
+                            <p>Treatment No: </p>
+                        </div>
+                        <div class="col-sm-8 mt-2">
+                            <%=currPat.treatmentNo%>
+                        </div>
                     </div>
-                    <div class="col-sm-8 mt-2">
-                        <%=currPat.treatmentNo%>
+                    <div class="col-6 row treatment-time">
+                        <div class="col-sm-4 mt-2">
+                            <p>Start Date : </p>
+                        </div>
+                        <div class="col-sm-4 mt-2">
+                            <%= currPat.startDate.toLocaleDateString("en-GB") %>
+                        </div>
+                        <div class="col-sm-4 mt-2">
+                            <button type="button" class="btn btn-end">End</button>
+                        </div>
                     </div>
                 </div>
-                <div class="col-6 row treatment-time">
-                    <div class="col-sm-4 mt-2">
-                        <p>Duration</p>
+                <div class="col-12 row treatment-body">
+                    <div class="col-4">
+                        <p>Doctor</p>
                     </div>
-                    <div class="col-sm-8">
-                        <%= currPat.startDate.toLocaleDateString("en-GB") %>- <button type="button" class="btn btn-danger">End</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 row treatment-body">
-                <div class="col-4">
-                    <p>Doctor</p>
-                </div>
-                <div class="col-8">
-                    <p><%=currPat.doctor.profile.firstName%>
-                        <%= currPat.doctor.profile.lastName %></p>
-                </div>
-                <div class="col-4">
-                    <p>Disease & History</p>
-                </div>
-                <div class="col-8">
-                    <p><%=currPat.history%></p>
-                </div>
-                <div class="col-4">
-                    <p>Prescription</p>
-                </div>
-                <div class="col-8">
-                    <p><%=currPat.prescriptions%></p>
-                </div>
-
-                <div class="col-4">
-                    <p>Medicine </p>
-                </div>
-                <div class="col-8">
-                    <p> <% currPat.medicines.name.forEach((medName,i)=> {%>
+                    <div class="col-8">
                         <p>
-                            <%=medName%> - <%= currPat.medicines.time[i] %>
+                            <%=currPat.doctor.profile.firstName%>
+                                <%= currPat.doctor.profile.lastName %>
                         </p>
-                        <% }) %></p>
-                </div>
-                <div class="col-4">
-                    <p>Response</p>
-                </div>
-                <div class="col-8">
-                    <p><%=currPat.response%></p>
+                    </div>
+                    <div class="col-4">
+                        <p>Disease & History</p>
+                    </div>
+                    <div class="col-8">
+                        <p>
+                            <%=currPat.history%>
+                        </p>
+                    </div>
+                    <div class="col-4">
+                        <p>Prescription</p>
+                    </div>
+                    <div class="col-8">
+                        <p>
+                            <%=currPat.prescriptions%>
+                        </p>
+                    </div>
+
+                    <div class="col-4">
+                        <p>Medicine </p>
+                    </div>
+                    <div class="col-8">
+                        <p>
+                            <% currPat.medicines.name.forEach((medName,i)=> {%>
+                                <p>
+                                    <%=medName%> - <%= currPat.medicines.time[i] %>
+                                </p>
+                                <% }) %>
+                        </p>
+                    </div>
+                    <div class="col-4">
+                        <p>Response</p>
+                    </div>
+                    <div class="col-8">
+                        <p>
+                            <%=currPat.response%>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <% }) %>
-        <!-- <div class="row my-4 treatment">
+            <% }) %>
+                <!-- <div class="row my-4 treatment">
             <div class="col-12 row treatment-header bold mb-2">
                 <div class="col-6 row treatment-id">
                     <div class="col-sm-4 mt-2">
@@ -358,7 +371,7 @@
                 </div>
             </div>
         </div> -->
-        
+
     </main>
 
 

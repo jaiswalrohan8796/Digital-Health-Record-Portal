@@ -12,10 +12,10 @@ p {
     box-shadow: 4px 6px 12px 4px rgb(224, 214, 214);
 }
 .treatment-header {
-    /* padding: 12px 12px 0px 12px; */
+    padding: 12px 12px 0px 12px;
     padding: 8px 18px;
-    background-color: #c9ffff;
-    border-radius: 24px;
+    background-color: #e7e7e76e;
+    box-shadow: 0px 4px 6px 1px #dbcfcf;
 }
 .treatment-body {
     padding: 8px 18px;
@@ -23,11 +23,19 @@ p {
 .treatment-time {
     text-align: right;
 }
-.btn{
-    border-radius:24px;
+.btn {
+    border-radius: 24px;
     margin: auto;
     padding: 8px 18px;
-    
+}
+.btn-end {
+    border: 2px solid #df0b0b;
+    color: #df0b0b;
+    border-radius: 24px;
+}
+.btn-end:hover {
+    background-color: #df0b0b;
+    color: white;
 }
 
 @media (max-width: 768px) {
