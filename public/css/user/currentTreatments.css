@@ -38,6 +38,14 @@ p {
     color: white;
 }
 
+.no-item {
+    margin: 12px;
+}
+.no-item p {
+    text-align: center;
+    color: rgb(105, 105, 105);
+}
+
 @media (max-width: 768px) {
     .treatment-body {
         padding: 8px;
