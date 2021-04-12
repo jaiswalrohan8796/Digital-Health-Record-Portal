@@ -16,11 +16,16 @@ router.get("/dashboard", async (req, res, next) => {
 
 //current treatments
 router.get("/dashboard/current", async (req, res, next) => {
+    const user = await User.findOne({ _id: req.user._id }).populate(
+        "currentTreatments.doctor"
+    );
+ 
     res.render("user/currentTreatments", {
-        user: req.user,
+        user: user,
         fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
     });
 });
+
 
 //previous treatments
 router.get("/dashboard/previous", async (req, res, next) => {
