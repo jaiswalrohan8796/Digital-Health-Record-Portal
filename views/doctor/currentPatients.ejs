@@ -186,7 +186,9 @@
                                 data-bs-target="#modal<%= currPat._id %>">View</button>
                         </div>
                         <div class="end ">
-                            <button class="btn btn-end" onclick="endTreatmentHandler(<%= currPat.healthID %>, <%= currPat.TreatmentNo %>)" data-bs-dismiss="modal">End</button>
+                            <button class="btn btn-end"
+                                onclick="endTreatmentHandler('<%= currPat.healthID %>','<%= currPat.treatmentNo %>')"
+                                data-bs-dismiss="modal">End</button>
                         </div>
                     </div>
                 </div>
@@ -240,7 +242,9 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
-                                <button type="button" class="btn btn-danger" onclick="endTreatmentHandler('<%= currPat.healthID %>','<%= currPat.TreatmentNo %>')" data-bs-dismiss="modal">End</button>
+                                <button type="button" class="btn btn-danger"
+                                    onclick="endTreatmentHandler('<%= currPat.healthID %>','<%= currPat.treatmentNo %>')"
+                                    data-bs-dismiss="modal">End</button>
                             </div>
                         </div>
                     </div>
@@ -255,9 +259,8 @@
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="js/doctor/endTreatment.js"></script>
+    <script src="/js/doctor/endTreatment.js"></script>
 
 </body>
 
 </html>
-

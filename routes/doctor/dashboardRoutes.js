@@ -45,7 +45,7 @@ router.use("/dashboard", settingRoutes);
 
 //search patient routes
 router.use("/dashboard", searchPatientRoutes);
- router.use("/dashboard", endRoutes);
+router.use("/dashboard", endRoutes);
 
 //logout
 router.get("/dashboard/logout", (req, res, next) => {
