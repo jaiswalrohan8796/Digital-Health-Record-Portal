@@ -35,14 +35,12 @@
     --bs-gutter-x: 0;
     --bs-gutter-y: 0;
 }
-.row1{
+.row1 {
     display: flex;
     flex-direction: row;
-   
 }
-.align{
+.align {
     text-align: right;
-
 }
 /* .row1 .heading{
     border-bottom: 5px solid #ffbbbd;
@@ -56,8 +54,18 @@
     /* border: 3px solid #ffc0c2; */
     box-shadow: 4px 6px 12px 4px rgb(224, 214, 214);
 }
-.basic .heading {
-    border-bottom: 5px solid #ffbbbd;
+.basic .heading .health-id {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.health-id {
+    border-bottom: 4px solid #ffbbbd;
+}
+.health-id p {
+    margin-bottom: 0;
 }
 .basic p {
     padding-left: 8px;
@@ -70,8 +78,15 @@
     padding: 8px 18px;
     box-shadow: 4px 6px 12px 4px rgb(224, 214, 214);
 }
-.current .heading {
-    border-bottom: 5px solid #ffbbbd;
+.heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.heading span {
+    width: fit-content;
+    border-bottom: 4px solid #ffbbbd;
 }
 .current p {
     text-align: justify;
@@ -82,6 +97,27 @@
     border-radius: 32px;
 }
 
+.heading .more-link {
+    border-radius: 24px;
+    padding: 7px 14px;
+    /* height: 83px; */
+    /* width: 109px; */
+    border: 2px solid #ffbbbd;
+    text-decoration: none;
+    color: #ffbbbd;
+}
+.heading .more-link:hover {
+    background-color: #ffbbbd;
+    color: white;
+}
+
+.no-item {
+    margin: 8px 4px;
+}
+.no-item p {
+    text-align: center;
+    color: rgb(105, 105, 105);
+}
 @media (max-width: 768px) {
     .basic {
         padding: 8px;
