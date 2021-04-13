@@ -186,7 +186,7 @@
                                 data-bs-target="#modal<%= currPat._id %>">View</button>
                         </div>
                         <div class="end">
-                            <button class="btn btn-end" onclick="endTreatmentHandler('<%= currPat.healthID %>','<%= currPat.TreatmentNo %>')" data-bs-dismiss="modal">End</button>
+                            <button class="btn btn-end" onclick="endTreatmentHandler(<%= currPat.healthID %>, <%= currPat.TreatmentNo %>)" data-bs-dismiss="modal">End</button>
                         </div>
                     </div>
                 </div>
