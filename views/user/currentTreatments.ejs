@@ -188,7 +188,7 @@
         <% if (user.currentTreatments.length> 0 ) { %>
             <!-- Current Treatments List  -->
             <% user.currentTreatments.forEach((currPat,i)=> { %>
-                <div class="row my-4 treatment">
+                <div class="row my-4 treatment" id="<%= currPat._id %>">
                     <div class="col-12 row treatment-header bold mb-2">
                         <div class="col-6 row treatment-id">
                             <div class="col-sm-4 mt-2">
@@ -206,7 +206,8 @@
                                 <%= currPat.startDate.toLocaleDateString("en-GB") %>
                             </div>
                             <div class="col-sm-4 mt-2">
-                                <button type="button" class="btn btn-end">End</button>
+                                <button type="button" class="btn btn-end"
+                                    onclick="endTreatmentHandler('<%= currPat.doctor._id %>','<%=currPat.treatmentNo%>', '<%= currPat._id %>')">End</button>
                             </div>
                         </div>
                     </div>
@@ -271,6 +272,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
         </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/js/user/endTreatment.js"></script>
 </body>
 
 </html>

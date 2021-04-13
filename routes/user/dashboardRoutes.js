@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const User = require("../../models/user/User.js");
 const settingRoutes = require("../user/settingRoutes.js");
-
+const endRoutes = require("../user/endRoutes.js");
 //dashboard home
 router.get("/dashboard", async (req, res, next) => {
     const medformfilled = req.user.medical.filled;
@@ -115,7 +115,7 @@ router.get("/dashboard/settings", async (req, res, next) => {
 
 //imported routes
 router.use("/dashboard", settingRoutes);
-
+router.use("/dashboard", endRoutes);
 // logout
 router.get("/dashboard/logout", (req, res, next) => {
     req.logout();
