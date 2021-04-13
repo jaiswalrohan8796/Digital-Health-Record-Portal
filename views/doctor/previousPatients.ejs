@@ -147,289 +147,102 @@
     <div class="toolbar-space"></div>
     <!-- alert for home only -->
     <main>
-        <!-- List of previous patients -->
-        <div class="wrapper mt-2">
-            <!-- block -->
-            <div class="content">
-                <div class="patient-detail">
-                    <div class="id">
-                        <p class="bold">Health ID :</p>
-                        <p>123456</p>
-                    </div>
-                    <div class="name">
-                        <p class="bold">Treatment ID :</p>
-                        <p>9876</p>
-                    </div>
-                    <div class="name">
-                        <p class="bold">Name :</p>
-                        <p>Rohan Jaiswal </p>
-                    </div>
-                </div>
-                <div class="patient-action text-center">
-                    <div class="view">
-                        <button class="btn btn-view" data-bs-toggle="modal"
-                            data-bs-target="#treatment-1-modal">View</button>
-                    </div>
-                </div>
-            </div>
-            <!-- modal -->
-            <div class="modal fade" id="treatment-1-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-center" id="exampleModalLabel">Treatment Detail 1</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="col-12 row">
-                                <div class="col-sm-4 bold">
-                                    Disease & History:
-                                </div>
-                                <div class="col-sm-8 text text-justify">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi aspernatur minus
-                                    tempore ratione placeat suscipit laboriosam eos, vero dicta velit ut eum, doloribus,
-                                    voluptatum neque minima sint repudiandae incidunt autem. Aspernatur, inventore saepe
-                                    corporis labore quaerat provident ipsa delectus, excepturi porro repellendus
-                                    explicabo
-                                    officia laudantium nostrum fugiat nam odit minima.
-                                </div>
+        <% if (doctor.previousPatients.length> 0 ) { %>
+            <!-- List of previous patients -->
+            <% doctor.previousPatients.forEach((prevPat)=> {%>
+                <div class="wrapper mt-2">
+                    <!-- block -->
+                    <div class="content">
+                        <div class="patient-detail">
+                            <div class="id">
+                                <p class="bold">Health ID :</p>
+                                <p>
+                                    <%= prevPat.healthID %>
+                                </p>
                             </div>
-                            <div class="col-12 row">
-                                <div class="col-sm-4 bold">
-                                    Prescription:
-                                </div>
-                                <div class="col-sm-8 text">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi aspernatur minus
-                                    tempore ratione placeat suscipit laboriosam eos, vero dicta velit ut eum, doloribus,
-                                    voluptatum neque minima sint repudiandae incidunt autem. Aspernatur, inventore saepe
-                                    corporis labore quaerat provident ipsa delectus, excepturi porro repellendus
-                                    explicabo
-                                    officia laudantium nostrum fugiat nam odit minima.
-                                </div>
+                            <div class="name">
+                                <p class="bold">Treatment ID :</p>
+                                <p>
+                                    <%= prevPat.treatmentNo %>
+                                </p>
                             </div>
-                            <div class="col-12 row">
-                                <div class="col-sm-4 bold">
-                                    Medicine:
-                                </div>
-                                <div class="col-sm-8 text">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi aspernatur minus
-                                    tempore ratione placeat suscipit laboriosam eos, vero dicta velit ut eum, doloribus,
-                                    voluptatum neque minima sint repudiandae incidunt autem. Aspernatur, inventore saepe
-                                    corporis labore quaerat provident ipsa delectus, excepturi porro repellendus
-                                    explicabo
-                                    officia laudantium nostrum fugiat nam odit minima.
-                                </div>
-                            </div>
-                            <div class="col-12 row">
-                                <div class="col-sm-4 bold">
-                                    Response:
-                                </div>
-                                <div class="col-sm-8 text">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi aspernatur minus
-                                    tempore ratione placeat suscipit laboriosam eos, vero dicta velit ut eum, doloribus,
-                                    voluptatum neque minima sint repudiandae incidunt autem. Aspernatur, inventore saepe
-                                    corporis labore quaerat provident ipsa delectus, excepturi porro repellendus
-                                    explicabo
-                                    officia laudantium nostrum fugiat nam odit minima.
-                                </div>
+                            <div class="name">
+                                <p class="bold">Name :</p>
+                                <p>
+                                    <%= prevPat.patient.profile.firstName %>
+                                        <%= prevPat.patient.profile.lastName %>
+                                </p>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
+                        <div class="patient-action text-center">
+                            <div class="view">
+                                <button class="btn btn-view" data-bs-toggle="modal"
+                                    data-bs-target="#modal<%= prevPat._id %>">View</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- modal -->
+                    <div class="modal fade" id="modal<%= prevPat._id %>" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-center" id="exampleModalLabel">Treatment Detail 1</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="col-12 row">
+                                        <div class="col-sm-4 bold">
+                                            Disease & History:
+                                        </div>
+                                        <div class="col-sm-8 text text-justify">
+                                            <%= prevPat.history %>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 row">
+                                        <div class="col-sm-4 bold">
+                                            Prescription:
+                                        </div>
+                                        <div class="col-sm-8 text">
+                                            <%= prevPat.prescriptions %>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 row">
+                                        <div class="col-sm-4 bold">
+                                            Medicine:
+                                        </div>
+                                        <div class="col-sm-8 text">
+                                            <% prevPat.medicines.name.forEach((medName,i)=> {%>
+                                                <p>
+                                                    <%=medName%> - <%= prevPat.medicines.time[i] %>
+                                                </p>
+                                                <% }) %>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 row">
+                                        <div class="col-sm-4 bold">
+                                            Response:
+                                        </div>
+                                        <div class="col-sm-8 text">
+                                            <%= prevPat.response %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Dismiss</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="wrapper mt-2">
-            <!-- block -->
-            <div class="content">
-                <div class="patient-detail">
-                    <div class="id">
-                        <p class="bold">Health ID :</p>
-                        <p>123456</p>
-                    </div>
-                    <div class="name">
-                        <p class="bold">Treatment ID :</p>
-                        <p>9876</p>
-                    </div>
-                    <div class="name">
-                        <p class="bold">Name :</p>
-                        <p>Abdul Rahim</p>
-                    </div>
-                </div>
-                <div class="patient-action text-center">
-                    <div class="view">
-                        <button class="btn btn-view" data-bs-toggle="modal"
-                            data-bs-target="#treatment-2-modal">View</button>
-                    </div>
-                </div>
-            </div>
-            <!-- modal -->
-            <div class="modal fade" id="treatment-2-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-center" id="exampleModalLabel">Treatment Detail 2</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <% }) %>
+                    <% } else { %>
+                        <div class="no-item">
+                            <p class="bold fs-20">No Previous Patients</p>
                         </div>
-                        <div class="modal-body">
-                            <div class="col-12 row">
-                                <div class="col-sm-4 bold">
-                                    Disease & History:
-                                </div>
-                                <div class="col-sm-8 text text-justify">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi aspernatur minus
-                                    tempore ratione placeat suscipit laboriosam eos, vero dicta velit ut eum, doloribus,
-                                    voluptatum neque minima sint repudiandae incidunt autem. Aspernatur, inventore saepe
-                                    corporis labore quaerat provident ipsa delectus, excepturi porro repellendus
-                                    explicabo
-                                    officia laudantium nostrum fugiat nam odit minima.
-                                </div>
-                            </div>
-                            <div class="col-12 row">
-                                <div class="col-sm-4 bold">
-                                    Prescription:
-                                </div>
-                                <div class="col-sm-8 text">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi aspernatur minus
-                                    tempore ratione placeat suscipit laboriosam eos, vero dicta velit ut eum, doloribus,
-                                    voluptatum neque minima sint repudiandae incidunt autem. Aspernatur, inventore saepe
-                                    corporis labore quaerat provident ipsa delectus, excepturi porro repellendus
-                                    explicabo
-                                    officia laudantium nostrum fugiat nam odit minima.
-                                </div>
-                            </div>
-                            <div class="col-12 row">
-                                <div class="col-sm-4 bold">
-                                    Medicine:
-                                </div>
-                                <div class="col-sm-8 text">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi aspernatur minus
-                                    tempore ratione placeat suscipit laboriosam eos, vero dicta velit ut eum, doloribus,
-                                    voluptatum neque minima sint repudiandae incidunt autem. Aspernatur, inventore saepe
-                                    corporis labore quaerat provident ipsa delectus, excepturi porro repellendus
-                                    explicabo
-                                    officia laudantium nostrum fugiat nam odit minima.
-                                </div>
-                            </div>
-                            <div class="col-12 row">
-                                <div class="col-sm-4 bold">
-                                    Response:
-                                </div>
-                                <div class="col-sm-8 text">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi aspernatur minus
-                                    tempore ratione placeat suscipit laboriosam eos, vero dicta velit ut eum, doloribus,
-                                    voluptatum neque minima sint repudiandae incidunt autem. Aspernatur, inventore saepe
-                                    corporis labore quaerat provident ipsa delectus, excepturi porro repellendus
-                                    explicabo
-                                    officia laudantium nostrum fugiat nam odit minima.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="wrapper mt-2">
-            <!-- block -->
-            <div class="content">
-                <div class="patient-detail">
-                    <div class="id">
-                        <p class="bold">Health ID :</p>
-                        <p>123456</p>
-                    </div>
-                    <div class="name">
-                        <p class="bold">Treatment ID :</p>
-                        <p>9876</p>
-                    </div>
-                    <div class="name">
-                        <p class="bold">Name :</p>
-                        <p>Zeeshan Ansari</p>
-                    </div>
-                </div>
-                <div class="patient-action text-center">
-                    <div class="view">
-                        <button class="btn btn-view" data-bs-toggle="modal"
-                            data-bs-target="#treatment-3-modal">View</button>
-                    </div>
-                </div>
-            </div>
-            <!-- modal -->
-            <div class="modal fade" id="treatment-3-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-center" id="exampleModalLabel">Treatment Detail 3</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="col-12 row">
-                                <div class="col-sm-4 bold">
-                                    Disease & History:
-                                </div>
-                                <div class="col-sm-8 text text-justify">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi aspernatur minus
-                                    tempore ratione placeat suscipit laboriosam eos, vero dicta velit ut eum, doloribus,
-                                    voluptatum neque minima sint repudiandae incidunt autem. Aspernatur, inventore saepe
-                                    corporis labore quaerat provident ipsa delectus, excepturi porro repellendus
-                                    explicabo
-                                    officia laudantium nostrum fugiat nam odit minima.
-                                </div>
-                            </div>
-                            <div class="col-12 row">
-                                <div class="col-sm-4 bold">
-                                    Prescription:
-                                </div>
-                                <div class="col-sm-8 text">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi aspernatur minus
-                                    tempore ratione placeat suscipit laboriosam eos, vero dicta velit ut eum, doloribus,
-                                    voluptatum neque minima sint repudiandae incidunt autem. Aspernatur, inventore saepe
-                                    corporis labore quaerat provident ipsa delectus, excepturi porro repellendus
-                                    explicabo
-                                    officia laudantium nostrum fugiat nam odit minima.
-                                </div>
-                            </div>
-                            <div class="col-12 row">
-                                <div class="col-sm-4 bold">
-                                    Medicine:
-                                </div>
-                                <div class="col-sm-8 text">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi aspernatur minus
-                                    tempore ratione placeat suscipit laboriosam eos, vero dicta velit ut eum, doloribus,
-                                    voluptatum neque minima sint repudiandae incidunt autem. Aspernatur, inventore saepe
-                                    corporis labore quaerat provident ipsa delectus, excepturi porro repellendus
-                                    explicabo
-                                    officia laudantium nostrum fugiat nam odit minima.
-                                </div>
-                            </div>
-                            <div class="col-12 row">
-                                <div class="col-sm-4 bold">
-                                    Response:
-                                </div>
-                                <div class="col-sm-8 text">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi aspernatur minus
-                                    tempore ratione placeat suscipit laboriosam eos, vero dicta velit ut eum, doloribus,
-                                    voluptatum neque minima sint repudiandae incidunt autem. Aspernatur, inventore saepe
-                                    corporis labore quaerat provident ipsa delectus, excepturi porro repellendus
-                                    explicabo
-                                    officia laudantium nostrum fugiat nam odit minima.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <% } %>
 
     </main>
     <!-- Optional JavaScript -->

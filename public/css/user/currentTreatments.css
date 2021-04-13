@@ -20,6 +20,10 @@ p {
 .treatment-body {
     padding: 8px 18px;
 }
+.treatment-body {
+    text-align: justify;
+    word-break: break-word;
+}
 .treatment-time {
     text-align: right;
 }

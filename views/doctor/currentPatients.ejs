@@ -147,9 +147,10 @@
     <div class="toolbar-space"></div>
     <!-- alert for home only -->
     <main>
+        <% if (doctor.currentPatients.length > 0) { %>
         <!-- List of current patients -->
         <% doctor.currentPatients.forEach((currPat,i)=> { %>
-            <div class="wrapper mt-2">
+            <div class="wrapper mt-2" id="<%= currPat._id %>">
                 <!-- block -->
                 <div class="content">
                     <div class="patient-detail">
@@ -187,7 +188,7 @@
                         </div>
                         <div class="end ">
                             <button class="btn btn-end"
-                                onclick="endTreatmentHandler('<%= currPat.healthID %>','<%= currPat.treatmentNo %>')"
+                                onclick="endTreatmentHandler(this,'<%= currPat.healthID %>','<%= currPat.treatmentNo %>','<%= currPat._id %>')"
                                 data-bs-dismiss="modal">End</button>
                         </div>
                     </div>
@@ -243,7 +244,7 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
                                 <button type="button" class="btn btn-danger"
-                                    onclick="endTreatmentHandler('<%= currPat.healthID %>','<%= currPat.treatmentNo %>')"
+                                    onclick="endTreatmentHandler(this,'<%= currPat.healthID %>','<%= currPat.treatmentNo %>','<%= currPat._id %>')"
                                     data-bs-dismiss="modal">End</button>
                             </div>
                         </div>
@@ -251,6 +252,11 @@
                 </div>
             </div>
             <% }) %>
+        <% } else { %>
+            <div class="no-item">
+                <p class="bold fs-20">No Current Patients</p>
+            </div>
+            <% } %>
 
     </main>
     <!-- Optional JavaScript -->

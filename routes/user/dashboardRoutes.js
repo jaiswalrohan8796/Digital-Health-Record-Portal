@@ -29,8 +29,11 @@ router.get("/dashboard/current", async (req, res, next) => {
 
 //previous treatments
 router.get("/dashboard/previous", async (req, res, next) => {
+    const user = await User.findOne({ _id: req.user._id }).populate(
+        "previousTreatments.doctor"
+    );
     res.render("user/previousTreatments", {
-        user: req.user,
+        user: user,
         fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
     });
 });
@@ -53,7 +56,6 @@ router.get("/dashboard/medicaldetailform", async (req, res, next) => {
 });
 
 //medical detail form handler
-
 router.post("/dashboard/medicaldetailform", async (req, res, next) => {
     var {
         id,

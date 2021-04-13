@@ -84,6 +84,14 @@
     text-align: justify;
 }
 
+.no-item {
+    margin: 12px;
+}
+.no-item p {
+    text-align: center;
+    color: rgb(105, 105, 105);
+}
+
 /* media-queries */
 @media (max-width: 768px) {
     .content {

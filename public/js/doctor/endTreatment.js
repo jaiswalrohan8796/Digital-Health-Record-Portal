@@ -1,10 +1,12 @@
-function endTreatmentHandler(healthID, TreatmentNo) {
-    console.log(healthID, TreatmentNo);
+function endTreatmentHandler(event, healthID, TreatmentNo, treatmentID) {
+    const item = document.getElementById(`${treatmentID}`);
     axios
         .post(
             `/doctor/dashboard/current/patient-end?healthID=${healthID}&treatmentNo=${TreatmentNo}`
         )
         .then((res) => {
-            console.log(res);
+            if (res.status) {
+                item.remove();
+            }
         });
 }

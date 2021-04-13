@@ -197,271 +197,108 @@
     <!-- toolbar space fix -->
     <div class="toolbar-space"></div>
     <main>
-        <!-- Previous Treatments List  -->
-        <div class="wrapper mt-2">
-            <!-- block -->
-            <div class="content">
-                <div class="patient-detail">
-                    <div class="id">
-                        <p class="bold">Health ID :</p>
-                        <p>
-                            904113
-                        </p>
-                    </div>
-                    <div class="name">
-                        <p class="bold">Treatment ID :</p>
-                        <p>
-                            12345
-                        </p>
-                    </div>
-                    <div class="name">
-                        <p class="bold">Name :</p>
-                        <p>
-                            Jaiswal Rohan
-                        </p>
-                    </div>
-                    <div class="date">
-                        <p class="bold">Date:</p>
-                        <p>
-                            21/06/2021
-                        </p>
-                    </div>
-                </div>
-                <div class="patient-action text-center">
-                    <div class="view">
-                        <button class="btn btn-view" data-bs-toggle="modal"
-                            data-bs-target="#modal">View</button>
-                    </div>
-                </div>
-            </div>
-            <!-- modal -->
-            <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-center" id="exampleModalLabel">Treatment Detail </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="col-12 row">
-                                <div class="col-sm-4 bold">
-                                    Disease & History:
-                                </div>
-                                <div class="col-sm-8 text text-justify">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum eveniet quas consequatur quisquam alias possimus impedit vel ducimus repudiandae nam magni voluptatem ea quam in iure unde, earum explicabo sapiente accusantium? Laborum saepe autem neque deserunt in animi, nemo sapiente. Nostrum minima, quis dicta sed ipsum beatae ex totam excepturi?           
-                                </div>
+        <% if (user.previousTreatments.length> 0) { %>
+            <!-- Previous Treatments List  -->
+            <% user.previousTreatments.forEach((prevTreat)=> { %>
+                <div class="wrapper mt-2">
+                    <!-- block -->
+                    <div class="content">
+                        <div class="patient-detail">
+                            <div class="id">
+                                <p class="bold">Health ID :</p>
+                                <p>
+                                    <%= prevTreat.healthID %>
+                                </p>
                             </div>
-                            <div class="col-12 row">
-                                <div class="col-sm-4 bold">
-                                    Prescription:
-                                </div>
-                                <div class="col-sm-8 text">
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos necessitatibus doloribus porro reiciendis cumque neque totam fugiat doloremque ullam iste, et provident odit suscipit minima quaerat aliquid repellat itaque fuga pariatur maxime. Cupiditate numquam beatae voluptas, consequatur non fuga unde. Quos aliquid magnam obcaecati optio delectus minus quia, accusantium sunt beatae aperiam aut quaerat architecto dolor a doloremque explicabo iusto quisquam fugit illo, velit consequuntur quibusdam ipsum sed inventore? Impedit, dolorum vitae pariatur saepe tempora sed molestiae cumque sequi voluptates nostrum iure. Nostrum eaque inventore tempora facere, odit expedita harum quibusdam fugit sed corrupti accusamus saepe modi totam sit ratione?
-                                </div>
+                            <div class="name">
+                                <p class="bold">Treatment ID :</p>
+                                <p>
+                                    <%= prevTreat.treatmentNo %>
+                                </p>
                             </div>
-                            <div class="col-12 row">
-                                <div class="col-sm-4 bold">
-                                    Medicine:
-                                </div>
-                                <div class="col-sm-8 text">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque doloribus molestias culpa praesentium ipsum iure et aliquid debitis. Tempore aliquid at quibusdam cupiditate iure dolores officia voluptatum velit sint vel, reiciendis odio doloremque quia et quo quaerat ut dicta quos accusamus optio magni autem architecto maiores? Sed commodi impedit atque fuga eveniet quidem dolorem mollitia, provident suscipit ex. Unde, recusandae? Assumenda ullam, totam magni fugit, animi, praesentium maiores tenetur fuga laboriosam quae est doloribus vel atque. Unde suscipit aut eum culpa et dolorum delectus, eligendi quae assumenda necessitatibus adipisci minus quas aliquam laudantium provident tenetur fugiat maxime qui odio velit?
-                                </div>
+                            <div class="name">
+                                <p class="bold">Doctor :</p>
+                                <p>
+                                    <%= prevTreat.doctor.profile.firstName%>
+                                        <%= prevTreat.doctor.profile.lastName%>
+                                </p>
                             </div>
-                            <div class="col-12 row">
-                                <div class="col-sm-4 bold">
-                                    Response:
-                                </div>
-                                <div class="col-sm-8 text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas architecto nobis veritatis facilis dolor voluptates ut dolorem odit magnam labore, culpa officia quod exercitationem, libero sint deserunt. Ratione porro modi perspiciatis non quisquam quaerat voluptate qui optio nisi? Ad quis, qui, ea id totam expedita quo quae minima, iste libero sequi placeat? Nam ipsum consectetur cupiditate consequuntur libero tempora tenetur explicabo, expedita maxime, ratione voluptatem mollitia? Quam minus officia vero corporis aliquid nostrum, blanditiis magni praesentium recusandae voluptas? Deserunt tempore iusto laudantium voluptates nesciunt ea enim maxime voluptatem quod totam. Animi accusantium totam molestiae doloribus sapiente saepe eum maiores in?
-                                </div>
+                            <div class="date">
+                                <p class="bold">Date:</p>
+                                <p>
+                                    <%= prevTreat.startDate.toLocaleDateString("en-GB") %>
+                                </p>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
-                            <button type="button" class="btn btn-danger">End</button>
+                        <div class="patient-action text-center">
+                            <div class="view">
+                                <button class="btn btn-view" data-bs-toggle="modal"
+                                    data-bs-target="#modal-<%= prevTreat._id %>">View</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="wrapper mt-2">
-            <!-- block -->
-            <div class="content">
-                <div class="patient-detail">
-                    <div class="id">
-                        <p class="bold">Health ID :</p>
-                        <p>
-                            904113
-                        </p>
-                    </div>
-                    <div class="name">
-                        <p class="bold">Treatment ID :</p>
-                        <p>
-                            12345
-                        </p>
-                    </div>
-                    <div class="name">
-                        <p class="bold">Name :</p>
-                        <p>
-                            Jaiswal Rohan
-                        </p>
-                    </div>
-                    <div class="date">
-                        <p class="bold">Date:</p>
-                        <p>
-                            21/06/2021
-                        </p>
-                    </div>
-                </div>
-                <div class="patient-action text-center">
-                    <div class="view">
-                        <button class="btn btn-view" data-bs-toggle="modal"
-                            data-bs-target="#modal">View</button>
-                    </div>
-                </div>
-            </div>
-            <!-- modal -->
-            <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-center" id="exampleModalLabel">Treatment Detail </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="col-12 row">
-                                <div class="col-sm-4 bold">
-                                    Disease & History:
+                    <!-- modal -->
+                    <div class="modal fade" id="modal-<%= prevTreat._id %>" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-center" id="exampleModalLabel">Treatment Detail </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                                 </div>
-                                <div class="col-sm-8 text text-justify">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum eveniet quas consequatur quisquam alias possimus impedit vel ducimus repudiandae nam magni voluptatem ea quam in iure unde, earum explicabo sapiente accusantium? Laborum saepe autem neque deserunt in animi, nemo sapiente. Nostrum minima, quis dicta sed ipsum beatae ex totam excepturi?           
+                                <div class="modal-body">
+                                    <div class="col-12 row">
+                                        <div class="col-sm-4 bold">
+                                            Disease & History:
+                                        </div>
+                                        <div class="col-sm-8 text text-justify">
+                                            <%= prevTreat.history %>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 row">
+                                        <div class="col-sm-4 bold">
+                                            Prescription:
+                                        </div>
+                                        <div class="col-sm-8 text">
+                                            <%= prevTreat.prescriptions %>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 row">
+                                        <div class="col-sm-4 bold">
+                                            Medicine:
+                                        </div>
+                                        <div class="col-sm-8 text">
+                                            <% prevTreat.medicines.name.forEach((medName,i)=> {%>
+                                                <p>
+                                                    <%=medName%> - <%= prevTreat.medicines.time[i] %>
+                                                </p>
+                                                <% }) %>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 row">
+                                        <div class="col-sm-4 bold">
+                                            Response:
+                                        </div>
+                                        <div class="col-sm-8 text">
+                                            <%= prevTreat.response %>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-12 row">
-                                <div class="col-sm-4 bold">
-                                    Prescription:
-                                </div>
-                                <div class="col-sm-8 text">
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos necessitatibus doloribus porro reiciendis cumque neque totam fugiat doloremque ullam iste, et provident odit suscipit minima quaerat aliquid repellat itaque fuga pariatur maxime. Cupiditate numquam beatae voluptas, consequatur non fuga unde. Quos aliquid magnam obcaecati optio delectus minus quia, accusantium sunt beatae aperiam aut quaerat architecto dolor a doloremque explicabo iusto quisquam fugit illo, velit consequuntur quibusdam ipsum sed inventore? Impedit, dolorum vitae pariatur saepe tempora sed molestiae cumque sequi voluptates nostrum iure. Nostrum eaque inventore tempora facere, odit expedita harum quibusdam fugit sed corrupti accusamus saepe modi totam sit ratione?
-                                </div>
-                            </div>
-                            <div class="col-12 row">
-                                <div class="col-sm-4 bold">
-                                    Medicine:
-                                </div>
-                                <div class="col-sm-8 text">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque doloribus molestias culpa praesentium ipsum iure et aliquid debitis. Tempore aliquid at quibusdam cupiditate iure dolores officia voluptatum velit sint vel, reiciendis odio doloremque quia et quo quaerat ut dicta quos accusamus optio magni autem architecto maiores? Sed commodi impedit atque fuga eveniet quidem dolorem mollitia, provident suscipit ex. Unde, recusandae? Assumenda ullam, totam magni fugit, animi, praesentium maiores tenetur fuga laboriosam quae est doloribus vel atque. Unde suscipit aut eum culpa et dolorum delectus, eligendi quae assumenda necessitatibus adipisci minus quas aliquam laudantium provident tenetur fugiat maxime qui odio velit?
-                                </div>
-                            </div>
-                            <div class="col-12 row">
-                                <div class="col-sm-4 bold">
-                                    Response:
-                                </div>
-                                <div class="col-sm-8 text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas architecto nobis veritatis facilis dolor voluptates ut dolorem odit magnam labore, culpa officia quod exercitationem, libero sint deserunt. Ratione porro modi perspiciatis non quisquam quaerat voluptate qui optio nisi? Ad quis, qui, ea id totam expedita quo quae minima, iste libero sequi placeat? Nam ipsum consectetur cupiditate consequuntur libero tempora tenetur explicabo, expedita maxime, ratione voluptatem mollitia? Quam minus officia vero corporis aliquid nostrum, blanditiis magni praesentium recusandae voluptas? Deserunt tempore iusto laudantium voluptates nesciunt ea enim maxime voluptatem quod totam. Animi accusantium totam molestiae doloribus sapiente saepe eum maiores in?
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Dismiss</button>
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
-                            <button type="button" class="btn btn-danger">End</button>
-                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="wrapper mt-2">
-            <!-- block -->
-            <div class="content">
-                <div class="patient-detail">
-                    <div class="id">
-                        <p class="bold">Health ID :</p>
-                        <p>
-                            904113
-                        </p>
-                    </div>
-                    <div class="name">
-                        <p class="bold">Treatment ID :</p>
-                        <p>
-                            12345
-                        </p>
-                    </div>
-                    <div class="name">
-                        <p class="bold">Name :</p>
-                        <p>
-                            Jaiswal Rohan
-                        </p>
-                    </div>
-                    <div class="date">
-                        <p class="bold">Date:</p>
-                        <p>
-                            21/06/2021
-                        </p>
-                    </div>
-                </div>
-                <div class="patient-action text-center">
-                    <div class="view">
-                        <button class="btn btn-view" data-bs-toggle="modal"
-                            data-bs-target="#modal">View</button>
-                    </div>
-                </div>
-            </div>
-            <!-- modal -->
-            <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-center" id="exampleModalLabel">Treatment Detail </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
+                <% })%>
+                    <% } else { %>
+                        <div class="no-item">
+                            <p class="bold fs-20">No Previous Treatments</p>
                         </div>
-                        <div class="modal-body">
-                            <div class="col-12 row">
-                                <div class="col-sm-4 bold">
-                                    Disease & History:
-                                </div>
-                                <div class="col-sm-8 text text-justify">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum eveniet quas consequatur quisquam alias possimus impedit vel ducimus repudiandae nam magni voluptatem ea quam in iure unde, earum explicabo sapiente accusantium? Laborum saepe autem neque deserunt in animi, nemo sapiente. Nostrum minima, quis dicta sed ipsum beatae ex totam excepturi?           
-                                </div>
-                            </div>
-                            <div class="col-12 row">
-                                <div class="col-sm-4 bold">
-                                    Prescription:
-                                </div>
-                                <div class="col-sm-8 text">
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos necessitatibus doloribus porro reiciendis cumque neque totam fugiat doloremque ullam iste, et provident odit suscipit minima quaerat aliquid repellat itaque fuga pariatur maxime. Cupiditate numquam beatae voluptas, consequatur non fuga unde. Quos aliquid magnam obcaecati optio delectus minus quia, accusantium sunt beatae aperiam aut quaerat architecto dolor a doloremque explicabo iusto quisquam fugit illo, velit consequuntur quibusdam ipsum sed inventore? Impedit, dolorum vitae pariatur saepe tempora sed molestiae cumque sequi voluptates nostrum iure. Nostrum eaque inventore tempora facere, odit expedita harum quibusdam fugit sed corrupti accusamus saepe modi totam sit ratione?
-                                </div>
-                            </div>
-                            <div class="col-12 row">
-                                <div class="col-sm-4 bold">
-                                    Medicine:
-                                </div>
-                                <div class="col-sm-8 text">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque doloribus molestias culpa praesentium ipsum iure et aliquid debitis. Tempore aliquid at quibusdam cupiditate iure dolores officia voluptatum velit sint vel, reiciendis odio doloremque quia et quo quaerat ut dicta quos accusamus optio magni autem architecto maiores? Sed commodi impedit atque fuga eveniet quidem dolorem mollitia, provident suscipit ex. Unde, recusandae? Assumenda ullam, totam magni fugit, animi, praesentium maiores tenetur fuga laboriosam quae est doloribus vel atque. Unde suscipit aut eum culpa et dolorum delectus, eligendi quae assumenda necessitatibus adipisci minus quas aliquam laudantium provident tenetur fugiat maxime qui odio velit?
-                                </div>
-                            </div>
-                            <div class="col-12 row">
-                                <div class="col-sm-4 bold">
-                                    Response:
-                                </div>
-                                <div class="col-sm-8 text">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas architecto nobis veritatis facilis dolor voluptates ut dolorem odit magnam labore, culpa officia quod exercitationem, libero sint deserunt. Ratione porro modi perspiciatis non quisquam quaerat voluptate qui optio nisi? Ad quis, qui, ea id totam expedita quo quae minima, iste libero sequi placeat? Nam ipsum consectetur cupiditate consequuntur libero tempora tenetur explicabo, expedita maxime, ratione voluptatem mollitia? Quam minus officia vero corporis aliquid nostrum, blanditiis magni praesentium recusandae voluptas? Deserunt tempore iusto laudantium voluptates nesciunt ea enim maxime voluptatem quod totam. Animi accusantium totam molestiae doloribus sapiente saepe eum maiores in?
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
-                            <button type="button" class="btn btn-danger">End</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <% } %>
     </main>
 
 
