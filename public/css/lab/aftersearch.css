@@ -1,0 +1,80 @@
+.basic {
+    width: 100%;
+    border-radius: 24px;
+    padding: 8px 18px;
+    border-radius: 32px;
+    /* border: 3px solid #ffc0c2; */
+    box-shadow: 4px 6px 12px 4px rgb(224, 214, 214);
+}
+.basic .heading {
+    border-bottom: 5px solid #18f7ea;
+}
+.basic p {
+    text-align: justify;
+    word-break: break-word;
+    overflow-x: hidden;
+}
+
+.leftside{
+    border-radius: 24px;
+    padding: 8px 18px;
+    border-radius: 32px;
+    
+    box-shadow: 4px 6px 12px 4px rgb(224, 214, 214);
+}
+.leftside-heading{
+    padding: 12px 12px 0px 12px;
+    padding: 8px 18px;
+    text-align: center;
+    background-color: #e7e7e76e;
+    box-shadow: 0px 4px 6px 1px #dbcfcf;
+    border-radius: 32px;
+}
+.rightside{
+    margin-left:15px;
+    border-radius: 24px;
+    padding: 8px 18px;
+    border-radius: 32px;
+    box-shadow: 4px 6px 12px 4px rgb(224, 214, 214);
+}
+.rightside-heading{
+    padding: 12px 12px 0px 12px;
+    padding: 8px 18px;
+    text-align: center;
+    background-color: #e7e7e76e;
+    box-shadow: 0px 4px 6px 1px #dbcfcf;
+    border-radius: 32px;
+}
+.saveButton-container {
+    margin: 16px;
+    text-align: center;
+}
+#saveButton {
+    width: 86px;
+    padding: 6px 12px;
+    border-radius: 24px;
+    border: 2px solid #6dc9c8;
+    color: #5ac7c5;
+}
+#saveButton:hover {
+    background-color: #6dc9c8;
+    color: #fff;
+}
+
+ @media (max-width: 768px) {
+    
+    .col-sm-8{
+        margin-bottom: 12px;
+    }
+    #saveButton{
+        text-align: left;
+    }
+} 
+@media (max-width: 768px) {
+    .basic {
+        padding: 8px;
+    }
+    .basic p {
+        padding-left: 8px;
+    }
+}

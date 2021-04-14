@@ -20,6 +20,13 @@ router.get("/dashboard/pending", async (req, res, next) => {
         labName: `${req.user.profile.labName}`,
     });
 });
+// For after seacrh page
+router.get("/dashboard/aftersearch", async (req, res, next) => {
+    res.render("lab/aftersearch", {
+        lab: req.user,
+        labName: `${req.user.profile.labName}`,
+    });
+});
 router.get("/dashboard/settings", async (req, res, next) => {
     res.render("lab/settings", {
         lab: req.user,
