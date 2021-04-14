@@ -9,7 +9,9 @@ router.post("/search", async (req, res, next) => {
     try {
         const searchedUser = await User.findOne({
             "accessID.healthID": searchQuery,
-        });
+        })
+            .populate("currentTreatments.doctor")
+            .populate("previousTreatments.doctor");
         if (!searchedUser) {
             return res.render("doctor/home", {
                 doctor: req.user,
