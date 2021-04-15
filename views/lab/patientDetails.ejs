@@ -149,14 +149,18 @@
     <!-- alert for home only -->
     <main>
         <div class="basic row my-4">
-            <p class="fs-28 bold heading">Patient Details</p>
+            <div class="col-8"><p class="fs-28 bold heading">Patient Details </p></div>
+            <div class="col-4"><p class="fs-28 bold heading"> Health Id : <%= patient.accessID.healthID%> </p>  </div>
+             
+
+             
             <div class="col-sm-6 row">
                 <div class="col-4">
                     <p class="bold">Name:</p>
                 </div>
                 <div class="col-8">
                     <p>
-                        Zeeshan Ansari
+                        <%= patient.profile.firstName %>&nbsp;<%= patient.profile.lastName %>
                     </p>
                 </div>
                 <div class="col-4">
@@ -164,7 +168,7 @@
                 </div>
                 <div class="col-8">
                     <p>
-                        B+
+                        <%= patient.profile.bloodGroup %>
                     </p>
                 </div>
                 <div class="col-4">
@@ -172,25 +176,27 @@
                 </div>
                 <div class="col-8">
                     <p>
-                        9925615468
+                        <%= patient.profile.mobileNo %>
                     </p>
                 </div>
             </div>
             <div class="col-sm-6 row">
                 <div class="col-4">
-                    <p class="bold">State:</p>
-                </div>
-                <div class="col-8">
-                    <p>
-                        Maharashtra
-                    </p>
-                </div>
-                <div class="col-4">
                     <p class="bold">City:</p>
                 </div>
                 <div class="col-8">
                     <p>
-                        Bhiwandi
+                        <%= patient.profile.city %>
+                    </p>
+                </div>
+                <div class="col-4">
+                    <p class="bold">State:</p>
+                </div>
+                <div class="col-8">
+                    <p>
+                        <%= patient.profile.state %>
+                         
+
                     </p>
                 </div>
             </div>
@@ -204,18 +210,24 @@
                         </div>
                         <div class="row main-left-body">
                             <div class="col-sm-4 mb-3">
+                                <p>Date</p>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="date" class="form-control" id="startDate" name="submitDate">
+                            </div>
+                            <div class="col-sm-4 mb-3">
                                 <p>Title</p>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" placeholder="What type of test">
+                                <input type="text" class="form-control" placeholder="What type of test" name="testName">
                             </div>
                             <div class="col-sm-4 mb-3">
                                 <p>Treatment No</p>
                             </div>
                             <div class="col-sm-8">
-                                <select class="form-select" aria-label="select example">
+                                <select class="form-select" aria-label="select example" name="treatmentNo">
                                     <option value="">Open this select menu</option>
-                                    <option value="1">One</option>
+                                    <option value="1">one</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
                                 </select>
@@ -224,13 +236,13 @@
                                 <p>Attachment</p>
                             </div>
                             <div class="col-sm-8">
-                                <input type="file" class="form-control" aria-label="file example">
+                                <input type="file" class="form-control" aria-label="file example" name="attachment">
                             </div>
                             <div class="col-sm-4 mb-3">
                                 <p>Remark</p>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" aria-label="remark" placeholder="If Any">
+                                <input type="text" class="form-control" aria-label="remark" placeholder="If Any" name="remark">
                             </div>
                             <div class="col-sm-12 saveButton-container">
                                 <button id="saveButton" type="submit" class="btn">Submit</button>
@@ -245,28 +257,34 @@
                         </div>
                         <div class="row main-left-body">
                             <div class="col-sm-4 mb-3">
+                                <p>Date</p>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="date" class="form-control" id="startDate" name="startDate">
+                            </div>
+                            <div class="col-sm-4 mb-3">
                                 <p>Title</p>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" placeholder="What type of test">
+                                <input type="text" class="form-control" placeholder="What type of test" name="testName">
                             </div>
                             <div class="col-sm-4 mb-3">
                                 <p>Treatment No</p>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" name="" id="" readonly value="None">
+                                <input type="text" class="form-control" name="" id="" readonly value="None" name="treatmentNo">
                             </div>
                             <div class="col-sm-4 mb-3">
                                 <p>Attachment</p>
                             </div>
                             <div class="col-sm-8">
-                                <input type="file" class="form-control" aria-label="file example">
+                                <input type="file" class="form-control" aria-label="file example" name="attachment">
                             </div>
                             <div class="col-sm-4 mb-3">
                                 <p>Remark</p>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" aria-label="remark" placeholder="If Any">
+                                <input type="text" class="form-control" aria-label="remark" placeholder="If Any" name="remark">
                             </div>
                             <div class="col-sm-12 saveButton-container">
                                 <button id="saveButton" type="submit" class="btn">Submit</button>

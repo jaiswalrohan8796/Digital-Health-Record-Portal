@@ -72,12 +72,28 @@ const UserSchema = mongoose.Schema({
         functionalStatus: String,
         equipmentDevice: String,
     },
+    labReports:{
+        labName:String,
+        submitDate:Date,
+        testName:String,
+        treatmentNo:Number,
+        attachment:String,
+        remarks:String,
+
+    },
     previousTreatments: [
         {
             healthID:Number,
             treatmentNo: Number,
             history: String,
-            labReports: String,
+            labReports:{
+                labName:String,
+                submitDate:Date,
+                testName:String,
+                treatmentNo:Number,
+                attachment:String,
+                remarks:String, 
+            },
             doctor: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Doctor",
@@ -90,6 +106,7 @@ const UserSchema = mongoose.Schema({
             response: String,
             startDate: Date,
             endDate: Date,
+            
         },
     ],
     currentTreatments: [
@@ -97,7 +114,14 @@ const UserSchema = mongoose.Schema({
             healthID:Number,
             treatmentNo: Number,
             history: String,
-            labReports: String,
+            labReports:{
+                labName:String,
+                submitDate:Date,
+                testName:String,
+                treatmentNo:Number,
+                attachment:String,
+                remarks:String, 
+            },
             doctor: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Doctor",

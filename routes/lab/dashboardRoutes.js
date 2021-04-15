@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Lab = require("../../models/lab/Lab.js");
+const searchPatientsRoutes=require("../lab/searchPatientsRoutes.js")
 const labSettingRoutes=require("../lab/labSettingsRoutes.js")
 
 router.get("/dashboard", async (req, res, next) => {
@@ -38,6 +39,7 @@ router.get("/dashboard/settings", async (req, res, next) => {
 
 //imported routes
 router.use("/dashboard",labSettingRoutes);
+router.use("/dashboard",searchPatientsRoutes);
 
 router.get("/dashboard/logout", (req, res, next) => {
     req.logout();

@@ -50,7 +50,16 @@ const LabSchema = mongoose.Schema({
             default: undefined,
         },
         resetTokenExpiration: Date,
-    }
+    },
+    sendRepots:[{
+        submitDate:Date,
+        healthID:Number,
+        treatmentNo: Number,
+        testName:String,
+        attachment:String,
+        remarks:String,
+
+    }]
      
 });
 
