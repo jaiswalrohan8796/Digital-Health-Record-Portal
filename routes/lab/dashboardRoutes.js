@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const Lab = require("../../models/lab/Lab.js");
-const searchPatientsRoutes=require("../lab/searchPatientsRoutes.js")
-const labSettingRoutes=require("../lab/labSettingsRoutes.js")
+const searchPatientsRoutes = require("../lab/searchPatientsRoutes.js");
+const labSettingRoutes = require("../lab/labSettingsRoutes.js");
 
 router.get("/dashboard", async (req, res, next) => {
     res.render("lab/home", {
@@ -10,9 +10,12 @@ router.get("/dashboard", async (req, res, next) => {
     });
 });
 router.get("/dashboard/sent", async (req, res, next) => {
+    const lab = await Lab.findOne({ _id: req.user._id }).populate(
+        "sentReports.patient"
+    );
     res.render("lab/sentReports", {
-        lab: req.user,
-        labName: `${req.user.profile.labName}`,
+        lab: lab,
+        labName: lab.profile.labName,
     });
 });
 router.get("/dashboard/pending", async (req, res, next) => {
@@ -21,13 +24,8 @@ router.get("/dashboard/pending", async (req, res, next) => {
         labName: `${req.user.profile.labName}`,
     });
 });
-// For after seacrh page
-router.get("/dashboard/aftersearch", async (req, res, next) => {
-    res.render("lab/aftersearch", {
-        lab: req.user,
-        labName: `${req.user.profile.labName}`,
-    });
-});
+
+// settings
 router.get("/dashboard/settings", async (req, res, next) => {
     res.render("lab/settings", {
         lab: req.user,
@@ -38,11 +36,12 @@ router.get("/dashboard/settings", async (req, res, next) => {
 });
 
 //imported routes
-router.use("/dashboard",labSettingRoutes);
-router.use("/dashboard",searchPatientsRoutes);
+router.use("/dashboard", labSettingRoutes);
+router.use("/dashboard", searchPatientsRoutes);
 
 router.get("/dashboard/logout", (req, res, next) => {
     req.logout();
     res.redirect("/");
 });
+
 module.exports = router;

@@ -148,6 +148,12 @@
     <div class="toolbar-space"></div>
     <!-- alert for home only -->
     <main>
+        <div class="status">
+            <span>
+                <p id="mess">
+                </p>
+            </span>
+        </div>
         <div class="basic row my-4">
             <p class="fs-28 bold heading">Patient Details</p>
             <div class="col-sm-6 row">
@@ -191,7 +197,7 @@
                 <div class="col-8">
                     <p>
                         <%= patient.profile.state %>
-                         
+
 
                     </p>
                 </div>
@@ -199,7 +205,8 @@
         </div>
         <div class="container-fluid">
             <div class="row ">
-                <form action="" method="post" class="col-sm-6 ">
+                <form action="/lab/dashboard/treatment-report" enctype="multipart/form-data" method="post"
+                    class="col-sm-6" id="treatmentForm">
                     <div class="leftside row">
                         <div class="leftside-heading">
                             <p class="bold fs-24 mx-auto">Report To a Specific Treatment</p>
@@ -222,23 +229,27 @@
                             </div>
                             <div class="col-sm-8">
                                 <select class="form-select" aria-label="select example" name="treatmentNo">
-                                    <option value="">Open this select menu</option>
-                                    <option value="1">one</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option value="None">Select Treatment No</option>
+                                    <% patient.currentTreatments.forEach((currTreat)=> { %>
+                                        <option value="<%= currTreat.treatmentNo %>">
+                                            <%= currTreat.treatmentNo %>
+                                        </option>
+                                        <% }) %>
                                 </select>
                             </div>
                             <div class="col-sm-4 mb-3">
                                 <p>Attachment</p>
                             </div>
                             <div class="col-sm-8">
-                                <input type="file" class="form-control" aria-label="file example" name="attachment">
+                                <input type="file" class="form-control" aria-label="file example" name="attachment"
+                                    id="attachment">
                             </div>
                             <div class="col-sm-4 mb-3">
                                 <p>Remark</p>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" aria-label="remark" placeholder="If Any" name="remark">
+                                <input type="text" class="form-control" aria-label="remark" placeholder="If Any"
+                                    name="remark">
                             </div>
                             <div class="col-sm-12 saveButton-container">
                                 <button id="saveButton" type="submit" class="btn">Submit</button>
@@ -246,7 +257,7 @@
                         </div>
                     </div>
                 </form>
-                <form action="" method="post" class="col-sm-6 ">
+                <form action="" method="post" class="col-sm-6 " enctype="multipart/form-data">
                     <div class="rightside row">
                         <div class="rightside-heading">
                             <p class="bold fs-24 ">General Report</p>
@@ -268,7 +279,8 @@
                                 <p>Treatment No</p>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" name="" id="" readonly value="None" name="treatmentNo">
+                                <input type="text" class="form-control" name="" id="" readonly value="None"
+                                    name="treatmentNo">
                             </div>
                             <div class="col-sm-4 mb-3">
                                 <p>Attachment</p>
@@ -280,8 +292,10 @@
                                 <p>Remark</p>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" aria-label="remark" placeholder="If Any" name="remark">
+                                <input type="text" class="form-control" aria-label="remark" placeholder="If Any"
+                                    name="remark">
                             </div>
+                            <input type="hidden" id="healthID" name="healthID" value="<%= patient.accessID.healthID %>">
                             <div class="col-sm-12 saveButton-container">
                                 <button id="saveButton" type="submit" class="btn">Submit</button>
                             </div>
@@ -291,16 +305,16 @@
             </div>
         </div>
     </main>
-    <!-- <div class="backdrop">
-        <div class="status">
-            Report sent !
-        </div>
-    </div> -->
+    <div class="backdrop">
+        <div class="cssload-box-loading"></div>
+    </div>
     <!-- Optional JavaScript -->
     <!-- Bundled Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"> </script>
+    <script src="/js/lab/treatmentReportForm.js"></script>
 </body>
 
 </html>

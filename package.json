@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/jaiswalrohan8796/Digital-Health-Record-Portal#readme",
   "dependencies": {
+    "@azure/storage-blob": "^12.5.0",
     "bcrypt": "^5.0.1",
     "config": "3.3.1",
     "crypto": "^1.0.1",
@@ -29,7 +30,9 @@
     "express-session": "^1.17.1",
     "express-validator": "^6.10.0",
     "generate-unique-id": "^2.0.1",
+    "into-stream": "^6.0.0",
     "mongoose": "^5.12.2",
+    "multer": "^1.4.2",
     "nodemailer": "^6.5.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0"

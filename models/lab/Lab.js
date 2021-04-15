@@ -31,10 +31,10 @@ const LabSchema = mongoose.Schema({
             type: String,
             required: true,
         },
-        pincode:{
-            type:Number,
-            required:true
-        }
+        pincode: {
+            type: Number,
+            required: true,
+        },
     },
     account: {
         email: {
@@ -51,16 +51,19 @@ const LabSchema = mongoose.Schema({
         },
         resetTokenExpiration: Date,
     },
-    sendRepots:[{
-        submitDate:Date,
-        healthID:Number,
-        treatmentNo: Number,
-        testName:String,
-        attachment:String,
-        remarks:String,
-
-    }]
-     
+    sentReports: [
+        {
+            submitDate: Date,
+            patient: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "User",
+            },
+            treatmentNo: Number,
+            testName: String,
+            attachment: String,
+            remarks: String,
+        },
+    ],
 });
 
 const Lab = mongoose.model("Lab", LabSchema);

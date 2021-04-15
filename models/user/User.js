@@ -72,64 +72,64 @@ const UserSchema = mongoose.Schema({
         functionalStatus: String,
         equipmentDevice: String,
     },
-    labReports:{
-        labName:String,
-        submitDate:Date,
-        testName:String,
-        treatmentNo:Number,
-        attachment:String,
-        remarks:String,
-
-    },
+    labReports: [
+        {
+            labName: String,
+            submitDate: Date,
+            testName: String,
+            treatmentNo: Number,
+            attachment: String,
+            remarks: String,
+        },
+    ],
     previousTreatments: [
         {
-            healthID:Number,
+            healthID: Number,
             treatmentNo: Number,
             history: String,
-            labReports:{
-                labName:String,
-                submitDate:Date,
-                testName:String,
-                treatmentNo:Number,
-                attachment:String,
-                remarks:String, 
+            labReports: {
+                labName: String,
+                submitDate: Date,
+                testName: String,
+                treatmentNo: Number,
+                attachment: String,
+                remarks: String,
             },
             doctor: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Doctor",
             },
-            medicines:{
-                name:[String],
-                time:[String],
+            medicines: {
+                name: [String],
+                time: [String],
             },
             prescriptions: String,
             response: String,
             startDate: Date,
             endDate: Date,
-            
         },
     ],
     currentTreatments: [
         {
-            healthID:Number,
+            healthID: Number,
             treatmentNo: Number,
             history: String,
-            labReports:{
-                labName:String,
-                submitDate:Date,
-                testName:String,
-                treatmentNo:Number,
-                attachment:String,
-                remarks:String, 
+            labReports: {
+                labName: String,
+                submitDate: Date,
+                testName: String,
+                treatmentNo: Number,
+                attachment: String,
+                remarks: String,
             },
             doctor: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Doctor",
             },
             prescriptions: String,
-            medicines:{
-                name:[String],
-                time:[String],
+            medicines: {
+                name: [String],
+                time: [String],
             },
             response: String,
             startDate: Date,

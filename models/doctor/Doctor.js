@@ -52,58 +52,60 @@ const DoctorSchema = mongoose.Schema({
     },
     currentPatients: [
         {
-            healthID:Number,
+            healthID: Number,
             treatmentNo: Number,
-            doctorName:String,
+            doctorName: String,
             history: String,
-            labReports:{
-                labName:String,
-                submitDate:Date,
-                testName:String,
-                treatmentNo:Number,
-                attachment:String,
-                remarks:String, 
+            labReports: {
+                labName: String,
+                submitDate: Date,
+                testName: String,
+                treatmentNo: Number,
+                attachment: String,
+                remarks: String,
             },
             patient: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "User",
             },
             prescriptions: String,
-            medicines:{
-                name:[String],
-                time:[String],
+            medicines: {
+                name: [String],
+                time: [String],
             },
             response: String,
             startDate: Date,
             endDate: Date,
         },
     ],
-    previousPatients: [{
-            healthID:Number,
+    previousPatients: [
+        {
+            healthID: Number,
             treatmentNo: Number,
-            doctorName:String,
+            doctorName: String,
             history: String,
-            labReports:{
-                labName:String,
-                submitDate:Date,
-                testName:String,
-                treatmentNo:Number,
-                attachment:String,
-                remarks:String, 
+            labReports: {
+                labName: String,
+                submitDate: Date,
+                testName: String,
+                treatmentNo: Number,
+                attachment: String,
+                remarks: String,
             },
             patient: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "User",
             },
             prescriptions: String,
-            medicines:{
-                name:[String],
-                time:[String],
+            medicines: {
+                name: [String],
+                time: [String],
             },
             response: String,
             startDate: Date,
             endDate: Date,
-    }],
+        },
+    ],
 });
 
 const Doctor = mongoose.model("Doctor", DoctorSchema);
