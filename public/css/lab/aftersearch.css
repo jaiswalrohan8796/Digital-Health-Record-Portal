@@ -72,6 +72,30 @@
 .rightside-heading p {
     margin-bottom: 0;
 }
+
+/* .backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.308);
+}
+.backdrop .status {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 200px;
+    background-color: #fff;
+    color: #000;
+} */
+
 @media (max-width: 768px) {
     .col-sm-8 {
         margin-bottom: 12px;
