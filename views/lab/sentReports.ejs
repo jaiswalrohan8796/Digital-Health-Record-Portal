@@ -164,7 +164,11 @@
                             <div class="name">
                                 <p class="bold">Treatment No :</p>
                                 <p>
-                                    <%= report.treatmentNo %>
+                                    <% if (report.treatmentNo===0) { %>
+                                        <p>
+                                            None
+                                        </p>
+                                        <% } %>
                                 </p>
                             </div>
                             <div class="name">
@@ -221,7 +225,11 @@
                                             Treatment No :
                                         </div>
                                         <div class="col-sm-8 text">
-                                            <%= report.treatmentNo %>
+                                            <% if (report.treatmentNo===0) { %>
+                                                <p>
+                                                    None
+                                                </p>
+                                                <% } %>
                                         </div>
                                     </div>
                                     <div class="col-12 row my-2">

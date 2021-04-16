@@ -187,15 +187,15 @@
     <main>
         <% if (user.currentTreatments.length> 0 ) { %>
             <!-- Current Treatments List  -->
-            <% user.currentTreatments.forEach((currPat,i)=> { %>
-                <div class="row my-4 treatment" id="<%= currPat._id %>">
+            <% user.currentTreatments.forEach((currTreat,i)=> { %>
+                <div class="row my-4 treatment" id="<%= currTreat._id %>">
                     <div class="col-12 row treatment-header bold mb-2">
                         <div class="col-6 row treatment-id">
                             <div class="col-sm-4 mt-2">
                                 <p>Treatment No: </p>
                             </div>
                             <div class="col-sm-8 mt-2">
-                                <%=currPat.treatmentNo%>
+                                <%=currTreat.treatmentNo%>
                             </div>
                         </div>
                         <div class="col-6 row treatment-time">
@@ -203,11 +203,11 @@
                                 <p>Start Date : </p>
                             </div>
                             <div class="col-sm-4 mt-2">
-                                <%= currPat.startDate.toLocaleDateString("en-GB") %>
+                                <%= currTreat.startDate.toLocaleDateString("en-GB") %>
                             </div>
                             <div class="col-sm-4 mt-2">
                                 <button type="button" class="btn btn-end"
-                                    onclick="endTreatmentHandler('<%= currPat.doctor._id %>','<%=currPat.treatmentNo%>', '<%= currPat._id %>')">End</button>
+                                    onclick="endTreatmentHandler('<%= currTreat.doctor._id %>','<%=currTreat.treatmentNo%>', '<%= currTreat._id %>')">End</button>
                             </div>
                         </div>
                     </div>
@@ -217,8 +217,8 @@
                         </div>
                         <div class="col-8">
                             <p>
-                                <%=currPat.doctor.profile.firstName%>
-                                    <%= currPat.doctor.profile.lastName %>
+                                <%=currTreat.doctor.profile.firstName%>
+                                    <%= currTreat.doctor.profile.lastName %>
                             </p>
                         </div>
                         <div class="col-4">
@@ -226,7 +226,7 @@
                         </div>
                         <div class="col-8">
                             <p>
-                                <%=currPat.history%>
+                                <%=currTreat.history%>
                             </p>
                         </div>
                         <div class="col-4">
@@ -234,7 +234,7 @@
                         </div>
                         <div class="col-8">
                             <p>
-                                <%=currPat.prescriptions%>
+                                <%=currTreat.prescriptions%>
                             </p>
                         </div>
 
@@ -243,19 +243,38 @@
                         </div>
                         <div class="col-8">
                             <p>
-                                <% currPat.medicines.name.forEach((medName,i)=> {%>
+                                <% currTreat.medicines.name.forEach((medName,i)=> {%>
                                     <p>
-                                        <%=medName%> - <%= currPat.medicines.time[i] %>
+                                        <%=medName%> - <%= currTreat.medicines.time[i] %>
                                     </p>
                                     <% }) %>
                             </p>
+                        </div>
+                        <div class="col-4">
+                            <p>Lab Reports</p>
+                        </div>
+                        <div class="col-8">
+                            <% if (currTreat.labReports.attachment) { %>
+                                <p>Test - <%= currTreat.labReports.testName %>
+                                </p>
+                                <p>Lab - <%= currTreat.labReports.labName %>
+                                </p>
+                                <p>Attachment - <a href="/user/dashboard/report/<%= currTreat.labReports.attachment %>"><%= currTreat.labReports.attachment %></a>
+                                </p>
+                                <p>Remarks - <%= currTreat.labReports.remarks %>
+                                </p>
+                                <p>Dated - <%= currTreat.labReports.submitDate.toLocaleDateString("en-US") %>
+                                </p>
+                                <% } else { %>
+                                    <p>No Reports</p>
+                                    <% } %>
                         </div>
                         <div class="col-4">
                             <p>Response</p>
                         </div>
                         <div class="col-8">
                             <p>
-                                <%=currPat.response%>
+                                <%=currTreat.response%>
                             </p>
                         </div>
                     </div>

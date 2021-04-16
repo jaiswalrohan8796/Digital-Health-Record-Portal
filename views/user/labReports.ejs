@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/css/user/main.css">
     <link rel="stylesheet" href="/css/user/dashboard.css">
     <link rel="stylesheet" href="/css/user/home.css">
+    <link rel="stylesheet" href="/css/user/labReports.css">
 
 </head>
 
@@ -196,7 +197,107 @@
     <!-- toolbar space fix -->
     <div class="toolbar-space"></div>
     <main>
+        <% if (user.labReports.length> 0) { %>
+            <!-- List of lab reports -->
+            <% user.labReports.forEach((report)=> { %>
+                <div class="wrapper mt-2">
+                    <!-- block -->
+                    <div class="content">
+                        <div class="patient-detail">
+                            <div class="name">
+                                <p class="bold">Treatment No :</p>
+                                <% if (report.treatmentNo===0) { %>
+                                    <p>
+                                        None
+                                    </p>
+                                    <% } %>
+                            </div>
+                            <div class="name">
+                                <p class="bold">Lab : </p>
+                                <p>
+                                    <%= report.labName %>
 
+                                </p>
+                            </div>
+                            <div class="date">
+                                <p class="bold">Date:</p>
+                                <p>
+                                    <%= report.submitDate.toLocaleDateString("en-GB") %>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="patient-action text-center">
+                            <div class="view">
+                                <button class="btn btn-view" data-bs-toggle="modal"
+                                    data-bs-target="#modal-<%= report._id %>">View</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- modal -->
+                    <div class="modal fade" id="modal-<%= report._id %>" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-center" id="exampleModalLabel">Report Detail </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+
+                                    <div class="col-12 row my-2">
+                                        <div class="col-sm-4 bold">
+                                            Lab :
+                                        </div>
+                                        <div class="col-sm-8 text">
+                                            <%= report.labName %>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 row my-2">
+                                        <div class="col-sm-4 bold">
+                                            Treatment No :
+                                        </div>
+                                        <div class="col-sm-8 text">
+                                            <% if (report.treatmentNo===0) { %>
+                                                <p>
+                                                    None
+                                                </p>
+                                                <% } %>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 row my-2">
+                                        <div class="col-sm-4 bold">
+                                            Test :
+                                        </div>
+                                        <div class="col-sm-8 text">
+                                            <%= report.testName %>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 row my-2">
+                                        <div class="col-sm-4 bold">
+                                            Attachment
+                                        </div>
+                                        <div class="col-sm-8 text">
+                                            <%= report.attachment %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-dismiss"
+                                        data-bs-dismiss="modal">Dismiss</button>
+                                    <a class="btn-download"
+                                        href="/user/dashboard/report/<%= report.attachment %>">Download</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+                    <% } else { %>
+                        <div class="no-item">
+                            <p class="bold fs-20">No Sent Reports</p>
+                        </div>
+                        <% } %>
     </main>
 
 

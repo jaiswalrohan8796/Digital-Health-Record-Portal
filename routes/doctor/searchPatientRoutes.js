@@ -33,7 +33,6 @@ router.post("/search", async (req, res, next) => {
         });
     }
 });
-
 //patient new record form
 router.post("/patient/form", async (req, res, next) => {
     const healthID = req.body.healthID;
@@ -59,7 +58,9 @@ router.post("/patient/new", async (req, res, next) => {
         response,
     } = req.body;
     try {
-        const patient = await User.findOne({ "accessID.healthID": healthID });
+        const patient = await User.findOne({ "accessID.healthID": healthID })
+            .populate("currentTreatments.doctor")
+            .populate("previousTreatments.doctor");
         const doctor = await Doctor.findOne({ _id: doctorID });
         //save patient current treatment
         // let medObj = {};

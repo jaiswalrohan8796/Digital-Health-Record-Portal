@@ -2,6 +2,9 @@ const router = require("express").Router();
 const User = require("../../models/user/User.js");
 const settingRoutes = require("../user/settingRoutes.js");
 const endRoutes = require("../user/endRoutes.js");
+
+const azure = require("../../utils/azureStorageConfig.js");
+
 //dashboard home
 router.get("/dashboard", async (req, res, next) => {
     const medformfilled = req.user.medical.filled;
@@ -111,6 +114,23 @@ router.get("/dashboard/settings", async (req, res, next) => {
         status: "Edit to update ",
         error: "",
     });
+});
+
+//download report route
+router.get("/dashboard/report/:attachment", async (req, res, next) => {
+    const attachment = req.params.attachment;
+    try {
+        const pdfBuffer = await azure.download(attachment);
+        res.writeHead(200, {
+            "Content-Type": "application/pdf",
+            "Content-Disposition": `inline; filename = ${attachment}`,
+            "Content-Length": pdfBuffer.length,
+        });
+        res.end(pdfBuffer);
+    } catch (e) {
+        console.log(e);
+        res.status(404).render("404");
+    }
 });
 
 //imported routes

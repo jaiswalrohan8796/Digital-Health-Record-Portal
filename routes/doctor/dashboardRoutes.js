@@ -5,6 +5,8 @@ const searchPatientRoutes = require("../doctor/searchPatientRoutes.js");
 const settingRoutes = require("../doctor/settingRoutes.js");
 const endRoutes = require("../doctor/endRoutes.js");
 
+const azure = require("../../utils/azureStorageConfig.js");
+
 //dashboard menu routes
 router.get("/dashboard", (req, res, next) => {
     res.render("doctor/home", {
@@ -41,6 +43,24 @@ router.get("/dashboard/settings", (req, res, next) => {
 });
 
 //imported routes
+//download report route
+router.get("/dashboard/report/:attachment", async (req, res, next) => {
+    const attachment = req.params.attachment;
+    try {
+        const pdfBuffer = await azure.download(attachment);
+        res.writeHead(200, {
+            "Content-Type": "application/pdf",
+            "Content-Disposition": `inline; filename = ${attachment}`,
+            "Content-Length": pdfBuffer.length,
+        });
+        res.end(pdfBuffer);
+    } catch (e) {
+        console.log(e);
+        res.status(404).render("404");
+    }
+});
+
+
 
 //settings routes
 router.use("/dashboard", settingRoutes);

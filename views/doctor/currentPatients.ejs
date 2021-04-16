@@ -147,116 +147,142 @@
     <div class="toolbar-space"></div>
     <!-- alert for home only -->
     <main>
-        <% if (doctor.currentPatients.length > 0) { %>
-        <!-- List of current patients -->
-        <% doctor.currentPatients.forEach((currPat,i)=> { %>
-            <div class="wrapper mt-2" id="<%= currPat._id %>">
-                <!-- block -->
-                <div class="content">
-                    <div class="patient-detail">
-                        <div class="id">
-                            <p class="bold">Health ID :</p>
-                            <p>
-                                <%= currPat.healthID %>
-                            </p>
-                        </div>
-                        <div class="name">
-                            <p class="bold">Treatment ID :</p>
-                            <p>
-                                <%= currPat.treatmentNo %>
-                            </p>
-                        </div>
+        <% if (doctor.currentPatients.length> 0) { %>
+            <!-- List of current patients -->
+            <% doctor.currentPatients.forEach((currPat,i)=> { %>
+                <div class="wrapper mt-2" id="<%= currPat._id %>">
+                    <!-- block -->
+                    <div class="content">
+                        <div class="patient-detail">
+                            <div class="id">
+                                <p class="bold">Health ID :</p>
+                                <p>
+                                    <%= currPat.healthID %>
+                                </p>
+                            </div>
+                            <div class="name">
+                                <p class="bold">Treatment ID :</p>
+                                <p>
+                                    <%= currPat.treatmentNo %>
+                                </p>
+                            </div>
 
-                        <div class="name">
-                            <p class="bold">Name :</p>
-                            <p>
-                                <%= currPat.patient.profile.firstName %>
-                                    <%= currPat.patient.profile.lastName %>
-                            </p>
-                        </div>
-                        <div class="date">
-                            <p class="bold">Date:</p>
-                            <p>
-                                <%= currPat.startDate.toLocaleDateString("en-US") %>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="patient-action text-center">
-                        <div class="view">
-                            <button class="btn btn-view" data-bs-toggle="modal"
-                                data-bs-target="#modal<%= currPat._id %>">View</button>
-                        </div>
-                        <div class="end ">
-                            <button class="btn btn-end"
-                                onclick="endTreatmentHandler(this,'<%= currPat.healthID %>','<%= currPat.treatmentNo %>','<%= currPat._id %>')"
-                                data-bs-dismiss="modal">End</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- modal -->
-                <div class="modal fade" id="modal<%= currPat._id %>" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title text-center" id="exampleModalLabel">Treatment Detail </h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
+                            <div class="name">
+                                <p class="bold">Name :</p>
+                                <p>
+                                    <%= currPat.patient.profile.firstName %>
+                                        <%= currPat.patient.profile.lastName %>
+                                </p>
                             </div>
-                            <div class="modal-body">
-                                <div class="col-12 row">
-                                    <div class="col-sm-4 bold">
-                                        Disease & History:
-                                    </div>
-                                    <div class="col-sm-8 text text-justify">
-                                        <%= currPat.history %>
-                                    </div>
-                                </div>
-                                <div class="col-12 row">
-                                    <div class="col-sm-4 bold">
-                                        Prescription:
-                                    </div>
-                                    <div class="col-sm-8 text">
-                                        <%= currPat.prescriptions %>
-                                    </div>
-                                </div>
-                                <div class="col-12 row">
-                                    <div class="col-sm-4 bold">
-                                        Medicine:
-                                    </div>
-                                    <div class="col-sm-8 text">
-                                        <% currPat.medicines.name.forEach((medName,i)=> {%>
-                                            <p>
-                                                <%=medName%> - <%= currPat.medicines.time[i] %>
-                                            </p>
-                                            <% }) %>
-                                    </div>
-                                </div>
-                                <div class="col-12 row">
-                                    <div class="col-sm-4 bold">
-                                        Response:
-                                    </div>
-                                    <div class="col-sm-8 text">
-                                        <%= currPat.response %>
-                                    </div>
-                                </div>
+                            <div class="date">
+                                <p class="bold">Date:</p>
+                                <p>
+                                    <%= currPat.startDate.toLocaleDateString("en-US") %>
+                                </p>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
-                                <button type="button" class="btn btn-danger"
+                        </div>
+                        <div class="patient-action text-center">
+                            <div class="view">
+                                <button class="btn btn-view" data-bs-toggle="modal"
+                                    data-bs-target="#modal<%= currPat._id %>">View</button>
+                            </div>
+                            <div class="end ">
+                                <button class="btn btn-end"
                                     onclick="endTreatmentHandler(this,'<%= currPat.healthID %>','<%= currPat.treatmentNo %>','<%= currPat._id %>')"
                                     data-bs-dismiss="modal">End</button>
                             </div>
                         </div>
                     </div>
+                    <!-- modal -->
+                    <div class="modal fade" id="modal<%= currPat._id %>" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-center" id="exampleModalLabel">Treatment Detail </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="col-12 row">
+                                        <div class="col-sm-4 bold">
+                                            Disease & History:
+                                        </div>
+                                        <div class="col-sm-8 text text-justify">
+                                            <%= currPat.history %>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 row">
+                                        <div class="col-sm-4 bold">
+                                            Prescription:
+                                        </div>
+                                        <div class="col-sm-8 text">
+                                            <%= currPat.prescriptions %>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 row">
+                                        <div class="col-sm-4 bold">
+                                            Medicine:
+                                        </div>
+                                        <div class="col-sm-8 text">
+                                            <% currPat.medicines.name.forEach((medName,i)=> {%>
+                                                <p>
+                                                    <%=medName%> - <%= currPat.medicines.time[i] %>
+                                                </p>
+                                                <% }) %>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 row">
+                                        <div class="col-sm-4 bold">
+                                            Lab Reports :
+                                        </div>
+                                        <div class="col-sm-8 text">
+                                            <% if (currPat.labReports.attachment) { %>
+                                                <p>Test - <%= currPat.labReports.testName %>
+                                                </p>
+                                                <p>Lab - <%= currPat.labReports.labName %>
+                                                </p>
+                                                <p>Attachment - <a style="color:blue"
+                                                        href="/doctor/dashboard/report/<%= currPat.labReports.attachment %>">
+                                                        <%= currPat.labReports.attachment %>
+                                                    </a>
+                                                </p>
+                                                <p>Remarks - <%= currPat.labReports.remarks %>
+                                                </p>
+                                                <p>Dated - <%= currPat.labReports.submitDate.toLocaleDateString("en-US")
+                                                        %>
+                                                </p>
+                                                <% } else { %>
+                                                    <p>No Reports</p>
+                                                    <% } %>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 row">
+                                        <div class="col-sm-4 bold">
+                                            Response:
+                                        </div>
+                                        <div class="col-sm-8 text">
+                                            <%= currPat.response %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Dismiss</button>
+                                    <button type="button" class="btn btn-danger"
+                                        onclick="endTreatmentHandler(this,'<%= currPat.healthID %>','<%= currPat.treatmentNo %>','<%= currPat._id %>')"
+                                        data-bs-dismiss="modal">End</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <% }) %>
-        <% } else { %>
-            <div class="no-item">
-                <p class="bold fs-20">No Current Patients</p>
-            </div>
-            <% } %>
+                <% }) %>
+                    <% } else { %>
+                        <div class="no-item">
+                            <p class="bold fs-20">No Current Patients</p>
+                        </div>
+                        <% } %>
 
     </main>
     <!-- Optional JavaScript -->

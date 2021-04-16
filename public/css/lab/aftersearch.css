@@ -83,6 +83,7 @@
     background-color: #66f5f5;
     border-radius: 12px;
     width: fit-content;
+    padding: 0 4px;
     text-align: center;
     color: #333333;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,

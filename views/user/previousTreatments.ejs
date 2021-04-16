@@ -278,6 +278,31 @@
                                     </div>
                                     <div class="col-12 row">
                                         <div class="col-sm-4 bold">
+                                            Lab Reports:
+                                        </div>
+                                        <div class="col-sm-8 text">
+                                            <% if (prevTreat.labReports.attachment) { %>
+                                                <p>Test - <%= prevTreat.labReports.testName %>
+                                                </p>
+                                                <p>Lab - <%= prevTreat.labReports.labName %>
+                                                </p>
+                                                <p>Attachment - <a
+                                                        href="/user/dashboard/report/<%= prevTreat.labReports.attachment %>">
+                                                        <%= prevTreat.labReports.attachment %>
+                                                    </a>
+                                                </p>
+                                                <p>Remarks - <%= prevTreat.labReports.remarks %>
+                                                </p>
+                                                <p>Dated - <%=
+                                                        prevTreat.labReports.submitDate.toLocaleDateString("en-US") %>
+                                                </p>
+                                                <% } else { %>
+                                                    <p>No Reports</p>
+                                                    <% } %>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 row">
+                                        <div class="col-sm-4 bold">
                                             Response:
                                         </div>
                                         <div class="col-sm-8 text">

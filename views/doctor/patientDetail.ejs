@@ -291,6 +291,30 @@
                                         </div>
                                         <div class="col-12 row">
                                             <div class="col-sm-4 bold">
+                                                Lab Reports:
+                                            </div>
+                                            <div class="col-sm-8 text">
+                                                <% if (currTreat.labReports.attachment) { %>
+                                                    <p>Test - <%= currTreat.labReports.testName %>
+                                                    </p>
+                                                    <p>Lab - <%= currTreat.labReports.labName %>
+                                                    </p>
+                                                    <p>Attachment - <a style="color:blue"
+                                                            href="/doctor/dashboard/report/<%= currTreat.labReports.attachment %>">
+                                                            <%= currTreat.labReports.attachment %>
+                                                        </a>
+                                                    </p>
+                                                    <p>Remarks - <%= currTreat.labReports.remarks %>
+                                                    </p>
+                                                    <p>Dated - <%= currTreat.labReports.submitDate %>
+                                                    </p>
+                                                    <% } else { %>
+                                                        <p>No Reports</p>
+                                                        <% } %>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 row">
+                                            <div class="col-sm-4 bold">
                                                 Response:
                                             </div>
                                             <div class="col-sm-8 text">
@@ -398,6 +422,32 @@
                                                         <%=medName%> - <%= prevTreat.medicines.time[i] %>
                                                     </p>
                                                     <% }) %>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 row">
+                                            <div class="col-sm-4 bold">
+                                                Lab Reports:
+                                            </div>
+                                            <div class="col-sm-8 text">
+                                                <% if (prevTreat.labReports.attachment) { %>
+                                                    <p>Test - <%= prevTreat.labReports.testName %>
+                                                    </p>
+                                                    <p>Lab - <%= prevTreat.labReports.labName %>
+                                                    </p>
+                                                    <p>Attachment - <a style="color:blue"
+                                                            href="/doctor/dashboard/report/<%= prevTreat.labReports.attachment %>">
+                                                            <%= prevTreat.labReports.attachment %>
+                                                        </a>
+                                                    </p>
+                                                    <p>Remarks - <%= prevTreat.labReports.remarks %>
+                                                    </p>
+                                                    <p>Dated - <%=
+                                                            prevTreat.labReports.submitDate.toLocaleDateString("en-US")
+                                                            %>
+                                                    </p>
+                                                    <% } else { %>
+                                                        <p>No Reports</p>
+                                                        <% } %>
                                             </div>
                                         </div>
                                         <div class="col-12 row">
