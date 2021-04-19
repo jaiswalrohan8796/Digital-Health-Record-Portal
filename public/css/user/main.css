@@ -19,7 +19,6 @@ main {
     color: #333;
 }
 
-
 /* Font-Sizes  */
 .fs-40 {
     font-size: 40px;
@@ -69,7 +68,9 @@ main {
     font-weight: 400;
 }
 
-/* Header  */
+.col-sm-6 {
+    padding: 0 12px;
+}
 
 /* Media Queries  */
 

@@ -4,13 +4,21 @@
     box-sizing: border-box;
 }
 html {
-    overflow: scroll;
     overflow-x: hidden;
 }
 ::-webkit-scrollbar {
-    width: 0; /* Remove scrollbar space */
-    background: transparent; /* Optional: just make scrollbar invisible */
+    width: 12px;
 }
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #e9e6e6;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
 body {
     font-size: 16px;
     font-family: "Poppins", sans-serif;
@@ -40,7 +48,7 @@ body {
 .fs-32 {
     font-size: 32px;
 }
-.fs-36{
+.fs-36 {
     font-size: 34px;
 }
 .fs-30 {
@@ -96,7 +104,6 @@ body {
 .header {
     background-color: #ffc0c2;
     align-items: center;
-    
 }
 a {
     color: white;
@@ -128,6 +135,9 @@ footer {
     justify-content: center;
     align-items: center;
 }
+.footer-social a {
+    margin: 4px 12px;
+}
 .footer-social i {
     margin: 12px;
 }
@@ -139,10 +149,9 @@ footer {
 /* Media Queries  */
 
 @media (max-width: 768px) {
-  
     .header .header_navbar {
         text-align: center;
-    } 
+    }
 
     .header_navbar {
         justify-content: center;
@@ -151,9 +160,8 @@ footer {
 
     .footer-div {
         width: auto;
-
     }
-} 
+}
 
 @media (max-width: 576px) {
     .header .fs-32 {
@@ -169,9 +177,8 @@ footer {
         font-size: 16px;
     }
 }
-@media (max-width:330px) {
-    .header .fs-32{
+@media (max-width: 330px) {
+    .header .fs-32 {
         font-size: 20px;
     }
 }
- 

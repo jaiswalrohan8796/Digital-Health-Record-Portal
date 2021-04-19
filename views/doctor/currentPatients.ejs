@@ -10,6 +10,8 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    	<!-- Bootstrap Icons -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -245,7 +247,7 @@
                                                 <p>Attachment - <a style="color:blue"
                                                         href="/doctor/dashboard/report/<%= currPat.labReports.attachment %>">
                                                         <%= currPat.labReports.attachment %>
-                                                    </a>
+                                                        <i style="margin: 4px;" class="bi bi-cloud-download"></a>
                                                 </p>
                                                 <p>Remarks - <%= currPat.labReports.remarks %>
                                                 </p>
@@ -267,9 +269,9 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
+                                    <button type="button" class="btn btn-dismiss"
                                         data-bs-dismiss="modal">Dismiss</button>
-                                    <button type="button" class="btn btn-danger"
+                                    <button type="button" class="btn btn-end"
                                         onclick="endTreatmentHandler(this,'<%= currPat.healthID %>','<%= currPat.treatmentNo %>','<%= currPat._id %>')"
                                         data-bs-dismiss="modal">End</button>
                                 </div>

@@ -46,7 +46,7 @@ router.post("/patient/form", async (req, res, next) => {
 
 //patient new record form post
 router.post("/patient/new", async (req, res, next) => {
-    const {
+    var {
         healthID,
         startDate,
         doctorName,
@@ -57,6 +57,9 @@ router.post("/patient/new", async (req, res, next) => {
         time,
         response,
     } = req.body;
+    if (!startDate) {
+        startDate = new Date();
+    }
     try {
         const patient = await User.findOne({ "accessID.healthID": healthID })
             .populate("currentTreatments.doctor")

@@ -10,6 +10,10 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+
+
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -149,7 +153,7 @@
     <main>
         <!-- For Basic Details -->
         <button type="button" class="collapsible fs-28">Basic Details:</button>
-        <div class="col-12">
+        <div class="col-12" style="margin-top: 20px;">
             <div class="col-sm-6 row patient-body">
                 <div class="col-4">
                     <p class="bold">Name :</p>
@@ -206,7 +210,6 @@
         <div class="spaceFix"></div>
         <!-- For Current Treatment -->
         <button type="button" class="collapsible  fs-28">Current Treatments</button>
-
         <!-- All current treatmenst -->
         <div class="content-wrapper">
             <% if (patient.currentTreatments.length> 0 ) { %>
@@ -323,7 +326,7 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
+                                        <button type="button" class="btn btn-dismiss"
                                             data-bs-dismiss="modal">Dismiss</button>
                                     </div>
                                 </div>
@@ -332,7 +335,7 @@
                     </div>
                     <% }) %>
                         <% } else { %>
-                            <div class="no-item">
+                            <div class="no-item" style="text-align: center;">
                                 <p class="bold fs-20">No Current Treatments</p>
                             </div>
                             <% } %>
@@ -437,6 +440,7 @@
                                                     <p>Attachment - <a style="color:blue"
                                                             href="/doctor/dashboard/report/<%= prevTreat.labReports.attachment %>">
                                                             <%= prevTreat.labReports.attachment %>
+
                                                         </a>
                                                     </p>
                                                     <p>Remarks - <%= prevTreat.labReports.remarks %>
@@ -460,7 +464,7 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
+                                        <button type="button" class="btn btn-dismiss"
                                             data-bs-dismiss="modal">Dismiss</button>
                                     </div>
                                 </div>
@@ -469,52 +473,73 @@
                     </div>
                     <% }) %>
                         <% } else {%>
-                            <div class="no-item">
+                            <div class="no-item style=" text-align: center;"">
                                 <p class="bold fs-20">No Previous Treatments</p>
                             </div>
                             <% } %>
         </div>
         <!-- To Add new File -->
-        <div class="addNew">
+        <div class="addNew" data-toggle="tooltip" data-placement="top" title="Add new treatment">
             <form action="/doctor/dashboard/patient/form" method="POST">
                 <input type="hidden" name="healthID" value="<%= patient.accessID.healthID %>">
                 <?xml version="1.0"?>
                 <svg onclick="submitFunction()" id="addButtonSVG" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1"
-                    width="60px" height="60px" x="0" y="0" viewBox="0 0 512 512"
-                    style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
-                    <g transform="matrix(1,0,0,1,0,0)">
-                        <linearGradient xmlns="http://www.w3.org/2000/svg" id="a"
-                            gradientTransform="matrix(1 0 0 -1 0 -16402)" gradientUnits="userSpaceOnUse" x1="0" x2="512"
-                            y1="-16658" y2="-16658">
-                            <stop stop-opacity="1" stop-color="#31d8ff" offset="0" />
-                            <stop stop-opacity="1" stop-color="#00cdac" offset="1" />
-                        </linearGradient>
+                    width="60" height="60" x="0" y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512"
+                    xml:space="preserve" class="">
+                    <g>
                         <path xmlns="http://www.w3.org/2000/svg"
-                            d="m512 256c0 141.386719-114.613281 256-256 256s-256-114.613281-256-256 114.613281-256 256-256 256 114.613281 256 256zm0 0"
-                            fill="url(#a)" data-original="url(#a)" class="" />
+                            d="m14.25 3h-11.5c-1.52 0-2.75 1.23-2.75 2.75v12.5c0 1.52 1.23 2.75 2.75 2.75h6.59c-.54-1.14-.84-2.41-.84-3.75l.01-.25h-4.76c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h4.93c.12-.61.31-1.2.55-1.75h-5.48c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h6.33c.45-.65 1-1.24 1.61-1.75h-7.94c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h9.5c.21 0 .39.08.53.22.99-.43 2.08-.68 3.22-.71v-2.76c0-1.52-1.23-2.75-2.75-2.75z"
+                            fill="#6fd8d6" data-original="#2196f3" style="" class="" />
+                        <path xmlns="http://www.w3.org/2000/svg"
+                            d="m12.25 2h-1.1c-.33-1.15-1.39-2-2.65-2s-2.32.85-2.65 2h-1.1c-.41 0-.75.34-.75.75v2c0 .96.79 1.75 1.75 1.75h5.5c.96 0 1.75-.79 1.75-1.75v-2c0-.41-.34-.75-.75-.75z"
+                            fill="#6fd8d6" data-original="#1976d2" style="" class="" />
                         <g xmlns="http://www.w3.org/2000/svg" fill="#fff">
                             <path
-                                d="m256 56c-8.285156 0-15 6.714844-15 15s6.714844 15 15 15c93.738281 0 170 76.261719 170 170s-76.261719 170-170 170-170-76.261719-170-170c0-8.285156-6.714844-15-15-15s-15 6.714844-15 15c0 110.28125 89.71875 200 200 200s200-89.71875 200-200-89.71875-200-200-200zm0 0"
-                                fill="#fff" data-original="#ffffff" class="" />
-                            <path
-                                d="m175.070312 104.285156c1.914063 0 3.855469-.367187 5.734376-1.144531l20.277343-8.398437c7.652344-3.171876 11.289063-11.945313 8.117188-19.601563-3.167969-7.652344-11.945313-11.285156-19.597657-8.117187l-20.277343 8.398437c-7.652344 3.171875-11.289063 11.945313-8.121094 19.601563 2.394531 5.777343 7.980469 9.261718 13.867187 9.261718zm0 0"
-                                fill="#fff" data-original="#ffffff" class="" />
-                            <path
-                                d="m117.425781 147.945312c3.839844 0 7.675781-1.464843 10.605469-4.394531l15.519531-15.519531c5.859375-5.859375 5.859375-15.355469 0-21.214844-5.855469-5.855468-15.355469-5.855468-21.210937 0l-15.523438 15.523438c-5.855468 5.855468-5.855468 15.351562 0 21.210937 2.929688 2.929688 6.769532 4.394531 10.609375 4.394531zm0 0"
-                                fill="#fff" data-original="#ffffff" class="" />
-                            <path
-                                d="m75.144531 209.199219c1.875.777343 3.820313 1.148437 5.734375 1.148437 5.882813 0 11.46875-3.488281 13.863282-9.265625l8.398437-20.277343c3.167969-7.652344-.464844-16.429688-8.117187-19.597657-7.65625-3.171875-16.429688.464844-19.601563 8.117188l-8.398437 20.277343c-3.167969 7.65625.464843 16.429688 8.121093 19.597657zm0 0"
-                                fill="#fff" data-original="#ffffff" class="" />
-                            <path
-                                d="m256 178.289062c-8.285156 0-15 6.714844-15 15v47.710938h-47.710938c-8.285156 0-15 6.714844-15 15s6.714844 15 15 15h47.710938v47.710938c0 8.285156 6.714844 15 15 15s15-6.714844 15-15v-47.710938h47.710938c8.285156 0 15-6.714844 15-15s-6.714844-15-15-15h-47.710938v-47.710938c0-8.285156-6.714844-15-15-15zm0 0"
-                                fill="#fff" data-original="#ffffff" class="" />
+                                d="m13.78 9.22c-.76.33-1.46.761-2.09 1.28h-7.94c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h9.5c.21 0 .39.08.53.22z"
+                                fill="#ffffff" data-original="#ffffff" style="" class="" />
+                            <path d="m10.08 12.25c-.33.47-.62.97-.85 1.5h-5.48c-.41 0-.75-.34-.75-.75s.34-.75.75-.75z"
+                                fill="#ffffff" data-original="#ffffff" style="" class="" />
+                            <path d="m8.68 15.5c-.1.49-.16.99-.17 1.5h-4.76c-.41 0-.75-.34-.75-.75s.34-.75.75-.75z"
+                                fill="#ffffff" data-original="#ffffff" style="" class="" />
                         </g>
+                        <path xmlns="http://www.w3.org/2000/svg"
+                            d="m4 3h-1.25c-1.52 0-2.75 1.23-2.75 2.75v12.5c0 1.52 1.23 2.75 2.75 2.75h5.64v-4h-4.64c-.41 0-.75-.34-.75-.75 0-.41.34-.75.75-.75h4.64v-1.75h-4.64c-.41 0-.75-.34-.75-.75 0-.41.34-.75.75-.75h4.64v-1.75h-4.64c-.41 0-.75-.34-.75-.75 0-.41.34-.75.75-.75h4.64v-2.5h-2.64c-.96 0-1.75-.79-1.75-1.75z"
+                            fill="#6dc9c8" data-original="#1d83d4" style="" class="" />
+                        <path xmlns="http://www.w3.org/2000/svg"
+                            d="m8.39.002c-1.211.048-2.219.881-2.54 1.998h-1.1c-.41 0-.75.34-.75.75v.25 1.75c0 .96.79 1.75 1.75 1.75h2.64z"
+                            fill="#6dc9c8" data-original="#1667b7" style="" class="" />
+                        <path xmlns="http://www.w3.org/2000/svg"
+                            d="m8.39 9h-4.64c-.41 0-.75.34-.75.75 0 .41.34.75.75.75h4.64z" fill="#dedede"
+                            data-original="#dedede" style="" class="" />
+                        <path xmlns="http://www.w3.org/2000/svg"
+                            d="m8.39 12.25h-4.64c-.41 0-.75.34-.75.75 0 .41.34.75.75.75h4.64z" fill="#dedede"
+                            data-original="#dedede" style="" class="" />
+                        <path xmlns="http://www.w3.org/2000/svg"
+                            d="m8.39 15.5h-4.64c-.41 0-.75.34-.75.75 0 .41.34.75.75.75h4.64z" fill="#dedede"
+                            data-original="#dedede" style="" class="" />
+                        <path xmlns="http://www.w3.org/2000/svg"
+                            d="m17.25 24c-3.722 0-6.75-3.027-6.75-6.75s3.028-6.75 6.75-6.75 6.75 3.027 6.75 6.75-3.028 6.75-6.75 6.75z"
+                            fill="#4caf50" data-original="#4caf50" style="" class="" />
+                        <path xmlns="http://www.w3.org/2000/svg"
+                            d="m17.25 21c-.552 0-1-.447-1-1v-5.5c0-.553.448-1 1-1s1 .447 1 1v5.5c0 .553-.448 1-1 1z"
+                            fill="#ffffff" data-original="#ffffff" style="" class="" />
+                        <path xmlns="http://www.w3.org/2000/svg"
+                            d="m20 18.25h-5.5c-.552 0-1-.447-1-1s.448-1 1-1h5.5c.552 0 1 .447 1 1s-.448 1-1 1z"
+                            fill="#ffffff" data-original="#ffffff" style="" class="" />
+                        <path xmlns="http://www.w3.org/2000/svg"
+                            d="m17.25 10.5c-3.722 0-6.75 3.027-6.75 6.75s3.028 6.75 6.75 6.75v-3c-.552 0-1-.447-1-1v-1.75h-1.75c-.552 0-1-.447-1-1s.448-1 1-1h1.75v-1.75c0-.553.448-1 1-1z"
+                            fill="#429846" data-original="#429846" style="" class="" />
+                        <path xmlns="http://www.w3.org/2000/svg"
+                            d="m17.25 18.25h-1v1.75c0 .553.448 1 1 1zm0-4.75c-.552 0-1 .447-1 1v1.75h1z" fill="#dedede"
+                            data-original="#dedede" style="" class="" />
+                        <path xmlns="http://www.w3.org/2000/svg"
+                            d="m17.25 16.25h-1-1.75c-.552 0-1 .447-1 1s.448 1 1 1h1.75 1z" fill="#dedede"
+                            data-original="#dedede" style="" class="" />
                     </g>
                 </svg>
             </form>
         </div>
-
     </main>
     <!-- Optional JavaScript -->
     <!-- Bundled Bootstrap JS -->

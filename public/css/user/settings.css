@@ -9,14 +9,14 @@ p {
 }
 .edit-profile-icon {
     font-size: 26px;
-    color: #6dc9c8;
+    color: #f8a1a4;
     height: 32px;
     width: 32px !important;
     cursor: pointer;
 }
 .edit-medical-icon {
     font-size: 26px;
-    color: #6dc9c8;
+    color: #f8a1a4;
     height: 32px;
     width: 32px !important;
     cursor: pointer;
@@ -42,11 +42,11 @@ form {
 }
 .profile .heading span {
     width: fit-content;
-    border-bottom: 4px solid #6dc9c8;
+    border-bottom: 4px solid #ffc0c2;
 }
 .account .heading p {
     width: fit-content;
-    border-bottom: 4px solid #6dc9c8;
+    border-bottom: 4px solid #ffc0c2;
 }
 a.change-btn {
     height: 24px;
@@ -54,13 +54,13 @@ a.change-btn {
     text-decoration: none;
     padding: 8px 12px;
     background-color: #fff;
-    color: #6dc9c8;
+    color: #f8a1a4;
     border-radius: 24px;
-    border: 1px solid #6dc9c8;
+    border: 1px solid #f8a1a4;
 }
 .change-btn:hover {
     color: #fff;
-    background-color: #6dc9c8;
+    background-color: #f8a1a4;
 }
 .profilesaveButton-container {
     margin: 16px;
@@ -71,11 +71,11 @@ a.change-btn {
     width: 86px;
     padding: 6px 12px;
     border-radius: 24px;
-    border: 2px solid #6dc9c8;
-    color: #5ac7c5;
+    border: 2px solid #ffc0c2;
+    color: #ffc0c2;
 }
 #profilesaveButton:hover {
-    background-color: #6dc9c8;
+    background-color: #ffc0c2;
     color: #fff;
 }
 .medicalsaveButton-container {
@@ -87,11 +87,11 @@ a.change-btn {
     width: 86px;
     padding: 6px 12px;
     border-radius: 24px;
-    border: 2px solid #6dc9c8;
-    color: #5ac7c5;
+    border: 2px solid #ffc0c2;
+    color: #ffc0c2;
 }
 #medicalsaveButton:hover {
-    background-color: #6dc9c8;
+    background-color: #ffc0c2;
     color: #fff;
 }
 .validatorErrorsList .validatorErrors {
@@ -112,7 +112,7 @@ a.change-btn {
     align-items: center;
 }
 .status {
-    background-color: #73d8d8;
+    background-color: #ffc0c2;
     padding: 8px;
     color: white;
     border-radius: 12px;
