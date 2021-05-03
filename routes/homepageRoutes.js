@@ -21,7 +21,7 @@ router.get("/user/register", (req, res, next) => {
 });
 
 router.use(forgotPasswordRoutes);
-router.use(changeEmailRoutes)
+router.use(changeEmailRoutes);
 
 //doctor routes
 router.get("/doctor/login", (req, res, next) => {

@@ -163,6 +163,10 @@ button.collapsible.active:after {
 .modal-body .text {
     text-align: justify;
 }
+#addButtonSVG:hover {
+    transition: transform 0.3s linear;
+    transform: translateY(-5px);
+}
 
 /* media-queries */
 @media (max-width: 768px) {

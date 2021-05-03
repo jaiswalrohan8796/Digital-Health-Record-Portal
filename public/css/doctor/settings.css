@@ -25,10 +25,7 @@ form {
     /* border: 3px solid #ffc0c2; */
     box-shadow: 4px 6px 12px 4px rgb(224, 214, 214);
 }
-.form-control:focus {
-    border: none;
-    box-shadow: 4px 4px 11px 2px rgb(195 196 196 / 70);
-}
+
 .profile .heading {
     display: flex;
     flex-direction: row;
@@ -86,7 +83,6 @@ a.change-btn {
     border-radius: 8px;
 }
 .status-wrap {
-    height: 40px;
     display: flex;
     flex-direction: row;
     justify-content: center;
