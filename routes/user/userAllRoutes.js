@@ -10,6 +10,8 @@ const isAuthenticated = (req, res, next) => {
     }
     next();
 };
+
+//
 //routes
 router.use("/user", authRoutes);
 router.use("/user", isAuthenticated, dashboardRoutes);

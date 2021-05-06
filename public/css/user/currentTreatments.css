@@ -4,6 +4,7 @@
 }
 
 p {
+    padding: 6px;
     margin-bottom: 12px;
 }
 .treatment {
@@ -48,6 +49,10 @@ p {
 .no-item p {
     text-align: center;
     color: rgb(105, 105, 105);
+}
+.col-sm-4,
+.col-4 {
+    font-weight: bold;
 }
 
 @media (max-width: 768px) {

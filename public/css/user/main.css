@@ -75,6 +75,9 @@ main {
 /* Media Queries  */
 
 @media (max-width: 768px) {
+    main {
+        padding: 4px;
+    }
     .header .header_navbar {
         text-align: center;
     }
