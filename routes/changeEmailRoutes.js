@@ -32,11 +32,9 @@ router.post("/user/changeemail", async (req, res, next) => {
         }
 
         token = buffer.toString("hex");
-        console.log(token);
         validUser.account.resetToken = token;
         validUser.account.resetTokenExpiration = Date.now() + 3600000;
         const saved = await validUser.save();
-        console.log(validUser);
         res.render("user/login", {
             error: "",
             status: "Check your mail for link",
@@ -54,7 +52,7 @@ router.post("/user/changeemail", async (req, res, next) => {
                     changeEmailLink: `${process.env.HOST_URL}/user/new-email/${token}`,
                 },
             })
-            .then(() => console.log("email has been send!"))
+            .then()
             .catch((e) => console.log(e));
     } catch (e) {
         console.log(e);
@@ -125,7 +123,7 @@ router.post("/user/new-email", async (req, res, next) => {
                     dashboardLink: `${process.env.HOST_URL}/user/dashboard`,
                 },
             })
-            .then(() => console.log("email has been send!"))
+            .then()
             .catch((e) => console.log(e));
     } catch (e) {
         console.log(e);
@@ -164,11 +162,9 @@ router.post("/doctor/changeemail", async (req, res, next) => {
         }
 
         token = buffer.toString("hex");
-        console.log(token);
         validUser.account.resetToken = token;
         validUser.account.resetTokenExpiration = Date.now() + 3600000;
         const saved = await validUser.save();
-        console.log(validUser);
         res.render("doctor/login", {
             error: "",
             status: "Check your mail for link",
@@ -186,7 +182,7 @@ router.post("/doctor/changeemail", async (req, res, next) => {
                     changeEmailLink: `${process.env.HOST_URL}/doctor/new-email/${token}`,
                 },
             })
-            .then(() => console.log("email has been send!"))
+            .then()
             .catch((e) => console.log(e));
     } catch (e) {
         console.log(e);
@@ -257,7 +253,7 @@ router.post("/doctor/new-email", async (req, res, next) => {
                     dashboardLink: `${process.env.HOST_URL}/doctor/dashboard`,
                 },
             })
-            .then(() => console.log("email has been send!"))
+            .then()
             .catch((e) => console.log(e));
     } catch (e) {
         console.log(e);
@@ -296,11 +292,9 @@ router.post("/lab/changeemail", async (req, res, next) => {
         }
 
         token = buffer.toString("hex");
-        console.log(token);
         validUser.account.resetToken = token;
         validUser.account.resetTokenExpiration = Date.now() + 3600000;
         const saved = await validUser.save();
-        console.log(validUser);
         res.render("lab/login", {
             error: "",
             status: "Check your mail for link",
@@ -318,7 +312,7 @@ router.post("/lab/changeemail", async (req, res, next) => {
                     changeEmailLink: `${process.env.HOST_URL}/lab/new-email/${token}`,
                 },
             })
-            .then(() => console.log("email has been send!"))
+            .then()
             .catch((e) => console.log(e));
     } catch (e) {
         console.log(e);
@@ -389,7 +383,7 @@ router.post("/lab/new-email", async (req, res, next) => {
                     dashboardLink: `${process.env.HOST_URL}/lab/dashboard`,
                 },
             })
-            .then(() => console.log("email has been send!"))
+            .then()
             .catch((e) => console.log(e));
     } catch (e) {
         console.log(e);

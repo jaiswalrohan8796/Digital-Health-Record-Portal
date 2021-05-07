@@ -41,7 +41,7 @@ const upload = async (buffer, req) => {
                 blobHTTPHeaders: { blobContentType: "application/pdf" },
             }
         );
-        // console.log(`file uploaded    => \n`, uploadResponse);
+        
         return blobName;
     } catch (e) {
         console.log(e);

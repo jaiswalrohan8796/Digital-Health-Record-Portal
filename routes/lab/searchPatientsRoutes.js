@@ -125,8 +125,6 @@ router.post(
     "/general-report",
     upload.single("attachment"),
     async (req, res, next) => {
-        console.log(req.body);
-        console.log(req.file);
         try {
             const submitDate = new Date(req.body.submitDate) || Date.now();
             const testName = req.body.testName || "None";

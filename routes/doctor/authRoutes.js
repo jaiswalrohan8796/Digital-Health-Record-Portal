@@ -95,7 +95,6 @@ router.post(
         try {
             let errors = validationResult(req);
             if (!errors.isEmpty()) {
-                console.log(errors.array());
                 return res.render("doctor/register", {
                     error: errors.array(),
                     status: "",
@@ -137,7 +136,6 @@ router.post(
                     status: "",
                 });
             }
-            console.log(saved);
             res.render("doctor/login", {
                 error: "",
                 status: "Success! Now Login",
