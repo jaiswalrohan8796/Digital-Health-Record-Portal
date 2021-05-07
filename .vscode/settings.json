@@ -3,5 +3,6 @@
     "appService.zipIgnorePattern": [
         "node_modules{,/**}",
         ".vscode{,/**}"
-    ]
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/82f564a7-80dd-4f98-b766-c08f1bb3f9c0/resourceGroups/Digital-Health-Record-Portal/providers/Microsoft.Web/sites/digitalhealthportal"
 }
