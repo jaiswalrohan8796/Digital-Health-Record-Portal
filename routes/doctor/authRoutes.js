@@ -56,13 +56,6 @@ router.post(
             .withMessage("Mobile number should be ten digit number")
             .isNumeric()
             .withMessage("Mobile number should contain only numerics"),
-        // check("DOB")
-        //     .notEmpty()
-        //     .withMessage("Date of Birth is required")
-        //     .isDate()
-        //     .withMessage("Date of Birth should be a date"),
-        // check("gender").notEmpty().withMessage("Gender is required"),
-        // check("bloodGroup").notEmpty().withMessage("Blood Group is required"),
         check("password")
             .notEmpty()
             .withMessage("Password is required")

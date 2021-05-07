@@ -6,8 +6,9 @@ const emailTemplate = require("../utils/email.js");
 const User = require("../models/user/User.js");
 const Doctor = require("../models/doctor/Doctor.js");
 const Lab = require("../models/lab/Lab.js");
-//USER
 
+
+//USER
 //get forgotpassword page
 router.get("/user/forgotpassword", (req, res, next) => {
     res.render("user/forgotpassword", { error: "", status: "" });
@@ -136,7 +137,6 @@ router.post("/user/new-password", async (req, res, next) => {
 });
 
 //DOCTOR
-
 //get forgotpassword page
 router.get("/doctor/forgotpassword", (req, res, next) => {
     res.render("doctor/forgotpassword", { error: "", status: "" });
@@ -267,7 +267,6 @@ router.post("/doctor/new-password", async (req, res, next) => {
 });
 
 //LAB
-
 //get forgotpassword page
 router.get("/lab/forgotpassword", (req, res, next) => {
     res.render("lab/forgotpassword", { error: "", status: "" });

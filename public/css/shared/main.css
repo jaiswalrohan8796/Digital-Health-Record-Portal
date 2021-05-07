@@ -7,7 +7,6 @@ html {
     overflow-x: hidden;
 }
 
-
 body {
     font-size: 16px;
     font-family: "Poppins", sans-serif;
@@ -102,6 +101,10 @@ a:hover {
     color: white;
 }
 
+/* label color */
+.text-muted {
+    color: rgba(255, 255, 255, 0.733) !important;
+}
 /* Footer  */
 footer {
     position: relative;

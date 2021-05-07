@@ -60,8 +60,8 @@ router.post(
         check("password")
             .notEmpty()
             .withMessage("Password is required")
-            .isLength({ min: 6 })
-            .withMessage("Password should be atleast 6 characters long")
+            .isLength({ min: 3 })
+            .withMessage("Password should be atleast 3 characters long")
             .trim(),
         check("confirmPassword").custom((value, { req }) => {
             if (value !== req.body.confirmPassword) {
