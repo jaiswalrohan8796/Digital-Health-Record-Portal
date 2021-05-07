@@ -31,6 +31,9 @@
     height: 80%;
     width: 80%;
 }
+.navbar-toggler:focus {
+    box-shadow: none;
+}
 
 @media (max-width: 768px) {
     .left {
@@ -39,6 +42,6 @@
     }
     .left .content {
         text-align: center;
-        padding-left: 16px;
+        padding-left: 2px;
     }
 }
