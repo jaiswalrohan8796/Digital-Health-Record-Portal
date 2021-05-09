@@ -2,7 +2,7 @@ const router = require("express").Router();
 const User = require("../../models/user/User.js");
 const settingRoutes = require("../user/settingRoutes.js");
 const endRoutes = require("../user/endRoutes.js");
-
+const chatRoutes = require("../user/chatRoutes.js");
 const azure = require("../../utils/azureStorageConfig.js");
 
 //dashboard home
@@ -136,6 +136,8 @@ router.get("/dashboard/report/:attachment", async (req, res, next) => {
 //imported routes
 router.use("/dashboard", settingRoutes);
 router.use("/dashboard", endRoutes);
+router.use("/dashboard",chatRoutes);
+
 // logout
 router.get("/dashboard/logout", (req, res, next) => {
     req.logout();

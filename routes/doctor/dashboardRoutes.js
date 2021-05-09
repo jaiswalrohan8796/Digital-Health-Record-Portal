@@ -4,7 +4,7 @@ const Doctor = require("../../models/doctor/Doctor.js");
 const searchPatientRoutes = require("../doctor/searchPatientRoutes.js");
 const settingRoutes = require("../doctor/settingRoutes.js");
 const endRoutes = require("../doctor/endRoutes.js");
-
+const chatRoutes = require("../doctor/chatRoutes.js");
 const azure = require("../../utils/azureStorageConfig.js");
 
 //dashboard menu routes
@@ -60,19 +60,16 @@ router.get("/dashboard/report/:attachment", async (req, res, next) => {
     }
 });
 
-
-
 //settings routes
 router.use("/dashboard", settingRoutes);
 
 //search patient routes
 router.use("/dashboard", searchPatientRoutes);
 router.use("/dashboard", endRoutes);
-
+router.use("/dashboard", chatRoutes);
 //logout
 router.get("/dashboard/logout", (req, res, next) => {
     req.logout();
     res.redirect("/");
 });
 module.exports = router;
-
