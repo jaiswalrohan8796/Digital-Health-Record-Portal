@@ -170,6 +170,9 @@ button.collapsible.active:after {
 
 /* media-queries */
 @media (max-width: 768px) {
+    body {
+        height: 100vh;
+    }
     .content {
         height: 160px;
     }
