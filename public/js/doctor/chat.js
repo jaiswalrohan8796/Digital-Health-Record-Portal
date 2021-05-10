@@ -61,7 +61,7 @@ function botRender(data) {
     <p>${data.text}</p>
     `;
     chatList.appendChild(list);
-    chatList.scrollTop = chatList.scrollHeight;
+    chatBox.scrollTop = chatBox.scrollHeight;
 }
 
 const renderMessage = (data) => {
@@ -91,5 +91,5 @@ const renderMessage = (data) => {
     }
 
     chatList.appendChild(list);
-    chatList.scrollTop = chatList.scrollHeight;
+    chatBox.scrollTop = chatBox.scrollHeight;
 };
