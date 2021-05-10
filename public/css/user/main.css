@@ -68,6 +68,9 @@ main {
     font-weight: 400;
 }
 
+.col-4 {
+    padding: 0 6px;
+}
 .col-sm-6 {
     padding: 0 12px;
 }
@@ -77,6 +80,9 @@ main {
 @media (max-width: 768px) {
     main {
         padding: 4px;
+    }
+    .fs-28 {
+        font-size: 18px;
     }
     .header .header_navbar {
         text-align: center;

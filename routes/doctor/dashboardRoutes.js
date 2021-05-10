@@ -37,7 +37,7 @@ router.get("/dashboard/settings", (req, res, next) => {
     res.render("doctor/settings", {
         doctor: req.user,
         fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
-        status: "Edit to update ",
+        status: "Edit & save changes",
         error: "",
     });
 });

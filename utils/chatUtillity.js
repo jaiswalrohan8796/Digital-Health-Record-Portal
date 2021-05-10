@@ -1,9 +1,10 @@
-const moment = require("moment");
 function formatMessage(ID, text) {
+    var date = new Date();
+    const time = `${date.getHours()}:${date.getMinutes()}`;
     return {
         ID,
         text,
-        time: moment().format("LT")
+        time: time,
     };
 }
 

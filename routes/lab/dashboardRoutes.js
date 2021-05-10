@@ -30,7 +30,7 @@ router.get("/dashboard/settings", async (req, res, next) => {
     res.render("lab/settings", {
         lab: req.user,
         labName: `${req.user.profile.labName}`,
-        status: "Edit to update ",
+        status: "Edit & save changes",
         error: "",
     });
 });

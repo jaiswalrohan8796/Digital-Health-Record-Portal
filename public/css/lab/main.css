@@ -9,6 +9,10 @@ body {
     font-family: "Poppins", sans-serif;
     overflow-x: hidden;
 }
+main {
+    padding: 16px 24px;
+    color: #333;
+}
 
 /* Font-Sizes  */
 .fs-40 {
@@ -80,9 +84,16 @@ a:hover {
 /* Media Queries  */
 
 @media (max-width: 768px) {
+    main {
+        padding: 4px;
+    }
+    .fs-28 {
+        font-size: 18px;
+    }
     .header {
         text-align: center;
     }
+    
 }
 
 @media (max-width: 576px) {

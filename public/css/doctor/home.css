@@ -1,7 +1,7 @@
-main {
+/* main {
     padding: 16px 24px;
     color: #333;
-}
+} */
 
 /* gutters for row */
 .row {
@@ -16,12 +16,22 @@ main {
     /* border: 3px solid #ffc0c2; */
     box-shadow: 4px 6px 12px 4px rgb(224, 214, 214);
 }
-.basic .heading {
-    border-bottom: 5px solid #6dc9c8;
-}
 .basic p {
-    text-align: left;
+    padding-left: 8px;
+    text-align: justify;
     word-break: break-word;
+}
+.basic .heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.basic .heading span {
+    margin-left: 12px;
+    margin-bottom: 12px;
+    width: fit-content;
+    border-bottom: 4px solid #6dc9c8;
 }
 .column {
     float: left;
@@ -33,9 +43,7 @@ main {
     align-items: center;
     overflow-y: hidden;
 }
-h2 {
-    border-bottom: 5px solid #6dc9c8;
-}
+
 .basic1 {
     border-radius: 24px;
     padding: 8px 18px;
@@ -111,6 +119,9 @@ a:hover {
     }
     .basic p {
         padding-left: 8px;
+    }
+    form h2 {
+        font-size: 18px;
     }
 }
 

@@ -23,7 +23,6 @@ form {
     border-radius: 32px;
     /* border: 3px solid #ffc0c2; */
     box-shadow: 4px 6px 12px 4px rgb(224, 214, 214);
-    
 }
 
 .profile .heading {
@@ -33,10 +32,12 @@ form {
     align-items: center;
 }
 .profile .heading span {
+    margin-left: 12px;
     width: fit-content;
     border-bottom: 4px solid #6dc9c8;
 }
 .account .heading p {
+    margin-left: 12px;
     width: fit-content;
     border-bottom: 4px solid #6dc9c8;
 }
@@ -83,7 +84,6 @@ a.change-btn {
     border-radius: 8px;
 }
 .status-wrap {
-    height: 40px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -94,6 +94,10 @@ a.change-btn {
     padding: 8px;
     color: white;
     border-radius: 12px;
+}
+.col-4,
+.col-sm-4 {
+    font-weight: bold;
 }
 
 @media (max-width: 768px) {

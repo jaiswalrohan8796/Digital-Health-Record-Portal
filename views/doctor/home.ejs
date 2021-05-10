@@ -154,7 +154,9 @@
     <!-- alert for home only -->
     <main>
         <div class="basic row my-4">
-            <p class="fs-28 heading">Basic Details</p>
+            <div class="heading">
+                <span class="fs-28 bold">Basic Detail</span>
+            </div>
             <div class="col-sm-6 row">
                 <div class="col-4">
                     <p class="bold">Name:</p>
@@ -211,7 +213,7 @@
         <div class="column col-12 my-4">
             <div class="basic1">
                 <form action="/doctor/dashboard/search" method="POST">
-                    <h2 class="heading text-center">Enter the Health Card Number</h2>
+                    <h2 class="heading text-center">Enter Patient's Health ID</h2>
                     <% if (searchStatus) { %>
                         <div class="search-status text-center mt-2">
                             <p id="search-status">

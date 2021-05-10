@@ -69,7 +69,7 @@ const renderMessage = (data) => {
         list.innerHTML = `
         <div class="chat-mess">
             <div class="chat-detail">
-                <span>You</span>
+                <span class="bold">You</span>
                 <span>${data.time}</span>
             </div>
             <p>${data.text}</p>
@@ -80,7 +80,7 @@ const renderMessage = (data) => {
         list.innerHTML = `
         <div class="chat-mess">
             <div class="chat-detail">
-                <span>${otherName}</span>
+                <span class="bold">${otherName}</span>
                 <span>${data.time}</span>
             </div>
             <p>${data.text}</p>

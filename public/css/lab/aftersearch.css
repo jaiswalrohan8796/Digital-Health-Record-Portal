@@ -7,7 +7,16 @@
     box-shadow: 4px 6px 12px 4px rgb(224, 214, 214);
 }
 .basic .heading {
-    border-bottom: 5px solid #18f7ea;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.basic .heading span {
+    margin-left: 12px;
+    margin-bottom: 12px;
+    width: fit-content;
+    border-bottom: 4px solid #6dc9c8;
 }
 .basic p {
     text-align: justify;

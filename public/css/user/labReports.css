@@ -64,22 +64,22 @@
     padding: 7px 14px;
     /* height: 83px; */
     /* width: 109px; */
-    border: 2px solid #ffbbbd;
+    border: 2px solid #008956;
     text-decoration: none;
-    color: #ffbbbd;
+    color: #008956;
 }
 .btn-download:hover {
-    background-color: #ffbbbd;
+    background-color: #008956;
     color: white;
     text-decoration: none;
 }
 .btn-view {
-    border: 2px solid #6dc9c8;
-    color: #6dc9c8;
+    border: 2px solid #ffbbbd;
+    color: #ffbbbd;
     border-radius: 24px;
 }
 .btn-view:hover {
-    background-color: #6dc9c8;
+    background-color: #ffbbbd;
     color: white;
 }
 .btn-dismiss {

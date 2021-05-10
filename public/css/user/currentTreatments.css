@@ -16,8 +16,9 @@ p {
     padding: 12px 12px 0px 12px;
     padding: 8px 18px;
     background-color: #e7e7e76e;
-    box-shadow: 0px 4px 6px 1px #dbcfcf;
+    box-shadow: 0px 1px 6px 1px #dbcfcf;
 }
+
 .treatment-body {
     padding: 8px 18px;
 }
@@ -53,6 +54,12 @@ p {
 .col-sm-4,
 .col-4 {
     font-weight: bold;
+}
+.treatment-header p {
+    margin-bottom: 0;
+}
+.col-6 {
+    align-items: baseline;
 }
 
 @media (max-width: 768px) {

@@ -38,10 +38,13 @@ form {
 }
 
 .profile .heading span {
+    margin-left: 12px;
     width: fit-content;
     border-bottom: 4px solid #ffc0c2;
 }
 .account .heading p {
+    margin-left: 12px;
+    width: fit-content;
     width: fit-content;
     border-bottom: 4px solid #ffc0c2;
 }
@@ -121,10 +124,10 @@ a.change-btn {
     form {
         padding: 8px;
     }
-    .col-4,
+    /* .col-4,
     .col-8 {
         padding-right: 0px;
-    }
+    } */
     .col-sm-4 {
         margin-bottom: 12px;
     }

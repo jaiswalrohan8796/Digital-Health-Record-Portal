@@ -82,6 +82,12 @@ a:hover {
 /* Media Queries  */
 
 @media (max-width: 768px) {
+    main {
+        padding: 4px;
+    }
+    .fs-28 {
+        font-size: 18px;
+    }
     .header {
         text-align: center;
     }

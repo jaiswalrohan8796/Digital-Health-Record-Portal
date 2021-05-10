@@ -111,7 +111,7 @@ router.get("/dashboard/settings", async (req, res, next) => {
     res.render("user/settings", {
         user: req.user,
         fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
-        status: "Edit to update ",
+        status: "Edit & save changes",
         error: "",
     });
 });
@@ -136,7 +136,7 @@ router.get("/dashboard/report/:attachment", async (req, res, next) => {
 //imported routes
 router.use("/dashboard", settingRoutes);
 router.use("/dashboard", endRoutes);
-router.use("/dashboard",chatRoutes);
+router.use("/dashboard", chatRoutes);
 
 // logout
 router.get("/dashboard/logout", (req, res, next) => {

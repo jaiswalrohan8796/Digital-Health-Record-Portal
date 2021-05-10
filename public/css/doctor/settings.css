@@ -33,10 +33,12 @@ form {
     align-items: center;
 }
 .profile .heading span {
+    margin-left: 12px;
     width: fit-content;
     border-bottom: 4px solid #6dc9c8;
 }
 .account .heading p {
+    margin-left: 12px;
     width: fit-content;
     border-bottom: 4px solid #6dc9c8;
 }
@@ -93,6 +95,9 @@ a.change-btn {
     padding: 8px;
     color: white;
     border-radius: 12px;
+}
+.col-4 {
+    font-weight: bold;
 }
 
 @media (max-width: 768px) {

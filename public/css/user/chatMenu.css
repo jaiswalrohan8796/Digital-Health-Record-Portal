@@ -74,17 +74,17 @@
     text-decoration: none;
 }
 .btn-view {
-    border: 2px solid #6dc9c8;
-    color: #6dc9c8;
+    border: 2px solid #ffbbbd;
+    color: #ffbbbd;
     border-radius: 24px;
 }
 .btn-view:hover {
-    background-color: #6dc9c8;
+    background-color: #ffbbbd;
     color: white;
 }
 .btn-view a {
     text-decoration: none;
-    color: #6dc9c8;
+    color: #ffbbbd;
 }
 .btn-view a:hover {
     text-decoration: none;
