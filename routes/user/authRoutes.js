@@ -96,7 +96,6 @@ router.post(
         try {
             let errors = validationResult(req);
             if (!errors.isEmpty()) {
-                console.log(errors.array());
                 return res.render("user/register", {
                     error: errors.array(),
                     status: "",

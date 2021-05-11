@@ -211,6 +211,18 @@ body {
     filter: drop-shadow(10px 8px 8px rgba(0, 0, 0, 0.4));
 }
 
+.validatorErrorsList .validatorErrors {
+    font-size: 12px;
+    list-style-type: none;
+    padding: 4px 4px;
+    margin: 8px 4px;
+    background-color: white;
+    color: #333;
+    border-top: 3px solid red;
+    border-radius: 8px;
+    box-shadow: 4px 4px 4px 4px rgb(1, 25, 68);
+}
+
 @media (max-width: 992px) {
     .navbar-collapse {
         left: 10px;
