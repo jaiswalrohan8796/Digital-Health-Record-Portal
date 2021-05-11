@@ -7,6 +7,7 @@ router.get("/dashboard", async (req, res, next) => {
     res.render("lab/home", {
         lab: req.user,
         labName: `${req.user.profile.labName}`,
+        searchStatus:null
     });
 });
 router.get("/dashboard/sent", async (req, res, next) => {

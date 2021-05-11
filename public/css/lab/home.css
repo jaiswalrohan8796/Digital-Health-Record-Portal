@@ -61,6 +61,11 @@ form .form-group {
     color: #ffffff;
 }
 
+.search-status {
+    margin-bottom: 0px;
+    font-size: 20px;
+    color: crimson;
+}
 .form-group input {
     caret-color: #6dc9c8;
 }
