@@ -6,6 +6,10 @@ router.get("/chat", async (req, res, next) => {
     const doctor = await Doctor.findOne({ _id: req.user._id }).populate(
         "currentPatients.patient"
     );
+    //sort by date desc
+    doctor.currentPatients.sort((a, b) => {
+        return b.startDate - a.startDate;
+    });
     res.render("doctor/chatMenu", { doctor: doctor });
 });
 

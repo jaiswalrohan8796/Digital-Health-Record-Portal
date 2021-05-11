@@ -24,6 +24,10 @@ router.get("/dashboard/current", async (req, res, next) => {
     const user = await User.findOne({ _id: req.user._id }).populate(
         "currentTreatments.doctor"
     );
+    //sort by date desc
+    user.currentTreatments.sort((a, b) => {
+        return b.startDate - a.startDate;
+    });
     res.render("user/currentTreatments", {
         user: user,
         fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
@@ -35,6 +39,11 @@ router.get("/dashboard/previous", async (req, res, next) => {
     const user = await User.findOne({ _id: req.user._id }).populate(
         "previousTreatments.doctor"
     );
+    //sorting by date desc
+    user.previousTreatments.sort((a, b) => {
+        return b.endDate - a.endDate;
+    });
+
     res.render("user/previousTreatments", {
         user: user,
         fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
@@ -43,8 +52,13 @@ router.get("/dashboard/previous", async (req, res, next) => {
 
 //lab reports
 router.get("/dashboard/labreports", async (req, res, next) => {
+    const user = req.user;
+    //sorting by date desc
+    user.labReports.sort((a, b) => {
+        return b.submitDate - a.submitDate;
+    });
     res.render("user/labReports", {
-        user: req.user,
+        user: user,
         fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
     });
 });
@@ -60,13 +74,8 @@ router.get("/dashboard/medicaldetailform", async (req, res, next) => {
 
 //medical detail form handler
 router.post("/dashboard/medicaldetailform", async (req, res, next) => {
-    var {
-        id,
-        medicalDiagnosis,
-        allergies,
-        functionalStatus,
-        equipmentDevice,
-    } = req.body;
+    var { id, medicalDiagnosis, allergies, functionalStatus, equipmentDevice } =
+        req.body;
     allergies = allergies.split(",");
     try {
         var user = await User.findOne({ _id: id });

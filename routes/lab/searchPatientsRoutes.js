@@ -115,7 +115,7 @@ router.post(
             res.json({ mess: "Report Sent !", status: true });
         } catch (e) {
             console.log(e);
-            return re.json({ mess: "Try again !", status: false });
+            return res.json({ mess: "Try again !", status: false });
         }
     }
 );

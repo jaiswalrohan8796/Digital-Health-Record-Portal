@@ -19,6 +19,10 @@ router.get("/dashboard/current", async (req, res, next) => {
     const doctor = await Doctor.findOne({ _id: req.user._id }).populate(
         "currentPatients.patient"
     );
+    //sort by date desc
+    doctor.currentPatients.sort((a, b) => {
+        return b.startDate - a.startDate;
+    });
     res.render("doctor/currentPatients", {
         doctor: doctor,
         fullName: `${doctor.profile.firstName} ${doctor.profile.lastName}`,
@@ -28,6 +32,10 @@ router.get("/dashboard/previous", async (req, res, next) => {
     const doctor = await Doctor.findOne({ _id: req.user._id }).populate(
         "previousPatients.patient"
     );
+    //sort by date desc
+    doctor.previousPatients.sort((a, b) => {
+        return b.endDate - a.endDate;
+    });
     res.render("doctor/previousPatients", {
         doctor: doctor,
         fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,

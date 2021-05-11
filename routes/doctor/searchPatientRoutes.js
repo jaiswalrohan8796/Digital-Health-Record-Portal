@@ -19,6 +19,17 @@ router.post("/search", async (req, res, next) => {
                 searchStatus: "Patient not found !",
             });
         }
+        //sort all parameters of patient by date desc
+        searchedUser.currentTreatments.sort((a, b) => {
+            return b.startDate - a.startDate;
+        })
+        searchedUser.previousTreatments.sort((a, b) => {
+            return b.endDate - a.endDate;
+        })
+        searchedUser.labReports.sort((a, b) => {
+            return b.submitDate - a.submitDate;
+        })
+        
         return res.render("doctor/patientDetail", {
             doctor: req.user,
             fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,

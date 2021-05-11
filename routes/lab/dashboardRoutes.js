@@ -13,6 +13,10 @@ router.get("/dashboard/sent", async (req, res, next) => {
     const lab = await Lab.findOne({ _id: req.user._id }).populate(
         "sentReports.patient"
     );
+    //sort by date desc
+    lab.sentReports.sort((a, b) => {
+        return b.submitDate - a.submitDate;
+    });
     res.render("lab/sentReports", {
         lab: lab,
         labName: lab.profile.labName,
