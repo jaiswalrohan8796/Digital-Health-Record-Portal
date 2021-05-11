@@ -95,7 +95,7 @@
 /* media-queries */
 @media (max-width: 768px) {
     .content {
-        height: fit-content;
+        min-height: 160px;
     }
     .patient-detail {
         margin: 0;

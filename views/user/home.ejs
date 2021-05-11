@@ -109,7 +109,9 @@
                                 <li>Lab Reports</li>
                             </a>
                             <a href="/user/dashboard/chat" class="menu-item-single">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-message-square">
                                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z">
                                     </path>
                                 </svg>
@@ -279,53 +281,53 @@
                                 </div>
                             </div>
                             <div class="col-sm-6 row">
-                                <div class="col-4">
+                                <div class="col-5">
                                     <p class="bold">Name :</p>
                                 </div>
-                                <div class="col-8">
+                                <div class="col-7">
                                     <p>
                                         <%= user.profile.firstName %>
                                             <%= user.profile.lastName %>
                                     </p>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-5">
                                     <p class="bold">DOB :</p>
                                 </div>
-                                <div class="col-8">
+                                <div class="col-7">
                                     <p>
                                         <%= user.profile.DOB.toLocaleDateString("en-US") %>
                                     </p>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-5">
                                     <p class="bold">Gender :</p>
                                 </div>
-                                <div class="col-8">
+                                <div class="col-7">
                                     <p>
                                         <%= user.profile.gender %>
                                     </p>
                                 </div>
                             </div>
                             <div class="col-sm-6 row">
-                                <div class="col-4">
+                                <div class="col-5">
                                     <p class="bold">Contact :</p>
                                 </div>
-                                <div class="col-8">
+                                <div class="col-7">
                                     <p>
                                         <%= user.profile.mobileNo %>
                                     </p>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-5">
                                     <p class="bold">Allergies :</p>
                                 </div>
-                                <div class="col-8">
+                                <div class="col-7">
                                     <p>
                                         <%= user.medical.allergies.join(',') %>
                                     </p>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-5">
                                     <p class="bold">Blood Group :</p>
                                 </div>
-                                <div class="col-8">
+                                <div class="col-7">
                                     <p>
                                         <%= user.profile.bloodGroup %>
                                     </p>
@@ -340,27 +342,27 @@
                                     <a class="more-link" href="/user/dashboard/current">More</a>
                                 </div>
                                 <div class="col row current-treatment-item">
-                                    <div class="col-4">
-                                        <p class="bold" style="text-align: left;">Disease & Symptoms</p>
+                                    <div class="col-5">
+                                        <p class="bold" style="text-align: left;">Disease &<br> Symptoms</p>
                                     </div>
-                                    <div class="col-8">
+                                    <div class="col-7">
                                         <p>
                                             <%= user.currentTreatments[user.currentTreatments.length -1].history %>
                                         </p>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-5">
                                         <p class="bold">Prescriptions</p>
                                     </div>
-                                    <div class="col-8">
+                                    <div class="col-7">
                                         <p>
                                             <%= user.currentTreatments[user.currentTreatments.length -1].prescriptions
                                                 %>
                                         </p>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-5">
                                         <p class="bold">Doctor</p>
                                     </div>
-                                    <div class="col-8">
+                                    <div class="col-7">
                                         <p>
                                             <%= user.currentTreatments[user.currentTreatments.length
                                                 -1].doctor.profile.firstName %>

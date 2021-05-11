@@ -243,46 +243,46 @@
 
 
                                 <div class="col-sm-6 row mt-4">
-                                    <div class="col-4">
+                                    <div class="col-5">
                                         <label for="firstName" class="form-label">First name</label>
                                     </div>
-                                    <div class="col-8">
+                                    <div class="col-7">
                                         <input class="form-control profileinput" type="text" name="firstName"
                                             value="<%= user.profile.firstName %>">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 row mt-4">
-                                    <div class="col-4">
+                                    <div class="col-5">
                                         <label for="lastName" class="form-label">Last Name</label>
                                     </div>
-                                    <div class="col-8">
+                                    <div class="col-7">
                                         <input class="form-control profileinput" type="text" name="lastName"
                                             value="<%= user.profile.lastName %>">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 row mt-4">
-                                    <div class="col-4">
+                                    <div class="col-5">
                                         <label for="DOB" class="form-label">Date of Birth</label>
                                     </div>
-                                    <div class="col-8">
+                                    <div class="col-7">
                                         <input class="form-control profileinput" type="text" name="DOB"
                                             value="<%= user.profile.DOB.toLocaleDateString() %>">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 row mt-4">
-                                    <div class="col-4">
+                                    <div class="col-5">
                                         <label for="Gender" class="form-label">Gender</label>
                                     </div>
-                                    <div class="col-8">
+                                    <div class="col-7">
                                         <input class="form-control profileinput" type="text" name="gender"
                                             value="<%= user.profile.gender %>">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 row mt-4">
-                                    <div class="col-4">
+                                    <div class="col-5">
                                         <label for="bloodgroup" class="form-label">Blood Group</label>
                                     </div>
-                                    <div class="col-8">
+                                    <div class="col-7">
                                         <select id="Blood Group" class="form-control profileinput" name="bloodGroup">
                                             <option value="<%= user.profile.bloodGroup %>">
                                                 <%= user.profile.bloodGroup %>
@@ -299,37 +299,37 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-6 row my-4">
-                                    <div class="col-4">
+                                    <div class="col-5">
                                         <label for="mobileNo" class="form-label">Mobile No</label>
                                     </div>
-                                    <div class="col-8">
+                                    <div class="col-7">
                                         <input class="form-control profileinput" type="number" name="mobileNo"
                                             value="<%= user.profile.mobileNo %>">
                                     </div>
                                 </div>
                                 <div class="col-sm-12 row mb-4 ">
-                                    <div class="col-2">
+                                    <div class="col-3">
                                         <label for="address" class="form-label">Address</label>
                                     </div>
-                                    <div class="col-10">
+                                    <div class="col-9">
                                         <input class="form-control profileinput" type="text" name="address"
                                             value="<%= user.profile.address%>">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 row mb-4">
-                                    <div class="col-4">
+                                    <div class="col-5">
                                         <label for="city" class="form-label">City</label>
                                     </div>
-                                    <div class="col-8">
+                                    <div class="col-7">
                                         <input class="form-control profileinput" type="text" name="city"
                                             value="<%= user.profile.city %>">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 row ">
-                                    <div class="col-4">
+                                    <div class="col-5">
                                         <label for="state" class="form-label">State</label>
                                     </div>
-                                    <div class="col-8">
+                                    <div class="col-7">
                                         <input class="form-control profileinput" type="text" name="state"
                                             value="<%= user.profile.state %>">
                                     </div>
@@ -348,37 +348,37 @@
                                         onclick="enableMedicalEdit()"></i>
                                 </div>
                                 <div class="col-sm-6 row mt-4">
-                                    <div class="col-4">
-                                        <label for="medicalDiagnosis" class="form-label">Medical Diagnosis</label>
+                                    <div class="col-5">
+                                        <label for="medicalDiagnosis" class="form-label">Medical<br> Diagnosis</label>
                                     </div>
-                                    <div class="col-8">
+                                    <div class="col-7">
                                         <input class="form-control medicalinput" type="text" name="medicalDiagnosis"
                                             value="<%= user.medical.medicalDiagnosis %>">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 row mt-4">
-                                    <div class="col-4">
+                                    <div class="col-5">
                                         <label for="allergies" class="form-label">Allergies</label>
                                     </div>
-                                    <div class="col-8">
+                                    <div class="col-7">
                                         <input class="form-control medicalinput" type="text" name="allergies"
                                             value="<%= user.medical.allergies.join(',') %>">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 row mt-4">
-                                    <div class="col-4">
-                                        <label for="functionalStatus" class="form-label">Functional Status</label>
+                                    <div class="col-5">
+                                        <label for="functionalStatus" class="form-label">Functional<br> Status</label>
                                     </div>
-                                    <div class="col-8">
+                                    <div class="col-7">
                                         <input class="form-control medicalinput" type="text" name="functionalStatus"
                                             value="<%= user.medical.functionalStatus %>">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 row mt-4">
-                                    <div class="col-4">
-                                        <label for="equipmentDevice" class="form-label">Equipment Device</label>
+                                    <div class="col-5">
+                                        <label for="equipmentDevice" class="form-label">Equipment<br> Device</label>
                                     </div>
-                                    <div class="col-8">
+                                    <div class="col-7">
                                         <input class="form-control medicalinput" type="text" name="equipmentDevice"
                                             value="<%= user.medical.equipmentDevice %>">
                                     </div>
