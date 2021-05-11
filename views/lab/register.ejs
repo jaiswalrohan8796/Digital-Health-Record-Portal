@@ -7,21 +7,59 @@
     <title>Register</title>
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <!-- custom CSS  -->
     <link rel="stylesheet" href="/css/shared/main.css">
-    <link rel="stylesheet" href="/css/shared/register.css">
+    <link rel="stylesheet" href="/css/shared/home.css">
+    <link rel="stylesheet" href="/css/shared register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <!-- Bootstrap Icons  -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
 </head>
 
 <body>
-    <div class="row header">
-        <div class="col-12 header_navbar">
-            <p class="fs-40 pt-1 mx-1">Digital Health Record Portal</p>
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-32 mx-1 bold" href="/">Digital Health Record Portal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="">
+                    <?xml version="1.0"?>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="20" height="20" x="0" y="0"
+                        viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve">
+                        <g>
+                            <path xmlns="http://www.w3.org/2000/svg"
+                                d="m464.883 64.267h-417.766c-25.98 0-47.117 21.136-47.117 47.149 0 25.98 21.137 47.117 47.117 47.117h417.766c25.98 0 47.117-21.137 47.117-47.117 0-26.013-21.137-47.149-47.117-47.149z"
+                                fill="#ffffff" data-original="#000000" />
+                            <path xmlns="http://www.w3.org/2000/svg"
+                                d="m464.883 208.867h-417.766c-25.98 0-47.117 21.136-47.117 47.149 0 25.98 21.137 47.117 47.117 47.117h417.766c25.98 0 47.117-21.137 47.117-47.117 0-26.013-21.137-47.149-47.117-47.149z"
+                                fill="#ffffff" data-original="#000000" />
+                            <path xmlns="http://www.w3.org/2000/svg"
+                                d="m464.883 353.467h-417.766c-25.98 0-47.117 21.137-47.117 47.149 0 25.98 21.137 47.117 47.117 47.117h417.766c25.98 0 47.117-21.137 47.117-47.117 0-26.012-21.137-47.149-47.117-47.149z"
+                                fill="#ffffff" data-original="#000000" />
+                        </g>
+                    </svg>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse naw" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active bold" aria-current="page" href="/"><i
+                                class="fa fa-fw fa-home icons "></i> Home</a>
+                    </li>
+                    <li class="nav-item bold">
+                        <a class="nav-link" href="/contact"><i class="fa fa-fw fa-envelope icons"></i> Contact</a>
+                    </li>
+                    <li class="nav-item bold">
+                        <a class="nav-link" href="/about"><i class="fa fa-fw fa-info-circle icons"></i> About</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
+    </nav>
     <div class="row body-wrapper">
         <div class="col-md-4 order-md-2 text-center justify-self-center mt-5">
             <img id="front-banner" height="500px" width="400px" src="/images/shared/register/welcome.png"
@@ -54,8 +92,7 @@
                                         <div class="form-group row">
                                             <label for="LabName" class="col-sm-3 col-form-label">Laboratory Name</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="labname" name="labName"
-                                                    placeholder="Enter your Laboratory Name e.g xyz laboratory">
+                                                <input type="text" class="form-control" id="labname" name="labName">
                                             </div>
                                         </div>
                                     </div>
@@ -75,8 +112,7 @@
                                         <div class="form-group row">
                                             <label for="Phone" class="col-sm-3 col-form-label">Phone</label>
                                             <div class="col-sm-9">
-                                                <input type="number" class="form-control" id="phone" name="phoneNo"
-                                                    placeholder="Enter Your Phone No. +91">
+                                                <input type="number" class="form-control" id="phone" name="phoneNo">
                                             </div>
                                         </div>
                                     </div>
@@ -86,8 +122,7 @@
                                         <div class="form-group row">
                                             <label for="Address" class="col-sm-3 col-form-label">Address</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="address" name="address"
-                                                    placeholder="Enter your laboratory address">
+                                                <input type="text" class="form-control" id="address" name="address">
                                             </div>
                                         </div>
                                     </div>
@@ -97,8 +132,7 @@
                                         <div class="form-group row">
                                             <label for="State" class="col-sm-3 col-form-label">State</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="state" name="state"
-                                                    placeholder="Enter your State e.g Maharashtra">
+                                                <input type="text" class="form-control" id="state" name="state">
                                             </div>
                                         </div>
                                     </div>
@@ -106,8 +140,7 @@
                                         <div class="form-group row">
                                             <label for="City" class="col-sm-3 col-form-label">City</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="city" name="city"
-                                                    placeholder="Enter the name of your City E.g Mumbai">
+                                                <input type="text" class="form-control" id="city" name="city">
                                             </div>
                                         </div>
                                     </div>
@@ -117,8 +150,7 @@
                                         <div class="form-group row">
                                             <label for="Email" class="col-sm-3 col-form-label">Email</label>
                                             <div class="col-sm-9">
-                                                <input type="email" class="form-control" id="email" name="email"
-                                                    placeholder="Enter your valid Email ID e.g xyz@gmail.com">
+                                                <input type="email" class="form-control" id="email" name="email">
                                             </div>
                                         </div>
                                     </div>
@@ -126,8 +158,7 @@
                                         <div class="form-group row">
                                             <label for="Pincode" class="col-sm-3 col-form-label">Pincode</label>
                                             <div class="col-sm-9">
-                                                <input type="number" class="form-control" id="pincode" name="pincode"
-                                                    placeholder="Enter your city PINCODE e.g 400001">
+                                                <input type="number" class="form-control" id="pincode" name="pincode">
                                             </div>
                                         </div>
                                     </div>
@@ -138,7 +169,7 @@
                                             <label for="Password" class="col-sm-3 col-form-label">Password</label>
                                             <div class="col-sm-9">
                                                 <input type="password" class="form-control" id="password"
-                                                    name="password" placeholder="Enter Your Password">
+                                                    name="password">
                                                 <small id="Help" class="form-text text-muted">Minimum 3
                                                     characters</small>
                                             </div>
@@ -150,7 +181,7 @@
                                                 Password</label>
                                             <div class="col-sm-9">
                                                 <input type="password" class="form-control" id="cpassword"
-                                                    name="cpassword" placeholder="Enter the same password">
+                                                    name="cpassword">
                                             </div>
                                         </div>
                                     </div>

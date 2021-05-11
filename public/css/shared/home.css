@@ -1,18 +1,6 @@
-/* Navigation  */
-/* Desktop  */
-
-/* Main Content  */
-
-/* .text-box {
-    justify-content: center;
-    align-items: center;
-    margin: 1rem;
-    padding-left: 4rem;
-} */
-
-html {
+/* html {
     font-size: 62.5%;
-}
+} */
 body {
     height: 100vh;
     display: flex;
