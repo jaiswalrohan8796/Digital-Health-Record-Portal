@@ -22,12 +22,7 @@ router.get("/dashboard/sent", async (req, res, next) => {
         labName: lab.profile.labName,
     });
 });
-router.get("/dashboard/pending", async (req, res, next) => {
-    res.render("lab/pendingReports", {
-        lab: req.user,
-        labName: `${req.user.profile.labName}`,
-    });
-});
+
 
 // settings
 router.get("/dashboard/settings", async (req, res, next) => {

@@ -44,7 +44,11 @@ router.post(
     upload.single("attachment"),
     async (req, res, next) => {
         try {
-            const submitDate = new Date(req.body.submitDate) || Date.now();
+            let submitDate;
+            if (!req.body.submitDate) {
+                submitDate = Date.now();
+            }
+            submitDate = req.body.submitDate;
             const testName = req.body.testName || "None";
             const remark = req.body.remark || "None";
             const healthID = Number(req.body.healthID);
@@ -126,7 +130,11 @@ router.post(
     upload.single("attachment"),
     async (req, res, next) => {
         try {
-            const submitDate = new Date(req.body.submitDate) || Date.now();
+            let submitDate;
+            if (!req.body.submitDate) {
+                submitDate = Date.now();
+            }
+            submitDate = req.body.submitDate;
             const testName = req.body.testName || "None";
             const remark = req.body.remark || "None";
             const healthID = Number(req.body.healthID);
