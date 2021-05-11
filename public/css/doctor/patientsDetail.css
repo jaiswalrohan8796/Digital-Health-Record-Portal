@@ -26,6 +26,9 @@
 .patient-body {
     padding: 8px 18px;
 }
+.patient-body p {
+    word-break: break-all;
+}
 .addNew {
     position: fixed;
     bottom: 24px;
@@ -55,7 +58,7 @@ button.collapsible:hover {
     background-color: white;
 }
 
-button.collapsible:after {
+button.collapsible::after {
     content: "\002B";
     color: black;
     font-weight: bold;
@@ -63,7 +66,7 @@ button.collapsible:after {
     margin-left: 5px;
 }
 
-button.collapsible.active:after {
+button.collapsible.active::after {
     content: "\2212";
 }
 .row {
@@ -156,6 +159,20 @@ button.collapsible.active:after {
 .btn-dismiss:hover {
     background-color: #707070;
     color: white;
+}
+.btn-download {
+    border-radius: 24px;
+    padding: 7px 14px;
+    /* height: 83px; */
+    /* width: 109px; */
+    border: 2px solid #008956;
+    text-decoration: none;
+    color: #008956;
+}
+.btn-download:hover {
+    background-color: #008956;
+    color: white;
+    text-decoration: none;
 }
 .row {
     --bs-gutter-x: 0;

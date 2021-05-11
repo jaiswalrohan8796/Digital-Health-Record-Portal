@@ -105,7 +105,9 @@
                                 <li>Previous Patients</li>
                             </a>
                             <a href="/doctor/dashboard/chat" class="menu-item-single">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-message-square">
                                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z">
                                     </path>
                                 </svg>
@@ -160,57 +162,102 @@
     <main>
         <!-- For Basic Details -->
         <button type="button" class="collapsible fs-28">Basic Details:</button>
-        <div class="col-12 row" style="margin-top: 20px;">
-            <div class="col-sm-6 row patient-body">
-                <div class="col-4">
-                    <p class="bold">Name :</p>
+        <div class="content-wrapper">
+            <div class="row" style="margin-top: 20px;">
+                <div class="col-sm-6 row patient-body">
+                    <div class="col-4">
+                        <p class="bold">Name :</p>
+                    </div>
+                    <div class="col-8">
+                        <p>
+                            <%= patient.profile.firstName %>&nbsp;<%= patient.profile.lastName %>
+                        </p>
+                    </div>
+                    <div class="col-4">
+                        <p class="bold">DOB :</p>
+                    </div>
+                    <div class="col-8">
+                        <p>
+                            <%= patient.profile.DOB.toLocaleDateString("en-US") %>
+                        </p>
+                    </div>
+                    <div class="col-4">
+                        <p class="bold">Gender :</p>
+                    </div>
+                    <div class="col-8">
+                        <p>
+                            <%= patient.profile.gender %>
+                        </p>
+                    </div>
                 </div>
-                <div class="col-8">
-                    <p>
-                        <%= patient.profile.firstName %>&nbsp;<%= patient.profile.lastName %>
-                    </p>
-                </div>
-                <div class="col-4">
-                    <p class="bold">DOB :</p>
-                </div>
-                <div class="col-8">
-                    <p>
-                        <%= patient.profile.DOB.toLocaleDateString("en-US") %>
-                    </p>
-                </div>
-                <div class="col-4">
-                    <p class="bold">Gender :</p>
-                </div>
-                <div class="col-8">
-                    <p>
-                        <%= patient.profile.gender %>
-                    </p>
+                <div class="col-sm-6 row patient-body">
+                    <div class="col-4">
+                        <p class="bold">Contact :</p>
+                    </div>
+                    <div class="col-8">
+                        <p>
+                            <%= patient.profile.mobileNo %>
+                        </p>
+                    </div>
+                    <div class="col-4">
+                        <p class="bold">Allergies :</p>
+                    </div>
+                    <div class="col-8">
+                        <p>
+                            <%= patient.medical.allergies.join(',') %>
+                        </p>
+                    </div>
+                    <div class=" col-4">
+                        <p class="bold">Blood Group :</p>
+                    </div>
+                    <div class="col-8">
+                        <p>
+                            <%= patient.profile.bloodGroup %>
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-6 row patient-body">
-                <div class="col-4">
-                    <p class="bold">Contact :</p>
+        </div>
+        <div class="spaceFix"></div>
+        <!-- For Medical Details -->
+        <button type="button" class="collapsible fs-28">Medical Details:</button>
+        <div class="content-wrapper">
+            <div class="row" style="margin-top: 20px;">
+                <div class="col-sm-6 row patient-body">
+                    <div class="col-4">
+                        <p class="bold">Medical Diagnosis :</p>
+                    </div>
+                    <div class="col-8">
+                        <p>
+                            <%= patient.medical.medicalDiagnosis %>
+                        </p>
+                    </div>
+                    <div class="col-4">
+                        <p class="bold">Allergies</p>
+                    </div>
+                    <div class="col-8">
+                        <p>
+                            <%= patient.medical.allergies.join(',')%>
+                        </p>
+                    </div>
                 </div>
-                <div class="col-8">
-                    <p>
-                        <%= patient.profile.mobileNo %>
-                    </p>
-                </div>
-                <div class="col-4">
-                    <p class="bold">Allergies :</p>
-                </div>
-                <div class="col-8">
-                    <p>
-                        <%= patient.medical.allergies.join(',') %>
-                    </p>
-                </div>
-                <div class=" col-4">
-                    <p class="bold">Blood Group :</p>
-                </div>
-                <div class="col-8">
-                    <p>
-                        <%= patient.profile.bloodGroup %>
-                    </p>
+                <div class="col-sm-6 row patient-body">
+                    <div class="col-4">
+                        <p class="bold">Functional Status :</p>
+                    </div>
+                    <div class="col-8">
+                        <p>
+                            <%= patient.medical.functionalStatus %>
+                        </p>
+                    </div>
+                    <div class="col-4">
+                        <p class="bold">EquipmentDevice :</p>
+                    </div>
+                    <div class="col-8">
+                        <p>
+                            <%= patient.medical.equipmentDevice %>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -350,7 +397,6 @@
         <!-- For Previous Treatment -->
         <div class="spaceFix"></div>
         <button type="button" class="collapsible fs-28">Previous Treatments</button>
-
         <!-- All previous treatments -->
         <div class="content-wrapper">
             <% if (patient.previousTreatments.length> 0) { %>
@@ -485,6 +531,116 @@
                             </div>
                             <% } %>
         </div>
+        <!-- For Lab Reports -->
+        <div class="spaceFix"></div>
+        <button type="button" class="collapsible fs-28">Lab Reports</button>
+        <!-- All lab reports -->
+        <div class="content-wrapper">
+            <% if (patient.labReports.length> 0) { %>
+                <!-- List of lab reports -->
+                <% patient.labReports.forEach((report)=> { %>
+                    <div class="wrapper mt-2">
+                        <!-- block -->
+                        <div class="content">
+                            <div class="patient-detail">
+                                <div class="name">
+                                    <p class="bold">Treatment No :</p>
+                                    <% if (report.treatmentNo===0) { %>
+                                        <p>
+                                            None
+                                        </p>
+                                        <% } %>
+                                </div>
+                                <div class="name">
+                                    <p class="bold">Lab : </p>
+                                    <p>
+                                        <%= report.labName %>
+
+                                    </p>
+                                </div>
+                                <div class="date">
+                                    <p class="bold">Date:</p>
+                                    <p>
+                                        <%= report.submitDate.toLocaleDateString("en-GB") %>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="patient-action text-center">
+                                <div class="view">
+                                    <button class="btn btn-view" data-bs-toggle="modal"
+                                        data-bs-target="#modal-<%= report._id %>">View</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- modal -->
+                        <div class="modal fade" id="modal-<%= report._id %>" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-center" id="exampleModalLabel">Report Detail </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <div class="col-12 row my-2">
+                                            <div class="col-sm-4 bold">
+                                                Lab :
+                                            </div>
+                                            <div class="col-sm-8 text">
+                                                <%= report.labName %>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 row my-2">
+                                            <div class="col-sm-4 bold">
+                                                Treatment No :
+                                            </div>
+                                            <div class="col-sm-8 text">
+                                                <% if (report.treatmentNo===0) { %>
+                                                    <p>
+                                                        None
+                                                    </p>
+                                                    <% } %>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 row my-2">
+                                            <div class="col-sm-4 bold">
+                                                Test :
+                                            </div>
+                                            <div class="col-sm-8 text">
+                                                <%= report.testName %>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 row my-2">
+                                            <div class="col-sm-4 bold">
+                                                Attachment
+                                            </div>
+                                            <div class="col-sm-8 text">
+                                                <%= report.attachment %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-dismiss"
+                                            data-bs-dismiss="modal">Dismiss</button>
+                                        <a class="btn-download"
+                                            href="/doctor/dashboard/report/<%= report.attachment %>">Download</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+                        <% } else { %>
+                            <div class="no-item">
+                                <p class="bold fs-20">No Sent Reports</p>
+                            </div>
+                            <% } %>
+        </div>
+
+
+
         <!-- To Add new File -->
         <div class="addNew" data-toggle="tooltip" data-placement="top" title="Add new treatment">
             <form action="/doctor/dashboard/patient/form" method="POST">
@@ -567,6 +723,7 @@
                 }
                 else {
                     content.style.display = "block";
+
                 }
             });
         }
