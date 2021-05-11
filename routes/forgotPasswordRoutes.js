@@ -7,7 +7,6 @@ const User = require("../models/user/User.js");
 const Doctor = require("../models/doctor/Doctor.js");
 const Lab = require("../models/lab/Lab.js");
 
-
 //USER
 //get forgotpassword page
 router.get("/user/forgotpassword", (req, res, next) => {
@@ -33,11 +32,19 @@ router.post("/user/forgotpassword", async (req, res, next) => {
             });
         }
         token = buffer.toString("hex");
-        console.log(token);
         validUser.account.resetToken = token;
         validUser.account.resetTokenExpiration = Date.now() + 3600000;
         const saved = await validUser.save();
-        console.log(validUser);
+        if (!saved) {
+            return res.render("user/forgotpassword", {
+                error: "Server Error",
+                status: "",
+            });
+        }
+        res.render("user/forgotpassword", {
+            error: "",
+            status: "Reset link mailed !",
+        });
         //send link to reset password
         emailTemplate
             .send({
@@ -48,11 +55,11 @@ router.post("/user/forgotpassword", async (req, res, next) => {
                     to: email,
                 },
                 locals: {
-                    fname: `${firstName} ${lastName}`,
+                    fname: `${validUser.profile.firstName} ${validUser.profile.lastName}`,
                     passwordResetLink: `${process.env.HOST_URL}/user/new-password/${token}`,
                 },
             })
-            .then(() => console.log("email has been send!"))
+            .then()
             .catch((e) => console.log(e));
     } catch (e) {
         console.log(e);
@@ -120,11 +127,11 @@ router.post("/user/new-password", async (req, res, next) => {
                     to: user.account.email,
                 },
                 locals: {
-                    fname: `${firstName} ${lastName}`,
+                    fname: `${user.profile.firstName} ${user.profile.lastName}`,
                     forgotPasswordLink: `${process.env.HOST_URL}/user/forgotpassword`,
                 },
             })
-            .then(() => console.log("email has been send!"))
+            .then()
             .catch((e) => console.log(e));
     } catch (e) {
         console.log(e);
@@ -165,8 +172,16 @@ router.post("/doctor/forgotpassword", async (req, res, next) => {
         validUser.account.resetToken = token;
         validUser.account.resetTokenExpiration = Date.now() + 3600000;
         const saved = await validUser.save();
-        console.log(validUser);
-
+        if (!saved) {
+            return res.render("doctor/forgotpassword", {
+                error: "Server Error",
+                status: "",
+            });
+        }
+        res.render("doctor/forgotpassword", {
+            error: "",
+            status: "Reset link mailed !",
+        });
         //send link to reset password
         emailTemplate
             .send({
@@ -177,11 +192,11 @@ router.post("/doctor/forgotpassword", async (req, res, next) => {
                     to: email,
                 },
                 locals: {
-                    fname: `${firstName} ${lastName}`,
+                    fname: `${validUser.profile.firstName} ${validUser.profile.lastName}`,
                     passwordResetLink: `${process.env.HOST_URL}/doctor/new-password/${token}`,
                 },
             })
-            .then(() => console.log("email has been send!"))
+            .then()
             .catch((e) => console.log(e));
     } catch (e) {
         console.log(e);
@@ -209,7 +224,6 @@ router.post("/doctor/new-password", async (req, res, next) => {
     try {
         const hashedPassword = await bcrypt.hash(password, 12);
         const user = await Doctor.findOne({ "account.resetToken": token });
-        console.log(user);
         if (!user) {
             return res.render("doctor/newpassword", {
                 error: "Token not found",
@@ -250,11 +264,11 @@ router.post("/doctor/new-password", async (req, res, next) => {
                     to: user.account.email,
                 },
                 locals: {
-                    fname: `${firstName} ${lastName}`,
+                    fname: `${user.profile.firstName} ${user.profile.lastName}`,
                     forgotPasswordLink: `${process.env.HOST_URL}/doctor/forgotpassword`,
                 },
             })
-            .then(() => console.log("email has been send!"))
+            .then()
             .catch((e) => console.log(e));
     } catch (e) {
         console.log(e);
@@ -291,11 +305,19 @@ router.post("/lab/forgotpassword", async (req, res, next) => {
             });
         }
         token = buffer.toString("hex");
-        console.log(token);
         validUser.account.resetToken = token;
         validUser.account.resetTokenExpiration = Date.now() + 3600000;
         const saved = await validUser.save();
-        console.log(validUser);
+        if (!saved) {
+            return res.render("lab/forgotpassword", {
+                error: "Server Error",
+                status: "",
+            });
+        }
+        res.render("lab/forgotpassword", {
+            error: "",
+            status: "Reset link mailed !",
+        });
         emailTemplate
             .send({
                 template: "resetpassword",
@@ -305,11 +327,11 @@ router.post("/lab/forgotpassword", async (req, res, next) => {
                     to: email,
                 },
                 locals: {
-                    fname: `${firstName} ${lastName}`,
+                    fname: `${validUser.profile.labName}`,
                     passwordResetLink: `${process.env.HOST_URL}/lab/new-password/${token}`,
                 },
             })
-            .then(() => console.log("email has been send!"))
+            .then()
             .catch((e) => console.log(e));
     } catch (e) {
         console.log(e);
@@ -337,7 +359,6 @@ router.post("/lab/new-password", async (req, res, next) => {
     try {
         const hashedPassword = await bcrypt.hash(password, 12);
         const user = await Lab.findOne({ "account.resetToken": token });
-        console.log(user);
         if (!user) {
             return res.render("lab/newpassword", {
                 error: "Token not found",
@@ -378,11 +399,11 @@ router.post("/lab/new-password", async (req, res, next) => {
                     to: user.account.email,
                 },
                 locals: {
-                    fname: `${firstName} ${lastName}`,
+                    fname: `${user.profile.labName}`,
                     forgotPasswordLink: `${process.env.HOST_URL}/lab/forgotpassword`,
                 },
             })
-            .then(() => console.log("email has been send!"))
+            .then()
             .catch((e) => console.log(e));
     } catch (e) {
         console.log(e);

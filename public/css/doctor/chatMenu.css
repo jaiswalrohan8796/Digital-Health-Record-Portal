@@ -110,7 +110,7 @@
 /* media-queries */
 @media (max-width: 768px) {
     .content {
-        height: 80px;
+        height: fit-content;
     }
     .patient-detail {
         margin: -16px;
