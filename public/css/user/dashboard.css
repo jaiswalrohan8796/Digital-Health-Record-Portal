@@ -192,6 +192,9 @@
     .toolbar-header p {
         font-size: 24px;
     }
+    #menu #nav-brand p {
+        font-size: 24px;
+    }
 }
 @media (max-width: 576px) {
     .toolbar-profile .profile-name {

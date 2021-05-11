@@ -96,7 +96,7 @@ a.change-btn {
     color: white;
     border-radius: 12px;
 }
-.col-4 {
+.col-4,.col-sm-4 {
     font-weight: bold;
 }
 
