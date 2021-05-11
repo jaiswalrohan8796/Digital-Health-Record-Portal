@@ -120,6 +120,9 @@ a.change-btn {
 .form-label {
     font-weight: bold;
 }
+.col-sm-4 {
+    font-weight: bold;
+}
 @media (max-width: 768px) {
     form {
         padding: 8px;

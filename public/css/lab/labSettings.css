@@ -95,7 +95,7 @@ a.change-btn {
     color: white;
     border-radius: 12px;
 }
-.col-4,
+.col-5,
 .col-sm-4 {
     font-weight: bold;
 }
@@ -110,5 +110,10 @@ a.change-btn {
     }
     .col-sm-4 {
         margin-bottom: 12px;
+    }
+}
+@media (max-width: 576px) {
+    .row {
+        --bs-gutter-x: 0;
     }
 }

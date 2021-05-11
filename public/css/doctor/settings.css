@@ -96,11 +96,15 @@ a.change-btn {
     color: white;
     border-radius: 12px;
 }
-.col-4,.col-sm-4 {
+.col-5,
+.col-sm-4 {
     font-weight: bold;
 }
 
 @media (max-width: 768px) {
+    .row {
+        --bs-gutter-x: 0;
+    }
     form {
         padding: 8px;
     }
