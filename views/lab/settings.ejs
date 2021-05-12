@@ -155,11 +155,13 @@
             <% } %>
                 <% } %>
                     <!-- Status View  -->
+                    <% if (status) {%>
                     <div class='status-wrap'>
                         <p class="status" id="status">
                             <%= status %>
                         </p>
                     </div>
+                    <% } %>
                     <!-- Settings  -->
                     <!-- profile -->
                     <form class="profile row my-4" action="/lab/dashboard/settings/profile" method="POST">

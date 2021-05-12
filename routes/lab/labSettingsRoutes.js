@@ -63,8 +63,8 @@ router.post(
             if (!errors.isEmpty()) {
                 return res.render("lab/settings", {
                     lab: user,
-                    labName: `${lab.profile.labName}`,
-                    status: "",
+                    labName: `${user.profile.labName}`,
+                    status: null,
                     error: errors.array(),
                 });
             }
@@ -82,7 +82,7 @@ router.post(
                 res.render("lab/settings", {
                     lab: user,
                     labName: `${user.profile.labName}`,
-                    status: "",
+                    status: null,
                     error: "Cannot update now,try later",
                 });
             }
@@ -97,8 +97,8 @@ router.post(
             res.render("lab/settings", {
                 lab: req.user,
                 labName: `${req.user.profile.labName}`,
-                status: "",
-                error: "Server Error",
+                status: "Server Error",
+                error: "",
             });
         }
     }
