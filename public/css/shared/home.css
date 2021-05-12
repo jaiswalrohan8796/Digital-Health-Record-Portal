@@ -243,11 +243,14 @@ body {
         margin: 5rem 0;
         padding: 0px;
     }
+    .main_header_left .fs-32 {
+        font-size: 16px;
+    }
     .main_header_right {
         height: auto;
     }
     .container-fluid-2 {
-        min-height: 100vh;
+        min-height: calc(100vh - 40px);
         background-size: cover;
         background-position: left;
     }
@@ -256,9 +259,7 @@ body {
     .navbar .fs-32 {
         font-size: 20px;
     }
-    .main_header_left .fs-32 {
-        font-size: 20px;
-    }
+
     .main_header_left .fs-20 {
         font-size: 16px;
     }

@@ -48,6 +48,6 @@ const enableMedicalEdit = () => {
     console.log("enable input function called");
 };
 
-setInterval(() => {
+setTimeout(() => {
     statusBar.style.display = "none";
 }, 5000);

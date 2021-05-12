@@ -158,6 +158,12 @@
     <div class="toolbar-space"></div>
     <!-- alert for home only -->
     <main>
+        <div class="status">
+            <span>
+                <p id="mess">
+                </p>
+            </span>
+        </div>
         <% if (doctor.currentPatients.length> 0) { %>
             <!-- List of current patients -->
             <% doctor.currentPatients.forEach((currPat,i)=> { %>
@@ -296,6 +302,9 @@
                         <% } %>
 
     </main>
+    <div class="backdrop">
+        <div class="cssload-box-loading"></div>
+    </div>
     <!-- Optional JavaScript -->
     <!-- Bundled Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"

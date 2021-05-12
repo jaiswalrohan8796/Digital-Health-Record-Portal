@@ -114,7 +114,9 @@
                                 <li>Lab Reports</li>
                             </a>
                             <a href="/user/dashboard/chat" class="menu-item-single">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-message-square">
                                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z">
                                     </path>
                                 </svg>
@@ -194,6 +196,12 @@
     <!-- toolbar space fix -->
     <div class="toolbar-space"></div>
     <main>
+        <div class="status">
+            <span>
+                <p id="mess">
+                </p>
+            </span>
+        </div>
         <% if (user.currentTreatments.length> 0 ) { %>
             <!-- Current Treatments List  -->
             <% user.currentTreatments.forEach((currTreat,i)=> { %>
@@ -297,6 +305,9 @@
                         </div>
                         <% } %>
     </main>
+    <div class="backdrop">
+        <div class="cssload-box-loading"></div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
         </script>

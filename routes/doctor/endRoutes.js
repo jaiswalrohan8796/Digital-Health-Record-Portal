@@ -27,9 +27,9 @@ router.post("/current/patient-end", async (req, res, next) => {
     //updating the curr treat & prev treat list
     const result = await doctor.save();
     if (!result) {
-        return res.json({ status: false });
+        return res.json({ status: false, data: "Server Error" });
     }
-    res.json({ status: true });
+    res.json({ status: true, data: `Treatment : ${treatmentNo} ends` });
 
     //patient side end handling =>
     const patient = await User.findOne({
@@ -52,7 +52,6 @@ router.post("/current/patient-end", async (req, res, next) => {
     tempTreatment2.endDate = Date.now();
     //pushing it in prev treat list
     patient.previousTreatments.push(tempTreatment2);
-
     const saved2 = await patient.save();
 });
 

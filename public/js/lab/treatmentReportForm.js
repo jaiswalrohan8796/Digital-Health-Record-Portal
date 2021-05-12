@@ -36,7 +36,6 @@ treatmentForm.addEventListener("submit", (e) => {
             },
         })
         .then((data) => {
-            console.log(data.data);
             window.scrollTo(0, 0);
             backdrop.style.display = "none";
             loader.style.display = "none";
