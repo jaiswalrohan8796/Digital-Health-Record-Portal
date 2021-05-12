@@ -53,22 +53,22 @@ router.post(
             var user = await Lab.findOne({ _id: id });
             if (!user) {
                 return res.render("lab/settings", {
-                    user: req.user,
-                    labName: `${req.lab.profile.labName}`,
-                    status: "User not found",
+                    lab: req.user,
+                    labName: `${req.user.profile.labName}`,
+                    status: "Server Error",
                     error: "",
                 });
             }
             let errors = validationResult(req);
             if (!errors.isEmpty()) {
                 return res.render("lab/settings", {
-                    user: user,
+                    lab: user,
                     labName: `${lab.profile.labName}`,
                     status: "",
                     error: errors.array(),
                 });
             }
-            lab.profile = {
+            user.profile = {
                 labName,
                 registrationNo,
                 phoneNo,
@@ -77,25 +77,25 @@ router.post(
                 city,
                 pincode,
             };
-            const result = await lab.save();
+            const result = await user.save();
             if (!result) {
                 res.render("lab/settings", {
-                    user: lab,
-                    labName: `${lab.profile.labName}`,
+                    lab: user,
+                    labName: `${user.profile.labName}`,
                     status: "",
                     error: "Cannot update now,try later",
                 });
             }
             res.render("lab/settings", {
-                user: user,
-                labName: `${lab.profile.labName}`,
+                lab: user,
+                labName: `${user.profile.labName}`,
                 status: "Changes saved !",
                 error: "",
             });
         } catch (e) {
             console.log(e);
             res.render("lab/settings", {
-                user: req.user,
+                lab: req.user,
                 labName: `${req.user.profile.labName}`,
                 status: "",
                 error: "Server Error",
