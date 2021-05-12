@@ -34,6 +34,7 @@ router.post("/search", async (req, res, next) => {
             doctor: req.user,
             fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
             patient: searchedUser,
+            status:null,
         });
     } catch (e) {
         console.log(e);
@@ -76,14 +77,6 @@ router.post("/patient/new", async (req, res, next) => {
             .populate("currentTreatments.doctor")
             .populate("previousTreatments.doctor");
         const doctor = await Doctor.findOne({ _id: doctorID });
-        //save patient current treatment
-        // let medObj = {};
-        // if (medicineName instanceof Array){
-        //     medicineName.forEach((med, i) => {
-        //         medObj[med] = time[i];
-        //     });
-        // }
-        // medObj[medicineName]=time
         let medArray = [];
         let timeArray = [];
         if (!(medicineName instanceof Array)) {
@@ -175,6 +168,7 @@ router.post("/patient/new", async (req, res, next) => {
             doctor: req.user,
             fullName: `${req.user.profile.firstName} ${req.user.profile.lastName}`,
             patient: patient,
+            status:`Treatment No : ${treatmentNo} added`
         });
     } catch (e) {
         console.log(e);

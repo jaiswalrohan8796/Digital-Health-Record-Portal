@@ -185,6 +185,19 @@ button.collapsible.active::after {
     transform: translateY(-5px);
 }
 
+/* status */
+.status-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.status {
+    background-color: #6dc9c8;
+    padding: 8px;
+    color: white;
+    border-radius: 12px;
+}
 /* media-queries */
 @media (max-width: 768px) {
     body {

@@ -68,7 +68,6 @@ router.post(
                     error: errors.array(),
                 });
             }
-            DOB = new Date(DOB);
             lab.profile = {
                 labName,
                 registrationNo,
@@ -96,8 +95,8 @@ router.post(
         } catch (e) {
             console.log(e);
             res.render("lab/settings", {
-                user: user,
-                labName: `${lab.profile.labName}`,
+                user: req.user,
+                labName: `${req.user.profile.labName}`,
                 status: "",
                 error: "Server Error",
             });

@@ -62,26 +62,17 @@ p {
     align-items: baseline;
 }
 /* status */
-.status {
+.status-wrap {
     display: none;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
-.status span {
-    background-color: #ffbbbd;
+.status {
+    background-color: #ffc0c2;
+    padding: 8px;
+    color: white;
     border-radius: 12px;
-    width: fit-content;
-    padding: 0 4px;
-    text-align: center;
-    color: #3b3b3b;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
-        rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
-}
-.status span p {
-    margin-bottom: 3px;
-    margin-top: 3px;
-    font-size: 18px;
 }
 /* loader css */
 .backdrop {
@@ -128,7 +119,7 @@ p {
     content: "";
     width: 49px;
     height: 49px;
-    background: #6dc9c8;
+    background: #ffc0c2;
     position: absolute;
     top: 0;
     left: 0;

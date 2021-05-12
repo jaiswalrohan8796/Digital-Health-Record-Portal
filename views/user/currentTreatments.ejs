@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Home</title>
+    <title>Current Treatments | Digital Health Record Portal</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
@@ -196,11 +196,9 @@
     <!-- toolbar space fix -->
     <div class="toolbar-space"></div>
     <main>
-        <div class="status">
-            <span>
-                <p id="mess">
-                </p>
-            </span>
+        <div class='status-wrap'>
+            <p class="status" id="mess">
+            </p>
         </div>
         <% if (user.currentTreatments.length> 0 ) { %>
             <!-- Current Treatments List  -->

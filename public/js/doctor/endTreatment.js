@@ -1,6 +1,6 @@
 const backdrop = document.querySelector(".backdrop");
 const loader = document.querySelector(".cssload-box-loading");
-const status = document.querySelector(".status");
+const status = document.querySelector(".status-wrap");
 const mess = document.querySelector("#mess");
 
 function endTreatmentHandler(event, healthID, TreatmentNo, treatmentID) {

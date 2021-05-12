@@ -1,7 +1,7 @@
 console.log("running js");
 const backdrop = document.querySelector(".backdrop");
 const loader = document.querySelector(".cssload-box-loading");
-const status = document.querySelector(".status");
+const status = document.querySelector(".status-wrap");
 const mess = document.querySelector("#mess");
 const treatmentForm = document.querySelector("#treatmentForm");
 const generalForm = document.querySelector("#generalForm");
