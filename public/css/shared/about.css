@@ -1,37 +1,24 @@
 /* about csse */
-.container{
+.container {
     width: 100%;
-    margin:auto;
-    padding:8px 18px;
+    margin: auto;
+    padding: 8px 18px;
     color: black;
-    background-color:white;
+    background-color: white;
     border-bottom: 10px solid #ffbbbd;
     box-shadow: 4px 6px 12px 4px #0b243b;
     border-radius: 20px;
-    margin-top:20px;
-    text-align: justify;
-     
-}
-/* .about{
-    
     margin-top: 20px;
-    color: black;
-    background-color:white;
-    border-bottom: 10px solid #ffbbbd;
-    box-shadow: 4px 6px 12px 4px #0b243b;
-    border-radius: 20px;
-    padding:20px;
-} */
-.title
-{
-    border-bottom: 5px solid #ffbbbd;
-    font-size:20px;
-    font-weight:bold;
+    text-align: justify;
 }
-.aboutInfo{
-    padding-top: 15px;
-    padding-left: 25px;
 
+.title {
+    border-bottom: 5px solid #ffbbbd;
+    font-size: 20px;
+    font-weight: bold;
+}
+.aboutInfo {
+    padding-top: 15px;
 }
 .card-wrap {
     display: flex;
@@ -40,58 +27,36 @@
     flex-wrap: wrap;
     margin: 1rem;
 }
-.cardCon {
-    /* height: 280px; */
-    width: 300px;
-    box-shadow: 8px 8px 16px 8px #b0c7db;
-    border-radius: 16px;
-    list-style: none;
-    margin: 1rem;
-    color: #0b243b;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: justify;
-    /* justify-content: center; */
+
+.guide .guide-head {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 0;
 }
-.cardCon .link {
-    width: 100%;
-    margin-top: 26px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    text-align: justify;
-    overflow: hidden;
+.guide-body {
+    padding: 12px;
 }
-.cardCon .link button {
-    margin: 0 4rem;
-    font-size: 2rem;
-}
-.cardCon .link button a:hover {
-    text-decoration: none;
+.guide-body li {
+    list-style: circle;
+    margin: 16px 4px;
 }
 
-@media (max-width:576px)
-{
-
+@media (max-width: 576px) {
 }
-@media (max-width:450px){
+@media (max-width: 450px) {
     .navbar .fs-32 {
-        font-size: 18px;
+        font-size: 16px;
     }
 }
 
-@media (max-width:1210px)
-{
-    .navbar .icons{
-        margin-left:-20px;
+@media (max-width: 1210px) {
+    .navbar .icons {
+        margin-left: -20px;
     }
 }
-@media (max-width:1125px)
-{
-    .navbar .icons{
-        margin-left:-50px;
+@media (max-width: 1125px) {
+    .navbar .icons {
+        margin-left: -50px;
     }
 }
- 

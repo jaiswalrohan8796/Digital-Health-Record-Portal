@@ -1,94 +1,76 @@
-/* about csse */
-.container{
-    width: 100%;
-    margin:auto;
-    padding:8px 18px;
-    color: black;
-    background-color:white;
-    border-bottom: 10px solid #ffbbbd;
-    box-shadow: 4px 6px 12px 4px #0b243b;
-    border-radius: 20px;
-    margin-top:20px;
+/* about css */
 
-}
-/* .about{
+/* nav {
+    
+} */
+.container {
     width: 100%;
     margin: auto;
-    margin-top: 20px;
+    padding: 8px 18px;
     color: black;
-    background-color:white;
+    background-color: white;
     border-bottom: 10px solid #ffbbbd;
     box-shadow: 4px 6px 12px 4px #0b243b;
     border-radius: 20px;
-    padding:20px;
-} */
-.title
-{
-    border-bottom: 5px solid #ffbbbd;
-    font-size:20px;
-    font-weight:bold;
+    margin-top: 20px;
 }
-.aboutInfo{
-    padding-top: 15px;
-    padding-left: 50px;
 
+.title {
+    border-bottom: 5px solid #ffbbbd;
+    font-size: 20px;
+    font-weight: bold;
+}
+.title p {
+    margin-bottom: 0;
+}
+.aboutInfo {
+    font-weight: 400;
+    padding-top: 15px;
+    text-align: justify;
 }
 .card-wrap {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
-    margin: 1rem;
 }
 .cardCon {
-    /* height: 280px; */
     width: 300px;
-    box-shadow: 8px 8px 16px 8px #b0c7db;
+    box-shadow: 2px 6px 19px 4px #ddddddd1;
     border-radius: 16px;
     list-style: none;
-    margin: 1rem;
+    margin-bottom: 16px;
     color: #0b243b;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
 }
-.cardCon .link {
-    width: 100%;
-    margin-top: 26px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+.cardCon p {
+    font-weight: 400;
+    margin-bottom: 0;
 }
-.cardCon .link button {
-    margin: 0 4rem;
-    font-size: 2rem;
+.cardCon .card-body {
+    text-align: justify;
 }
-.cardCon .link button a:hover {
-    text-decoration: none;
+.cardCon .card-body p {
+    min-height: 160px;
 }
-@media (max-width:576px)
-{
 
+@media (max-width: 576px) {
 }
-@media (max-width:450px){
+@media (max-width: 450px) {
     .navbar .fs-32 {
-        font-size: 18px;
+        font-size: 16px;
     }
 }
 
-@media (max-width:1210px)
-{
-    .navbar .icons{
-        margin-left:-20px;
+@media (max-width: 1210px) {
+    .navbar .icons {
+        margin-left: -20px;
     }
 }
-@media (max-width:1125px)
-{
-    .navbar .icons{
-        margin-left:-50px;
+@media (max-width: 1125px) {
+    .navbar .icons {
+        margin-left: -50px;
     }
 }
- 
