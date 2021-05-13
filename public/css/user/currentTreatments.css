@@ -46,6 +46,15 @@ p {
 
 .no-item {
     margin: 12px;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.no-item svg {
+    height: 400px;
+    width: 400px;
 }
 .no-item p {
     text-align: center;
@@ -277,6 +286,10 @@ p {
 }
 
 @media (max-width: 768px) {
+    .no-item svg {
+        height: 240px;
+        width: 240px;
+    }
     .treatment-body {
         padding: 8px;
     }

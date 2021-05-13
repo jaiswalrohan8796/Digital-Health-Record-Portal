@@ -90,6 +90,23 @@
     text-align: justify;
 }
 
+.no-item {
+    margin: 12px;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.no-item svg {
+    height: 400px;
+    width: 400px;
+}
+.no-item p {
+    text-align: center;
+    color: rgb(105, 105, 105);
+}
+
 /* media-queries */
 @media (max-width: 768px) {
     .content {
@@ -124,5 +141,9 @@
     .modal-dialog {
         margin: 0.5rem;
         margin-top: 5rem;
+    }
+    .no-item svg {
+        height: 240px;
+        width: 240px;
     }
 }
